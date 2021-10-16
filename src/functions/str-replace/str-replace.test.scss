@@ -1,0 +1,25 @@
+@use '../../../node_modules/sass-true' as *;
+@use './str-replace.scss' as *;
+@use 'sass:meta';
+
+@include describe('str-replace (function)') {
+	@include it('Returns empty string for empty input') {
+		@include assert-equal(str-replace('', 'foo', 'bar'), '');
+	}
+
+	@include it('Returns original string for empty search string') {
+		@include assert-equal(str-replace('foo', '', 'bar'), 'foo');
+	}
+
+	@include it('Returns original string for zero limit query') {
+		@include assert-equal(str-replace('foo', '', 'bar', 0), 'foo');
+	}
+
+	@include it('Replaces all occurrences without limit') {
+		@include assert-equal(str-replace('wow', 'w', 'c'), 'coc');
+	}
+
+	@include it('Respects `$limit` param to limit the number of replacements') {
+		@include assert-equal(str-replace('wow', 'w', 'c', 1), 'cow');
+	}
+}

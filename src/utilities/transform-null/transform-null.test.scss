@@ -1,0 +1,34 @@
+@use '../../../node_modules/sass-true' as *;
+@use './transform-null.scss' as *;
+@use 'sass:list';
+
+$empty-list: ();
+
+@include describe('transform-null (utility function)') {
+	@include it('Doesn\'t change separator of original list if no `$separator` specified') {
+		@include assert-equal(transform-null((30px 40px)), (30px 40px));
+		@include assert-equal(transform-null((30px, 40px)), (30px, 40px));
+	}
+
+	@include it('Can force a specific separator to be used') {
+		@include assert-equal(transform-null((30px 40px), comma), (30px, 40px));
+		@include assert-equal(transform-null((30px, 40px), space), (30px 40px));
+	}
+
+	@include it('Works well when no need to omit something') {
+		@include assert-equal(transform-null((30px 40px)), (30px 40px));
+		@include assert-equal(transform-null((30px, 40px)), (30px, 40px));
+	}
+
+	@include it('Converts `n` and `null` values to `0` if `$skip` is false (default)') {
+		@include assert-equal(transform-null((30px n)), (30px 0));
+		@include assert-equal(transform-null((30px null)), (30px 0));
+		@include assert-equal(transform-null((n null)), (0 0));
+	}
+
+	@include it('Converts `n` and `null` values to `null` if `$skip` is true') {
+		@include assert-equal(transform-null((30px n), auto, true), (30px null));
+		@include assert-equal(transform-null((30px null), auto, true), (30px null));
+		@include assert-equal(transform-null((n null), comma, true), (null, null));
+	}
+}

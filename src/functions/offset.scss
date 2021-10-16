@@ -1,0 +1,21 @@
+/**
+ * [EN]
+ * Gets the calc expression for given count of columns / total plus gutter.
+ *
+ * [RU]
+ * Получает выражение calc для переданного числа колонок / всего колонок плюс значение, прибавляемое к нему.
+ *
+ * @param      {string}     $columns  - Needed columns count [ / total columns count].
+ * @param      {Bool}       $gutter   - The gutter. When set to some value (default), added it to the end value.
+ *
+ * @return     {String}     Calc expression for given columns count and gutter.
+ */
+@function offset($expression, $gutter: $--layout-gutter) {
+	$base: column($expression, $gutter);
+
+	@if $gutter {
+		@return calc(#{$base} + #{$gutter});
+	} @else {
+		@return $base;
+	}
+}

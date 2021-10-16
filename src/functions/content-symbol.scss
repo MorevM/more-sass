@@ -1,0 +1,76 @@
+/**
+ * [EN]
+ * Returns ready-to-use in CSS content property char code for given human-readable char name.
+ *
+ * [RU]
+ * Возвращает готовый к использованию в CSS-свойстве "content" код символа из переданного человеко-понятного названия.
+ *
+ * [Example]
+ * .block {
+ *   &::before {
+ *     content: content-symbol('section');
+ *   }
+ * }
+ *
+ * [Related]
+ * https://www.w3schools.com/cssref/css_entities.asp
+ *
+ * @param      {String}  $symbol-name     - Human-readable character name.
+ *
+ * @return     {String | null}            - Content property value for given char name if exists, null otherwise.
+ */
+// stylelint-disable value-list-max-empty-lines
+
+@function content-symbol($symbol-name) {
+	$content-symbols: (
+		'dollar':               '\0024', // $
+		'section':              '\00A7', // §
+		'bullet':               '\2022', // •
+
+		'hyphen':               '\2011', // ‑
+		'en-dash':              '\2013', // –
+		'em-dash':              '\2014', // —
+
+		'copyright':            '\00A9', // ©
+		'registered':           '\00AE', // ®
+
+		'degree':               '\00B0', // °
+		'ring':                 '\2218', // ∘
+		'infinity':             '\221E', // ∞
+
+		'triangle-up-black':    '\25B2', // ▲
+		'triangle-up-white':    '\25B2', // △
+		'triangle-right-black': '\25B6', // ▶
+		'triangle-right-white': '\25B7', // ▷
+		'triangle-down-black':  '\25BC', // ▼
+		'triangle-down-white':  '\25BD', // ▽
+		'triangle-left-black':  '\25C0', // ◀
+		'triangle-left-white':  '\25C1', // ◁
+
+		'circle-black':         '\25CF', // ●
+		'circle-white':         '\25CB', // ○
+
+		'square-black':         '\25A0', // ■
+		'square-white':         '\25A1', // □
+
+		'diamond-black':        '\25C6', // ◆
+		'diamond-white':        '\25C7', // ◇
+		'diamond-inside':       '\25C8', // ◈
+
+		'check':                '\2713', // ✓
+		'check-heavy':          '\2714', // ✔
+
+		'cross':                '\2713', // ✕
+		'cross-heavy':          '\2714', // ✖
+
+		'fisheye':              '\25C9', // ◉
+	);
+
+	@if map-has-key($content-symbols, '#{$symbol-name}') {
+		@return map-get($content-symbols, '#{$symbol-name}');
+	}
+
+	@warn 'Unknown key `#{$symbol-name}` in $content-symbols';
+
+	@return null;
+}

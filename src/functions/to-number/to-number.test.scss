@@ -1,0 +1,12 @@
+@use '../../../node_modules/sass-true' as *;
+@use './to-number.scss' as *;
+
+
+@include describe('to-number (function)') {
+	@include it('Works') {
+		@include assert-equal(to-number('42px'), 42px);
+		@include assert-equal(to-number('10rem'), 10rem);
+		@include assert-equal(to-number('10'), 10);
+		@include assert-equal(to-number('-10'), -10);
+	}
+}

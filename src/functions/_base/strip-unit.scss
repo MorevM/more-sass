@@ -1,0 +1,25 @@
+/**
+ * [EN]
+ * Removes unit of given value.
+ *
+ * [RU]
+ * Удаляет единицу исчисления из значения.
+ *
+ * [Example]
+ * strip-unit(42px) -> 42
+ * strip-unit(50%) -> 50
+ *
+ * @param      {String}    $value    - The value to process.
+ *
+ * @return     {Integer}   Original value without unit.
+ */
+
+@use 'sass:math';
+
+@function strip-unit($value) {
+	@if type-of($value) == 'number' and not unitless($value) {
+		@return math.div($value, ($value * 0 + 1));
+	}
+
+	@return $value;
+}

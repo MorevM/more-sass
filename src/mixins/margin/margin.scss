@@ -1,0 +1,29 @@
+/**
+ * [EN]
+ * Sets margin to element.
+ * Works like native padding property, but you can pass null instead value and this value will be skipped.
+ *
+ * [RU]
+ * Установка свойства "margin" для элемента.
+ * Работает подобно нативному свойству, но можно передать null вместо значения, тогда значение будет пропущено.
+ *
+ * [Example]
+ * .block {
+ *   @include margin(20px null null 20px)
+ * }
+ * ------>
+ * .block {
+ *   margin-top: 20px;
+ *   margin-left: 20px;
+ * }
+ *
+ * @param      {list}  $values   - Margin values
+ */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+@mixin margin($values...) {
+	$values: parse-directions($values);
+	margin-top: map-get($values, 'top');
+	margin-right: map-get($values, 'right');
+	margin-bottom: map-get($values, 'bottom');
+	margin-left: map-get($values, 'left');
+}

@@ -1,0 +1,39 @@
+/**
+ * [EN]
+ * Gets unit of given number or pseudo-number string.
+ *
+ * [RU]
+ * Получает единицу измерения переданного значения или псевдо-нумерической строки.
+ *
+ * [Example]
+ * get-unit('120px') --> 1px
+ * get-unit('50%')   --> 1%
+ * get-unit(50vmin)   --> 1min
+ *
+ * @param     {string|number}    $value    The number or string to determine unit.
+ *
+ * @return    {number|null}
+ */
+
+ @use 'sass:string';
+
+ @function get-unit($value) {
+	 $value: #{$value};
+	 @if (string.index($value, 'cm')) { @return 1cm; }
+	 @if (string.index($value, 'mm')) { @return 1mm; }
+	 @if (string.index($value, 'in')) { @return 1in; }
+	 @if (string.index($value, 'px')) { @return 1px; }
+	 @if (string.index($value, 'pt')) { @return 1pt; }
+	 @if (string.index($value, 'pc')) { @return 1pc; }
+	 @if (string.index($value, 'rem')) { @return 1rem; }
+	 @if (string.index($value, 'em')) { @return 1em; }
+	 @if (string.index($value, 'ex')) { @return 1ex; }
+	 @if (string.index($value, 'ch')) { @return 1ch; }
+	 @if (string.index($value, 'vw')) { @return 1vw; }
+	 @if (string.index($value, 'vh')) { @return 1vh; }
+	 @if (string.index($value, 'vmin')) { @return 1vmin; }
+	 @if (string.index($value, 'vmax')) { @return 1vmax; }
+	 @if (string.index($value, '%')) { @return 1%; }
+
+	 @return null;
+ }

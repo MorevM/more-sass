@@ -1,0 +1,97 @@
+/**
+ * [EN]
+ * Parses the list of values with standard CSS order (top, right, bottom, left).
+ * It's the same to standard CSS behavior when you use padding/margin property.
+ *
+ * If you specified one argument - all position properties will be set from this arg.
+ * If you specified two arguments - first means top and bottom, second means left and right.
+ * If you specified three arguments - first means top, second means left and right, third means bottom.
+ * If you specified four arguments - first means top, second means right, third means bottom, fourth means left.
+ *
+ * [RU]
+ * Разбирает перечисленные значения в стандартном для CSS порядке (top, right, bottom, left).
+ * Работает также, как перечисление при использовании составного свойства "padding/margin".
+ *
+ * Если передан один аргумент - все свойства позиционирования будут установлены им.
+ * Если передано два аргумента - первое означает "top" и "bottom", второе "left" и "right".
+ * Если передано три аргумента - первое означает "top", второе "left" и "right", третье - "bottom".
+ * Если передано все четыре аргумента - первое означает "top", второе "right", третье - "bottom", четвёртое - "left".
+ *
+ * [Example]
+ * parse-directions(0px) ->  { top: 0px; right: 0px; bottom: 0px; left: 0px; }
+ * parse-directions(0px 5px 10px) ->  { top: 0px; right: 5px; bottom: 10px; left: 5px; }
+ * parse-directions(0px, 5px, 10px, null) ->  { top: 0px; right: 5px; bottom: 10px; left: null; }
+ *
+ * @param      {Array}  $values  - List of values
+ *
+ * @return     {Array}  Full set of direction properties based on passed $values length
+ */
+
+@function parse-directions($values) {
+	// Convert to string
+	$str-values: inspect($values);
+
+	// Accept spaces as delimiter
+	@if (str-index($str-values, ' ') or str-index($str-values, '(')) {
+		// We get a string which looks "(1px 1px 1px 1px),", clean it
+		$str-values: str-replace($str-values, '(', '');
+		$str-values: str-replace($str-values, ')', '');
+		$str-values: str-replace($str-values, ',', '');
+		$values: explode($str-values, ' ');
+	}
+
+	// Accept commas as delimiter
+	@if (str-index($str-values, ',')) {
+		$values: explode($str-values, ',');
+	}
+
+	$top:    null;
+	$bottom: null;
+	$left:   null;
+	$right:  null;
+
+	@if length($values) > 0 {
+		$value: nth($values, 1);
+
+		@if ($value == 'null') { $value: null; }
+		$top:    $value;
+		$left:   $value;
+		$bottom: $value;
+		$right:  $value;
+	}
+
+	@if length($values) > 1 {
+		$value2: nth($values, 2);
+
+		@if ($value2 == 'null') { $value2: null; }
+		$left:  $value2;
+		$right: $value2;
+	}
+
+	@if length($values) > 2 {
+		$value3: nth($values, 3);
+
+		@if ($value3 == 'null') { $value3: null; }
+		$bottom: $value3;
+	}
+
+	@if length($values) > 3 {
+		$value4: nth($values, 4);
+
+		@if ($value4 == 'null') { $value4: null; }
+		$left: $value4;
+	}
+
+	// Fix null case
+	@if ($top != null) { $top: unquote($top); }
+	@if ($left != null) { $left: unquote($left); }
+	@if ($right != null) { $right: unquote($right); }
+	@if ($bottom != null) { $bottom: unquote($bottom); }
+
+	@return (
+		top: $top,
+		left: $left,
+		right: $right,
+		bottom: $bottom,
+	);
+}

@@ -1,0 +1,22 @@
+@use '../../../node_modules/sass-true' as *;
+@use './str-split.scss' as *;
+
+$empty-list: ();
+
+@include describe('str-split (function)') {
+	@include it('Returns empty list if no input specified') {
+		@include assert-equal(str-split(''), $empty-list);
+	}
+
+	@include it('Split string char by char if no delimiter specified') {
+		@include assert-equal(str-split('hello'), h e l l o);
+	}
+
+	@include it('Correctly splits string') {
+		@include assert-equal(str-split('some string with spaces', ' '), some string with spaces);
+	}
+
+	@include it('Respects `null` values in string') {
+		@include assert-equal(str-split('some null with spaces', ' '), ('some' null 'with' 'spaces'));
+	}
+}

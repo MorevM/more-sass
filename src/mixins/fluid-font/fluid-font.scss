@@ -1,0 +1,82 @@
+/**
+ * [EN]
+ * Sets the font params scaling uniformly within the specified limits depending on the viewport width.
+ * Shorthand for both fluid-prop('font-size') and fluid-prop('line-height').
+ *
+ * [RU]
+ * Устанавливает параметры шрифта в соответствии с указанными крайними значениями, зависящими от ширины окна браузера.
+ * Краткая декларация fluid-prop('font-size') и fluid-prop('line-height').
+ *
+ * [Example]
+ * fluid-font((320px, '14px/1.5'), (1280px, '24px/1.3'))
+ *
+ * See https://www.madebymike.com.au/writing/fluid-type-calc-examples/.
+ *
+ * @param    {list}    $start    Scaling start values structured of ( 'screen width', 'font-size[/line-height]' ).
+ * @param    {list}    $end      Scaling end values structured of ( 'screen width', 'font-size[/line-height]' ).
+ */
+
+@mixin fluid-font($start, $end) {
+	$start-vw: nth($start, 1);
+	$start-size: __fluid-font-declaration-parser(nth($start, 2));
+	$start-font-size: map-get($start-size, 'font-size');
+	$start-line-height: map-get($start-size, 'line-height');
+
+	$end-vw: nth($end, 1);
+	$end-size: __fluid-font-declaration-parser(nth($end, 2));
+	$end-font-size: map-get($end-size, 'font-size');
+	$end-line-height: map-get($end-size, 'line-height');
+
+	@include fluid-prop('font-size', ($start-vw, $start-font-size), ($end-vw, $end-font-size));
+
+	@if ($start-line-height) and ($end-line-height) {
+		@include fluid-prop('line-height', ($start-vw, $start-line-height), ($end-vw, $end-line-height));
+	} @else {
+		// @warn 'Mixin `fluid-font` works with `line-height` property only in `font-size` specified too';
+	}
+}
+
+// Helper function
+/* stylelint-disable-next-line scss/at-function-pattern */
+@function __fluid-font-declaration-parser($param) {
+	$line-height: null;
+	$font-size: null;
+
+	// Font-size and line-height both
+	@if (str-index($param, '/')) {
+		// Just line-height
+		@if (str-index($param, '/') == 1) {
+			$line-height: unquote(str-slice($param, 2));
+		} @else {
+			$temp: explode($param, '/');
+			$font-size: unquote(nth($temp, 1));
+			$line-height: unquote(nth($temp, 2));
+		}
+	} @else {
+		// Only font-size
+		$font-size: unquote($param);
+	}
+
+	@if ($font-size) {
+		$font-size-unit: get-unit($font-size);
+		@if ($font-size-unit) {
+			$font-size: to-number($font-size) * $font-size-unit;
+		} @else {
+			$font-size: to-number($font-size);
+		}
+	}
+
+	@if ($line-height) {
+		$line-height-unit: get-unit($line-height);
+		@if ($line-height-unit) {
+			$line-height: to-number($line-height) * $line-height-unit;
+		} @else {
+			$line-height: to-number($line-height) * $font-size;
+		}
+	}
+
+	@return (
+		font-size: $font-size,
+		line-height: $line-height,
+	);
+}

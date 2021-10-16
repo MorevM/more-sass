@@ -1,0 +1,33 @@
+/**
+ * [EN]
+ * Join list elements with a string using given glue string.
+ *
+ * [RU]
+ * Объединяет переданный список в строку, используя переданную строку-соединитель.
+ *
+ * [Example]
+ * $list: px, em, cm;
+ * implode($list, '---') --> 'px---em---cm'
+ *
+ * @param   {List}    $pieces  []  - List of values
+ * @param   {String}  $glue    ''  - Glue
+ *
+ * @return  {String}           String made from list using glue.
+ */
+@function implode($pieces, $glue: '') {
+	$result: null;
+
+	@for $i from 1 through length($pieces) {
+		$piece: nth($pieces, $i);
+		@if type-of($piece) == list {
+			$result: unquote('#{$result}#{$glue}#{implode($piece, $glue)}');
+		} @else {
+			$result: unquote('#{$result}#{$glue}#{$piece}');
+		}
+	}
+	@if $result != null {
+		$result: str-slice($result, str-length($glue) + 1, -1);
+	}
+
+	@return $result;
+}

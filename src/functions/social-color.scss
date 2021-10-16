@@ -1,0 +1,49 @@
+/**
+ * [EN]
+ * Returns a brand color for given 2-chars code of social network.
+ *
+ * [RU]
+ * Возвращает брендовый цвет для переданного двухзначного кода социальной сети
+ *
+ * [Example]
+ * .vk-link {
+ *   background: social-color('vk');
+ * }
+ *
+ * @param      {String}  $social     - Social network 2-chars code (vk, fb, tw, etc).
+ *
+ * @return     {Color | null}        - Brand color for given name if exists, null otherwise.
+ */
+@function social-color($social) {
+	$colors-social: (
+		'vk' : #4a76a8, // VKontakte
+		'fb' : #4267b2, // Facebook
+		'ok' : #ed812b, // Odnoklassniki
+		'yt' : #f00000, // YouTube
+		'tw' : #1c9deb, // Twitter
+		'ig' : #5851DB, // Instagram (purple)
+		'ig-gradient' : linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%),
+		'tg' : #36aee2, // Telegram
+		'dr' : #e64786, // Dribble
+		'be' : #016df8, // Behance
+		'li' : #0274b3, // Linked In
+		'wa' : #25b33c, // WhatsApp
+		'vb' : #7b519c, // Viber
+	) !default;
+
+	@if map-has-key($colors-social, '#{$social}') {
+		$color: map-get($colors-social, '#{$social}');
+		$inspected: inspect($color);
+
+		@if (str-slice($inspected, 1, 1) != '#') {
+			$color: str-replace($inspected, '"', '');
+			$color: str-replace($inspected, '"', '');
+		}
+
+		@return $color;
+	}
+
+	@warn 'Unknown key `#{$social}` in $colors-social';
+
+	@return null;
+}

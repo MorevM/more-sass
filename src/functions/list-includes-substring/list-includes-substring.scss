@@ -1,0 +1,32 @@
+/**
+ * [EN]
+ * Searches for the occurrences of the keys of given list in the given value.
+ *
+ * [RU]
+ * Ищет вхождения строки в ключах переданного списка.
+ *
+ * [Example]
+ * $list: 10px, 20em;
+ * list-includes-substring($list, px) --> true
+ * list-includes-substring($list, vw) --> false
+ *
+ * @param      {list}     $list   - The list
+ * @param      {string}   $item   - The item
+ *
+ * @return     {boolean}  True if occurrence found, false otherwise.
+ */
+
+@use 'sass:string';
+
+@function list-includes-substring($list, $item) {
+	$item: #{$item};
+	$found: false;
+
+	@each $param in $list {
+		@if (string.index($item, $param)) {
+			$found: true;
+		}
+	}
+
+	@return $found;
+}

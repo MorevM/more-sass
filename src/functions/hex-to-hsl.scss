@@ -1,0 +1,10 @@
+/**
+ * Returns HSL notation for given HEX color value.
+ *
+ * @param   {Color}  $hex  Color in HEX notation
+ *
+ * @return  {List}         List with values (H, S, L)
+ */
+@function hex-to-hsl($hex) {
+	@return hue($hex), saturation($hex), lightness($hex);
+}

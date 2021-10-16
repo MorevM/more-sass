@@ -1,0 +1,65 @@
+@use '../../../node_modules/sass-true' as *;
+@use './box.scss' as *;
+
+@include describe('box (mixin)') {
+	@include it('Works well with single argument') {
+		@include assert {
+			@include output {
+				@include box(100px);
+			}
+
+			@include expect {
+				width: 100px;
+				height: 100px;
+			}
+		}
+	}
+
+	@include it('Works well with two arguments') {
+		@include assert {
+			@include output {
+				@include box(200px, 100px);
+			}
+
+			@include expect {
+				width: 200px;
+				height: 100px;
+			}
+		}
+	}
+
+	@include it('Uses pixels as default unit if argument doesn\'t specify it') {
+		@include assert('One argument') {
+			@include output {
+				@include box(300);
+			}
+
+			@include expect {
+				width: 300px;
+				height: 300px;
+			}
+		}
+
+		@include assert('Two arguments') {
+			@include output {
+				@include box(300, 100);
+			}
+
+			@include expect {
+				width: 300px;
+				height: 100px;
+			}
+		}
+
+		@include assert('Mixed type of arguments') {
+			@include output {
+				@include box(300px, 100);
+			}
+
+			@include expect {
+				width: 300px;
+				height: 100px;
+			}
+		}
+	}
+}

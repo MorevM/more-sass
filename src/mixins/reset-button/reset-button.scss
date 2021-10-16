@@ -1,0 +1,26 @@
+/**
+ * [EN]
+ * Resets any button default styles.
+ *
+ * [RU]
+ * Сбрасывает стили по умолчанию для кнопки.
+ *
+ * [Example]
+ * .button {
+ *   @include reset-button;
+ * }
+ */
+ @mixin reset-button {
+	margin: 0;
+	padding: 0;
+  font: inherit;
+	color: currentColor;
+	width: auto;
+	background: none;
+	border: 0;
+	box-shadow: none;
+	appearance: none;
+	-webkit-touch-callout: none;
+	touch-action: manipulation; // prevent iOS double tap zoom
+	user-select: none;
+}

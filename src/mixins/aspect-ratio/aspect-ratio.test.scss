@@ -1,0 +1,32 @@
+@use '../../../node_modules/sass-true' as *;
+@use './aspect-ratio.scss' as *;
+
+@include describe('aspect-ratio (mixin)') {
+	@include it('Works well with single argument') {
+		@include assert {
+			@include output {
+				@include aspect-ratio(1);
+			}
+
+			@include expect {
+				content: '';
+				display: block;
+				padding-top: 100%;
+			}
+		}
+	}
+
+	@include it('Works well with two arguments') {
+		@include assert {
+			@include output {
+				@include aspect-ratio(2, 1);
+			}
+
+			@include expect {
+				content: '';
+				display: block;
+				padding-top: 50%;
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+/**
+ * [EN]
+ * Capitalizes given string.
+ *
+ * [RU]
+ * Делает первый символ строки заглавным.
+ *
+ * [Example]
+ * capitalize('wow') --> 'Wow'
+ *
+ * @param      {String}  $string   - Original string.
+ *
+ * @return     {String}  String with first char converted to uppercase.
+ */
+@function capitalize($string) {
+	$string: inspect($string);
+
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

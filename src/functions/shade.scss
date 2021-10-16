@@ -1,0 +1,17 @@
+/**
+ * [EN]
+ * Darken given color to a given dilution amount.
+ * Originally inspired from Compass.
+ *
+ * [RU]
+ * Затемняет переданный цвет на указанное значение.
+ * Оригинальная имплементация из Compass.
+ *
+ * @param      {Color}      $color     []      - The color
+ * @param      {Integer}    $dilution  [10]    - The dilution amount in range 0-100
+ *
+ * @return     {Color}      Shaded color
+ */
+@function shade($color, $dilution: 10) {
+	@return mix($color, #000, 100 - strip-unit($dilution));
+}

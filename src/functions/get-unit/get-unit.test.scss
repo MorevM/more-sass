@@ -1,0 +1,13 @@
+@use '../../../node_modules/sass-true' as *;
+@use './get-unit.scss' as *;
+
+@include describe('get-unit (function)') {
+	@include it('Works') {
+		@include assert-equal(get-unit(10px), 1px);
+		@include assert-equal(get-unit('10px'), 1px);
+		@include assert-equal(get-unit(10%), 1%);
+		@include assert-equal(get-unit('10%'), 1%);
+
+		@include assert-unequal(get-unit('10em'), 1rem);
+	}
+}

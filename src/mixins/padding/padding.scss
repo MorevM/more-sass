@@ -1,0 +1,29 @@
+/**
+ * [EN]
+ * Sets padding to element.
+ * Works like native padding property, but you can pass null instead value and this value will be skipped.
+ *
+ * [RU]
+ * Установка свойства "padding" для элемента.
+ * Работает подобно нативному свойству, но можно передать null вместо значения, тогда значение будет пропущено.
+ *
+ * [Example]
+ * .block {
+ *   @include padding(20px null null 20px)
+ * }
+ * ------>
+ * .block {
+ *   padding-top: 20px;
+ *   padding-left: 20px;
+ * }
+ *
+ * @param      {Array}  $values   - Padding values
+ */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+@mixin padding($values...) {
+	$values: parse-directions($values);
+	padding-top: map-get($values, 'top');
+	padding-right: map-get($values, 'right');
+	padding-bottom: map-get($values, 'bottom');
+	padding-left: map-get($values, 'left');
+}

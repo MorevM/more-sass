@@ -1,0 +1,30 @@
+/**
+ * [EN]
+ * Makes pseudo-element with fixed dimensions via padding hack.
+ * Should be applied to pseudo-element itself.
+ *
+ * [RU]
+ * Создаёт псевдоэлемент с фиксированными соотношениями ширина/высота.
+ * Должен применяться непосредственно к псевдоэлементу.
+ *
+ * [Example]
+ * .block {
+ *   &::before {
+ *     @include aspect-ratio(350, 50);
+ *   }
+ * }
+ *
+ * @todo maybe precision as third parameter? https://gist.github.com/terkel/4373420
+ *
+ * @param    {number}    $width     - The needed element "width"
+ * @param    {number}    $height    - The needed element "height"
+ */
+@use 'sass:math';
+
+@mixin aspect-ratio($width, $height: $width) {
+	&::before {
+		content: '';
+		display: block;
+		padding-top: math.div($height, $width) * 100%;
+	}
+}
