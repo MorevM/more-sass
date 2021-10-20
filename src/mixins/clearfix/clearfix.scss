@@ -1,20 +1,24 @@
 /**
- * [EN]
- * Applying to parent element, creates ::after to clear flow.
- *
- * [RU]
- * Применяется к родительскому элементу, создаёт псевдо-элемент ::after для очистки потока.
- *
- * [Example]
- * .block {
- *   @include clearfix;
- * }
+ * This is the coupled pair of mixins
+ * used to clear the flow after using floating elements.
  */
-/* stylelint-disable aditayvm/at-rule-no-children */
+
+/**
+ * Clears the flow inside of the current element.
+ */
 @mixin clearfix {
 	&::after {
 		content: '';
 		display: block;
 		clear: both;
 	}
+}
+
+/**
+ * Clears the flow around the current element.
+ */
+@mixin clearfix-element {
+	content: '';
+	display: block;
+	clear: both;
 }

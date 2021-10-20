@@ -1,16 +1,7 @@
 /**
- * [EN]
- * Shortcut for describing block with "text-overflow: ellipsis".
- *
- * [RU]
- * Короткое свойство для описания блока с "text-overflow: ellipsis".
- *
- * [Example]
- * .block {
- *   @include ellipsis;
- * }
- *
- * @param      {String}  $max-width  [100%]   - max-width of element
+ * Truncates text and adds an ellipsis to represent overflow.
+ * 
+ * @param    {number}    $max-width  [100%]    The element width limit.
  */
 @mixin ellipsis($max-width: 100%) {
 	max-width: $max-width;

@@ -1,7 +1,7 @@
 {
   "name": "more-sass",
-  "version": "1.0.0",
-  "description": "Library of usefull SCSS mixins and functions",
+  "version": "0.0.1",
+  "description": "Library of useful SCSS mixins and functions",
   "main": "index.js",
   "author": "Maxim Morev <max.seainside@gmail.com>",
   "license": "MIT",

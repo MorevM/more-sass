@@ -1,25 +1,8 @@
 /**
- * [EN]
- * Shortcut for pseudo-elements creation.
- * Allows to pass two pseudo-element key properties in one line.
- *
- * [RU]
- * Краткое свойство для создания псевдо-элементов.
- * Позволяет описать ключевые свойства псевдо-элемента в одну строку
- *
- * [Example]
- * .block {
- *   &::before {
- *     @include pseudo;
- *   }
- *
- *   &::after {
- *     @include pseudo('block', counter(counter));
- *   }
- * }
- *
- * @param      {String}  $display  [block]      - Display property
- * @param      {String}  $content  [""]         - The content of pseudoelement
+ * Shorthand for both `content` and `display` properties of pseudo-elements.
+ * 
+ * @param    {string}    $display ['block']    Display property value.
+ * @param    {string}    $content ['']         Content property value.
  */
 @mixin pseudo($display: block, $content: '') {
 	content: $content;

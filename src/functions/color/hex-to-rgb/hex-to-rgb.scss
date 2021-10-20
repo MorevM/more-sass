@@ -1,0 +1,19 @@
+@use 'sass:color';
+@use 'sass:list';
+
+/**
+ * Converts HEX color value to RGB.
+ * 
+ * @param    {color}    $hex                    Color HEX value.
+ * @param    {color}    $separator ['comma']    The output list separator (comma|space).
+ * 
+ * @return   {list}     List of values structured of (red, green, blue).
+ */
+@function hex-to-rgb($hex, $separator: comma) {
+	$output: ();
+	$output: list.append($output, color.red($hex), $separator);
+	$output: list.append($output, color.green($hex), $separator);
+	$output: list.append($output, color.blue($hex), $separator);
+
+	@return $output;
+}

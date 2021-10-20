@@ -1,7 +1,5 @@
-@forward 'get-unit/get-unit.scss';
-@forward 'list-includes/list-includes.scss';
-@forward 'list-includes-substring/list-includes-substring.scss';
-@forward 'str-replace/str-replace.scss';
-@forward 'str-split/str-split.scss';
-@forward 'strip-unit/strip-unit.scss';
-@forward 'to-number/to-number.scss';
+@forward './color';
+@forward './list';
+@forward './math';
+@forward './meta';
+@forward './string';

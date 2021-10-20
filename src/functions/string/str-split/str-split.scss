@@ -1,0 +1,69 @@
+@use 'sass:list';
+@use 'sass:string';
+
+/**
+ * Splits a given string to a list of strings.
+ * 
+ * @param    {string}    $string                The input string.
+ * @param    {string}    $delimiter ['']        The boundary string.
+ * @param    {string}    $separator ['auto']    The output list separator (comma, space, auto).
+ * 
+ * @return   {list}      A list containing strings created by splitting the original string, or empty string.
+ */
+@function str-split($string, $delimiter: '', $separator: auto) {
+	$string: #{$string};
+	$result: ();
+
+	@if (string.length($string) == 0) {
+		@return $result;
+	}
+
+	// Just split each char if no delimiter passed
+	@if ($delimiter == '') {
+		@for $i from 1 through string.length($string) {
+			$result: list.append($result, string.slice($string, $i, $i), $separator);
+		}
+
+		@return $result;
+	}
+
+	$exploding: true;
+
+	@while ($exploding) {
+		$d-index: string.index($string, $delimiter);
+
+		@if ($d-index) {
+			@if ($d-index) > 1 {
+				$temp-string: string.slice($string, 1, $d-index - 1);
+
+				@if ($temp-string == 'null') {
+					$temp-string: null;
+				}
+
+				$result: list.append($result, $temp-string, $separator);
+				$string: string.slice($string, $d-index + string.length($delimiter));
+			} @else if $d-index == 1 {
+				$temp-string: string.slice($string, 1, $d-index + string.length($delimiter));
+
+				@if ($temp-string == 'null') {
+					$temp-string: null;
+				}
+
+				$string: $temp-string;
+			} @else {
+				@if ($string == 'null') {
+					$string: null;
+				}
+
+				$result: list.append($result, $string, $separator);
+				$exploding: false;
+			}
+		} @else {
+			$result: list.append($result, $string, $separator);
+
+			$exploding: false;
+		}
+	}
+
+	@return $result;
+}

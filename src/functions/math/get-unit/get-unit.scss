@@ -1,0 +1,26 @@
+@use 'sass:string';
+@use '../to-number/to-number.scss' as *;
+@use '../../../utility';
+
+/**
+ * Retrieves a unit of a given number.
+ * 
+ * @param    {string|number}    $value    The number or pseudo-number string to get its unit.
+ * 
+ * @return   {?number}          A number representing the base value of extracted unit (1px, 1em, etc.).
+ */
+@function get-unit($value) {
+
+	@if (to-number($value) == null) {
+		@return null;
+	}
+
+	@each $unit, $val in utility.$units {
+		@if (string.slice(#{$value}, string.length(#{$value}) - string.length($unit) + 1) == $unit) {
+			@return $val;
+		}
+	}
+
+	@return null;
+
+}

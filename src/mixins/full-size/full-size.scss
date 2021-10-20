@@ -1,16 +1,6 @@
 /**
- * [EN]
- * Stretches an element to the width and height of the parent element.
- * Makes element absolute and sets width/height to 100%.
- *
- * [RU]
- * Позволяет растянуть элемент на ширину и высоту родителя.
- * Делает элемент абсолютным и устанавливает ширину/высоту, равную 100%.
- *
- * [Example]
- * .icon {
- *   @include full-size;
- * }
+ * Sets the element size equal to 100% of its parent size
+ * and makes it absolutely positioned.
  */
 @mixin full-size {
 	position: absolute;

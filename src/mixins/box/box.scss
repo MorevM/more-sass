@@ -1,26 +1,13 @@
+@use '../../utility';
+
 /**
- * [EN]
- * Shortcut for describing width/height of element.
- * Creates a "square" (or "rectangle" if two parameters passed).
- *
- * [RU]
- * Краткое свойство для описания свойств width/height елемента.
- * Создаёт "квадрат" (или "прямоугольник", если передано два параметра).
- *
- * [Example]
- * .block {
- *   @include box(20px);
- * }
- *
- * @param    {number}    $width                 - The width of element
- * @param    {number}    $height    [$width]    - The height of element (optional)
+ * Sets the element size.
+ * Shortcut for both `width` and `height` properties.
+ * 
+ * @param    {number}    $width              The width of the element.
+ * @param    {number}    $height [$width]    The height of element.
  */
-@use '../../utilities';
-
- @mixin box($width, $height: $width) {
-	$width: utilities.unitless-to-px($width);
-	$height: utilities.unitless-to-px($height);
-
-	width: $width;
-	height: $height;
+@mixin box($width, $height: $width) {
+	width: utility.set-unit($width);
+	height: utility.set-unit($height);
 }

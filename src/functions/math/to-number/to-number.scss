@@ -1,0 +1,130 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
+@use '../../string/str-split/str-split.scss' as *;
+@use '../../string/str-trim/str-trim.scss' as *;
+@use '../../list/list-slice/list-slice.scss' as *;
+@use '../../../utility';
+
+@function _local-intstr-numberize($value) {
+	
+	$number: 0;
+	$digits: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+	
+	@for $i from 1 through string.length($value) {
+		
+		$char: string.slice($value, $i, $i);
+		$num: if(map.has-key($digits, $char), map.get($digits, $char), null);
+		
+		@if (not $num) {
+			@return null;
+		}
+		
+		$number: $number * 10 + $num;
+		
+	}
+	
+	@return $number;
+	
+}
+
+/**
+ * Converts a given string to a number.
+ * 
+ * @param    {string}     $string    The input value.
+ * 
+ * @return   {?number}    Number converted from a string or null if value is not a valid number.
+ */
+@function to-number($value) {
+	@if (meta.type-of($value) == 'number') {
+		@return $value;
+	}
+
+	$value: str-trim(#{$value});
+
+	$coeff: 1;
+	$integral: 0;
+	$fractional: 0;
+	$exponential: 1;
+	$unit: 1;
+
+	// Get unit
+	$_units: map.keys(utility.$units);
+
+	@while (list.length($_units) > 0) {
+		$_unit: list.nth($_units, 1);
+		$_units: list-slice($_units, 2);
+
+		@if (string.slice($value, string.length($_unit) * -1) == $_unit) {
+
+			$unit: map.get(utility.$units, $_unit);
+			$value: string.slice($value, 1, (string.length($_unit) + 1) * -1);
+
+			$_units: ();
+
+		}
+	}
+	
+	// Check positive/negative
+	@if (list.index(('+', '-'), string.slice($value, 1, 1))) {
+		$coeff: if(string.slice($value, 1, 1) == '-', -1, 1);
+		$value: string.slice($value, 2);
+	}
+	
+	// Get exponential part
+	$exp-coeff: 1;
+	$exp-num: 0;
+
+	@if (string.index($value, 'e')) {
+		$split: str-split($value, 'e');
+		$before: list.nth($split, 1);
+		$after: if(list.length($split) == 2, list.nth($split, 2), '');
+
+		@if ($before == '' or $after == '') {
+			@return null;
+		}
+
+		$exp-coeff: if(string.index($after, '-') == 1, -1, 1);
+		$exp-num: _local-intstr-numberize(if(string.index($after, '-') == 1, string.slice($after, 2), $after));
+
+		@if (not $exp-num) {
+			@return null;
+		}
+
+		$value: $before;
+		$exponential: math.pow(10, $exp-num * $exp-coeff);
+	}
+	
+	// Get integral and fractional part
+	$integral: 0;
+	$fractional: 0;
+
+	@if (string.index($value, '.')) {
+		$split: str-split($value, '.');
+		$before: list.nth($split, 1);
+		$after: if(list.length($split) == 2, list.nth($split, 2), '');
+
+		@if ($after == '') {
+			@return null;
+		}
+
+		$integral: _local-intstr-numberize(if($before == '', '0', $before));
+		$fractional: _local-intstr-numberize($after);
+
+		@if (not $integral or not $fractional) {
+			@return null;
+		} @else {
+			$fractional: math.div($fractional, math.pow(10, string.length($after)));
+		}
+	} @else {
+		$integral: _local-intstr-numberize($value);
+
+		@if (not $integral) {
+			@return null;
+		}
+	}
+
+	@return ($integral + $fractional) * $exponential * $coeff * $unit;
+}
