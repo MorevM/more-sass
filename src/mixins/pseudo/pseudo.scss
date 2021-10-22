@@ -1,3 +1,5 @@
+@use 'sass:string';
+
 /**
  * Shorthand for both `content` and `display` properties of pseudo-elements.
  * 
@@ -6,5 +8,5 @@
  */
 @mixin pseudo($display: block, $content: '') {
 	content: $content;
-	display: $display;
+	display: string.unquote($display);
 }

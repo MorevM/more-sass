@@ -1,14 +1,11 @@
+@use 'sass:math';
 
 /**
  * Sets the fixed aspect ratio of the element.
  * 
- * @todo maybe precision as third parameter? https://gist.github.com/terkel/4373420
- * 
  * @param    {number}    $width              The needed element width.
  * @param    {number}    $height [$width]    The needed element height.
  */
-@use 'sass:math';
-
 @mixin aspect-ratio($width, $height: $width) {
 	display: block;
 	position: relative;
@@ -19,4 +16,3 @@
 		padding-top: math.div($height, $width) * 100%;
 	}
 }
- 

@@ -1,8 +1,8 @@
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:meta';
-@use '../variables/units.scss';
-@use '../../functions/math/to-number/to-number.scss' as *;
+@use '../get-numeric/get-numeric.scss' as *;
+@use '../../../variables' as vars;
 
 /**
  * Sets default unit for a given unitless number.
@@ -12,18 +12,16 @@
  * 
  * @return   {number}    Original number converted to a given unit.
  */
- @function set-unit($value, $unit: 'px') {
-	
-	$numval: if(meta.type-of($value) == 'number', $value, to-number($value));
-	
+@function with-unit($value, $unit: 'px') {
+	$numval: if(meta.type-of($value) == 'number', $value, get-numeric($value));
+
 	@if (meta.type-of($numval) != 'number') {
 		@return $value;
 	}
-	
+
 	@if (math.is-unitless($numval)) {
-		@return $numval * map.get(units.$units, if(map.has-key(units.$units, $unit), $unit, 'px'));
+		@return $numval * map.get(vars.$units, if(map.has-key(vars.$units, $unit), $unit, 'px'));
 	}
-	
+
 	@return $numval;
-	
 }

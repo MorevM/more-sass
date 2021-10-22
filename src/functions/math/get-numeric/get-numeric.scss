@@ -6,9 +6,9 @@
 @use '../../string/str-split/str-split.scss' as *;
 @use '../../string/str-trim/str-trim.scss' as *;
 @use '../../list/list-slice/list-slice.scss' as *;
-@use '../../../utility';
+@use '../../../variables' as vars;
 
-@function _local-intstr-numberize($value) {
+@function _local-intval($value) {
 	
 	$number: 0;
 	$digits: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
@@ -31,13 +31,13 @@
 }
 
 /**
- * Converts a given string to a number.
+ * Converts a given pseudo-number string to a real number.
  * 
  * @param    {string}     $string    The input value.
  * 
- * @return   {?number}    Number converted from a string or null if value is not a valid number.
+ * @return   {?number}    Numeric value or null if value is not a valid number.
  */
-@function to-number($value) {
+@function get-numeric($value) {
 	@if (meta.type-of($value) == 'number') {
 		@return $value;
 	}
@@ -51,19 +51,17 @@
 	$unit: 1;
 
 	// Get unit
-	$_units: map.keys(utility.$units);
+	$_units: map.keys(vars.$units);
 
 	@while (list.length($_units) > 0) {
 		$_unit: list.nth($_units, 1);
 		$_units: list-slice($_units, 2);
 
 		@if (string.slice($value, string.length($_unit) * -1) == $_unit) {
-
-			$unit: map.get(utility.$units, $_unit);
+			$unit: map.get(vars.$units, $_unit);
 			$value: string.slice($value, 1, (string.length($_unit) + 1) * -1);
 
 			$_units: ();
-
 		}
 	}
 	
@@ -87,7 +85,7 @@
 		}
 
 		$exp-coeff: if(string.index($after, '-') == 1, -1, 1);
-		$exp-num: _local-intstr-numberize(if(string.index($after, '-') == 1, string.slice($after, 2), $after));
+		$exp-num: _local-intval(if(string.index($after, '-') == 1, string.slice($after, 2), $after));
 
 		@if (not $exp-num) {
 			@return null;
@@ -110,8 +108,8 @@
 			@return null;
 		}
 
-		$integral: _local-intstr-numberize(if($before == '', '0', $before));
-		$fractional: _local-intstr-numberize($after);
+		$integral: _local-intval(if($before == '', '0', $before));
+		$fractional: _local-intval($after);
 
 		@if (not $integral or not $fractional) {
 			@return null;
@@ -119,7 +117,7 @@
 			$fractional: math.div($fractional, math.pow(10, string.length($after)));
 		}
 	} @else {
-		$integral: _local-intstr-numberize($value);
+		$integral: _local-intval($value);
 
 		@if (not $integral) {
 			@return null;

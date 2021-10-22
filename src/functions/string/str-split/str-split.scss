@@ -6,64 +6,34 @@
  * 
  * @param    {string}    $string                The input string.
  * @param    {string}    $delimiter ['']        The boundary string.
- * @param    {string}    $separator ['auto']    The output list separator (comma, space, auto).
+ * @param    {string}    $separator ['auto']    The output list separator (space|comma|slash|auto).
  * 
- * @return   {list}      A list containing strings created by splitting the original string, or empty string.
+ * @return   {list}      A list containing strings created by splitting the original string.
  */
-@function str-split($string, $delimiter: '', $separator: auto) {
+@function str-split($string, $delimiter: '', $separator: 'auto') {
 	$string: #{$string};
-	$result: ();
+	$delimiter: #{$delimiter};
+	$output: ();
 
-	@if (string.length($string) == 0) {
-		@return $result;
-	}
-
-	// Just split each char if no delimiter passed
-	@if ($delimiter == '') {
-		@for $i from 1 through string.length($string) {
-			$result: list.append($result, string.slice($string, $i, $i), $separator);
-		}
-
-		@return $result;
-	}
-
-	$exploding: true;
-
-	@while ($exploding) {
-		$d-index: string.index($string, $delimiter);
-
-		@if ($d-index) {
-			@if ($d-index) > 1 {
-				$temp-string: string.slice($string, 1, $d-index - 1);
-
-				@if ($temp-string == 'null') {
-					$temp-string: null;
-				}
-
-				$result: list.append($result, $temp-string, $separator);
-				$string: string.slice($string, $d-index + string.length($delimiter));
-			} @else if $d-index == 1 {
-				$temp-string: string.slice($string, 1, $d-index + string.length($delimiter));
-
-				@if ($temp-string == 'null') {
-					$temp-string: null;
-				}
-
-				$string: $temp-string;
-			} @else {
-				@if ($string == 'null') {
-					$string: null;
-				}
-
-				$result: list.append($result, $string, $separator);
-				$exploding: false;
-			}
+	@while (string.length($string) > 0) {
+		@if ($delimiter == '') {
+			$output: list.append($output, string.slice($string, 1, 1), $separator);
+			$string: string.slice($string, 2);
 		} @else {
-			$result: list.append($result, $string, $separator);
-
-			$exploding: false;
+			$index: string.index($string, $delimiter);
+			
+			@if (not $index) {
+				$output: list.append($output, $string, $separator);
+				$string: '';
+			} @else if ($index == 1) {
+				$output: $output;
+				$string: string.slice($string, $index + string.length($delimiter));
+			} @else {
+				$output: list.append($output, string.slice($string, 1, $index - 1), $separator);
+				$string: string.slice($string, $index + string.length($delimiter));
+			}
 		}
 	}
 
-	@return $result;
+	@return $output;
 }

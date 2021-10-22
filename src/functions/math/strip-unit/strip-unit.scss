@@ -1,18 +1,16 @@
 @use 'sass:math';
 @use 'sass:meta';
-@use '../to-number/to-number.scss' as *;
+@use '../get-numeric/get-numeric.scss' as *;
 
 /**
  * Strips the unit of a given value.
  * 
  * @param    {string|number}    $value    A value to remove unit from.
  * 
- * @return   {number}    Strips the unit of a given number.
+ * @return   {number}    Unitless number.
  */
 @function strip-unit($value) {
-	@if (meta.type-of($value) != 'number') {
-		$value: to-number($value);
-	}
+	$value: get-numeric($value);
 
 	@if (math.is-unitless($value)) {
 		@return $value;

@@ -1,0 +1,45 @@
+@use 'sass:math';
+
+/**
+ * Draws a triangle.
+ * 
+ * @param    {number}    $width                   Triangle width.
+ * @param    {number}    $height                  Triangle height.
+ * @param    {string}    $direction               Triangle direction ('block-start'|'block-end'|'inline-start'|'inline-end'|'lower-start'|'lower-end'|'upper-start'|'upper-end').
+ * @param    {color}     $color [currentColor]    Triangle color.
+ */
+@mixin triangle($width, $height, $direction, $color: currentColor) {
+	display: block;
+	width: 0;
+	height: 0;
+
+	@if ($direction == 'block-start') {
+		border-left: #{math.div($width, 2)} solid transparent;
+		border-right: #{math.div($width, 2)} solid transparent;
+		border-bottom: #{$height} solid #{$color};
+	} @else if ($direction == 'block-end') {
+		border-left: #{math.div($width, 2)} solid transparent;
+		border-right: #{math.div($width, 2)} solid transparent;
+		border-top: #{$height} solid #{$color};
+	} @else if ($direction == 'inline-start') {
+		border-top: #{math.div($width, 2)} solid transparent;
+		border-bottom: #{math.div($width, 2)} solid transparent;
+		border-right: #{$height} solid #{$color};
+	} @else if ($direction == 'inline-end') {
+		border-top: #{math.div($width, 2)} solid transparent;
+		border-bottom: #{math.div($width, 2)} solid transparent;
+		border-left: #{$height} solid #{$color};
+	} @else if ($direction == 'lower-start') {
+		border-right: #{$width} solid transparent;
+		border-bottom: #{$height} solid #{$color};
+	} @else if ($direction == 'lower-end') {
+		border-left: #{$width} solid transparent;
+		border-bottom: #{$height} solid #{$color};
+	} @else if ($direction == 'upper-start') {
+		border-right: #{$width} solid transparent;
+		border-top: #{$height} solid #{$color};
+	} @else if ($direction == 'upper-end') {
+		border-left: #{$width} solid transparent;
+		border-top: #{$height} solid #{$color};
+	}
+}

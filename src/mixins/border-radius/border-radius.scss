@@ -1,0 +1,50 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+@use '../../functions/string/str-replace/str-replace.scss' as *;
+
+/**
+ * Sets the values of the nesessary rules of `border-radius` properties family.
+ * 
+ * @param    {list|string}    $value               Property value.
+ * @param    {?string}        $direction [null]    The keyword describing the list of properties to use.
+ */
+@mixin border-radius($value, $direction: null) {
+	// Get value
+	$value: str-replace(meta.inspect($value), '"', '');
+	$value: str-replace($value, 'null', '0');
+	$value: str-replace($value, ' n ', ' 0 ');
+
+	@if (string.slice($value, 1, 2) == 'n ') {
+		$value: '0' + string.slice($value, 2);
+	}
+
+	@if (string.slice($value, -2) == ' n') {
+		$value: string.slice($value, 1, -2) + '0';
+	}
+
+	// Get properties to apply
+	$properties: (
+		'top'           :  ('border-top-left-radius', 'border-top-right-radius'),
+		'right'         :  ('border-top-right-radius', 'border-bottom-right-radius'),
+		'bottom'        :  ('border-bottom-right-radius', 'border-bottom-left-radius'),
+		'left'          :  ('border-top-left-radius', 'border-bottom-left-radius'),
+		'top-right'     :  ('border-top-right-radius'),
+		'top-left'      :  ('border-top-left-radius'),
+		'bottom-right'  :  ('border-bottom-right-radius'),
+		'bottom-left'   :  ('border-bottom-left-radius'),
+		'cross-left'    :  ('border-top-left-radius', 'border-bottom-right-radius'),
+		'cross-right'   :  ('border-top-right-radius', 'border-bottom-left-radius'),
+		'all'           :  ('border-radius'),
+	);
+
+	$apply: map.get(
+		$properties,
+		if($direction and map.has-key($properties, $direction), $direction, 'all')
+	);
+
+	// Set values
+	@each $property in $apply {
+		#{$property}: string.unquote($value);
+	}
+}

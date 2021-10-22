@@ -1,14 +1,13 @@
 @use 'sass:color';
-@use '../math/strip-unit/strip-unit.scss' as *;
 
 /**
  * Mixes a given color with white.
  * 
- * @param    {color}     $color            The original color.
- * @param    {number}    $dilution [10]    Amount of the white color in the result color (%).
+ * @param    {color}     $color          The original color.
+ * @param    {number}    $amount [10]    Amount of the white color in the result color (%).
  * 
  * @return   {color}     The result color.
  */
-@function tint($color, $dilution: 10) {
-	@return color.mix($color, #fff, 100 - strip-unit($dilution));
+@function tint($color, $amount: 10) {
+	@return color.mix(#fff, $color, $amount);
 }

@@ -1,0 +1,19 @@
+@use 'sass:string';
+
+/**
+ * Checks whether at least one value of a given list contains a given substring.
+ * 
+ * @param     {list}      $list      The input list.
+ * @param     {string}    $search    The searched substring.
+ * 
+ * @return    {boolean}
+ */
+@function list-contains($list, $search) {
+	@each $item in $list {
+		@if (string.index(#{$item}, #{$search})) {
+			@return true;
+		}
+	}
+
+	@return false;
+}

@@ -1,13 +1,16 @@
-@use '../../utility';
+@use '../../functions/math/with-unit/with-unit.scss' as *;
 
 /**
  * Sets the element size.
- * Shortcut for both `width` and `height` properties.
+ * Shorthand for both `width` and `height` properties.
  * 
  * @param    {number}    $width              The width of the element.
  * @param    {number}    $height [$width]    The height of element.
  */
 @mixin box($width, $height: $width) {
-	width: utility.set-unit($width);
-	height: utility.set-unit($height);
+	$width: with-unit($width);
+	$height: with-unit($height);
+
+	width: if($width == 'n', null, $width);
+	height: if($height == 'n', null, $height);
 }

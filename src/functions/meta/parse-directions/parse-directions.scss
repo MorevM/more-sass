@@ -1,5 +1,8 @@
 @use 'sass:list';
 @use 'sass:string';
+@use 'sass:meta';
+@use '../../list/list-includes/list-includes.scss' as *;
+@use '../../math/get-numeric/get-numeric.scss' as *;
 
 /**
  * Parses a given list of values using standard CSS order (top, right, bottom, left).
@@ -22,11 +25,21 @@
 	$right: if(list.length($values) >= 2, string.unquote(#{list.nth($values, 2)}), $top);
 	$bottom: if(list.length($values) >= 3, string.unquote(#{list.nth($values, 3)}), $top);
 	$left: if(list.length($values) >= 4, string.unquote(#{list.nth($values, 4)}), $right);
-
+	
+	$top: if(list-includes(('', 'null', 'n'), $top), null, $top);
+	$right: if(list-includes(('', 'null', 'n'), $right), null, $right);
+	$bottom: if(list-includes(('', 'null', 'n'), $bottom), null, $bottom);
+	$left: if(list-includes(('', 'null', 'n'), $left), null, $left);
+	
+	$top-numeric: get-numeric($top);
+	$right-numeric: get-numeric($right);
+	$bottom-numeric: get-numeric($bottom);
+	$left-numeric: get-numeric($left);
+	
 	@return (
-		top: $top,
-		right: $right,
-		bottom: $bottom,
-		left: $left,
+		top: if($top-numeric, $top-numeric, $top),
+		right: if($right-numeric, $right-numeric, $right),
+		bottom: if($bottom-numeric, $bottom-numeric, $bottom),
+		left: if($left-numeric, $left-numeric, $left),
 	);
 }

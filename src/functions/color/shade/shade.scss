@@ -1,14 +1,13 @@
 @use 'sass:color';
-@use '../math/strip-unit/strip-unit.scss' as *;
 
 /**
  * Mixes a given color with black.
  * 
- * @param    {color}     $color            The original color.
- * @param    {number}    $dilution [10]    Amount of the black color in the result color (%).
+ * @param    {color}     $color          The original color.
+ * @param    {number}    $amount [10]    Amount of the black color in the result color (%).
  * 
  * @return   {color}     The result color.
  */
-@function shade($color, $dilution: 10) {
-	@return color.mix($color, #000, 100 - strip-unit($dilution));
+@function shade($color, $amount: 10) {
+	@return color.mix(#000, $color, $amount);
 }

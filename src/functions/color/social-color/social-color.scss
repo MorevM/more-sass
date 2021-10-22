@@ -1,7 +1,4 @@
 @use 'sass:map';
-@use 'sass:meta';
-@use 'sass:string';
-@use '../string/str-replace/str-replace.scss' as *;
 
 /**
  * Retrieves a brand color by a given social media code.
@@ -11,7 +8,7 @@
  * @return   {?color}    Social media brand color.
  */
 @function social-color($social) {
-	$brand-colors: (
+	$colors: (
 		'vk': #4a76a8, // VKontakte
 		'fb': #4267b2, // Facebook
 		'ok': #ed812b, // Odnoklassniki
@@ -25,20 +22,12 @@
 		'li': #0274b3, // Linked In
 		'wa': #25b33c, // WhatsApp
 		'vb': #7b519c, // Viber
-	) !default;
+	);
 
-	@if map.has-key($brand-colors, '#{$social}') {
-		$color: map.get($brand-colors, '#{$social}');
-		$inspected: meta.inspect($color);
-
-		@if (string.slice($inspected, 1, 1) != '#') {
-			$color: str-replace($inspected, '"', '');
-			$color: str-replace($inspected, '"', '');
-		}
-
-		@return $color;
+	@if (not map.has-key($colors, '#{$social}')) {
+		@warn 'Unknown key `#{$social}` in $colors-social';
+		@return null;
 	}
 
-	@warn 'Unknown key `#{$social}` in $colors-social';
-	@return null;
+	@return map.get($colors, '#{$social}');
 }

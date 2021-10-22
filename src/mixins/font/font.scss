@@ -1,0 +1,62 @@
+@use 'sass:list';
+@use 'sass:string';
+@use '../../functions/list/list-includes/list-includes.scss' as *;
+@use '../../functions/math/get-numeric/get-numeric.scss' as *;
+@use '../../functions/math/with-unit/with-unit.scss' as *;
+@use '../../functions/string/str-split/str-split.scss' as *;
+@use '../../variables' as vars;
+
+/**
+ * Shorthand for writing `font-*` rules in syntax like vanilla CSS `font` property,
+ * but without specifying the required font-family property.
+ * 
+ * @param    {string|list|number}    $params                A set of rules for one or more of the following properties: `font-style`, `font-weight`, `font-size`, `line-height`.
+ * @param    {?string}               $font-family [null]    The `font-family` property value.
+ */
+@mixin font($params, $font-family: null) {
+	$font-style: null;
+	$font-weight: null;
+	$font-size: null;
+	$line-height: null;
+
+	$params: str-split(#{$params}, ' ');
+
+	@each $param in $params {
+		// font-weight
+		@if (list-includes(vars.$font-styles, $param)) {
+			$font-style: string.unquote($param);
+		}
+		// font-weight
+		@else if (list-includes(vars.$font-weights, $param)) {
+			$font-weight: string.unquote($param);
+		}
+		// line-height and (maybe) font-size
+		@else if (string.index($param, '/')) {
+			$parsed: str-split($param, '/');
+
+			@if (list.length($parsed) == 1) {
+				$font-size: if(string.index($param, '/') == 1, null, string.unquote(list.nth($parsed, 1)));
+				$line-height: if(string.index($param, '/') == 1, string.unquote(list.nth($parsed, 1)), null);
+			} @else if (list.length($parsed) > 1) {
+				$font-size: string.unquote(list.nth($parsed, 1));
+				$line-height: string.unquote(list.nth($parsed, 2));
+			}
+		}
+		// font-family or font-size
+		@else {
+			$numval: get-numeric($param);
+
+			@if ($numval) {
+				$font-size: with-unit($numval);
+			} @else {
+				$font-family: if(not $font-family, $param, '#{$font-family} #{$param}');
+			}
+		}
+	}
+
+	font-family: $font-family;
+	font-style: $font-style;
+	font-weight: $font-weight;
+	font-size: $font-size;
+	line-height: $line-height;
+}

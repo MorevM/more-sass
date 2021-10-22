@@ -1,0 +1,57 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+@use '../fluid-prop/fluid-prop.scss' as *;
+@use '../../functions/string/str-split/str-split.scss' as *;
+@use '../../functions/math/get-numeric/get-numeric.scss' as *;
+
+@function _local-parse-font($param) {
+	$param: #{$param};
+	$parsed: str-split($param, '/');
+
+	@if (list.length($parsed) > 1) {
+		@return (
+			'font-size': get-numeric(list.nth($parsed, 1)),
+			'line-height': get-numeric(list.nth($parsed, 2)),
+		);
+	} @else if (list.length($parsed) == 1) {
+		@return (
+			'font-size': if(string.index($param, '/') == 1, null, get-numeric(list.nth($parsed, 1))),
+			'line-height': if(string.index($param, '/') == 1, get-numeric(list.nth($parsed, 1)), null),
+		);
+	} @else {
+		@return (
+			'font-size': null,
+			'line-height': null,
+		);
+	}
+}
+
+/**
+ * Sets the font properties scaling uniformly within the specified limits depending on the screen width.
+ * Shorthand for both fluid-prop('font-size') and fluid-prop('line-height').
+ * 
+ * @param    {list}    $start    A list containing start values of screen width and font properties. Font properties passes as slash-separated string, just like in the native `font` property.
+ * @param    {list}    $end      A list containing end values of screen width and font properties. Font properties passes as slash-separated string, just like in the native `font` property.
+ */
+@mixin fluid-font($start, $end) {
+	// Get params
+	$start-vw: list.nth($start, 1);
+	$start-font: _local-parse-font(list.nth($start, 2));
+	$start-font-size: map.get($start-font, 'font-size');
+	$start-line-height: map.get($start-font, 'line-height');
+
+	$end-vw: list.nth($end, 1);
+	$end-font: _local-parse-font(list.nth($end, 2));
+	$end-font-size: map.get($end-font, 'font-size');
+	$end-line-height: map.get($end-font, 'line-height');
+
+	// Set values
+	@if ($start-font-size and $end-font-size) {
+		@include fluid-prop('font-size', ($start-vw, $start-font-size), ($end-vw, $end-font-size));
+	}
+
+	@if ($start-line-height and $end-line-height) {
+		@include fluid-prop('line-height', ($start-vw, $start-line-height), ($end-vw, $end-line-height));
+	}
+}

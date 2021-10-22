@@ -1,8 +1,12 @@
 @forward './aspect-ratio/aspect-ratio.scss';
+@forward './border-radius/border-radius.scss';
 @forward './box/box.scss';
 @forward './br/br.scss';
 @forward './clearfix/clearfix.scss';
 @forward './ellipsis/ellipsis.scss';
+@forward './fluid-font/fluid-font.scss';
+@forward './fluid-prop/fluid-prop.scss';
+@forward './font/font.scss';
 @forward './full-size/full-size.scss';
 @forward './hidden-element/hidden-element.scss';
 @forward './margin/margin.scss';
@@ -11,3 +15,6 @@
 @forward './pseudo/pseudo.scss';
 @forward './reset-button/reset-button.scss';
 @forward './reset-input/reset-input.scss';
+@forward './transform-center/transform-center.scss';
+@forward './triangle/triangle.scss';
+@forward './visually-hidden/visually-hidden.scss';

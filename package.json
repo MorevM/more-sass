@@ -1,13 +1,25 @@
 {
   "name": "more-sass",
-  "version": "0.0.1",
   "description": "Library of useful SCSS mixins and functions",
-  "main": "index.js",
-  "author": "Maxim Morev <max.seainside@gmail.com>",
-  "license": "MIT",
-  "private": false,
-  "dependencies": {
-    "sass": "^1.43.2"
+  "version": "0.0.1",
+	"license": "MIT",
+	"author": {
+		"name": "Maxim Morev",
+		"email": "max.seainside@gmail.com"
+	},
+	"homepage": "https://morevm.github.io/more-sass/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MorevM/more-sass.git"
+	},
+	"bugs": {
+		"url": "https://github.com/MorevM/more-sass/issues"
+	},
+	"main": "src/_index.scss",
+  "scripts": {
+    "test": "jest",
+    "dev": "vite dev",
+    "docs": "vuepress dev docs --temp .temp"
   },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
@@ -25,9 +37,7 @@
     "vuepress-plugin-vue-demo": "^1.0.15",
     "watchpack": "1.6.1"
   },
-  "scripts": {
-    "test": "jest",
-    "dev": "vite dev",
-    "docs": "vuepress dev docs --temp .temp"
+  "peerDependencies": {
+    "sass": "^1.43.2"
   }
 }

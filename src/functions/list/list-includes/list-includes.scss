@@ -1,18 +1,13 @@
 @use 'sass:list';
-@use 'sass:meta';
 
 /**
  * Checks whether a given value exists in a given list.
  * 
- * @param    {list}      $list    The input list.
- * @param    {string}    $item    The searched value.
+ * @param    {list}      $list      The input list.
+ * @param    {string}    $search    The searched value.
  * 
  * @return   {boolean}
  */
-@function list-includes($list, $item) {
-	@if (meta.type-of($list) != 'list') {
-		@error '[More SASS error]: first parameter `$list` must be of type `list`';
-	}
-
-	@return list.index($list, $item) != null;
+@function list-includes($list, $search) {
+	@return list.index($list, $search) != null;
 }

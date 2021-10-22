@@ -1,0 +1,39 @@
+@use 'sass:list';
+@use 'sass:math';
+@use '../../functions/math/strip-unit/strip-unit.scss' as *;
+
+/**
+ * Sets a given property scaling uniformly within the specified limits depending on the screen width.
+ * See https://www.madebymike.com.au/writing/fluid-type-calc-examples/.
+ * 
+ * @param    {string}     $property     Property name.
+ * @param    {list}       $start        A list containing start values of screen width and property.
+ * @param    {list}       $end          A list containing end values of screen width and property.
+ * @param    {boolean}    $set-start    Whether to use the start property value as default.
+ */
+@mixin fluid-prop($property, $start, $end, $set-start: true) {
+	// Get params
+	$start-vw: list.nth($start, 1);
+	$start-val: list.nth($start, 2);
+	$end-vw: list.nth($end, 1);
+	$end-val: list.nth($end, 2);
+
+	$min-vw: math.min($start-vw, $end-vw);
+	$max-vw: math.max($start-vw, $end-vw);
+
+	$vw-diff: strip-unit($max-vw - $min-vw);
+	$val-diff: strip-unit($end-val - $start-val);
+
+	// Set values
+	@if ($set-start) {
+		#{$property}: $start-val;
+	}
+
+	@media (min-width: $min-vw) {
+		#{$property}: calc(#{$start-val} + #{$val-diff} * ((#{100vw} - #{$min-vw}) / #{$vw-diff}));
+	}
+
+	@media (min-width: $max-vw) {
+		#{$property}: $end-val;
+	}
+}

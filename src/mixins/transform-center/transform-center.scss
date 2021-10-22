@@ -1,0 +1,9 @@
+/**
+ * Positions the element in the center of the parent element.
+ */
+@mixin transform-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

@@ -18,7 +18,6 @@
  * Clears the flow around the current element.
  */
 @mixin clearfix-element {
-	content: '';
 	display: block;
 	clear: both;
 }

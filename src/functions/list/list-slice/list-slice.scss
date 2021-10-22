@@ -1,6 +1,4 @@
 @use 'sass:list';
-@use 'sass:math';
-@use 'sass:meta';
 
 /**
  * Extracts a slice of a given list.
@@ -12,22 +10,6 @@
  * @return   {list}      The slice of the input list.
  */
 @function list-slice($list, $start-at, $end-at: -1) {
-	@if (meta.type-of($start-at) != 'number') {
-		@error '[More SASS error]: `$start-at` argument is not a number';
-	}
-
-	@if (meta.type-of($end-at) != 'number') {
-		@error '[More SASS error]: `$end-at` argument is not a number';
-	}
-
-	@if ($start-at == 0) {
-		@error '[More SASS error]: `$start-at` argument must not be a zero';
-	}
-
-	@if ($end-at == 0) {
-		@error '[More SASS error]: `$end-at` argument must not be a zero';
-	}
-
 	$output: ();
 	$start: if($start-at < 0, list.length($list) + $start-at + 1, $start-at);
 	$end: if($end-at < 0, list.length($list) + $end-at + 1, $end-at);

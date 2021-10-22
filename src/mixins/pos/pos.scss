@@ -1,15 +1,16 @@
 @use 'sass:map';
+@use 'sass:string';
 @use '../../functions/meta/parse-directions/parse-directions.scss' as *;
 
 /**
- * Shorthands for usage of positioning properties.
+ * Shorthands for using position properties.
  * 
  * @param    {string}    $position [absolute]    Position type (relative, absolute, etc.).
  * @param    {list}      $values []              Position values list in default order (top-right-bottom-left).
  */
 @mixin pos($position: absolute, $values...) {
 	$values: parse-directions($values...);
-	position: $position;
+	position: string.unquote($position);
 	top: map.get($values, 'top');
 	right: map.get($values, 'right');
 	bottom: map.get($values, 'bottom');
@@ -17,13 +18,13 @@
 }
 
 @mixin pos-rel($values...) {
-	@include pos(relative, $values...);
+	@include pos('relative', $values...);
 }
 
 @mixin pos-abs($values...) {
-	@include pos(absolute, $values...);
+	@include pos('absolute', $values...);
 }
 
 @mixin pos-fix($values...) {
-	@include pos(fixed, $values...);
+	@include pos('fixed', $values...);
 }
