@@ -5,7 +5,7 @@
  * 
  * @param    {number}    $width                   Triangle width.
  * @param    {number}    $height                  Triangle height.
- * @param    {string}    $direction               Triangle direction ('block-start'|'block-end'|'inline-start'|'inline-end'|'lower-start'|'lower-end'|'upper-start'|'upper-end').
+ * @param    {string}    $direction               Triangle direction (top|bottom|left|right|bottom-left|bottom-right|top-left|top-right).
  * @param    {color}     $color [currentColor]    Triangle color.
  */
 @mixin triangle($width, $height, $direction, $color: currentColor) {
@@ -13,32 +13,32 @@
 	width: 0;
 	height: 0;
 
-	@if ($direction == 'block-start') {
+	@if ($direction == 'top') {
 		border-left: #{math.div($width, 2)} solid transparent;
 		border-right: #{math.div($width, 2)} solid transparent;
 		border-bottom: #{$height} solid #{$color};
-	} @else if ($direction == 'block-end') {
+	} @else if ($direction == 'bottom') {
 		border-left: #{math.div($width, 2)} solid transparent;
 		border-right: #{math.div($width, 2)} solid transparent;
 		border-top: #{$height} solid #{$color};
-	} @else if ($direction == 'inline-start') {
+	} @else if ($direction == 'left') {
 		border-top: #{math.div($width, 2)} solid transparent;
 		border-bottom: #{math.div($width, 2)} solid transparent;
 		border-right: #{$height} solid #{$color};
-	} @else if ($direction == 'inline-end') {
+	} @else if ($direction == 'right') {
 		border-top: #{math.div($width, 2)} solid transparent;
 		border-bottom: #{math.div($width, 2)} solid transparent;
 		border-left: #{$height} solid #{$color};
-	} @else if ($direction == 'lower-start') {
+	} @else if ($direction == 'bottom-left') {
 		border-right: #{$width} solid transparent;
 		border-bottom: #{$height} solid #{$color};
-	} @else if ($direction == 'lower-end') {
+	} @else if ($direction == 'bottom-left') {
 		border-left: #{$width} solid transparent;
 		border-bottom: #{$height} solid #{$color};
-	} @else if ($direction == 'upper-start') {
+	} @else if ($direction == 'top-left') {
 		border-right: #{$width} solid transparent;
 		border-top: #{$height} solid #{$color};
-	} @else if ($direction == 'upper-end') {
+	} @else if ($direction == 'top-right') {
 		border-left: #{$width} solid transparent;
 		border-top: #{$height} solid #{$color};
 	}
