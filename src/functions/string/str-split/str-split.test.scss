@@ -1,0 +1,25 @@
+@use 'true' as *; // sass-true
+@use './str-split.scss' as *;
+
+@include describe('Functions') {
+	@include describe('str-split') {
+		@include it('Splits string char by char if no delimiter is empty string (default behavior') {
+			@include assert-equal(str-split('some string'), ('s', 'o', 'm', 'e', ' ', 's', 't', 'r', 'i', 'n', 'g'));
+		}
+		@include it('Returns the list contains the input string as is if it doesn\'t contain a given delimiter') {
+			@include assert-equal(str-split('some string', ','), ('some string'));
+		}
+		@include it('Works correctly if a given delimiter is the first char(s)') {
+			@include assert-equal(str-split(',some,string', ','), ('some', 'string'));
+		}
+		@include it('Works correctly if a given delimiter is the last char(s)') {
+			@include assert-equal(str-split('some,string,', ','), ('some', 'string'));
+		}
+		@include it('Returns empty list if a given delimiter is the only char(s)') {
+			@include assert-equal(str-split(',', ','), ());
+		}
+		@include it('Returns empty list if input string is empty') {
+			@include assert-equal(str-split(''), ());
+		}
+	}
+}
