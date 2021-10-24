@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 /**
- * Retrieves a brand color by a given social media code.
+ * Retrieves a given social media brand color.
  * 
  * @param    {string}    $social    Social media code ('vk', 'fb', 'tw', etc.).
  * 
@@ -25,7 +25,6 @@
 	);
 
 	@if (not map.has-key($colors, '#{$social}')) {
-		@warn 'Unknown key `#{$social}` in $colors-social';
 		@return null;
 	}
 
