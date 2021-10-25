@@ -1,7 +1,7 @@
 @use 'sass:string';
 
 /**
- * Checks whether at least one value of a given list contains a given substring.
+ * Checks whether at least one of a given list values contains a given substring.
  * 
  * @param     {list}      $list      The input list.
  * @param     {string}    $search    The searched substring.
