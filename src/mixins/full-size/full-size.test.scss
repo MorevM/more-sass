@@ -1,0 +1,22 @@
+@use 'true' as *; // sass-true
+@use './full-size.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('full-size') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include full-size;
+				}
+				@include expect {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+}

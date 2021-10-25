@@ -1,0 +1,26 @@
+@use 'true' as *; // sass-true
+@use './str-replace.scss' as *;
+
+@include describe('Functions') {
+	@include describe('str-replace') {
+		@include it('Replaces all occurrences of searched value') {
+			@include assert-equal(str-replace('some string example', ' ', ''), 'somestringexample');
+			@include assert-equal(str-replace('some string', ' str', 'th'), 'something');
+		}
+		@include it('Returns the input string as is if it doesn\'t contain searched value') {
+			@include assert-equal(str-replace('some string', 'abc', 'xxx'), 'some string');
+		}
+		@include it('Returns the empty input string as is') {
+			@include assert-equal(str-replace('', 'abc', 'xxx'), '');
+		}
+		@include it('Returns the input string as is if searched value is empty string') {
+			@include assert-equal(str-replace('some string', '', 'xxx'), 'some string');
+		}
+		@include it('Considers the `$limit` argument') {
+			@include assert-equal(str-replace('some string', 's', 'S', 1), 'Some string');
+		}
+		@include it('Returns the input string as is if `$limit` argument is less than 1') {
+			@include assert-equal(str-replace('some string', 's', 'S', 0), 'some string');
+		}
+	}
+}

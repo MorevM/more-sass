@@ -1,0 +1,17 @@
+@use 'true' as *; // sass-true
+@use './list-includes.scss' as *;
+
+@include describe('Functions') {
+	@include describe('list-includes') {
+		@include it('Returns true if the input list contains the searched value') {
+			@include assert-true(list-includes((1, 2, 3), 2));
+		}
+		@include it('Returns false if the input list doesn\'t contains the searched value') {
+			@include assert-false(list-includes((1, 2, 3), 4));
+			@include assert-false(list-includes(('px', 'em', 'rem'), 1px));
+		}
+		@include it('Returns false if the input list is empty') {
+			@include assert-false(list-includes((), 2));
+		}
+	}
+}

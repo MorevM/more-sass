@@ -1,0 +1,22 @@
+@use 'true' as *; // sass-true
+@use './visually-hidden.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('visually-hidden') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include visually-hidden;
+				}
+				@include expect {
+					position: absolute;
+					clip: rect(0 0 0 0);
+					z-index: -1;
+					width: 1px;
+					height: 1px;
+					margin: -1px;
+				}
+			}
+		}
+	}
+}

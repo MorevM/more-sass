@@ -1,25 +1,39 @@
 @use 'true' as *; // sass-true
 @use './str-split.scss' as *;
+@use 'sass:list';
+@use 'sass:meta';
 
 @include describe('Functions') {
 	@include describe('str-split') {
-		@include it('Splits string char by char if no delimiter is empty string (default behavior') {
-			@include assert-equal(str-split('some string'), ('s', 'o', 'm', 'e', ' ', 's', 't', 'r', 'i', 'n', 'g'));
+		@include it('Returns a list containing strings created by splitting the input string') {
+			@include assert-equal(str-split('some string example', ' '), ('some' 'string' 'example'));
 		}
-		@include it('Returns the list contains the input string as is if it doesn\'t contain a given delimiter') {
-			@include assert-equal(str-split('some string', ','), ('some string'));
+		@include it('Returns a list containing input string as is if it doesn\'t contain a given delimiter') {
+			$output: str-split('some string', ',');
+			@include assert-true(meta.type-of($output) == 'list');
+			@include assert-true(list.length($output) == 1);
+			@include assert-equal(list.nth($output, 1), 'some string');
 		}
-		@include it('Works correctly if a given delimiter is the first char(s)') {
-			@include assert-equal(str-split(',some,string', ','), ('some', 'string'));
-		}
-		@include it('Works correctly if a given delimiter is the last char(s)') {
-			@include assert-equal(str-split('some,string,', ','), ('some', 'string'));
-		}
-		@include it('Returns empty list if a given delimiter is the only char(s)') {
-			@include assert-equal(str-split(',', ','), ());
+		@include it('Works correctly with `null` substrings of the input string') {
+			@include assert-equal(str-split('some null in string', ' '), ('some' 'null' 'in' 'string'));
 		}
 		@include it('Returns empty list if input string is empty') {
 			@include assert-equal(str-split(''), ());
+		}
+		@include it('Splits the input string char by char if delimiter is empty string (default behavior)') {
+			@include assert-equal(str-split('some string'), ('s' 'o' 'm' 'e' ' ' 's' 't' 'r' 'i' 'n' 'g'));
+		}
+		@include it('Works correctly if delimiter is the first character(s)') {
+			@include assert-equal(str-split(',some,string', ','), ('some' 'string'));
+		}
+		@include it('Works correctly if delimiter is the last character(s)') {
+			@include assert-equal(str-split('some,string,', ','), ('some' 'string'));
+		}
+		@include it('Returns empty list if delimiter is the only character(s)') {
+			@include assert-equal(str-split(',', ','), ());
+		}
+		@include it('Considers the `$separator` argument') {
+			@include assert-equal(str-split('some, string', ', ', 'comma'), ('some', 'string'));
 		}
 	}
 }

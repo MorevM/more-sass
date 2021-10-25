@@ -1,0 +1,132 @@
+@use 'true' as *; // sass-true
+@use './triangle.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('triangle') {
+		@include it('Outputs the correct content') {
+			// Top
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'top');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-left: 15px solid transparent;
+					border-right: 15px solid transparent;
+					border-bottom: 20px solid currentColor;
+				}
+			}
+			// Bottom
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'bottom');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-left: 15px solid transparent;
+					border-right: 15px solid transparent;
+					border-top: 20px solid currentColor;
+				}
+			}
+			// Left
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'left');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-top: 15px solid transparent;
+					border-bottom: 15px solid transparent;
+					border-right: 20px solid currentColor;
+				}
+			}
+			// Right
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'right');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-top: 15px solid transparent;
+					border-bottom: 15px solid transparent;
+					border-left: 20px solid currentColor;
+				}
+			}
+			// Bottom left
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'bottom-left');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-right: 30px solid transparent;
+					border-bottom: 20px solid currentColor;
+				}
+			}
+			// Bottom right
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'bottom-right');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-left: 30px solid transparent;
+					border-bottom: 20px solid currentColor;
+				}
+			}
+			// Top left
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'top-left');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-right: 30px solid transparent;
+					border-top: 20px solid currentColor;
+				}
+			}
+			// Top right
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'top-right');
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-left: 30px solid transparent;
+					border-top: 20px solid currentColor;
+				}
+			}
+		}
+		@include it('Considers the `$color` argument') {
+			@include assert {
+				@include output {
+					@include triangle(30px, 20px, 'top', #f00);
+				}
+				@include expect {
+					display: block;
+					width: 0;
+					height: 0;
+					border-left: 15px solid transparent;
+					border-right: 15px solid transparent;
+					border-bottom: 20px solid #f00;
+				}
+			}
+		}
+	}
+}

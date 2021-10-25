@@ -1,0 +1,20 @@
+@use 'true' as *; // sass-true
+@use './transform-center.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('transform-center') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include transform-center;
+				}
+				@include expect {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@use 'true' as *; // sass-true
+@use './strip-unit.scss' as *;
+
+@include describe('Functions') {
+	@include describe('strip-unit') {
+		@include it('Returns the unitless number got from a given number') {
+			@include assert-equal(strip-unit(10%), 10);
+			@include assert-equal(strip-unit(-15px), -15);
+			@include assert-equal(strip-unit(1.1em), 1.1);
+			@include assert-equal(strip-unit(0ch), 0);
+			@include assert-equal(strip-unit(0), 0);
+			@include assert-equal(strip-unit(100), 100);
+		}
+		@include it('Returns the unitless number got from a given pseudo-number string') {
+			@include assert-equal(strip-unit('10%'), 10);
+			@include assert-equal(strip-unit('-15px'), -15);
+			@include assert-equal(strip-unit('1.1em'), 1.1);
+			@include assert-equal(strip-unit('0ch'), 0);
+			@include assert-equal(strip-unit('0'), 0);
+			@include assert-equal(strip-unit('100'), 100);
+		}
+	}
+}

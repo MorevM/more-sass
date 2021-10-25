@@ -1,0 +1,20 @@
+@use 'true' as *; // sass-true
+@use './tint.scss' as *;
+
+@include describe('Functions') {
+	@include describe('tint') {
+		@include it('Returns the result color of mixing the original color with white') {
+			@include assert-equal(tint(#808080, 20), #999999);
+			@include assert-equal(tint(#808080, 45), #b9b9b9);
+			@include assert-equal(tint(#808080, 100), #ffffff);
+		}
+		@include it('Works correctly with shorthand HEX notation') {
+			@include assert-equal(tint(#f00, 50), #ff8080);
+		}
+		@include it('Always returns white color if it is the original color') {
+			@include assert-equal(tint(#ffffff, 20), #ffffff);
+			@include assert-equal(tint(#ffffff, 45), #ffffff);
+			@include assert-equal(tint(#ffffff, 100), #ffffff);
+		}
+	}
+}

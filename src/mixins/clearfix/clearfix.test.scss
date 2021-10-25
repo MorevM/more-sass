@@ -1,0 +1,34 @@
+@use 'true' as *; // sass-true
+@use './clearfix.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('clearfix') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include clearfix;
+				}
+				@include expect {
+					&::after {
+						content: '';
+						display: block;
+						clear: both;
+					}
+				}
+			}
+		}
+	}
+	@include describe('clearfix-element') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include clearfix-element;
+				}
+				@include expect {
+					display: block;
+					clear: both;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+@use 'true' as *; // sass-true
+@use './with-unit.scss' as *;
+
+@include describe('Functions') {
+	@include describe('with-unit') {
+		@include it('Returns a number with unit got from a given unitless number') {
+			@include assert-equal(with-unit(10), 10px);
+			@include assert-equal(with-unit(20, '%'), 20%);
+			@include assert-equal(with-unit(0), 0px);
+		}
+		@include it('Returns a number with unit got from a given pseudo-number string') {
+			@include assert-equal(with-unit('10'), 10px);
+			@include assert-equal(with-unit('20', '%'), 20%);
+			@include assert-equal(with-unit('0'), 0px);
+		}
+		@include it('Returns the input not-unitless number as is') {
+			@include assert-equal(with-unit(10px, '%'), 10px);
+		}
+		@include it('Returns the not-number input value as is') {
+			@include assert-equal(with-unit('string'), 'string');
+			@include assert-equal(with-unit(null), null);
+		}
+	}
+}

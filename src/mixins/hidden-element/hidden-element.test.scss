@@ -1,0 +1,55 @@
+@use 'true' as *; // sass-true
+@use './hidden-element.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('hidden-element') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include hidden-element;
+				}
+				@include expect {
+					visibility: hidden;
+					opacity: 0;
+				}
+			}
+		}
+		@include it('Considers the `$z-index` argument') {
+			@include assert {
+				@include output {
+					@include hidden-element(-10);
+				}
+				@include expect {
+					z-index: -10;
+					visibility: hidden;
+					opacity: 0;
+				}
+			}
+		}
+	}
+	@include describe('hidden-element-active') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include hidden-element-active;
+				}
+				@include expect {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+		@include it('Considers the `$z-index` argument') {
+			@include assert {
+				@include output {
+					@include hidden-element-active(10);
+				}
+				@include expect {
+					z-index: 10;
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

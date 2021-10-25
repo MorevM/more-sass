@@ -1,0 +1,33 @@
+@use 'true' as *; // sass-true
+@use './br.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('br-hide') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include br-hide;
+				}
+				@include expect {
+					br {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	@include describe('br-show') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include br-show;
+				}
+				@include expect {
+					br {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}

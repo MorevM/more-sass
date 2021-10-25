@@ -1,0 +1,83 @@
+@use 'true' as *; // sass-true
+@use './margin.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('margin') {
+		@include it('Works correctly with one value') {
+			@include assert {
+				@include output {
+					@include margin(1px);
+				}
+				@include expect {
+					margin-top: 1px;
+					margin-right: 1px;
+					margin-bottom: 1px;
+					margin-left: 1px;
+				}
+			}
+		}
+		@include it('Works correctly with two values') {
+			@include assert {
+				@include output {
+					@include margin(1px 2px);
+				}
+				@include expect {
+					margin-top: 1px;
+					margin-right: 2px;
+					margin-bottom: 1px;
+					margin-left: 2px;
+				}
+			}
+		}
+		@include it('Works correctly with three values') {
+			@include assert {
+				@include output {
+					@include margin(1px 2px 3px);
+				}
+				@include expect {
+					margin-top: 1px;
+					margin-right: 2px;
+					margin-bottom: 3px;
+					margin-left: 2px;
+				}
+			}
+		}
+		@include it('Works correctly with four values') {
+			@include assert {
+				@include output {
+					@include margin(1px 2px 3px 4px);
+				}
+				@include expect {
+					margin-top: 1px;
+					margin-right: 2px;
+					margin-bottom: 3px;
+					margin-left: 4px;
+				}
+			}
+		}
+		@include it('Skips nullable values') {
+			@include assert {
+				@include output {
+					@include margin(null 2px n 4px);
+				}
+				@include expect {
+					margin-right: 2px;
+					margin-left: 4px;
+				}
+			}
+		}
+		@include it('Works correctly with string values') {
+			@include assert {
+				@include output {
+					@include margin(1px 2px '3px !important' 4px);
+				}
+				@include expect {
+					margin-top: 1px;
+					margin-right: 2px;
+					margin-bottom: 3px !important;
+					margin-left: 4px;
+				}
+			}
+		}
+	}
+}

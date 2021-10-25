@@ -1,0 +1,83 @@
+@use 'true' as *; // sass-true
+@use './padding.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('padding') {
+		@include it('Works correctly with one value') {
+			@include assert {
+				@include output {
+					@include padding(1px);
+				}
+				@include expect {
+					padding-top: 1px;
+					padding-right: 1px;
+					padding-bottom: 1px;
+					padding-left: 1px;
+				}
+			}
+		}
+		@include it('Works correctly with two values') {
+			@include assert {
+				@include output {
+					@include padding(1px 2px);
+				}
+				@include expect {
+					padding-top: 1px;
+					padding-right: 2px;
+					padding-bottom: 1px;
+					padding-left: 2px;
+				}
+			}
+		}
+		@include it('Works correctly with three values') {
+			@include assert {
+				@include output {
+					@include padding(1px 2px 3px);
+				}
+				@include expect {
+					padding-top: 1px;
+					padding-right: 2px;
+					padding-bottom: 3px;
+					padding-left: 2px;
+				}
+			}
+		}
+		@include it('Works correctly with four values') {
+			@include assert {
+				@include output {
+					@include padding(1px 2px 3px 4px);
+				}
+				@include expect {
+					padding-top: 1px;
+					padding-right: 2px;
+					padding-bottom: 3px;
+					padding-left: 4px;
+				}
+			}
+		}
+		@include it('Skips nullable values') {
+			@include assert {
+				@include output {
+					@include padding(null 2px n 4px);
+				}
+				@include expect {
+					padding-right: 2px;
+					padding-left: 4px;
+				}
+			}
+		}
+		@include it('Works correctly with string values') {
+			@include assert {
+				@include output {
+					@include padding(1px 2px '3px !important' 4px);
+				}
+				@include expect {
+					padding-top: 1px;
+					padding-right: 2px;
+					padding-bottom: 3px !important;
+					padding-left: 4px;
+				}
+			}
+		}
+	}
+}

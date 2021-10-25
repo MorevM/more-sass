@@ -1,0 +1,22 @@
+@use 'true' as *; // sass-true
+@use './reset-input.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('reset-input') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include reset-input;
+				}
+				@include expect {
+					margin: 0;
+					padding: 0;
+					background: none;
+					border: none;
+					box-shadow: none;
+					appearance: none;
+				}
+			}
+		}
+	}
+}
