@@ -1,8 +1,9 @@
 {
-  "name": "more-sass",
-  "description": "Library of useful SCSS mixins and functions",
-  "version": "0.0.1",
+	"name": "more-sass",
+	"description": "Library of useful SCSS mixins and functions",
+	"version": "0.0.1",
 	"license": "MIT",
+	"type": "module",
 	"author": {
 		"name": "Maxim Morev",
 		"email": "max.seainside@gmail.com"
@@ -16,28 +17,22 @@
 		"url": "https://github.com/MorevM/more-sass/issues"
 	},
 	"main": "src/_index.scss",
-  "scripts": {
-    "test": "jest",
-    "dev": "vite dev",
-    "docs": "vuepress dev docs --temp .temp"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "glob": "^7.2.0",
-    "jest": "^27.2.4",
-    "sass-loader": "^10",
-    "sass-true": "^6.0.1",
-    "v-press-plus": "^0.2.3",
-    "vite": "^2.6.7",
-    "vite-plugin-components": "^0.13.3",
-    "vite-plugin-vue2": "^1.9.0",
-    "vue": "^2.6.14",
-    "vue-template-compiler": "^2.6.14",
-    "vuepress": "^1.8.2",
-    "vuepress-plugin-vue-demo": "^1.0.15",
-    "watchpack": "1.6.1"
-  },
-  "peerDependencies": {
-    "sass": "^1.43.2"
-  }
+	"scripts": {
+		"postinstall": "link-module-alias",
+		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
+		"test": "yarn esm-jest ./tools/tests/test.js --config ./tools/tests/jest.config.js"
+	},
+	"devDependencies": {
+		"glob": "^7.2.0",
+		"jest": "^27.2.4",
+		"link-module-alias": "^1.2.0",
+		"sass": "^1.43.2",
+		"sass-true": "^6.0.1"
+	},
+	"peerDependencies": {
+		"sass": "^1.43.2"
+	},
+	"_moduleAliases": {
+		"~utility": "./tools/_utility"
+	}
 }
