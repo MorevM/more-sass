@@ -32,7 +32,7 @@
 	} @else if ($direction == 'bottom-left') {
 		border-right: #{$width} solid transparent;
 		border-bottom: #{$height} solid #{$color};
-	} @else if ($direction == 'bottom-left') {
+	} @else if ($direction == 'bottom-right') {
 		border-left: #{$width} solid transparent;
 		border-bottom: #{$height} solid #{$color};
 	} @else if ($direction == 'top-left') {
