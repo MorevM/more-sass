@@ -8,7 +8,7 @@
  * @param    {string}    $delimiter ['']        The boundary string.
  * @param    {string}    $separator ['auto']    The output list separator (space|comma|slash|auto).
  * 
- * @return   {list}      A list containing strings created by splitting the original string.
+ * @return   {list}      A list containing strings created by splitting the input string.
  */
 @function str-split($string, $delimiter: '', $separator: 'auto') {
 	$string: #{$string};

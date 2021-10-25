@@ -33,7 +33,7 @@
 /**
  * Converts a given pseudo-number string to a real number.
  * 
- * @param    {string}     $string    The input value.
+ * @param    {string|number}    $string    The input value.
  * 
  * @return   {?number}    Numeric value or null if value is not a valid number.
  */

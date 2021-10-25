@@ -55,7 +55,6 @@
 	);
 
 	@if (not map.has-key($symbols, '#{$char}')) {
-		@warn 'Unknown key `#{$char}` in $symbols';
 		@return null;
 	}
 

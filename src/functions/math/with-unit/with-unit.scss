@@ -7,8 +7,8 @@
 /**
  * Sets default unit for a given unitless number.
  * 
- * @param    {number}    $value          The input value.
- * @param    {string}    $unit ['px']    Default unit (one of valid CSS units).
+ * @param    {number|string}    $value          The input value.
+ * @param    {string}           $unit ['px']    Default unit (one of valid CSS units).
  * 
  * @return   {number}    Original number converted to a given unit.
  */

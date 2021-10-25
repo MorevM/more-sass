@@ -6,7 +6,7 @@
  * @param    {string}    $display ['block']    Display property value.
  * @param    {string}    $content ['']         Content property value.
  */
-@mixin pseudo($display: block, $content: '') {
+@mixin pseudo($display: 'block', $content: '') {
 	content: $content;
 	display: string.unquote($display);
 }
