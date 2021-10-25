@@ -1,3 +1,4 @@
+@use 'sass:string';
 @use '../../functions/math/with-unit/with-unit.scss' as *;
 
 /**
@@ -11,6 +12,6 @@
 	$width: with-unit($width);
 	$height: with-unit($height);
 
-	width: if($width == 'n', null, $width);
-	height: if($height == 'n', null, $height);
+	width: if($width == 'n', null, string.unquote(#{$width}));
+	height: if($height == 'n', null, string.unquote(#{$height}));
 }
