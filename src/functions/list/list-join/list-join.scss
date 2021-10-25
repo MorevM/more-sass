@@ -11,13 +11,16 @@
  * @return   {string}    A string representation of all the list elements in the same order, with the separator string between each element.
  */
 @function list-join($list, $separator: '') {
-
 	$output: '';
+	
+	@if (list.length($list) < 1) {
+		@return '';
+	}
 
 	@for $i from 1 through list.length($list) {
 		$item: list.nth($list, $i);
 		$output: string.unquote('#{$output}#{$separator}#{if(meta.type-of($item) == 'list', list-join($item, $separator), $item)}');
 	}
 
-	@return string.slice($output, 2);
+	@return string.slice($output, string.length($separator) + 1);
 }
