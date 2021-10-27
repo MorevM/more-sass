@@ -14,7 +14,7 @@
  * 
  * @param     {list}    $values    A list of values.
  * 
- * @return    {list}    Full set of positioning properties.
+ * @return    {map}     Full set of positioning properties structured of (position: value).
  */
 @function parse-directions($values...) {
 	@if (list.length($values) == 1) {

@@ -35,7 +35,7 @@
 				}
 			}
 		}
-		@include it('Works correctly with not-unitless values') {
+		@include it('Works correctly with not unitless values') {
 			@include assert {
 				@include output {
 					@include aspect-ratio(1280px, 720px);

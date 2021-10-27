@@ -13,7 +13,7 @@
 			@include assert-equal(with-unit('20', '%'), 20%);
 			@include assert-equal(with-unit('0'), 0px);
 		}
-		@include it('Returns the input not-unitless number as is') {
+		@include it('Returns the input not unitless number as is') {
 			@include assert-equal(with-unit(10px, '%'), 10px);
 		}
 		@include it('Returns the not-number input value as is') {
