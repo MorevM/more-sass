@@ -1,0 +1,27 @@
+@use 'sass:list';
+@use 'sass:selector';
+@use '../../functions/list/list-join/list-join.scss' as *;
+@use '../../functions/string/str-split/str-split.scss' as *;
+
+/**
+ * Allows to use multiple modifiers in single selector while using BEM methodology.
+ *
+ * @param    {list}    $modifiers    A list of additional modifiers.
+ */
+@mixin bem-modifiers($modifiers...) {
+	$selector: str-split(#{list.nth(selector.parse(&), 1)}, '--');
+	$selector-element: list.nth($selector, 1);
+	$selector-modifier: if(list.length($selector) >= 2, list.nth($selector, 2), null);
+
+	@if (list.length($modifiers) == 1) {
+		$modifiers: list.nth($modifiers, 1);
+	}
+
+	@if ($selector-modifier) {
+		$modifiers: list.join('--#{$selector-modifier}', $modifiers);
+	}
+
+	@at-root #{list-join(selector.append($selector-element, $modifiers), '')} {
+		@content;
+	}
+}

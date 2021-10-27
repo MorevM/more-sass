@@ -1,0 +1,44 @@
+@use 'sass:list';
+@use 'sass:selector';
+@use 'sass:string';
+@use '../../functions/list/list-slice/list-slice.scss' as *;
+@use '../../functions/string/str-trim/str-trim.scss' as *;
+@use '../../variables' as vars;
+
+/**
+ * Allows to set a pseudo-element rules depending on its parent state
+ * right in the rule set of the pseudo-element itself.
+ *
+ * @param    {list}    $states    Pseudo-element parent state(s) (pseudo-classes, modifiers classes, etc.).
+ */
+ @mixin parent-state($states...) {
+	$selector: #{list.nth(selector.parse(&), 1)};
+	$pseudo: null;
+
+	$pseudo-elements: vars.$pseudo-elements;
+	$_pseudo-elements: $pseudo-elements;
+
+	@while (list.length($_pseudo-elements) > 0) {
+		$pseudo-element: list.nth($_pseudo-elements, 1);
+		$_pseudo-elements: list-slice($_pseudo-elements, 2);
+
+		@if (string.slice($selector, string.length($pseudo-element) * -1) == $pseudo-element) {
+			$pseudo: $pseudo-element;
+			$selector: string.slice($selector, 1, string.length($pseudo) * -1 - 1);
+			$_pseudo-elements: ();
+		}
+	}
+	
+	@if (str-trim($selector) != '') {
+		@if (list.length($states) == 1) {
+			$states: list.nth($states, 1);
+		}
+
+		$selector: selector.append($selector, $states);
+		$selector: selector.append($selector, $pseudo);
+
+		@at-root #{$selector} {
+			@content;
+		}
+	}
+}
