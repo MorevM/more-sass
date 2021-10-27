@@ -40,7 +40,7 @@
 
 	$apply: map.get(
 		$properties,
-		if($direction and map.has-key($properties, $direction), $direction, 'all')
+		if($direction == null, 'all', $direction)
 	);
 
 	// Set values

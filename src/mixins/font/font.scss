@@ -22,7 +22,7 @@
 	$params: str-split(#{$params}, ' ');
 
 	@each $param in $params {
-		// font-weight
+		// font-style
 		@if (list-includes(vars.$font-styles, $param)) {
 			$font-style: string.unquote($param);
 		}
@@ -49,7 +49,7 @@
 			@if ($numval) {
 				$font-size: with-unit($numval);
 			} @else {
-				$font-family: if(not $font-family, $param, '#{$font-family} #{$param}');
+				$font-family: if(not $font-family, $param, $font-family + ' ' + $param);
 			}
 		}
 	}

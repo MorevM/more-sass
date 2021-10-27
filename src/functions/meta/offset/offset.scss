@@ -1,4 +1,5 @@
 @use '../column/column.scss' as *;
+@use '../../math/with-unit/with-unit.scss' as *;
 
 /**
  * Generates a value or expression that allows to set a size
@@ -13,7 +14,7 @@
 	$base: column($expression, $gutter);
 
 	@if ($gutter) {
-		@return calc(#{$base} + #{$gutter});
+		@return calc(#{$base} + #{with-unit($gutter)});
 	} @else {
 		@return $base;
 	}
