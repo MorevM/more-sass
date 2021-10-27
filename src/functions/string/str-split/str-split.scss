@@ -15,19 +15,33 @@
 	$delimiter: #{$delimiter};
 	$output: ();
 
+	@if ($string == '') {
+		$output: list.append($output, '', $separator);
+	}
+
 	@while (string.length($string) > 0) {
 		@if ($delimiter == '') {
 			$output: list.append($output, string.slice($string, 1, 1), $separator);
 			$string: string.slice($string, 2);
 		} @else {
 			$index: string.index($string, $delimiter);
-			
+			$is-start: $index == 1;
+			$is-end: $index == string.length($string) - string.length($delimiter) + 1;
+
 			@if (not $index) {
 				$output: list.append($output, $string, $separator);
 				$string: '';
-			} @else if ($index == 1) {
-				$output: $output;
-				$string: string.slice($string, $index + string.length($delimiter));
+			} @else if ($is-start) {
+				$output: list.append($output, '');
+				$string: string.slice($string, string.length($delimiter) + 1);
+
+				@if ($string == '') {
+					$output: list.append($output, '');
+				}
+			} @else if ($is-end) {
+				$output: list.append($output, string.slice($string, 1, $index - 1), $separator);
+				$output: list.append($output, '', $separator);
+				$string: '';
 			} @else {
 				$output: list.append($output, string.slice($string, 1, $index - 1), $separator);
 				$string: string.slice($string, $index + string.length($delimiter));
