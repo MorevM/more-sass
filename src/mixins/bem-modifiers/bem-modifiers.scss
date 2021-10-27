@@ -1,6 +1,7 @@
 @use 'sass:list';
 @use 'sass:selector';
 @use '../../functions/list/list-join/list-join.scss' as *;
+@use '../../functions/list/list-slice/list-slice.scss' as *;
 @use '../../functions/string/str-split/str-split.scss' as *;
 
 /**
@@ -9,19 +10,29 @@
  * @param    {list}    $modifiers    A list of additional modifiers.
  */
 @mixin bem-modifiers($modifiers...) {
-	$selector: str-split(#{list.nth(selector.parse(&), 1)}, '--');
-	$selector-element: list.nth($selector, 1);
-	$selector-modifier: if(list.length($selector) >= 2, list.nth($selector, 2), null);
+	$separator: '--';
+
+	$selectors: str-split(#{list.nth(selector.parse(&), 1)}, ' ');
+	$ancestors: list-slice($selectors, 1, -2);
+	$main: list-slice($selectors, -1);
+
+	$bem: str-split($main, $separator);
+	$element: list.nth($bem, 1);
+	$modifier: if(list.length($bem) >= 2, list.nth($bem, 2), null);
 
 	@if (list.length($modifiers) == 1) {
 		$modifiers: list.nth($modifiers, 1);
 	}
 
-	@if ($selector-modifier) {
-		$modifiers: list.join('--#{$selector-modifier}', $modifiers);
+	@if ($modifier) {
+		$modifiers: list.join('#{$separator}#{$modifier}', $modifiers);
 	}
 
-	@at-root #{list-join(selector.append($selector-element, $modifiers), '')} {
+	$selector: list.join($ancestors, ());
+	$selector: list.join($selector, list-join(selector.append($element, $modifiers), ''));
+	$selector: list-join($selector, ' ');
+
+	@at-root #{$selector} {
 		@content;
 	}
 }

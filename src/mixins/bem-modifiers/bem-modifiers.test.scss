@@ -91,5 +91,27 @@
 				}
 			}
 		}
+		@include it('Works correctly with nested blocks') {
+			@include assert {
+				@include output {
+					@at-root {
+						.block {
+							& &__element {
+								@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+									color: #f00;
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					@at-root {
+						.block .block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
+							color: #f00;
+						}
+					}
+				}
+			}
+		}
 	}
 }
