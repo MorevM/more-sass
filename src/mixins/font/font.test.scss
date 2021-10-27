@@ -1,0 +1,176 @@
+@use 'true' as *; // sass-true
+@use './font.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('font') {
+		// font-style
+		@include it('Works correctly with font-style') {
+			@include assert {
+				@include output {
+					@include font('italic');
+				}
+				@include expect {
+					font-style: italic;
+				}
+			}
+		}
+		// font-weight
+		@include it('Works correctly with font-weight') {
+			@include assert {
+				@include output {
+					@include font('300');
+				}
+				@include expect {
+					font-weight: 300;
+				}
+			}
+			@include assert {
+				@include output {
+					@include font(300);
+				}
+				@include expect {
+					font-weight: 300;
+				}
+			}
+			@include assert {
+				@include output {
+					@include font('bolder');
+				}
+				@include expect {
+					font-weight: bolder;
+				}
+			}
+		}
+		// font-size
+		@include it('Works correctly with font-size') {
+			@include assert {
+				@include output {
+					@include font(16px);
+				}
+				@include expect {
+					font-size: 16px;
+				}
+			}
+			@include assert {
+				@include output {
+					@include font('16px');
+				}
+				@include expect {
+					font-size: 16px;
+				}
+			}
+		}
+		// line-height
+		@include it('Works correctly with line-height') {
+			@include assert {
+				@include output {
+					@include font('/1.5');
+				}
+				@include expect {
+					line-height: 1.5;
+				}
+			}
+		}
+		// font-size + line-height
+		@include it('Works correctly with both font-size and line-height') {
+			@include assert {
+				@include output {
+					@include font('16px/1.5');
+				}
+				@include expect {
+					font-size: 16px;
+					line-height: 1.5;
+				}
+			}
+		}
+		// font-style + font-weight + font-size + line-height
+		@include it('Works correctly with full set of properties except font-family') {
+			@include assert {
+				@include output {
+					@include font('italic 700 16px/1.5');
+				}
+				@include expect {
+					font-style: italic;
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 1.5;
+				}
+			}
+			@include assert {
+				@include output {
+					@include font('16px/1.5 700 italic');
+				}
+				@include expect {
+					font-style: italic;
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 1.5;
+				}
+			}
+		}
+		// font-family + font-style + font-weight + font-size + line-height
+		@include it('Works correctly with full set of properties including one-word font-family') {
+			@include assert {
+				@include output {
+					@include font('italic 700 16px/1.5 Montserrat');
+				}
+				@include expect {
+					font-family: Montserrat;
+					font-style: italic;
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 1.5;
+				}
+			}
+		}
+		@include it('Works correctly with full set of properties including two-words font-family (unquoted)') {
+			@include assert {
+				@include output {
+					@include font('italic 700 16px/1.5 Noto Serif');
+				}
+				@include expect {
+					font-family: Noto Serif;
+					font-style: italic;
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 1.5;
+				}
+			}
+		}
+		@include it('Works correctly with full set of properties including three-words font-family (quoted)') {
+			@include assert {
+				@include output {
+					@include font('italic 700 16px/1.5 "Agora Slab Pro"');
+				}
+				@include expect {
+					font-family: 'Agora Slab Pro';
+					font-style: italic;
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 1.5;
+				}
+			}
+		}
+		// font-family
+		@include it('Considers the `$font-family` argument') {
+			@include assert {
+				@include output {
+					@include font(16px, Montserrat);
+				}
+				@include expect {
+					font-family: Montserrat;
+					font-size: 16px;
+				}
+			}
+			@include assert {
+				@include output {
+					@include font(16px, 'Agora Slab Pro');
+				}
+				@include expect {
+					font-family: 'Agora Slab Pro';
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}

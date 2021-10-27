@@ -1,0 +1,17 @@
+@use 'true' as *; // sass-true
+@use './column.scss' as *;
+@use 'sass:string';
+
+@include describe('Functions') {
+	@include describe('column') {
+		@include it('Returns the exact value if `$gutter` argument doesn\'t set') {
+			@include assert-equal(column('6/12'), 50%);
+		}
+		@include it('Returns the `calc` expression if `$gutter` argument set') {
+			@include assert-equal(#{column('6/12', 15px)}, string.unquote('calc(100% / 2 - (15px * (12 - 6) / 12))'));
+		}
+		@include it('Works correctly with unitless `$gutter` argument') {
+			@include assert-equal(#{column('6/12', 15)}, string.unquote('calc(100% / 2 - (15px * (12 - 6) / 12))'));
+		}
+	}
+}
