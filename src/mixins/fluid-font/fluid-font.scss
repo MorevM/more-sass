@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:math';
 @use 'sass:string';
 @use '../fluid-prop/fluid-prop.scss' as *;
 @use '../../functions/string/str-split/str-split.scss' as *;
@@ -9,22 +10,25 @@
 	$param: #{$param};
 	$parsed: str-split($param, '/');
 
-	@if (list.length($parsed) > 1) {
-		@return (
-			'font-size': get-numeric(list.nth($parsed, 1)),
-			'line-height': get-numeric(list.nth($parsed, 2)),
-		);
+	$font-size: null;
+	$line-height: null;
+
+	@if (list.length($parsed) == 2) {
+		$font-size: get-numeric(list.nth($parsed, 1));
+		$line-height: get-numeric(list.nth($parsed, 2));
 	} @else if (list.length($parsed) == 1) {
-		@return (
-			'font-size': if(string.index($param, '/') == 1, null, get-numeric(list.nth($parsed, 1))),
-			'line-height': if(string.index($param, '/') == 1, get-numeric(list.nth($parsed, 1)), null),
-		);
-	} @else {
-		@return (
-			'font-size': null,
-			'line-height': null,
-		);
+		$font-size: if(string.index($param, '/') == 1, null, get-numeric(list.nth($parsed, 1)));
+		$line-height: if(string.index($param, '/') == 1, get-numeric(list.nth($parsed, 1)), null);
 	}
+	
+	@if ($line-height and math.is-unitless($line-height)) {
+		$line-height: $line-height * if($font-size, $font-size, 1);
+	}
+
+	@return (
+		'font-size': $font-size,
+		'line-height': $line-height,
+	);
 }
 
 /**
