@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn commitlint --config ./tools/linters/.commitlintrc.yaml --edit $1
