@@ -20,9 +20,9 @@
 	"scripts": {
 		"prepare": "link-module-alias && husky install ./tools/husky",
 		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-		"lint": "stylelint \"./src/**/*.scss\" --config ./tools/linters/.stylelintrc.yaml",
+		"lint": "stylelint ./src/**/*.scss --config ./.stylelintrc.yaml",
 		"lint:fix": "yarn lint --fix",
-		"test": "yarn esm-jest ./tools/tests/test.js --config ./tools/tests/jest.config.js",
+		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
 		"release": "node ./tools/release/release.js"
 	},
 	"devDependencies": {

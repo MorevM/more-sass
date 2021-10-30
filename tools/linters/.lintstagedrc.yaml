@@ -1,1 +1,0 @@
-'*.scss': 'stylelint --config ./tools/linters/.stylelintrc.yaml --fix'

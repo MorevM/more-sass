@@ -1,0 +1,2 @@
+rules:
+  no-empty-first-line: [true,  {severity: error }]
