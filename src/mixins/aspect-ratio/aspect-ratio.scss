@@ -2,14 +2,14 @@
 
 /**
  * Sets the fixed aspect ratio of the element.
- * 
+ *
  * @param    {number}    $width              The needed element width.
  * @param    {number}    $height [$width]    The needed element height.
  */
 @mixin aspect-ratio($width, $height: $width) {
 	display: block;
 	position: relative;
-	
+
 	&::before {
 		content: '';
 		display: block;

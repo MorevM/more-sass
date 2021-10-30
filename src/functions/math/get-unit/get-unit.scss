@@ -4,9 +4,9 @@
 
 /**
  * Retrieves a unit of a given number.
- * 
+ *
  * @param    {string|number}    $value    The number or pseudo-number string to get its unit.
- * 
+ *
  * @return   {?number}          A number representing the base value of received unit (1px, 1em, etc.).
  */
 @function get-unit($value) {

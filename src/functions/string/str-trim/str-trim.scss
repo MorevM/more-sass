@@ -2,9 +2,9 @@
 
 /**
  * Removes whitespace from both ends of a given string.
- * 
+ *
  * @param    {string}    $string    The string being trimmed.
- * 
+ *
  * @return   {string}    The trimmed string.
  */
  @function str-trim($string) {

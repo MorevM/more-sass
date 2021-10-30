@@ -6,14 +6,14 @@
 
 /**
  * Parses a given list of values using standard CSS order (top, right, bottom, left).
- * 
+ *
  * If one argument is specified it used for all positioning properties.
  * If two arguments are specified the first is used as 'top' and 'bottom' value, the second is used as 'left' and 'right' value.
  * If three arguments are specified the first is used as 'top' value, the second is used as 'left' and 'right' value, the third is used as 'bottom' value.
  * If four arguments are specified the first is used as 'top' value, the second is used as 'right' value, the third is used as 'bottom' value, the fourth is used as 'left' value.
- * 
+ *
  * @param     {list}    $values    A list of values.
- * 
+ *
  * @return    {map}     Full set of positioning properties structured of (position: value).
  */
 @function parse-directions($values...) {
@@ -25,17 +25,17 @@
 	$right: if(list.length($values) >= 2, string.unquote(#{list.nth($values, 2)}), $top);
 	$bottom: if(list.length($values) >= 3, string.unquote(#{list.nth($values, 3)}), $top);
 	$left: if(list.length($values) >= 4, string.unquote(#{list.nth($values, 4)}), $right);
-	
+
 	$top: if(list-includes(('', 'null', 'n'), $top), null, $top);
 	$right: if(list-includes(('', 'null', 'n'), $right), null, $right);
 	$bottom: if(list-includes(('', 'null', 'n'), $bottom), null, $bottom);
 	$left: if(list-includes(('', 'null', 'n'), $left), null, $left);
-	
+
 	$top-numeric: get-numeric($top);
 	$right-numeric: get-numeric($right);
 	$bottom-numeric: get-numeric($bottom);
 	$left-numeric: get-numeric($left);
-	
+
 	@return (
 		top: if($top-numeric, $top-numeric, $top),
 		right: if($right-numeric, $right-numeric, $right),

@@ -2,9 +2,9 @@
 
 /**
  * Retrieves a given social media brand color.
- * 
+ *
  * @param    {string}    $social    Social media code ('vk', 'fb', 'tw', etc.).
- * 
+ *
  * @return   {?color}    Social media brand color.
  */
 @function social-color($social) {

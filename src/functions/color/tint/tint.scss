@@ -2,10 +2,10 @@
 
 /**
  * Mixes a given color with white.
- * 
+ *
  * @param    {color}     $color          The original color.
  * @param    {number}    $amount [10]    Amount of the white color in the result color (%).
- * 
+ *
  * @return   {color}     The result color.
  */
 @function tint($color, $amount: 10) {

@@ -20,7 +20,7 @@
 		$font-size: if(string.index($param, '/') == 1, null, get-numeric(list.nth($parsed, 1)));
 		$line-height: if(string.index($param, '/') == 1, get-numeric(list.nth($parsed, 1)), null);
 	}
-	
+
 	@if ($line-height and math.is-unitless($line-height)) {
 		$line-height: $line-height * if($font-size, $font-size, 1);
 	}
@@ -34,7 +34,7 @@
 /**
  * Sets the font properties scaling uniformly within the specified limits depending on the screen width.
  * Shorthand for both fluid-prop('font-size') and fluid-prop('line-height').
- * 
+ *
  * @param    {list}    $start    A list containing start values of screen width and font properties. Font properties passes as slash-separated string, just like in the native `font` property.
  * @param    {list}    $end      A list containing end values of screen width and font properties. Font properties passes as slash-separated string, just like in the native `font` property.
  */
@@ -50,7 +50,6 @@
 	$end-font-size: map.get($end-font, 'font-size');
 	$end-line-height: map.get($end-font, 'line-height');
 
-	// Set values
 	@if ($start-font-size and $end-font-size) {
 		@include fluid-prop('font-size', ($start-vw, $start-font-size), ($end-vw, $end-font-size));
 	}

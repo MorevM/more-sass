@@ -2,11 +2,11 @@
 
 /**
  * Extracts a slice of a given list.
- * 
+ *
  * @param    {list}      $list           The input list.
  * @param    {number}    $start-at       Starting index (inclusive).
  * @param    {number}    $end-at [-1]    Ending index (inclusive).
- * 
+ *
  * @return   {list}      The slice of the input list.
  */
 @function list-slice($list, $start-at, $end-at: -1) {

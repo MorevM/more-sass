@@ -9,7 +9,7 @@
 /**
  * Shorthand for writing `font-*` rules in syntax like vanilla CSS `font` property,
  * but without specifying the required font-family property.
- * 
+ *
  * @param    {string|list|number}    $params                A set of rules for one or more of the following properties: `font-style`, `font-weight`, `font-size`, `line-height`.
  * @param    {?string}               $font-family [null]    The `font-family` property value.
  */
@@ -44,10 +44,10 @@
 		}
 		// font-family or font-size
 		@else {
-			$numval: get-numeric($param);
+			$numeric: get-numeric($param);
 
-			@if ($numval) {
-				$font-size: with-unit($numval);
+			@if ($numeric) {
+				$font-size: with-unit($numeric);
 			} @else {
 				$font-family: if(not $font-family, $param, $font-family + ' ' + $param);
 			}

@@ -4,12 +4,12 @@
 
 /**
  * Replaces all occurrences of the search string with the replacement string.
- * 
+ *
  * @param    {string}     $string          The string being searched and replaced on.
  * @param    {string}     $search          The value being searched for.
  * @param    {string}     $replace         The replacement value that replaces found search values.
  * @param    {?number}    $limit [null]    If passed, this will be set to the number of replacements performed.
- * 
+ *
  * @return   {string}     A string with the replaced values.
  */
 @function str-replace($string, $search, $replace, $limit: null) {

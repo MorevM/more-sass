@@ -2,10 +2,10 @@
 
 /**
  * Mixes a given color with black.
- * 
+ *
  * @param    {color}     $color          The original color.
  * @param    {number}    $amount [10]    Amount of the black color in the result color (%).
- * 
+ *
  * @return   {color}     The result color.
  */
 @function shade($color, $amount: 10) {

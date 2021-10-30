@@ -4,9 +4,9 @@
 
 /**
  * Strips the unit of a given value.
- * 
+ *
  * @param    {string|number}    $value    A value to remove unit from.
- * 
+ *
  * @return   {number}    Unitless number.
  */
 @function strip-unit($value) {

@@ -4,15 +4,15 @@
 
 /**
  * Joins a given list elements with a given separator string.
- * 
+ *
  * @param    {list}      $list              The input list.
  * @param    {string}    $separator ['']    The output string separator.
- * 
+ *
  * @return   {string}    A string representation of all the list elements in the same order, with the separator string between each element.
  */
 @function list-join($list, $separator: '') {
 	$output: '';
-	
+
 	@if (list.length($list) < 1) {
 		@return '';
 	}

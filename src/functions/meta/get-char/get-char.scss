@@ -2,11 +2,11 @@
 
 /**
  * Retrieves the Unicode escape sequence of a given symbol by its human-friendly name.
- * 
+ *
  * @see https://www.w3schools.com/cssref/css_entities.asp
- * 
+ *
  * @param    {string}     $char    Human-friendly symbol name.
- * 
+ *
  * @return   {?string}    The Unicode escape sequence of a given symbol.
  */
 @function get-char($char) {

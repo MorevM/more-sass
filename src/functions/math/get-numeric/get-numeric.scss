@@ -9,32 +9,28 @@
 @use '../../../variables' as vars;
 
 @function _local-intval($value) {
-	
 	$number: 0;
 	$digits: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
-	
+
 	@for $i from 1 through string.length($value) {
-		
 		$char: string.slice($value, $i, $i);
 		$num: if(map.has-key($digits, $char), map.get($digits, $char), null);
-		
+
 		@if (not $num) {
 			@return null;
 		}
-		
+
 		$number: $number * 10 + $num;
-		
 	}
-	
+
 	@return $number;
-	
 }
 
 /**
  * Converts a given pseudo-number string to a real number.
- * 
+ *
  * @param    {string|number}    $string    The input value.
- * 
+ *
  * @return   {?number}    Numeric value or null if value is not a valid number.
  */
 @function get-numeric($value) {
@@ -44,7 +40,7 @@
 
 	$value: str-trim(#{$value});
 
-	$coeff: 1;
+	$k: 1;
 	$integral: 0;
 	$fractional: 0;
 	$exponential: 1;
@@ -64,15 +60,15 @@
 			$_units: ();
 		}
 	}
-	
+
 	// Check positive/negative
 	@if (list.index(('+', '-'), string.slice($value, 1, 1))) {
-		$coeff: if(string.slice($value, 1, 1) == '-', -1, 1);
+		$k: if(string.slice($value, 1, 1) == '-', -1, 1);
 		$value: string.slice($value, 2);
 	}
-	
+
 	// Get exponential part
-	$exp-coeff: 1;
+	$exp-k: 1;
 	$exp-num: 0;
 
 	@if (string.index($value, 'e')) {
@@ -84,7 +80,7 @@
 			@return null;
 		}
 
-		$exp-coeff: if(string.index($after, '-') == 1, -1, 1);
+		$exp-k: if(string.index($after, '-') == 1, -1, 1);
 		$exp-num: _local-intval(if(string.index($after, '-') == 1, string.slice($after, 2), $after));
 
 		@if (not $exp-num) {
@@ -92,9 +88,9 @@
 		}
 
 		$value: $before;
-		$exponential: math.pow(10, $exp-num * $exp-coeff);
+		$exponential: math.pow(10, $exp-num * $exp-k);
 	}
-	
+
 	// Get integral and fractional part
 	$integral: 0;
 	$fractional: 0;
@@ -124,5 +120,5 @@
 		}
 	}
 
-	@return ($integral + $fractional) * $exponential * $coeff * $unit;
+	@return ($integral + $fractional) * $exponential * $k * $unit;
 }

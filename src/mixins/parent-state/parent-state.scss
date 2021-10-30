@@ -28,7 +28,7 @@
 			$_pseudo-elements: ();
 		}
 	}
-	
+
 	@if (str-trim($selector) != '') {
 		@if (list.length($states) == 1) {
 			$states: list.nth($states, 1);

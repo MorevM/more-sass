@@ -5,7 +5,7 @@
 
 /**
  * Visually hides the element. It still present in the document flow.
- * 
+ *
  * @param    {?number}    $z-index [null]    The value of `z-index` property. Will be omitted if not specified.
  */
 @mixin hidden-element($z-index: null) {
@@ -17,7 +17,7 @@
 /**
  * Shows the hidden element.
  * Resets the `hidden-element` mixin usage.
- * 
+ *
  * @param    {?number}    $z-index [null]    The value of `z-index` property. Will be omitted if not specified.
  */
 @mixin hidden-element-active($z-index: null) {

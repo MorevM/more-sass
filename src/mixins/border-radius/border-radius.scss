@@ -5,12 +5,11 @@
 
 /**
  * Sets the values of the necessary rules of `border-radius` properties family.
- * 
+ *
  * @param    {list|string}    $value               Property value.
  * @param    {?string}        $direction [null]    The keyword describing the list of properties to use.
  */
 @mixin border-radius($value, $direction: null) {
-	// Get value
 	$value: str-replace(meta.inspect($value), '"', '');
 	$value: str-replace($value, 'null', '0');
 	$value: str-replace($value, ' n ', ' 0 ');
@@ -43,7 +42,6 @@
 		if($direction == null, 'all', $direction)
 	);
 
-	// Set values
 	@each $property in $apply {
 		#{$property}: string.unquote($value);
 	}
