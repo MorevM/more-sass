@@ -18,7 +18,7 @@
 	},
 	"main": "src/_index.scss",
 	"scripts": {
-		"prepare": "link-module-alias && husky install ./tools/husky",
+		"prepare": "link-module-alias && husky install .husky",
 		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
 		"lint": "stylelint ./src/**/*.scss --config ./.stylelintrc.yaml",
 		"lint:fix": "yarn lint --fix",
