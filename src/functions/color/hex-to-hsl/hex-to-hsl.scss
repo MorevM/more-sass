@@ -1,0 +1,14 @@
+@use 'sass:color';
+@use 'sass:list';
+
+/**
+ * Converts HEX color value to HSL.
+ *
+ * @param    {color}    $hex                    Color HEX value.
+ * @param    {color}    $separator ['comma']    The output list separator (space|comma|slash|auto).
+ *
+ * @return   {list}     The list of values structured of (hue, saturation, lightness).
+ */
+@function hex-to-hsl($hex, $separator: 'comma') {
+	@return list.join((color.hue($hex), color.saturation($hex), color.lightness($hex)), (), $separator);
+}

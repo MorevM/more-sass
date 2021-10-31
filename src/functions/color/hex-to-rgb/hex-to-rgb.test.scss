@@ -1,0 +1,16 @@
+@use 'true' as *; // sass-true
+@use './hex-to-rgb.scss' as *;
+
+@include describe('Functions') {
+	@include describe('hex-to-rgb') {
+		@include it('Returns the list of RGB-values of the input color') {
+			@include assert-equal(hex-to-rgb(#ff0000), (255, 0, 0));
+		}
+		@include it('Works correctly with shorthand HEX notation') {
+			@include assert-equal(hex-to-rgb(#f00), (255, 0, 0));
+		}
+		@include it('Considers the `$separator` argument') {
+			@include assert-equal(hex-to-rgb(#ff0000, 'space'), (255 0 0));
+		}
+	}
+}

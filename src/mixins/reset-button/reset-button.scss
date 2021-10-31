@@ -1,19 +1,10 @@
 /**
- * [EN]
- * Resets any button default styles.
- *
- * [RU]
- * Сбрасывает стили по умолчанию для кнопки.
- *
- * [Example]
- * .button {
- *   @include reset-button;
- * }
+ * Resets default styles of button elements.
  */
  @mixin reset-button {
 	margin: 0;
 	padding: 0;
-  font: inherit;
+	font: inherit;
 	color: currentColor;
 	width: auto;
 	background: none;

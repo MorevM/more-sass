@@ -1,14 +1,5 @@
 /**
- * [EN]
- * Visually hides element, but stay it accessible.
- *
- * [RU]
- * Визуально скрывает элемент, но оставляет его доступным.
- *
- * [Example]
- * .screen-reader-text {
- *   @include visually-hidden;
- * }
+ * Visually hides the element but keeps it accessible.
  */
 @mixin visually-hidden {
 	position: absolute;

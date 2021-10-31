@@ -1,0 +1,28 @@
+@use 'sass:list';
+@use 'sass:math';
+@use '../../math/get-numeric/get-numeric.scss' as *;
+@use '../../math/with-unit/with-unit.scss' as *;
+@use '../../string/str-split/str-split.scss' as *;
+
+/**
+ * Generates a value or expression that allows to set a size
+ * exactly equalled a given number of layout columns.
+ *
+ * @param    {string}     $expression       An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`.
+ * @param    {?number}    $gutter [null]    Space between columns.
+ *
+ * @return   {string|number}    Calc expression or exact value.
+ */
+@function column($expression, $gutter: null) {
+	$expression: #{$expression};
+	$parsed: str-split($expression, '/');
+
+	$columns: get-numeric(list.nth($parsed, 1));
+	$total: get-numeric(list.nth($parsed, 2));
+
+	@if ($gutter) {
+		@return calc(100% / #{math.div($total, $columns)} - (#{with-unit($gutter)} * (#{$total} - #{$columns}) / #{$total}));
+	}
+
+	@return math.div(100, math.div($total, $columns)) * 1%;
+}

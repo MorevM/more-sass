@@ -1,0 +1,36 @@
+/**
+ * Valid CSS units.
+ */
+$units: (
+	// Percentage
+	'%': 1%,
+	// Length: absolute
+	'px': 1px,
+	'pt': 1pt,
+	'cm': 1cm,
+	'mm': 1mm,
+	'in': 1in,
+	'pc': 1pc,
+	// Length: font
+	'em': 1em,
+	'rem': 1rem,
+	'ch': 1ch,
+	'ex': 1ex,
+	// Length: viewport
+	'vh': 1vh,
+	'vw': 1vw,
+	'vmin': 1vmin,
+	'vmax': 1vmax,
+	// Time
+	's': 1s,
+	'ms': 1ms,
+	// Angle
+	'deg': 1deg,
+	'grad': 1grad,
+	'rad': 1rad,
+	'turn': 1turn,
+	// Resolution
+	'dpi': 1dpi,
+	'dpcm': 1dpcm,
+	'dppx': 1dppx,
+);

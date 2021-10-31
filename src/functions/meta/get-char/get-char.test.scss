@@ -1,0 +1,14 @@
+@use 'true' as *; // sass-true
+@use './get-char.scss' as *;
+
+@include describe('Functions') {
+	@include describe('get-char') {
+		@include it('Returns the Unicode escape sequence of a given symbol') {
+			@include assert-equal(get-char('dollar'), '\0024');
+			@include assert-equal(get-char('copyright'), '\00A9');
+		}
+		@include it('Returns null if a given symbol name is not valid') {
+			@include assert-equal(get-char('string'), null);
+		}
+	}
+}

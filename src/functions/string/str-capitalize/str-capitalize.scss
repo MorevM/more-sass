@@ -1,0 +1,13 @@
+@use 'sass:string';
+
+/**
+ * Capitalizes a given string.
+ *
+ * @param     {string}    $string    The input string.
+ *
+ * @return    {string}    String with first character converted to uppercase.
+ */
+@function str-capitalize($string) {
+	$string: #{$string};
+	@return string.to-upper-case(string.slice($string, 1, 1)) + string.slice($string, 2);
+}

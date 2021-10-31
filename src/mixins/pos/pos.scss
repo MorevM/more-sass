@@ -1,44 +1,30 @@
+@use 'sass:map';
+@use 'sass:string';
+@use '../../functions/meta/parse-directions/parse-directions.scss' as *;
+
 /**
- * [EN]
- * Shortcut for positioning elements.
- * Values can be described like "padding" property values.
- * Pass null to omit direction.
+ * Shorthands for using position properties.
  *
- * [RU]
- * Короткое свойство для позиционирования элементов.
- * Значения могут быть указаны подобно значениям свойства "padding".
- * Передача null позволяет опустить свойство.
- *
- * [Example]
- * .block {
- *   @include pos(absolute, 10px null);
- * }
- * ----->
- * .block {
- *   position: absolute;
- *   top: 10px;
- *   bottom: 10px;
- * }
- *
- * @param      {String}  $position  [absolute]   - Position property
- * @param      {Array}   $values    []           - Position values
+ * @param    {string}    $position [absolute]    Position type (relative, absolute, etc.).
+ * @param    {list}      $values []              Position values list in default order (top-right-bottom-left).
  */
 @mixin pos($position: absolute, $values...) {
-	$values: parse-directions($values);
-	position: $position;
-	top: map-get($values, 'top');
-	right: map-get($values, 'right');
-	bottom: map-get($values, 'bottom');
-	left: map-get($values, 'left');
+	$values: parse-directions($values...);
+	position: string.unquote($position);
+	top: map.get($values, 'top');
+	right: map.get($values, 'right');
+	bottom: map.get($values, 'bottom');
+	left: map.get($values, 'left');
 }
 
-/**
- * Shorthands for shorthand? :)
- *
- * @param      {Array}  $values   - Position values
- */
-@mixin pos-rel($values...) { @include pos(relative, $values...); }
+@mixin pos-rel($values...) {
+	@include pos('relative', $values...);
+}
 
-@mixin pos-abs($values...) { @include pos(absolute, $values...); }
+@mixin pos-abs($values...) {
+	@include pos('absolute', $values...);
+}
 
-@mixin pos-fix($values...) { @include pos(fixed, $values...); }
+@mixin pos-fix($values...) {
+	@include pos('fixed', $values...);
+}

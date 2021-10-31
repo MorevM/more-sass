@@ -1,0 +1,49 @@
+# Base pattern:
+# type(scope?): Subject written in sentense case without trailing dot
+#
+# Body contents (optional) starting with a leading blank line,
+# written in sentence case and (preferable) ending with a dot.
+#
+# Footer contents (optional) written in sentense case and starting with
+# leading blank line.
+
+rules:
+  # Type should be defined, one from list.
+  type-empty: [2, never]
+  type-enum: [2, always, [
+    feat,
+    fix,
+    refactor,
+    test,
+    docs,
+    chore,
+    release,
+    nvm,
+    revert
+  ]]
+
+  # Scope can be omitted, but if defined, it should be in lowercase.
+  scope-enum: [0, always, []]
+  scope-empty: [0, never]
+  scope-case: [2, always, lower-case]
+
+  # Subject should be in sentence case, have length between 3 and 72,
+  # and shouldn't ends with dot.
+  subject-case: [2, always, sentence-case]
+  subject-full-stop: [2, never, '.']
+  subject-min-length: [2, always, 3]
+  subject-max-length: [2, always, 72]
+
+  # Body can be omitted, but if defined, it starts with leading blank line,
+  # should be written in sentence case and should ends with dot.
+  body-empty: [0, never]
+  body-leading-blank: [2, always]
+  body-max-line-length: [2, always, 100]
+  body-case: [2, always, sentence-case]
+  body-full-stop: [1, always, '.']
+
+  # Footer can be omitted, but if defined, it starts with leading blank line,
+  # should be written in sentence case and should ends with dot.
+  footer-empty: [0, never]
+  footer-leading-blank: [2, always]
+  footer-max-line-length: [2, always, 100]

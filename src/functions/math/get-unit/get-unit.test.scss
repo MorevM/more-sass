@@ -1,0 +1,21 @@
+@use 'true' as *; // sass-true
+@use './get-unit.scss' as *;
+
+@include describe('Functions') {
+	@include describe('get-unit') {
+		@include it('Returns base value of the input number unit') {
+			@include assert-equal(get-unit(10px), 1px);
+			@include assert-equal(get-unit(10%), 1%);
+		}
+		@include it('Returns base value of the input pseudo-number unit') {
+			@include assert-equal(get-unit('10px'), 1px);
+			@include assert-equal(get-unit('10%'), 1%);
+		}
+		@include it('Returns null if a given value is not a correct number or pseudo-number string') {
+			@include assert-equal(get-unit('string'), null);
+		}
+		@include it('Returns null if a given value is unitless number') {
+			@include assert-equal(get-unit(10), null);
+		}
+	}
+}

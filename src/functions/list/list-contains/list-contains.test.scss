@@ -1,0 +1,18 @@
+@use 'true' as *; // sass-true
+@use './list-contains.scss' as *;
+
+@include describe('Functions') {
+	@include describe('list-contains') {
+		@include it('Returns `true` if at least one of the input list values contains a given substring') {
+			@include assert-true(list-contains(('foo', 'bar', 'baz'), 'ba'));
+			@include assert-true(list-contains((100px, 'abc'), 'px'));
+			@include assert-true(list-contains((1.4em, 'abc'), 4em));
+		}
+		@include it('Returns `false` if no one of the input list values contains a given substring') {
+			@include assert-false(list-contains(('foo', 'bar', 'baz'), 'abc'));
+		}
+		@include it('Returns `false` if the input list is empty') {
+			@include assert-false(list-contains((), 'foo'));
+		}
+	}
+}

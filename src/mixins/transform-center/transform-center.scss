@@ -1,14 +1,5 @@
 /**
- * [EN]
- * Center element via absolute positioning and transform property.
- *
- * [RU]
- * Центирует элемент через абсолютное позиционирование и трансформирование.
- *
- * [Example]
- * .block {
- *   @include transform-center;
- * }
+ * Positions the element in the center of the parent element via `transform` property.
  */
 @mixin transform-center {
 	position: absolute;

@@ -1,74 +1,45 @@
+@use 'sass:math';
+
 /**
- * [EN]
- * Makes a triangle from pseudo-element.
+ * Draws a triangle.
  *
- * [RU]
- * Создаёт треугольник из псевдо-элемента.
- *
- * [Example]
- * .block {
- *   &::before {
- *     @include triangle(currentColor, right, '6px 4px', true);
- *   }
- * }
- *
- * @param  {Color}    $color      [currentColor] - The color of triangle.
- * @param  {String}   $direction  [bottom]       - The direction of triangle. May be "top", "bottom", "left" or "right".
- * @param  {String}   $size       [6px]          - The size of triangle. If you pass a string with space - triangle will be isoscaled.
- * @param  {Boolean}  $round      [false]        - Should triangle have a round tail?
+ * @param    {number}    $width                   Triangle width.
+ * @param    {number}    $height                  Triangle height.
+ * @param    {string}    $direction               Triangle direction (top|bottom|left|right|bottom-left|bottom-right|top-left|top-right).
+ * @param    {color}     $color [currentColor]    Triangle color.
  */
-@mixin triangle($color: currentColor, $direction: bottom, $size: '6px', $round: false) {
-	$second-size: null;
-	$size: unquote($size);
-	content: '';
+@mixin triangle($width, $height, $direction, $color: currentColor) {
 	display: block;
 	width: 0;
 	height: 0;
 
-	// We have a delimeter to draw not isoscaled triangle
-	@if (str-index($size, ' ')) {
-		$list: explode($size, ' ');
-		$size: unquote(nth($list, 1));
-		$second-size: unquote(nth($list, 2));
-	}
-
-	@if ($round) { border-radius: 3px; }
-
-	@if ($direction == bottom) {
-		border-top: $size solid $color;
-		border-right: $size solid transparent;
-		border-left: $size solid transparent;
-
-		@if ($second-size) {
-			border-right-width: $second-size;
-			border-left-width: $second-size;
-		}
-	} @else if ($direction == top) {
-		border-right: $size solid transparent;
-		border-bottom: $size solid $color;
-		border-left: $size solid transparent;
-
-		@if ($second-size) {
-			border-right-width: $second-size;
-			border-left-width: $second-size;
-		}
-	} @else if ($direction == left) {
-		border-top: $size solid transparent;
-		border-right: $size solid $color;
-		border-bottom: $size solid transparent;
-
-		@if ($second-size) {
-			border-top-width: $second-size;
-			border-bottom-width: $second-size;
-		}
-	} @else if ($direction == right) {
-		border-top: $size solid transparent;
-		border-bottom: $size solid transparent;
-		border-left: $size solid $color;
-
-		@if ($second-size) {
-			border-top-width: $second-size;
-			border-bottom-width: $second-size;
-		}
+	@if ($direction == 'top') {
+		border-left: #{math.div($width, 2)} solid transparent;
+		border-right: #{math.div($width, 2)} solid transparent;
+		border-bottom: #{$height} solid #{$color};
+	} @else if ($direction == 'bottom') {
+		border-left: #{math.div($width, 2)} solid transparent;
+		border-right: #{math.div($width, 2)} solid transparent;
+		border-top: #{$height} solid #{$color};
+	} @else if ($direction == 'left') {
+		border-top: #{math.div($width, 2)} solid transparent;
+		border-bottom: #{math.div($width, 2)} solid transparent;
+		border-right: #{$height} solid #{$color};
+	} @else if ($direction == 'right') {
+		border-top: #{math.div($width, 2)} solid transparent;
+		border-bottom: #{math.div($width, 2)} solid transparent;
+		border-left: #{$height} solid #{$color};
+	} @else if ($direction == 'bottom-left') {
+		border-right: #{$width} solid transparent;
+		border-bottom: #{$height} solid #{$color};
+	} @else if ($direction == 'bottom-right') {
+		border-left: #{$width} solid transparent;
+		border-bottom: #{$height} solid #{$color};
+	} @else if ($direction == 'top-left') {
+		border-right: #{$width} solid transparent;
+		border-top: #{$height} solid #{$color};
+	} @else if ($direction == 'top-right') {
+		border-left: #{$width} solid transparent;
+		border-top: #{$height} solid #{$color};
 	}
 }

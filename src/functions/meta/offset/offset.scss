@@ -1,0 +1,21 @@
+@use '../column/column.scss' as *;
+@use '../../math/with-unit/with-unit.scss' as *;
+
+/**
+ * Generates a value or expression that allows to set a size
+ * exactly equalled a given number of layout columns, plus gutter.
+ *
+ * @param    {string}     $expression       An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`.
+ * @param    {?number}    $gutter [null]    Space between columns.
+ *
+ * @return   {string|number}    Calc expression or exact value.
+ */
+@function offset($expression, $gutter: null) {
+	$base: column($expression, $gutter);
+
+	@if ($gutter) {
+		@return calc(#{$base} + #{with-unit($gutter)});
+	} @else {
+		@return $base;
+	}
+}

@@ -1,0 +1,22 @@
+@use 'sass:string';
+
+/**
+ * Removes whitespace from both ends of a given string.
+ *
+ * @param    {string}    $string    The string being trimmed.
+ *
+ * @return   {string}    The trimmed string.
+ */
+ @function str-trim($string) {
+	$string: #{$string};
+
+	@while (string.index($string, ' ') == 1) {
+		$string: string.slice($string, 2);
+	}
+
+	@while (string.slice($string, -1) == ' ') {
+		$string: string.slice($string, 0, -2);
+	}
+
+	@return $string;
+}

@@ -1,29 +1,25 @@
+@use 'sass:list';
+@use 'sass:math';
+@use '../../functions/math/strip-unit/strip-unit.scss' as *;
+
 /**
- * [EN]
- * Sets the given property value scaling uniformly within the specified limits depending on the viewport width.
- *
- * [RU]
- * Устанавливает значение переданного свойства в соответствии с указанными крайними значениями, зависящими от ширины окна браузера.
- *
- * [Example]
- * fluid-prop('padding-top', (320px, 20px), (1280px, 60px))
- *
+ * Sets a given property scaling uniformly within the specified limits depending on the screen width.
  * See https://www.madebymike.com.au/writing/fluid-type-calc-examples/.
  *
- * @param    {string}    $prop     Property name.
- * @param    {list}      $start    Scaling start values structured of ( 'screen width', 'value' ).
- * @param    {list}      $end      Scaling end values structured of ( 'screen width', 'value' ).
+ * @param    {string}     $property     Property name.
+ * @param    {list}       $start        A list containing start values of screen width and property.
+ * @param    {list}       $end          A list containing end values of screen width and property.
+ * @param    {boolean}    $set-start    Whether to use the start property value as default.
  */
-
 @mixin fluid-prop($property, $start, $end, $set-start: true) {
 	// Get params
-	$start-vw: nth($start, 1);
-	$start-val: nth($start, 2);
-	$end-vw: nth($end, 1);
-	$end-val: nth($end, 2);
+	$start-vw: list.nth($start, 1);
+	$start-val: list.nth($start, 2);
+	$end-vw: list.nth($end, 1);
+	$end-val: list.nth($end, 2);
 
-	$min-vw: min($start-vw, $end-vw);
-	$max-vw: max($start-vw, $end-vw);
+	$min-vw: math.min($start-vw, $end-vw);
+	$max-vw: math.max($start-vw, $end-vw);
 
 	$vw-diff: strip-unit($max-vw - $min-vw);
 	$val-diff: strip-unit($end-val - $start-val);
@@ -34,7 +30,7 @@
 	}
 
 	@media (min-width: $min-vw) {
-		#{$property}: calc(#{$start-val} + #{$val-diff} * ((#{100vw} - #{$min-vw}) / #{$vw-diff}));
+		#{$property}: calc(#{$start-val} + #{$val-diff} * (100vw - #{$min-vw}) / #{$vw-diff});
 	}
 
 	@media (min-width: $max-vw) {

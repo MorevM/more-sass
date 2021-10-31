@@ -1,0 +1,13 @@
+@use 'sass:list';
+
+/**
+ * Checks whether a given value exists in a given list.
+ *
+ * @param    {list}      $list      The input list.
+ * @param    {string}    $search    The searched value.
+ *
+ * @return   {boolean}
+ */
+@function list-includes($list, $search) {
+	@return list.index($list, $search) != null;
+}

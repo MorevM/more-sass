@@ -1,0 +1,28 @@
+@use 'sass:list';
+
+/**
+ * Extracts a slice of a given list.
+ *
+ * @param    {list}      $list           The input list.
+ * @param    {number}    $start-at       Starting index (inclusive).
+ * @param    {number}    $end-at [-1]    Ending index (inclusive).
+ *
+ * @return   {list}      The slice of the input list.
+ */
+@function list-slice($list, $start-at, $end-at: -1) {
+	$output: ();
+	$start: if($start-at < 0, list.length($list) + $start-at + 1, $start-at);
+	$end: if($end-at < 0, list.length($list) + $end-at + 1, $end-at);
+
+	@if ($end < $start) {
+		@return ();
+	}
+
+	@for $i from $start through $end {
+		@if ($i >= 1 and $i <= list.length($list)) {
+			$output: list.append($output, list.nth($list, $i), list.separator($list));
+		}
+	}
+
+	@return $output;
+}

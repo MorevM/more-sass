@@ -1,69 +1,48 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+@use '../../functions/string/str-replace/str-replace.scss' as *;
+
 /**
- * [EN]
- * Simplifies usage of `border-radius` property with predefined directions.
+ * Sets the values of the necessary rules of `border-radius` properties family.
  *
- * [RU]
- * Упрощает использование свойства `border-radius` с помощью предустановленных параметров направлений.
- *
- * [Example]
- * .block {
- *   @include border-radius(top, 50px);
- *   @include border-radius(cross-left, 50px);
- * }
+ * @param    {list|string}    $value               Property value.
+ * @param    {?string}        $direction [null]    The keyword describing the list of properties to use.
  */
-/* stylelint-disable declaration-block-no-redundant-longhand-properties */
-@use '../../variables';
-@use '../../utilities';
-@use 'sass:list';
+@mixin border-radius($value, $direction: null) {
+	$value: str-replace(meta.inspect($value), '"', '');
+	$value: str-replace($value, 'null', '0');
+	$value: str-replace($value, ' n ', ' 0 ');
 
-@mixin border-radius($args...) {
-	$list: join(variables.$list-of-directions, ('cross-left', 'cross-right', 'all'));
+	@if (string.slice($value, 1, 2) == 'n ') {
+		$value: '0' + string.slice($value, 2);
+	}
 
-	@if (length($args) == 0) {
-		@error('[More SASS error]: Mixin `border-radius` should be used with parameters');
-	} @else if (length($args) == 1) {
-		border-radius: utilities.transform-null(nth($args, 1), space, false);
-	} @else if length($args) == 2 {
-		$value: nth($args, 1);
-		$corner: nth($args, 2);
-		@if (index($list, $corner)) {
-			@if ($corner == 'top') {
-				border-top-left-radius: $value;
-				border-top-right-radius: $value;
-			} @else if ($corner == 'top-right') {
-				border-top-right-radius: $value;
-			} @else if ($corner == 'right') {
-				border-top-right-radius: $value;
-				border-bottom-right-radius: $value;
-			} @else if ($corner == 'bottom-right') {
-				border-bottom-right-radius: $value;
-			} @else if ($corner == 'bottom') {
-				border-bottom-left-radius: $value;
-				border-bottom-right-radius: $value;
-			} @else if ($corner == 'bottom-left') {
-				border-bottom-left-radius: $value;
-			} @else if ($corner == 'left') {
-				border-top-left-radius: $value;
-				border-bottom-left-radius: $value;
-			} @else if ($corner == 'top-left') {
-				border-top-left-radius: $value;
-			} @else if ($corner == 'all') {
-				border-radius: $value;
-			} @else if ($corner == 'cross-left') {
-				border-top-left-radius: $value;
-				border-bottom-right-radius: $value;
-			} @else if ($corner == 'cross-right') {
-				border-top-right-radius: $value;
-				border-bottom-left-radius: $value;
-			}
-		} @else {
-			@error 'Corner value must be one of the followings: #{$list}.';
-		}
-	} @else if length($args) == 4 {
-		$args: utilities.transform-null($args, space, true);
-		border-top-left-radius: nth($args, 1);
-		border-top-right-radius: nth($args, 2);
-		border-bottom-right-radius: nth($args, 3);
-		border-bottom-left-radius: nth($args, 4);
+	@if (string.slice($value, -2) == ' n') {
+		$value: string.slice($value, 1, -2) + '0';
+	}
+
+	// Get properties to apply
+	$properties: (
+		'top'           :  ('border-top-left-radius', 'border-top-right-radius'),
+		'right'         :  ('border-top-right-radius', 'border-bottom-right-radius'),
+		'bottom'        :  ('border-bottom-right-radius', 'border-bottom-left-radius'),
+		'left'          :  ('border-top-left-radius', 'border-bottom-left-radius'),
+		'top-right'     :  ('border-top-right-radius'),
+		'top-left'      :  ('border-top-left-radius'),
+		'bottom-right'  :  ('border-bottom-right-radius'),
+		'bottom-left'   :  ('border-bottom-left-radius'),
+		'cross-left'    :  ('border-top-left-radius', 'border-bottom-right-radius'),
+		'cross-right'   :  ('border-top-right-radius', 'border-bottom-left-radius'),
+		'all'           :  ('border-radius'),
+	);
+
+	$apply: map.get(
+		$properties,
+		if($direction == null, 'all', $direction)
+	);
+
+	@each $property in $apply {
+		#{$property}: string.unquote($value);
 	}
 }

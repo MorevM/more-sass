@@ -1,0 +1,26 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:string';
+
+/**
+ * Joins a given list elements with a given separator string.
+ *
+ * @param    {list}      $list              The input list.
+ * @param    {string}    $separator ['']    The output string separator.
+ *
+ * @return   {string}    A string representation of all the list elements in the same order, with the separator string between each element.
+ */
+@function list-join($list, $separator: '') {
+	$output: '';
+
+	@if (list.length($list) < 1) {
+		@return '';
+	}
+
+	@for $i from 1 through list.length($list) {
+		$item: list.nth($list, $i);
+		$output: string.unquote('#{$output}#{$separator}#{if(meta.type-of($item) == 'list', list-join($item, $separator), $item)}');
+	}
+
+	@return string.slice($output, string.length($separator) + 1);
+}

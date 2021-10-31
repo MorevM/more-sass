@@ -1,26 +1,17 @@
+@use 'sass:string';
+@use '../../functions/math/with-unit/with-unit.scss' as *;
+
 /**
- * [EN]
- * Shortcut for describing width/height of element.
- * Creates a "square" (or "rectangle" if two parameters passed).
+ * Sets the element size.
+ * Shorthand for both `width` and `height` properties.
  *
- * [RU]
- * Краткое свойство для описания свойств width/height елемента.
- * Создаёт "квадрат" (или "прямоугольник", если передано два параметра).
- *
- * [Example]
- * .block {
- *   @include box(20px);
- * }
- *
- * @param    {number}    $width                 - The width of element
- * @param    {number}    $height    [$width]    - The height of element (optional)
+ * @param    {number}    $width              The width of the element.
+ * @param    {number}    $height [$width]    The height of element.
  */
-@use '../../utilities';
+@mixin box($width, $height: $width) {
+	$width: with-unit($width);
+	$height: with-unit($height);
 
- @mixin box($width, $height: $width) {
-	$width: utilities.unitless-to-px($width);
-	$height: utilities.unitless-to-px($height);
-
-	width: $width;
-	height: $height;
+	width: if($width == 'n', null, string.unquote(#{$width}));
+	height: if($height == 'n', null, string.unquote(#{$height}));
 }

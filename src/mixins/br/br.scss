@@ -1,32 +1,11 @@
 /**
- * [EN]
- * This is coupled pair of mixins, so they described in one place.
- * Allow to manipulate with fixed line breaks in a block.
- *
- * [RU]
- * Это связанная пара миксинов, поэтому они описаны в одном файле.
- * Позволяет манипулировать фиксированными переводами строк (<br />) внутри блока.
- *
- * [Example]
- * .block {
- *   @media (--phone-landscape) {
- *     @include br-hide;
- *   }
- *
- *   @media (--desktop) {
- *     @include br-show;
- *   }
- * }
+ * This is the coupled pair of mixins
+ * allows to manipulate over the line breaks that were set manually with `br` tag.
  */
 
 /**
- * [EN]
- * Removes a line breaks from block.
- *
- * [RU]
- * Удаляет ручные переводы строк (br) из блока.
+ * Removes a line breaks inside of the current element.
  */
-
 @mixin br-hide {
 	br {
 		display: none;
@@ -34,11 +13,7 @@
 }
 
 /**
- * [EN]
- * Restores a line breaks of block.
- *
- * [RU]
- * Восстанавливает ручные переводы строк (br) из блока.
+ * Restores a line breaks inside of the current element.
  */
 @mixin br-show {
 	br {

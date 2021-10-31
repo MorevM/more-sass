@@ -1,31 +1,55 @@
-@use '../../../node_modules/sass-true' as *;
+@use 'true' as *; // sass-true
 @use './aspect-ratio.scss' as *;
 
-@include describe('aspect-ratio (mixin)') {
-	@include it('Works well with single argument') {
-		@include assert {
-			@include output {
-				@include aspect-ratio(1);
-			}
+@include describe('Mixins') {
+	@include describe('aspect-ratio') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include aspect-ratio(1);
+				}
+				@include expect {
+					display: block;
+					position: relative;
 
-			@include expect {
-				content: '';
-				display: block;
-				padding-top: 100%;
+					&::before {
+						content: '';
+						display: block;
+						padding-top: 100%;
+					}
+				}
+			}
+			@include assert {
+				@include output {
+					@include aspect-ratio(16, 9);
+				}
+				@include expect {
+					display: block;
+					position: relative;
+
+					&::before {
+						content: '';
+						display: block;
+						padding-top: 56.25%;
+					}
+				}
 			}
 		}
-	}
+		@include it('Works correctly with not unitless values') {
+			@include assert {
+				@include output {
+					@include aspect-ratio(1280px, 720px);
+				}
+				@include expect {
+					display: block;
+					position: relative;
 
-	@include it('Works well with two arguments') {
-		@include assert {
-			@include output {
-				@include aspect-ratio(2, 1);
-			}
-
-			@include expect {
-				content: '';
-				display: block;
-				padding-top: 50%;
+					&::before {
+						content: '';
+						display: block;
+						padding-top: 56.25%;
+					}
+				}
 			}
 		}
 	}

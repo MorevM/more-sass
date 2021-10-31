@@ -1,0 +1,17 @@
+@use 'true' as *; // sass-true
+@use './offset.scss' as *;
+@use 'sass:string';
+
+@include describe('Functions') {
+	@include describe('offset') {
+		@include it('Returns the exact value if `$gutter` argument doesn\'t set') {
+			@include assert-equal(offset('6/12'), 50%);
+		}
+		@include it('Returns the `calc` expression if `$gutter` argument set') {
+			@include assert-equal(#{offset('6/12', 15px)}, string.unquote('calc(calc(100% / 2 - (15px * (12 - 6) / 12)) + 15px)'));
+		}
+		@include it('Works correctly with unitless `$gutter` argument') {
+			@include assert-equal(#{offset('6/12', 15)}, string.unquote('calc(calc(100% / 2 - (15px * (12 - 6) / 12)) + 15px)'));
+		}
+	}
+}

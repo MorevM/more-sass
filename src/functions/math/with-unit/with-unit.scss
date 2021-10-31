@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@use '../get-numeric/get-numeric.scss' as *;
+@use '../../../variables' as vars;
+
+/**
+ * Sets default unit for a given unitless number.
+ *
+ * @param    {number|string}    $value          The input value.
+ * @param    {string}           $unit ['px']    Default unit (one of valid CSS units).
+ *
+ * @return   {number}    Original number converted to a given unit.
+ */
+@function with-unit($value, $unit: 'px') {
+	$numeric: if(meta.type-of($value) == 'number', $value, get-numeric($value));
+
+	@if (meta.type-of($numeric) != 'number') {
+		@return $value;
+	}
+
+	@if (math.is-unitless($numeric)) {
+		@return $numeric * map.get(vars.$units, if(map.has-key(vars.$units, $unit), $unit, 'px'));
+	}
+
+	@return $numeric;
+}

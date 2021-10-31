@@ -1,0 +1,155 @@
+@use 'true' as *; // sass-true
+@use './pos.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('pos') {
+		@include it('Works correctly with one value') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px);
+				}
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 1px;
+					bottom: 1px;
+					left: 1px;
+				}
+			}
+		}
+		@include it('Works correctly with two values') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px 2px);
+				}
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 1px;
+					left: 2px;
+				}
+			}
+		}
+		@include it('Works correctly with three values') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px 2px 3px);
+				}
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 2px;
+				}
+			}
+		}
+		@include it('Works correctly with four values') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px 2px 3px 4px);
+				}
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+				}
+			}
+		}
+		@include it('Skips nullable values') {
+			@include assert {
+				@include output {
+					@include pos('absolute', null 2px n 4px);
+				}
+				@include expect {
+					position: absolute;
+					right: 2px;
+					left: 4px;
+				}
+			}
+		}
+		@include it('Works correctly with string values') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px 2px '3px !important' 4px);
+				}
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px !important;
+					left: 4px;
+				}
+			}
+		}
+		@include it('Works correctly with both quoted and unquoted `$position` argument') {
+			@include assert {
+				@include output {
+					@include pos($position: 'absolute');
+				}
+				@include expect {
+					position: absolute;
+				}
+			}
+			@include assert {
+				@include output {
+					@include pos($position: absolute);
+				}
+				@include expect {
+					position: absolute;
+				}
+			}
+		}
+	}
+	@include describe('pos-rel') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include pos-rel(1px 2px 3px 4px);
+				}
+				@include expect {
+					position: relative;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+				}
+			}
+		}
+	}
+	@include describe('pos-abs') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include pos-abs(1px 2px 3px 4px);
+				}
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+				}
+			}
+		}
+	}
+	@include describe('pos-fix') {
+		@include it('Outputs the correct content') {
+			@include assert {
+				@include output {
+					@include pos-fix(1px 2px 3px 4px);
+				}
+				@include expect {
+					position: fixed;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+@use 'true' as *; // sass-true
+@use './str-trim.scss' as *;
+
+@include describe('Functions') {
+	@include describe('str-trim') {
+		@include it('Removes whitespaces from both ends of the input string') {
+			@include assert-equal(str-trim(' some string'), 'some string');
+			@include assert-equal(str-trim('   some string'), 'some string');
+			@include assert-equal(str-trim('some string '), 'some string');
+			@include assert-equal(str-trim('some string   '), 'some string');
+			@include assert-equal(str-trim(' some string '), 'some string');
+		}
+		@include it('Returns the input string without side whitespaces as is') {
+			@include assert-equal(str-trim('some string'), 'some string');
+		}
+		@include it('Returns the empty input string as is') {
+			@include assert-equal(str-trim(''), '');
+		}
+	}
+}

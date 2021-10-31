@@ -1,32 +1,12 @@
 /**
- * [EN]
- * This is coupled pair of mixins, so they described in one place.
- * Allows to manipulate properties that affect the visual visibility of an element.
- *
- * [RU]
- * Это связанная пара миксинов, поэтому они описаны в одном файле.
- * Позволяет манипулировать свойствами, влияющими на визуальную видимость элемента.
- *
- * [Example]
- * .dropdown {
- *   @include hidden-element(-1);
- *
- *   .parent:hover & {
- *     @include hidden-element(100);
- *   }
- * }
+ * This is the coupled pair of mixins
+ * allows to manipulate properties that affects the element visibility.
  */
 
 /**
- * [EN]
- * Visually hides an element.
- * Note: element still takes up space in document flow.
+ * Visually hides the element. It still present in the document flow.
  *
- * [RU]
- * Визуально скрывает элемент.
- * Важно: элемент по-прежнему остаётся в потоке и занимает место.
- *
- * @param      {Integer}  $zIndex     [null]   - z-index property. Will be omitted if not specified.
+ * @param    {?number}    $z-index [null]    The value of `z-index` property. Will be omitted if not specified.
  */
 @mixin hidden-element($z-index: null) {
 	z-index: $z-index;
@@ -35,15 +15,10 @@
 }
 
 /**
- * [EN]
- * Shows an hidden element.
- * Reverse function for "hidden-element".
+ * Shows the hidden element.
+ * Resets the `hidden-element` mixin usage.
  *
- * [RU]
- * Делает элемент видимым.
- * Реверсивная функция для "hidden-element".
- *
- * @param      {Integer}  $zIndex     [null]   - z-index property. Will be omitted if not specified.
+ * @param    {?number}    $z-index [null]    The value of `z-index` property. Will be omitted if not specified.
  */
 @mixin hidden-element-active($z-index: null) {
 	z-index: $z-index;

@@ -1,0 +1,182 @@
+@use 'true' as *; // sass-true
+@use './parent-state.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('parent-state') {
+		@include it('Works correctly with the element\'s pseudo-elements') {
+			@include assert {
+				@include output {
+					.element {
+						&::after {
+							@include parent-state(':hover') {
+								color: #f00;
+							}
+						}
+					}
+				}
+				@include expect {
+					.element:hover::after {
+						color: #f00;
+					}
+				}
+			}
+		}
+		@include it('Works correctly with nested elements\' pseudo-elements') {
+			@include assert {
+				@include output {
+					.parent {
+						.child {
+							&::after {
+								@include parent-state(':hover') {
+									color: #f00;
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					.parent .child:hover::after {
+						color: #f00;
+					}
+				}
+			}
+		}
+		@include it('Works correctly with siblings elements\' pseudo-elements') {
+			@include assert {
+				@include output {
+					.element {
+						& + .sibling {
+							&::after {
+								@include parent-state(':hover') {
+									color: #f00;
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					.element + .sibling:hover::after {
+						color: #f00;
+					}
+				}
+			}
+		}
+		@include it('Works correctly with modified elements\' pseudo-elements') {
+			@include assert {
+				@include output {
+					.element {
+						&.modifier {
+							&::after {
+								@include parent-state(':hover') {
+									color: #f00;
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					.element.modifier:hover::after {
+						color: #f00;
+					}
+				}
+			}
+			@include assert {
+				@include output {
+					.parent {
+						.child {
+							&.modifier {
+								&::after {
+									@include parent-state(':hover') {
+										color: #f00;
+									}
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					.parent .child.modifier:hover::after {
+						color: #f00;
+					}
+				}
+			}
+		}
+		@include it('Works correctly with BEM methodology') {
+			@include assert {
+				@include output {
+					.block {
+						&__element {
+							&::after {
+								@include parent-state(':hover') {
+									color: #f00;
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					.block__element:hover::after {
+						color: #f00;
+					}
+				}
+			}
+			@include assert {
+				@include output {
+					.block {
+						&__element {
+							&--modifier {
+								&::after {
+									@include parent-state(':hover') {
+										color: #f00;
+									}
+								}
+							}
+						}
+					}
+				}
+				@include expect {
+					.block__element--modifier:hover::after {
+						color: #f00;
+					}
+				}
+			}
+		}
+		@include it('Works correctly with multiple parent states') {
+			@include assert {
+				@include output {
+					.element {
+						&::after {
+							@include parent-state(':hover', '.is-active') {
+								color: #f00;
+							}
+						}
+					}
+				}
+				@include expect {
+					.element:hover::after,
+					.element.is-active::after {
+						color: #f00;
+					}
+				}
+			}
+		}
+		@include it('Works correctly with old syntax of pseudo-elements') {
+			@include assert {
+				@include output {
+					.element {
+						&:after {
+							@include parent-state(':hover') {
+								color: #f00;
+							}
+						}
+					}
+				}
+				@include expect {
+					.element:hover:after {
+						color: #f00;
+					}
+				}
+			}
+		}
+	}
+}
