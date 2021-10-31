@@ -27,30 +27,27 @@ const cmd = yargs(process.argv.slice(2))
 
 // Functionality
 (async function() {
-	
 	log.ln();
-	
+
 	// Get release version
 	const version = await AppRelease.getNextVersion().catch(({message}) => {
 		log.error(message).ln();
 		process.exit();
 	});
-	
+
 	// Release project
 	const release = new AppRelease({
 		version,
 		lang: cmd.lang,
 	});
-	
+
 	await release.prepareRelease()
-		.then(() => {
-			log.ln();
-		})
+		.then(() => log.ln())
 		.catch(({message}) => {
 			log.block.error(message);
 			process.exit();
 		});
-	
+
 	// Confirm releasing
 	const doPublish = await inquirer.prompt([{
 		type: 'confirm',
@@ -58,9 +55,9 @@ const cmd = yargs(process.argv.slice(2))
 		message: 'Is everything OK?',
 	}])
 		.then(({publish}) => publish);
-	
+
 	if (!doPublish) {
-		
+
 		promisify(exec)('git checkout -- .')
 			.then(() => {
 				log.block.info('Publication canceled, all changes are undone');
@@ -69,15 +66,15 @@ const cmd = yargs(process.argv.slice(2))
 				log.ln().error(stderr);
 				log.block.info('Publication canceled');
 			});
-		
+
 	} else {
-		
+
 		log.ln();
-		
+
 		release.publishRelease()
 			.then(() => log.block.success('Version %s successfully released', chalk.cyan(version)))
 			.catch(({message}) => log.block.error(message));
-		
+
 	}
-	
+
 })();
