@@ -1,5 +1,5 @@
 {
-	"name": "more-sass",
+	"name": "@morevm/more-sass",
 	"description": "The library of useful SCSS mixins and functions",
 	"version": "0.0.1",
 	"license": "MIT",
