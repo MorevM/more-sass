@@ -3,7 +3,7 @@ import {promisify} from 'util';
 import yargs from 'yargs';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import log from '~utility/log.js';
+import log from '../_utility/log.js';
 import AppRelease from './app-release/app-release.js';
 
 // Command description

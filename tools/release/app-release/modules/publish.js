@@ -1,7 +1,5 @@
 import {exec} from 'child_process';
 import {promisify} from 'util';
-import inquirer from 'inquirer';
-import log from '~utility/log.js';
 import l10n from '../l10n/l10n.js';
 
 /**
