@@ -23,7 +23,8 @@
 		"lint": "stylelint ./src/**/*.scss --config ./.stylelintrc.yaml",
 		"lint:fix": "yarn lint --fix",
 		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-		"release": "node ./tools/release/release.js"
+		"release": "node ./tools/release/release.js",
+		"docs": "cd ./docs && yarn dev"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",

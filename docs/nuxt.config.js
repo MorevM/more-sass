@@ -18,4 +18,10 @@ export default theme({
 		}],
 		defaultLocale: 'ru',
 	},
+	head: {
+		style: [
+			{cssText: 'body .prose thead th {vertical-align: top; line-height: 1.4;}'},
+			{cssText: 'body .prose pre code {font-family: inherit;}'},
+		],
+	},
 });
