@@ -10,7 +10,7 @@
  * @param    {number|string}    $value          The input value.
  * @param    {string}           $unit ['px']    Default unit (one of valid CSS units).
  *
- * @return   {number}    Original number converted to a given unit.
+ * @return   {number}    Original number transformed to a given unit.
  */
 @function with-unit($value, $unit: 'px') {
 	$numeric: if(meta.type-of($value) == 'number', $value, get-numeric($value));

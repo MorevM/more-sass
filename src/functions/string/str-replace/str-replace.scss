@@ -8,9 +8,9 @@
  * @param    {string}     $string          The string being searched and replaced on.
  * @param    {string}     $search          The value being searched for.
  * @param    {string}     $replace         The replacement value that replaces found search values.
- * @param    {?number}    $limit [null]    If passed, this will be set to the number of replacements performed.
+ * @param    {?number}    $limit [null]    If supplied, this will be set to the number of replacements performed.
  *
- * @return   {string}     A string with the replaced values.
+ * @return   {string}     The string with searched values replaced.
  */
 @function str-replace($string, $search, $replace, $limit: null) {
 	$string: #{$string};
