@@ -1,7 +1,8 @@
 ---
-title: 'color'
-description: 'More Sass - the library of useful SCSS mixins and functions.'
-position: 100
+title: color
+description: More Sass - the library of useful SCSS mixins and functions.
+position: 110
+category: Functions
 fullscreen: false
 ---
 
@@ -13,14 +14,14 @@ Converts HEX color value to HSL.
 
 **Arguments:**
 
-| Name       | Type   | Default | Description                                            |
-|------------|--------|---------|--------------------------------------------------------|
-| $hex*      | color  | —       | Color HEX value.                                       |
-| $separator | string | comma   | The output list separator (space\|comma\|slash\|auto). |
+| Name                                    | Type     | Default | Description                                            |
+|-----------------------------------------|----------|---------|--------------------------------------------------------|
+| $hex<span class="text-red-600">*</span> | `color`  | —       | Color HEX value.                                       |
+| $separator                              | `string` | comma   | The output list separator (space\|comma\|slash\|auto). |
 
 **Returns:**
 
-`list` - The list of HSL values structured of (hue, saturation, lightness).
+`list` - The list of HSL values structured of *(hue, saturation, lightness)*.
 
 **Example:**
 
@@ -35,14 +36,14 @@ Converts HEX color value to RGB.
 
 **Arguments:**
 
-| Name       | Type   | Default | Description                                            |
-|------------|--------|---------|--------------------------------------------------------|
-| $hex*      | color  | —       | Color HEX value.                                       |
-| $separator | string | comma   | The output list separator (space\|comma\|slash\|auto). |
+| Name                                    | Type     | Default | Description                                            |
+|-----------------------------------------|----------|---------|--------------------------------------------------------|
+| $hex<span class="text-red-600">*</span> | `color`  | —       | Color HEX value.                                       |
+| $separator                              | `string` | comma   | The output list separator (space\|comma\|slash\|auto). |
 
 **Returns:**
 
-`list` - The list of RGB values structured of (red, green, blue).
+`list` - The list of RGB values structured of *(red, green, blue)*.
 
 **Example:**
 
@@ -57,10 +58,10 @@ Mixes a given color with black.
 
 **Arguments:**
 
-| Name    | Type   | Default | Description                                        |
-|---------|--------|---------|----------------------------------------------------|
-| $color* | color  | —       | The original color.                                |
-| $amount | number | 10      | Amount of the black color in the result color (%). |
+| Name                                      | Type     | Default | Description                                        |
+|-------------------------------------------|----------|---------|----------------------------------------------------|
+| $color<span class="text-red-600">*</span> | `color`  | —       | The original color.                                |
+| $amount                                   | `number` | 10      | Amount of the black color in the result color (%). |
 
 **Returns:**
 
@@ -79,9 +80,9 @@ Retrieves a given social media brand color.
 
 **Arguments:**
 
-| Name     | Type   | Default | Description                                 |
-|----------|--------|---------|---------------------------------------------|
-| $social* | string | —       | Social media code ('vk', 'fb', 'tw', etc.). |
+| Name                                       | Type     | Default | Description                                 |
+|--------------------------------------------|----------|---------|---------------------------------------------|
+| $social<span class="text-red-600">*</span> | `string` | —       | Social media code ('vk', 'fb', 'tw', etc.). |
 
 **Returns:**
 
@@ -93,22 +94,25 @@ Retrieves a given social media brand color.
 @use 'more-sass' as more;
 @debug more.social-color('fb'); // color: #4267b2
 ```
+<alert type="info">
 
-> List of available codes:
-> 
-> `vk` - VKontakte  
-> `fb` - Facebook  
-> `ok` - Odnoklassniki  
-> `yt` - YouTube  
-> `tw` - Twitter  
-> `ig` - Instagram (purple)  
-> `ig-gradient` - Instagram (gradient)  
-> `tg` - Telegram  
-> `dr` - Dribble  
-> `be` - Behance  
-> `li` - Linked In  
-> `wa` - WhatsApp  
-> `vb` - Viber
+List of available codes:
+
+`vk` - VKontakte  
+`fb` - Facebook  
+`ok` - Odnoklassniki  
+`yt` - YouTube  
+`tw` - Twitter  
+`ig` - Instagram (purple)  
+`ig-gradient` - Instagram (gradient)  
+`tg` - Telegram  
+`dr` - Dribble  
+`be` - Behance  
+`li` - Linked In  
+`wa` - WhatsApp  
+`vb` - Viber
+
+</alert>
 
 ## tint
 
@@ -116,10 +120,10 @@ Mixes a given color with white.
 
 **Arguments:**
 
-| Name    | Type   | Default | Description                                        |
-|---------|--------|---------|----------------------------------------------------|
-| $color* | color  | —       | The original color.                                |
-| $amount | number | 10      | Amount of the white color in the result color (%). |
+| Name                                      | Type     | Default | Description                                        |
+|-------------------------------------------|----------|---------|----------------------------------------------------|
+| $color<span class="text-red-600">*</span> | `color`  | —       | The original color.                                |
+| $amount                                   | `number` | 10      | Amount of the white color in the result color (%). |
 
 **Returns:**
 
