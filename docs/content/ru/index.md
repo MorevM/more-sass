@@ -1,11 +1,11 @@
 ---
-title: 'Введение'
-description: 'More Sass - библиотека полезных миксинов и функций для SCSS.'
+title: Введение
+description: More Sass - библиотека полезных миксинов и функций для SCSS.
 position: 0
 fullscreen: true
 ---
 
-![Логотип More Sass](/static/preview.png)
+![Логотип More Sass](/preview.png)
 
 Библиотека полезных миксинов и функций для SCSS.
 
@@ -15,19 +15,23 @@ fullscreen: true
 ## Установка
 
 <code-group>
+  
+  <code-block label="yarn" active>
 
-<code-block label="yarn" active>
-```bash
-yarn add more-sass
-```
-</code-block>
+  ```bash
+  yarn add more-sass
+  ```
 
-<code-block label="npm">
-```bash
-npm install more-sass -P
-```
-</code-block>
+  </code-block>
 
+  <code-block label="npm">
+
+  ```bash
+  npm install more-sass
+  ```
+
+  </code-block>
+  
 </code-group>
 
 ## Использование
@@ -35,10 +39,23 @@ npm install more-sass -P
 Вы можете импортировать как всю библиотеку целиком, так и любую необходимую её часть в отдельности - переменные, миксины, функции или определённую категорию функций:
 
 ```scss
-@use 'more-sass' as more; // импорт всей библиотеки
-@use 'more-sass/variables' as more-variables; // импорт только переменных
-@use 'more-sass/mixins' as more-mixins; // импорт только миксинов
-@use 'more-sass/functions' as more-functions; // импорт только функций
-@use 'more-sass/functions/string' as more-string; // импорт определённой категории функций
-@use 'more-sass/functions/string/str-split' as *; // импорт определённой функции в глобальном пространстве имён
+// Импорт всей библиотеки
+@use 'more-sass' as more;
+
+// Импорт переменных
+@use 'more-sass/variables' as more-variables;
+
+// Импорт миксинов
+@use 'more-sass/mixins' as more-mixins;
+
+// Импорт функций
+@use 'more-sass/functions' as more-functions;
+
+// Импорт определённой категории функций
+@use 'more-sass/functions/string' as more-string;
+
+// Импорт определённой функции в глобальном пространстве имён
+@use 'more-sass/functions/string/str-split' as *;
 ```
+
+<alert type="warning">Важно!<br />More Sass необходимо использовать с основной реализацией Sass (Dart Sass).</alert>

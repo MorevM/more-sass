@@ -1,11 +1,11 @@
 ---
-title: 'Introduction'
-description: 'More Sass - the library of useful SCSS mixins and functions.'
+title: Introduction
+description: More Sass - the library of useful SCSS mixins and functions.
 position: 0
 fullscreen: true
 ---
 
-![More Sass logotype](/static/preview.png)
+![More Sass logotype](/preview.png)
 
 The library of useful SCSS mixins and functions.
 
@@ -15,19 +15,23 @@ The library of useful SCSS mixins and functions.
 ## Installation
 
 <code-group>
+  
+  <code-block label="yarn" active>
 
-<code-block label="yarn" active>
-```bash
-yarn add more-sass
-```
-</code-block>
+  ```bash
+  yarn add more-sass
+  ```
 
-<code-block label="npm">
-```bash
-npm install more-sass -P
-```
-</code-block>
+  </code-block>
 
+  <code-block label="npm">
+
+  ```bash
+  npm install more-sass
+  ```
+
+  </code-block>
+  
 </code-group>
 
 ## Usage
@@ -35,10 +39,23 @@ npm install more-sass -P
 You can import the entire library or only the necessary part of it - variables, mixins, functions, or only a specific group of functions:
 
 ```scss
-@use 'more-sass' as more; // import the entire library
-@use 'more-sass/variables' as more-variables; // import only variables
-@use 'more-sass/mixins' as more-mixins; // import only mixins
-@use 'more-sass/functions' as more-functions; // import only functions
-@use 'more-sass/functions/string' as more-string; // import only a specific group of functions
-@use 'more-sass/functions/string/str-split' as *; // import a specific function in global namespace
+// Import the entire library
+@use 'more-sass' as more;
+
+// Import variables
+@use 'more-sass/variables' as more-variables;
+
+// Import mixins
+@use 'more-sass/mixins' as more-mixins;
+
+// Import functions
+@use 'more-sass/functions' as more-functions;
+
+// Import a specific group of functions
+@use 'more-sass/functions/string' as more-string;
+
+// Import a specific function in global namespace
+@use 'more-sass/functions/string/str-split' as *;
 ```
+
+<alert type="warning">Important!<br />More Sass needs the primary implementation of Sass (Dart Sass).</alert>
