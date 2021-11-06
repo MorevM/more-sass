@@ -1,7 +1,7 @@
 ---
 title: aspect-ratio
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 210
+position: 205
 category: Миксины
 fullscreen: true
 ---
@@ -20,7 +20,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -28,11 +28,11 @@ fullscreen: true
   	@include more.aspect-ratio(1280px, 720px); // 16:9
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element {
   	display: block;
@@ -45,7 +45,7 @@ fullscreen: true
   	padding-top: 56.25%;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

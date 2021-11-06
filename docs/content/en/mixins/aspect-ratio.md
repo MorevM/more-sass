@@ -1,7 +1,7 @@
 ---
 title: aspect-ratio
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 210
+position: 205
 category: Mixins
 fullscreen: true
 ---
@@ -20,7 +20,7 @@ Sets the fixed aspect ratio of the element.
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -28,11 +28,11 @@ Sets the fixed aspect ratio of the element.
   	@include more.aspect-ratio(1280px, 720px); // 16:9
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element {
   	display: block;
@@ -45,7 +45,7 @@ Sets the fixed aspect ratio of the element.
   	padding-top: 56.25%;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

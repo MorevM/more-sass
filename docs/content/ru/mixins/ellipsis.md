@@ -1,7 +1,7 @@
 ---
 title: ellipsis
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 270
+position: 235
 category: Миксины
 fullscreen: true
 ---
@@ -19,7 +19,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -27,11 +27,11 @@ fullscreen: true
   	@include more.ellipsis;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element {
   	max-width: 100%;
@@ -40,7 +40,7 @@ fullscreen: true
   	overflow: hidden;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

@@ -1,7 +1,7 @@
 ---
 title: br
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 250
+position: 225
 category: Mixins
 fullscreen: true
 ---
@@ -21,7 +21,7 @@ Removes a line breaks inside of the current element.
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -29,17 +29,17 @@ Removes a line breaks inside of the current element.
   	@include more.br-hide;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element br {
   	display: none;
   }
   ```
-
+  
   </code-block>
   
 </code-group>
@@ -57,7 +57,7 @@ Restores a line breaks inside of the current element.
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -65,17 +65,17 @@ Restores a line breaks inside of the current element.
   	@include more.br-show;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element br {
   	display: block;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

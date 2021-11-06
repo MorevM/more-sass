@@ -1,7 +1,7 @@
 ---
 title: clearfix
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 260
+position: 230
 category: Миксины
 fullscreen: true
 ---
@@ -21,7 +21,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -29,11 +29,11 @@ fullscreen: true
   	@include more.clearfix;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element::after {
   	content: '';
@@ -41,7 +41,7 @@ fullscreen: true
   	clear: both;
   }
   ```
-
+  
   </code-block>
   
 </code-group>
@@ -59,7 +59,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -67,18 +67,18 @@ fullscreen: true
   	@include more.clearfix-element;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element {
   	display: block;
   	clear: both;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

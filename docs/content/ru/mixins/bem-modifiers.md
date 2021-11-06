@@ -1,7 +1,7 @@
 ---
 title: bem-modifiers
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 220
+position: 210
 category: Миксины
 fullscreen: true
 ---
@@ -19,7 +19,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -31,17 +31,17 @@ fullscreen: true
   	}
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
   	color: #f00;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

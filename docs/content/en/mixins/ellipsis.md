@@ -1,7 +1,7 @@
 ---
 title: ellipsis
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 270
+position: 235
 category: Mixins
 fullscreen: true
 ---
@@ -19,7 +19,7 @@ Truncates text of the current element and adds an ellipsis to represent overflow
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -27,11 +27,11 @@ Truncates text of the current element and adds an ellipsis to represent overflow
   	@include more.ellipsis;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element {
   	max-width: 100%;
@@ -40,7 +40,7 @@ Truncates text of the current element and adds an ellipsis to represent overflow
   	overflow: hidden;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

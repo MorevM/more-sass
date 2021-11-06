@@ -1,7 +1,7 @@
 ---
 title: br
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 250
+position: 225
 category: Миксины
 fullscreen: true
 ---
@@ -21,7 +21,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -29,17 +29,17 @@ fullscreen: true
   	@include more.br-hide;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element br {
   	display: none;
   }
   ```
-
+  
   </code-block>
   
 </code-group>
@@ -57,7 +57,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -65,17 +65,17 @@ fullscreen: true
   	@include more.br-show;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element br {
   	display: block;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

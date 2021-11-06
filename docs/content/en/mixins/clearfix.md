@@ -1,7 +1,7 @@
 ---
 title: clearfix
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 260
+position: 230
 category: Mixins
 fullscreen: true
 ---
@@ -21,7 +21,7 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -29,11 +29,11 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
   	@include more.clearfix;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element::after {
   	content: '';
@@ -41,7 +41,7 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
   	clear: both;
   }
   ```
-
+  
   </code-block>
   
 </code-group>
@@ -59,7 +59,7 @@ Clears the flow around the current element.
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -67,18 +67,18 @@ Clears the flow around the current element.
   	@include more.clearfix-element;
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element {
   	display: block;
   	clear: both;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

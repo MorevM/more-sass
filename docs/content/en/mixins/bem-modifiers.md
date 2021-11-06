@@ -1,7 +1,7 @@
 ---
 title: bem-modifiers
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 220
+position: 210
 category: Mixins
 fullscreen: true
 ---
@@ -19,7 +19,7 @@ Allows to use multiple modifiers in a single selector while using BEM methodolog
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -31,17 +31,17 @@ Allows to use multiple modifiers in a single selector while using BEM methodolog
   	}
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
   	color: #f00;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

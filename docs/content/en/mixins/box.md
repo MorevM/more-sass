@@ -1,7 +1,7 @@
 ---
 title: box
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 240
+position: 220
 category: Mixins
 fullscreen: true
 ---
@@ -9,7 +9,7 @@ fullscreen: true
 Sets the element size.  
 Shorthand for both `width` and `height` properties.
 
-<alert type="info">Width or height value can be skipped using `null` (preferable) or its alias `n`.</alert>
+<alert type="info">Width or height value can be omitted using `null` (preferable) or its alias `n`.</alert>
 
 ## Arguments
 
@@ -23,7 +23,7 @@ Shorthand for both `width` and `height` properties.
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -43,11 +43,11 @@ Shorthand for both `width` and `height` properties.
   	@include more.box(null, 200px);
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Output">
-
+  
   ```css
   .element-one {
   	width: 100px;
@@ -67,7 +67,7 @@ Shorthand for both `width` and `height` properties.
   	height: 200px;
   }
   ```
-
+  
   </code-block>
   
 </code-group>

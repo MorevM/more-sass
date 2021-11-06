@@ -1,7 +1,7 @@
 ---
 title: box
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 240
+position: 220
 category: Миксины
 fullscreen: true
 ---
@@ -23,7 +23,7 @@ fullscreen: true
 <code-group>
   
   <code-block label="SCSS" active>
-
+  
   ```scss
   @use 'more-sass' as more;
   
@@ -43,11 +43,11 @@ fullscreen: true
   	@include more.box(null, 200px);
   }
   ```
-
+  
   </code-block>
-
+  
   <code-block label="Результат">
-
+  
   ```css
   .element-one {
   	width: 100px;
@@ -67,7 +67,7 @@ fullscreen: true
   	height: 200px;
   }
   ```
-
+  
   </code-block>
   
 </code-group>
