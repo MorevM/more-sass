@@ -55,7 +55,7 @@
 				}
 			}
 		}
-		@include it('Skips nullable values') {
+		@include it('Omits nullable values') {
 			@include assert {
 				@include output {
 					@include padding(null 2px n 4px);

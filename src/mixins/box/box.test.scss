@@ -23,7 +23,7 @@
 				}
 			}
 		}
-		@include it('Skips nullable values') {
+		@include it('Omits nullable values') {
 			@include assert {
 				@include output {
 					@include box(100px, null);

@@ -35,8 +35,8 @@
  * Sets the font properties scaling uniformly within the specified limits depending on the screen width.
  * Shorthand for both fluid-prop('font-size') and fluid-prop('line-height').
  *
- * @param    {list}    $start    A list containing start values of screen width and font properties. Font properties passes as slash-separated string, just like in the native `font` property.
- * @param    {list}    $end      A list containing end values of screen width and font properties. Font properties passes as slash-separated string, just like in the native `font` property.
+ * @param    {list}    $start    The list containing start values of screen width and font properties. Font properties supplied as slash-separated string, just like in the native `font` property.
+ * @param    {list}    $end      The list containing end values of screen width and font properties. Font properties supplied as slash-separated string, just like in the native `font` property.
  */
 @mixin fluid-font($start, $end) {
 	// Get params

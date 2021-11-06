@@ -96,23 +96,23 @@ fullscreen: false
 ```
 
 <alert type="info">
-
-Список доступных кодов:
-
-`vk` - ВКонтакте  
-`fb` - Facebook  
-`ok` - Однокласники  
-`yt` - YouTube  
-`tw` - Twitter  
-`ig` - Instagram (purple)  
-`ig-gradient` - Instagram (gradient)  
-`tg` - Telegram  
-`dr` - Dribble  
-`be` - Behance  
-`li` - Linked In  
-`wa` - WhatsApp  
-`vb` - Viber
-
+  
+  Список доступных кодов:
+  
+  `vk` - ВКонтакте  
+  `fb` - Facebook  
+  `ok` - Однокласники  
+  `yt` - YouTube  
+  `tw` - Twitter  
+  `ig` - Instagram (purple)  
+  `ig-gradient` - Instagram (gradient)  
+  `tg` - Telegram  
+  `dr` - Dribble  
+  `be` - Behance  
+  `li` - Linked In  
+  `wa` - WhatsApp  
+  `vb` - Viber
+  
 </alert>
 
 ## tint

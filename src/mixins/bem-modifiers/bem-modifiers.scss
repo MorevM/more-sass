@@ -5,7 +5,7 @@
 @use '../../functions/string/str-split/str-split.scss' as *;
 
 /**
- * Allows to use multiple modifiers in single selector while using BEM methodology.
+ * Allows to use multiple modifiers in a single selector while using BEM methodology.
  *
  * @param    {list}    $modifiers    A list of additional modifiers.
  */

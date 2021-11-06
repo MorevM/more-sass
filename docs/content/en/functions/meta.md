@@ -53,43 +53,42 @@ Retrieves the Unicode escape sequence of a given symbol by its human-friendly na
 ```
 
 <alert type="info">
-
-List of available symbols:
-
-|                        |   |
-|------------------------|---|
-| `dollar`               | $ |
-| `section`              | § |
-| `bullet`               | • |
-| `hyphen`               | ‑ |
-| `en-dash`              | – |
-| `em-dash`              | — |
-| `copyright`            | © |
-| `registered`           | ® |
-| `degree`               | ° |
-| `ring`                 | ∘ |
-| `infinity`             | ∞ |
-| `triangle-up-black`    | ▲ |
-| `triangle-up-white`    | △ |
-| `triangle-right-black` | ▶ |
-| `triangle-right-white` | ▷ |
-| `triangle-down-black`  | ▼ |
-| `triangle-down-white`  | ▽ |
-| `triangle-left-black`  | ◀ |
-| `triangle-left-white`  | ◁ |
-| `circle-black`         | ● |
-| `circle-white`         | ○ |
-| `square-black`         | ■ |
-| `square-white`         | □ |
-| `diamond-black`        | ◆ |
-| `diamond-white`        | ◇ |
-| `diamond-inside`       | ◈ |
-| `check`                | ✓ |
-| `check-heavy`          | ✔ |
-| `cross`                | ✕ |
-| `cross-heavy`          | ✖ |
-| `fisheye`              | ◉ |
-
+  
+  List of available symbols:
+  |                        |   |
+  |------------------------|---|
+  | `dollar`               | $ |
+  | `section`              | § |
+  | `bullet`               | • |
+  | `hyphen`               | ‑ |
+  | `en-dash`              | – |
+  | `em-dash`              | — |
+  | `copyright`            | © |
+  | `registered`           | ® |
+  | `degree`               | ° |
+  | `ring`                 | ∘ |
+  | `infinity`             | ∞ |
+  | `triangle-up-black`    | ▲ |
+  | `triangle-up-white`    | △ |
+  | `triangle-right-black` | ▶ |
+  | `triangle-right-white` | ▷ |
+  | `triangle-down-black`  | ▼ |
+  | `triangle-down-white`  | ▽ |
+  | `triangle-left-black`  | ◀ |
+  | `triangle-left-white`  | ◁ |
+  | `circle-black`         | ● |
+  | `circle-white`         | ○ |
+  | `square-black`         | ■ |
+  | `square-white`         | □ |
+  | `diamond-black`        | ◆ |
+  | `diamond-white`        | ◇ |
+  | `diamond-inside`       | ◈ |
+  | `check`                | ✓ |
+  | `check-heavy`          | ✔ |
+  | `cross`                | ✕ |
+  | `cross-heavy`          | ✖ |
+  | `fisheye`              | ◉ |
+  
 </alert>
 
 ## offset
@@ -118,7 +117,7 @@ Generates a value or expression that allows to set a size exactly equalled a giv
 ## parse-directions
 
 Parses a given list of values using standard CSS order (top, right, bottom, left).  
-Some values can be skipped using `null` (preferable) or its alias `n`.
+Some values can be omitted using `null` (preferable) or its alias `n`.
 
 <alert type="info">
   

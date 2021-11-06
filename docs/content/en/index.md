@@ -17,19 +17,19 @@ The library of useful SCSS mixins and functions.
 <code-group>
   
   <code-block label="yarn" active>
-
+  
   ```bash
   yarn add more-sass
   ```
-
+  
   </code-block>
-
+  
   <code-block label="npm">
-
+  
   ```bash
   npm install more-sass
   ```
-
+  
   </code-block>
   
 </code-group>

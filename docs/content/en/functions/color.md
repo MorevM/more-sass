@@ -95,23 +95,23 @@ Retrieves a given social media brand color.
 @debug more.social-color('fb'); // color: #4267b2
 ```
 <alert type="info">
-
-List of available codes:
-
-`vk` - VKontakte  
-`fb` - Facebook  
-`ok` - Odnoklassniki  
-`yt` - YouTube  
-`tw` - Twitter  
-`ig` - Instagram (purple)  
-`ig-gradient` - Instagram (gradient)  
-`tg` - Telegram  
-`dr` - Dribble  
-`be` - Behance  
-`li` - Linked In  
-`wa` - WhatsApp  
-`vb` - Viber
-
+  
+  List of available codes:
+  
+  `vk` - VKontakte  
+  `fb` - Facebook  
+  `ok` - Odnoklassniki  
+  `yt` - YouTube  
+  `tw` - Twitter  
+  `ig` - Instagram (purple)  
+  `ig-gradient` - Instagram (gradient)  
+  `tg` - Telegram  
+  `dr` - Dribble  
+  `be` - Behance  
+  `li` - Linked In  
+  `wa` - WhatsApp  
+  `vb` - Viber
+  
 </alert>
 
 ## tint

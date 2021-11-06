@@ -17,19 +17,19 @@ fullscreen: true
 <code-group>
   
   <code-block label="yarn" active>
-
+  
   ```bash
   yarn add more-sass
   ```
-
+  
   </code-block>
-
+  
   <code-block label="npm">
-
+  
   ```bash
   npm install more-sass
   ```
-
+  
   </code-block>
   
 </code-group>

@@ -53,43 +53,42 @@ fullscreen: false
 ```
 
 <alert type="info">
-
-Список доступных символов:
-
-|                        |   |
-|------------------------|---|
-| `dollar`               | $ |
-| `section`              | § |
-| `bullet`               | • |
-| `hyphen`               | ‑ |
-| `en-dash`              | – |
-| `em-dash`              | — |
-| `copyright`            | © |
-| `registered`           | ® |
-| `degree`               | ° |
-| `ring`                 | ∘ |
-| `infinity`             | ∞ |
-| `triangle-up-black`    | ▲ |
-| `triangle-up-white`    | △ |
-| `triangle-right-black` | ▶ |
-| `triangle-right-white` | ▷ |
-| `triangle-down-black`  | ▼ |
-| `triangle-down-white`  | ▽ |
-| `triangle-left-black`  | ◀ |
-| `triangle-left-white`  | ◁ |
-| `circle-black`         | ● |
-| `circle-white`         | ○ |
-| `square-black`         | ■ |
-| `square-white`         | □ |
-| `diamond-black`        | ◆ |
-| `diamond-white`        | ◇ |
-| `diamond-inside`       | ◈ |
-| `check`                | ✓ |
-| `check-heavy`          | ✔ |
-| `cross`                | ✕ |
-| `cross-heavy`          | ✖ |
-| `fisheye`              | ◉ |
-
+  
+  Список доступных символов:
+  |                        |   |
+  |------------------------|---|
+  | `dollar`               | $ |
+  | `section`              | § |
+  | `bullet`               | • |
+  | `hyphen`               | ‑ |
+  | `en-dash`              | – |
+  | `em-dash`              | — |
+  | `copyright`            | © |
+  | `registered`           | ® |
+  | `degree`               | ° |
+  | `ring`                 | ∘ |
+  | `infinity`             | ∞ |
+  | `triangle-up-black`    | ▲ |
+  | `triangle-up-white`    | △ |
+  | `triangle-right-black` | ▶ |
+  | `triangle-right-white` | ▷ |
+  | `triangle-down-black`  | ▼ |
+  | `triangle-down-white`  | ▽ |
+  | `triangle-left-black`  | ◀ |
+  | `triangle-left-white`  | ◁ |
+  | `circle-black`         | ● |
+  | `circle-white`         | ○ |
+  | `square-black`         | ■ |
+  | `square-white`         | □ |
+  | `diamond-black`        | ◆ |
+  | `diamond-white`        | ◇ |
+  | `diamond-inside`       | ◈ |
+  | `check`                | ✓ |
+  | `check-heavy`          | ✔ |
+  | `cross`                | ✕ |
+  | `cross-heavy`          | ✖ |
+  | `fisheye`              | ◉ |
+  
 </alert>
 
 ## offset

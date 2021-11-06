@@ -6,10 +6,10 @@
  * Sets a given property scaling uniformly within the specified limits depending on the screen width.
  * See https://www.madebymike.com.au/writing/fluid-type-calc-examples/.
  *
- * @param    {string}     $property     Property name.
- * @param    {list}       $start        A list containing start values of screen width and property.
- * @param    {list}       $end          A list containing end values of screen width and property.
- * @param    {boolean}    $set-start    Whether to use the start property value as default.
+ * @param    {string}    $property            Property name.
+ * @param    {list}      $start               The list containing start values of screen width and property.
+ * @param    {list}      $end                 The list containing end values of screen width and property.
+ * @param    {bool}      $set-start [true]    Whether to use the start property value as default.
  */
 @mixin fluid-prop($property, $start, $end, $set-start: true) {
 	// Get params
