@@ -1,7 +1,7 @@
 ---
 title: Переменные
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 300
+position: 400
 category: Переменные
 fullscreen: false
 ---

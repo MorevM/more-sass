@@ -1,7 +1,7 @@
 ---
 title: Variables
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 300
+position: 400
 category: Variables
 fullscreen: false
 ---
