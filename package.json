@@ -28,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
+		"@morev/more-log": "^1.0.0",
 		"chalk": "^4.1.2",
 		"conventional-changelog-cli": "^2.1.1",
 		"figures": "^4.0.0",
