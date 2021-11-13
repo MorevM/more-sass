@@ -1,8 +1,8 @@
 @use 'sass:math';
 
 /**
- * Draws a triangle.
- *
+ * Draws a triangle from the current element.
+ * 
  * @param    {number}    $width                   Triangle width.
  * @param    {number}    $height                  Triangle height.
  * @param    {string}    $direction               Triangle direction (top|bottom|left|right|bottom-left|bottom-right|top-left|top-right).

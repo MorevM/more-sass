@@ -59,7 +59,7 @@
 				}
 			}
 		}
-		@include it('Skips nullable values') {
+		@include it('Omits nullable values') {
 			@include assert {
 				@include output {
 					@include pos('absolute', null 2px n 4px);

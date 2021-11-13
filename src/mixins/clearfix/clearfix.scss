@@ -4,7 +4,7 @@
  */
 
 /**
- * Clears the flow inside of the current element via creating ::after pseudo-element.
+ * Clears the flow inside of the current element via creating the ::after pseudo-element.
  */
 @mixin clearfix {
 	&::after {

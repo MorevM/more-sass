@@ -9,7 +9,7 @@
  * Allows to set a pseudo-element rules depending on its parent state
  * right in the rule set of the pseudo-element itself.
  *
- * @param    {list}    $states    Pseudo-element parent state(s) (pseudo-classes, modifiers classes, etc.).
+ * @param    {list}    $states    Pseudo-element parent state(s) (pseudo-classes, modifier classes, etc.).
  */
 @mixin parent-state($states...) {
 	$selector: #{list.nth(selector.parse(&), 1)};

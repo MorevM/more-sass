@@ -3,12 +3,12 @@
 @use '../../functions/meta/parse-directions/parse-directions.scss' as *;
 
 /**
- * Shorthands for using position properties.
- *
- * @param    {string}    $position [absolute]    Position type (relative, absolute, etc.).
- * @param    {list}      $values []              Position values list in default order (top-right-bottom-left).
+ * Shorthands for use position properties.
+ * 
+ * @param    {string}    $position ['absolute']    Position type (relative, absolute, etc.).
+ * @param    {list}      $values []                Position values list in default order (top-right-bottom-left).
  */
-@mixin pos($position: absolute, $values...) {
+@mixin pos($position: 'absolute', $values...) {
 	$values: parse-directions($values...);
 	position: string.unquote($position);
 	top: map.get($values, 'top');

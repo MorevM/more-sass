@@ -4,7 +4,7 @@ import ora from 'ora';
 import chalk from 'chalk';
 import figures from 'figures';
 import inquirer from 'inquirer';
-import log from '~utility/log.js';
+import log from '../../_utility/log.js';
 import PrepareTasks from './modules/prepare.js';
 import PublishTasks from './modules/publish.js';
 

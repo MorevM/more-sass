@@ -2,7 +2,7 @@
 @use '../../functions/meta/parse-directions/parse-directions.scss' as *;
 
 /**
- * Shorthand for nullable padding properties.
+ * Shorthand for set nullable padding properties.
  *
  * @param    {list}    $values    Padding values list in default order (top-right-bottom-left).
  */

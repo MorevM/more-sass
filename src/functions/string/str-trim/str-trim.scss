@@ -1,11 +1,11 @@
 @use 'sass:string';
 
 /**
- * Removes whitespace from both ends of a given string.
+ * Removes whitespaces from both ends of a given string.
  *
- * @param    {string}    $string    The string being trimmed.
+ * @param    {string}    $string    The string to trim.
  *
- * @return   {string}    The trimmed string.
+ * @return   {string}    The string without whitespaces on both ends of it.
  */
  @function str-trim($string) {
 	$string: #{$string};

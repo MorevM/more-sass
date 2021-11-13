@@ -1,6 +1,5 @@
 /**
- * Sets the element size equal to 100% of its parent size
- * and makes it absolutely positioned.
+ * Sets the element size to 100% of its parent size and makes it positioned absolutely.
  */
 @mixin full-size {
 	position: absolute;

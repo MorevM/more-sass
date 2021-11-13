@@ -5,7 +5,7 @@
  *
  * @param     {string}    $string    The input string.
  *
- * @return    {string}    String with first character converted to uppercase.
+ * @return    {string}    The input string with its first character transformed to uppercase.
  */
 @function str-capitalize($string) {
 	$string: #{$string};

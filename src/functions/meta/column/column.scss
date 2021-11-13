@@ -9,7 +9,7 @@
  * exactly equalled a given number of layout columns.
  *
  * @param    {string}     $expression       An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`.
- * @param    {?number}    $gutter [null]    Space between columns.
+ * @param    {?number}    $gutter [null]    Space between layout columns.
  *
  * @return   {string|number}    Calc expression or exact value.
  */

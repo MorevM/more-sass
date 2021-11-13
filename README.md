@@ -8,7 +8,7 @@ The library of useful SCSS mixins and functions.
 Using `npm`:
 
 ```bash
-npm install more-sass -P
+npm install more-sass
 ```
 
 Using `yarn`:
@@ -22,14 +22,25 @@ yarn add more-sass
 You can import the entire library or only the necessary part of it - variables, mixins, functions, or only a specific group of functions:
 
 ```scss
-@use 'more-sass' as more; // import the entire library
-@use 'more-sass/variables' as more-variables; // import only variables
-@use 'more-sass/mixins' as more-mixins; // import only mixins
-@use 'more-sass/functions' as more-functions; // import only functions
-@use 'more-sass/functions/string' as more-string; // import only a specific group of functions
-@use 'more-sass/functions/string/str-split' as *; // import a specific function in global namespace
+// Import the entire library
+@use 'more-sass' as more;
+
+// Import variables
+@use 'more-sass/variables' as more-variables;
+
+// Import mixins
+@use 'more-sass/mixins' as more-mixins;
+
+// Import functions
+@use 'more-sass/functions' as more-functions;
+
+// Import a specific group of functions
+@use 'more-sass/functions/string' as more-string;
+
+// Import a specific function in global namespace
+@use 'more-sass/functions/string/str-split' as *;
 ```
 
 ## Documentation
 
-Coming soon...
+[See the documentation](https://morevm.github.io/more-sass/).

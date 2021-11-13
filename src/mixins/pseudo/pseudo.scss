@@ -3,8 +3,8 @@
 /**
  * Shorthand for both `content` and `display` properties of pseudo-elements.
  *
- * @param    {string}    $display ['block']    Display property value.
- * @param    {string}    $content ['']         Content property value.
+ * @param    {string}    $display ['block']    The value of `display` property.
+ * @param    {string}    $content ['']         The value of `content` property.
  */
 @mixin pseudo($display: 'block', $content: '') {
 	content: $content;

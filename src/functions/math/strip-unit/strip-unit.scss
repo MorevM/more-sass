@@ -5,12 +5,16 @@
 /**
  * Strips the unit of a given value.
  *
- * @param    {string|number}    $value    A value to remove unit from.
+ * @param    {string|number}    $value    The number or pseudo-number string to to remove unit from.
  *
- * @return   {number}    Unitless number.
+ * @return   {?number}          The unitless number.
  */
 @function strip-unit($value) {
 	$value: get-numeric($value);
+	
+	@if ($value == null) {
+		@return null;
+	}
 
 	@if (math.is-unitless($value)) {
 		@return $value;
