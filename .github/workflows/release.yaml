@@ -2,55 +2,38 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    tags: ['v*']
 
 jobs:
-  
-  # Check build
   build:
-    
-    runs-on:
-      ${{ matrix.os }}
-    
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [17, 16] # latest & recommended
-    
+    runs-on: ubuntu-latest
     steps:
-      
       - name: Checkout the repository
         uses: actions/checkout@v2
-      
-      - name: Setup Node.js
+
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
-      
+          node-version: '16'
+          cache: yarn
+          scope: '@morevm'
+          registry-url: https://npm.pkg.github.com
+
       - name: Install dependencies
-        run: npm install
-      
+        run: yarn install
+
       - name: Linting
-        run: npm run lint
-      
+        run: yarn lint
+
       - name: Testing
-        run: npm run test
-  
-  # Create release
-  release:
-    
-    needs: build
-    
-    runs-on:
-      ubuntu-latest
-    
-    steps:
-      
-      - name: Checkout the repository
-        uses: actions/checkout@v2
-      
+        run: yarn test
+
       - name: Create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish package
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
