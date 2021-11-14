@@ -1,7 +1,7 @@
 {
 	"name": "@morevm/more-sass",
 	"description": "The library of useful SCSS mixins and functions",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"type": "module",
 	"author": {

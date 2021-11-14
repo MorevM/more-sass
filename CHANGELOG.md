@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/MorevM/more-sass/compare/v1.0.0...v1.0.1) (2021-11-14)
+
+
+### Bug Fixes
+
+* Package contains only library files ([9694ead](https://github.com/MorevM/more-sass/commit/9694eade82e97b387aca5eed10fd30973e54d3bb))
+
+
+
 # 1.0.0 (2021-11-01)
 
 
