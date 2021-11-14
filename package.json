@@ -17,6 +17,9 @@
 		"url": "https://github.com/MorevM/more-sass/issues"
 	},
 	"main": "src/_index.scss",
+	"files": [
+		"src/**/!(*.test).scss"
+	],
 	"scripts": {
 		"prepare": "husky install .husky",
 		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
