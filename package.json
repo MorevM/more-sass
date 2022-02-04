@@ -23,7 +23,7 @@
 	"scripts": {
 		"prepare": "husky install .husky",
 		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-		"lint": "stylelint ./src/**/*.scss --config ./.stylelintrc.yaml",
+		"lint": "stylelint \"./src/**/*.scss\"",
 		"lint:fix": "yarn lint --fix",
 		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
 		"release": "node ./tools/release/release.js",
@@ -43,10 +43,11 @@
 		"ora": "^5.4.1",
 		"sass": "^1.43.2",
 		"sass-true": "^6.0.1",
-		"stylelint": "^13.13.1",
+		"stylelint": "^14.3.0",
 		"yargs": "^17.1.1"
 	},
 	"peerDependencies": {
 		"sass": "^1.43.2"
-	}
+	},
+	"dependencies": {}
 }
