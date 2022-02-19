@@ -30,7 +30,7 @@
 		"release": "release-it --disable-metrics"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^13.2.1",
+		"@morev/commitlint-config": "^0.1.0",
 		"@morev/stylelint-config": "^0.1.0",
 		"@release-it/conventional-changelog": "^4.1.0",
 		"husky": "^7.0.4",
