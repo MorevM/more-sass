@@ -26,25 +26,20 @@
 		"lint": "stylelint \"./src/**/*.scss\"",
 		"lint:fix": "yarn lint --fix",
 		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-		"release": "node ./tools/release/release.js",
-		"docs": "cd ./docs && yarn dev"
+		"docs": "cd ./docs && yarn dev",
+		"release": "release-it --disable-metrics"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
-		"@morev/more-log": "^1.0.0",
-		"chalk": "^4.1.2",
-		"conventional-changelog-cli": "^2.1.1",
-		"figures": "^4.0.0",
-		"glob": "^7.2.0",
+		"@morev/stylelint-config": "^0.0.1",
+		"@release-it/conventional-changelog": "^4.1.0",
 		"husky": "^7.0.4",
-		"inquirer": "^8.1.2",
 		"jest": "^27.2.4",
 		"lint-staged": "^11.2.6",
-		"ora": "^5.4.1",
+		"release-it": "^14.12.4",
 		"sass": "^1.43.2",
 		"sass-true": "^6.0.1",
-		"stylelint": "^14.3.0",
-		"yargs": "^17.1.1"
+		"stylelint": "^14.3.0"
 	},
 	"peerDependencies": {
 		"sass": "^1.43.2"
