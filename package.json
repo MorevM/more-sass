@@ -31,7 +31,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
-		"@morev/stylelint-config": "^0.0.1",
+		"@morev/stylelint-config": "^0.1.0",
 		"@release-it/conventional-changelog": "^4.1.0",
 		"husky": "^7.0.4",
 		"jest": "^27.2.4",

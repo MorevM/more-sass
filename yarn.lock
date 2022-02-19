@@ -849,10 +849,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.9"
 
-"@morev/stylelint-config@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@morev/stylelint-config/-/stylelint-config-0.0.1.tgz#4b243c26ab72a2678a736e45bc1b2c28122c5487"
-  integrity sha512-7aZQUop2MpYASpejcbFommj3z9+xpME2vK/CMWAJAMDeUM+8rD11MniB8IMK1wZ3HGaIspPq2XI+1TaWrOJ43A==
+"@morev/stylelint-config@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@morev/stylelint-config/-/stylelint-config-0.1.0.tgz#9ce7c0f087eeff082ce16c908ff4df8e2fa4ca4b"
+  integrity sha512-Kscn1u9GTcBG1d+6o+swKLPgrXjjxudi5mU8uaEg6hWgAE4vytuXN/rL8x/Odk78PIs8pjYS0PXl4d6O4jp43g==
   dependencies:
     lodash.mergewith "^4.6.2"
     postcss "^8.4.6"
