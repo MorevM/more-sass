@@ -8,6 +8,7 @@
 				@include output {
 					@include full-size;
 				}
+
 				@include expect {
 					position: absolute;
 					top: 0;

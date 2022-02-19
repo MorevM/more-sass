@@ -8,6 +8,7 @@
 				@include output {
 					@include fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
 				}
+
 				@include expect {
 					margin-bottom: 20px;
 
@@ -21,11 +22,13 @@
 				}
 			}
 		}
+
 		@include it('Works correctly if property value decreases') {
 			@include assert {
 				@include output {
 					@include fluid-prop('margin-bottom', (320px, 60px), (1280px, 20px));
 				}
+
 				@include expect {
 					margin-bottom: 60px;
 
@@ -39,11 +42,13 @@
 				}
 			}
 		}
+
 		@include it('Considers the `$set-start` argument') {
 			@include assert {
 				@include output {
 					@include fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px), false);
 				}
+
 				@include expect {
 					@media (min-width: 320px) {
 						margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);

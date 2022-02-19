@@ -1,3 +1,4 @@
+/* stylelint-disable max-nesting-depth */
 @use 'true' as *; // sass-true
 @use './parent-state.scss' as *;
 
@@ -9,18 +10,20 @@
 					.element {
 						&::after {
 							@include parent-state(':hover') {
-								color: #f00;
+								color: #ff0000;
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.element:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with nested elements\' pseudo-elements') {
 			@include assert {
 				@include output {
@@ -28,39 +31,43 @@
 						.child {
 							&::after {
 								@include parent-state(':hover') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.parent .child:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with siblings elements\' pseudo-elements') {
 			@include assert {
 				@include output {
 					.element {
-						& + .sibling {
+						+ .sibling {
 							&::after {
 								@include parent-state(':hover') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.element + .sibling:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with modified elements\' pseudo-elements') {
 			@include assert {
 				@include output {
@@ -68,18 +75,20 @@
 						&.modifier {
 							&::after {
 								@include parent-state(':hover') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.element.modifier:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
+
 			@include assert {
 				@include output {
 					.parent {
@@ -87,20 +96,22 @@
 							&.modifier {
 								&::after {
 									@include parent-state(':hover') {
-										color: #f00;
+										color: #ff0000;
 									}
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.parent .child.modifier:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with BEM methodology') {
 			@include assert {
 				@include output {
@@ -108,18 +119,20 @@
 						&__element {
 							&::after {
 								@include parent-state(':hover') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.block__element:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
+
 			@include assert {
 				@include output {
 					.block {
@@ -127,53 +140,58 @@
 							&--modifier {
 								&::after {
 									@include parent-state(':hover') {
-										color: #f00;
+										color: #ff0000;
 									}
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.block__element--modifier:hover::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with multiple parent states') {
 			@include assert {
 				@include output {
 					.element {
 						&::after {
 							@include parent-state(':hover', '.is-active') {
-								color: #f00;
+								color: #ff0000;
 							}
 						}
 					}
 				}
+
 				@include expect {
 					.element:hover::after,
 					.element.is-active::after {
-						color: #f00;
+						color: #ff0000;
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with old syntax of pseudo-elements') {
 			@include assert {
 				@include output {
 					.element {
-						&:after {
+						&::after {
 							@include parent-state(':hover') {
-								color: #f00;
+								color: #ff0000;
 							}
 						}
 					}
 				}
+
 				@include expect {
-					.element:hover:after {
-						color: #f00;
+					.element:hover::after {
+						color: #ff0000;
 					}
 				}
 			}

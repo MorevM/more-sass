@@ -8,6 +8,7 @@
 				@include output {
 					@include reset-input;
 				}
+
 				@include expect {
 					margin: 0;
 					padding: 0;

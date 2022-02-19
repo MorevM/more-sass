@@ -1,3 +1,5 @@
+/* stylelint-disable scss/operator-no-unspaced */
+/* stylelint-disable number-no-trailing-zeros */
 @use 'true' as *; // sass-true
 @use './get-numeric.scss' as *;
 
@@ -7,22 +9,27 @@
 			@include assert-equal(get-numeric('12'), 12);
 			@include assert-equal(get-numeric('12px'), 12px);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a negative integer') {
 			@include assert-equal(get-numeric('-12'), -12);
 			@include assert-equal(get-numeric('-12px'), -12px);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a positive fraction') {
 			@include assert-equal(get-numeric('4.01'), 4.01);
 			@include assert-equal(get-numeric('4.01px'), 4.01px);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a negative fraction') {
 			@include assert-equal(get-numeric('-4.01'), -4.01);
 			@include assert-equal(get-numeric('-4.01px'), -4.01px);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a fractional number without a leading zero') {
 			@include assert-equal(get-numeric('.60'), .60);
 			@include assert-equal(get-numeric('.60px'), .60px);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a zero') {
 			@include assert-equal(get-numeric('0'), 0);
 			@include assert-equal(get-numeric('0.0'), 0);
@@ -33,14 +40,17 @@
 			@include assert-equal(get-numeric('+0.0em'), 0em);
 			@include assert-equal(get-numeric('-0.0ch'), 0ch);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a scientific notation') {
 			@include assert-equal(get-numeric('10e3'), 10e3);
 			@include assert-equal(get-numeric('10e3em'), 10e3em);
 		}
+
 		@include it('Returns numeric value of the input pseudo-number string represents a complicated scientific notation') {
 			@include assert-equal(get-numeric('-3.4e-2'), -3.4e-2);
 			@include assert-equal(get-numeric('-3.4e-2em'), -3.4e-2em);
 		}
+
 		@include it('Returns the valid input number as is') {
 			@include assert-equal(get-numeric(12), 12);
 			@include assert-equal(get-numeric(-12), -12);
@@ -54,6 +64,7 @@
 			@include assert-equal(get-numeric(10e3), 10e3);
 			@include assert-equal(get-numeric(-3.4e-2), -3.4e-2);
 		}
+
 		@include it('Returns null if the input value is not a correct number or pseudo-number string') {
 			@include assert-equal(get-numeric('string'), null);
 			@include assert-equal(get-numeric('12.'), null);

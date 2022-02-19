@@ -8,35 +8,42 @@
 				@include output {
 					@include pseudo;
 				}
+
 				@include expect {
 					content: '';
 					display: block;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include pseudo('inline-block', 'abc');
 				}
+
 				@include expect {
 					content: 'abc';
 					display: inline-block;
 				}
 			}
 		}
+
 		@include it('Works correctly with both quoted and unquoted `$display` argument') {
 			@include assert {
 				@include output {
 					@include pseudo($display: 'block');
 				}
+
 				@include expect {
 					content: '';
 					display: block;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include pseudo($display: block);
 				}
+
 				@include expect {
 					content: '';
 					display: block;

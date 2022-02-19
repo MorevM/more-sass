@@ -25,12 +25,10 @@
 	$right: if(list.length($values) >= 2, string.unquote(#{list.nth($values, 2)}), $top);
 	$bottom: if(list.length($values) >= 3, string.unquote(#{list.nth($values, 3)}), $top);
 	$left: if(list.length($values) >= 4, string.unquote(#{list.nth($values, 4)}), $right);
-
 	$top: if(list-includes(('', 'null', 'n'), $top), null, $top);
 	$right: if(list-includes(('', 'null', 'n'), $right), null, $right);
 	$bottom: if(list-includes(('', 'null', 'n'), $bottom), null, $bottom);
 	$left: if(list-includes(('', 'null', 'n'), $left), null, $left);
-
 	$top-numeric: get-numeric($top);
 	$right-numeric: get-numeric($right);
 	$bottom-numeric: get-numeric($bottom);

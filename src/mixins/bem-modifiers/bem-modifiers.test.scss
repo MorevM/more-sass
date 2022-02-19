@@ -1,3 +1,4 @@
+/* stylelint-disable selector-max-class */
 @use 'true' as *; // sass-true
 @use './bem-modifiers.scss' as *;
 
@@ -9,20 +10,22 @@
 					@at-root {
 						.block {
 							@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
-								color: #f00;
+								color: #ff0000;
 							}
 						}
 					}
 				}
+
 				@include expect {
 					@at-root {
 						.block--modifier-one.block--modifier-two.block--modifier-three {
-							color: #f00;
+							color: #ff0000;
 						}
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with elements') {
 			@include assert {
 				@include output {
@@ -30,21 +33,23 @@
 						.block {
 							&__element {
 								@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					@at-root {
 						.block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
-							color: #f00;
+							color: #ff0000;
 						}
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with already modified blocks') {
 			@include assert {
 				@include output {
@@ -52,21 +57,23 @@
 						.block {
 							&--modifier-one {
 								@include bem-modifiers('--modifier-two', '--modifier-three') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					@at-root {
 						.block--modifier-one.block--modifier-two.block--modifier-three {
-							color: #f00;
+							color: #ff0000;
 						}
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with already modified elements') {
 			@include assert {
 				@include output {
@@ -75,22 +82,24 @@
 							&__element {
 								&--modifier-one {
 									@include bem-modifiers('--modifier-two', '--modifier-three') {
-										color: #f00;
+										color: #ff0000;
 									}
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					@at-root {
 						.block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
-							color: #f00;
+							color: #ff0000;
 						}
 					}
 				}
 			}
 		}
+
 		@include it('Works correctly with nested blocks') {
 			@include assert {
 				@include output {
@@ -98,16 +107,17 @@
 						.block {
 							& &__element {
 								@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
-									color: #f00;
+									color: #ff0000;
 								}
 							}
 						}
 					}
 				}
+
 				@include expect {
 					@at-root {
 						.block .block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
-							color: #f00;
+							color: #ff0000;
 						}
 					}
 				}

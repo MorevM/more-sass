@@ -8,70 +8,85 @@
 				@include output {
 					@include box(100px);
 				}
+
 				@include expect {
 					width: 100px;
 					height: 100px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include box(100px, 200px);
 				}
+
 				@include expect {
 					width: 100px;
 					height: 200px;
 				}
 			}
 		}
+
 		@include it('Omits nullable values') {
 			@include assert {
 				@include output {
 					@include box(100px, null);
 				}
+
 				@include expect {
 					width: 100px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include box(100px, n);
 				}
+
 				@include expect {
 					width: 100px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include box(null, 100px);
 				}
+
 				@include expect {
 					height: 100px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include box(n, 100px);
 				}
+
 				@include expect {
 					height: 100px;
 				}
 			}
 		}
+
 		@include it('Works correctly with string values') {
 			@include assert {
 				@include output {
 					@include box('100px !important', null);
 				}
+
 				@include expect {
 					width: 100px !important;
 				}
 			}
 		}
+
 		@include it('Converts unitless values to pixels') {
 			@include assert {
 				@include output {
 					@include box(100, 200);
 				}
+
 				@include expect {
 					width: 100px;
 					height: 200px;

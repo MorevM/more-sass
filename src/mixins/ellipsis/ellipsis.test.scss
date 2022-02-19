@@ -8,6 +8,7 @@
 				@include output {
 					@include ellipsis;
 				}
+
 				@include expect {
 					max-width: 100%;
 					text-overflow: ellipsis;
@@ -16,11 +17,13 @@
 				}
 			}
 		}
+
 		@include it('Considers the `$max-width` argument') {
 			@include assert {
 				@include output {
 					@include ellipsis(300px);
 				}
+
 				@include expect {
 					max-width: 300px;
 					text-overflow: ellipsis;

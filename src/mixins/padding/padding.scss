@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
 @use 'sass:map';
 @use '../../functions/meta/parse-directions/parse-directions.scss' as *;
 
@@ -8,6 +9,7 @@
  */
 @mixin padding($values...) {
 	$values: parse-directions($values...);
+
 	padding-top: map.get($values, 'top');
 	padding-right: map.get($values, 'right');
 	padding-bottom: map.get($values, 'bottom');

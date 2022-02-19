@@ -8,36 +8,46 @@
 		@include it('Returns a list containing strings created by splitting the input string') {
 			@include assert-equal(str-split('some string example', ' '), ('some' 'string' 'example'));
 		}
+
 		@include it('Returns a list containing the input string as is if it doesn\'t contain a given delimiter') {
 			$output: str-split('some string', '.');
+
 			@include assert-true(meta.type-of($output) == 'list');
 			@include assert-true(list.length($output) == 1);
 			@include assert-equal(list.nth($output, 1), 'some string');
 		}
+
 		@include it('Returns a list containing empty string if the input string is empty') {
 			$output: str-split('', '.');
+
 			@include assert-true(meta.type-of($output) == 'list');
 			@include assert-true(list.length($output) == 1);
 			@include assert-equal(list.nth($output, 1), '');
 		}
+
 		@include it('Works correctly with `null` substrings of the input string') {
 			@include assert-equal(str-split('some null in string', ' '), ('some' 'null' 'in' 'string'));
 			@include assert-equal(str-split('some not-nullable in string', ' '), ('some' 'not-nullable' 'in' 'string'));
 		}
+
 		@include it('Splits the input string char by char if delimiter is empty string (default behavior)') {
 			@include assert-equal(str-split('some string'), ('s' 'o' 'm' 'e' ' ' 's' 't' 'r' 'i' 'n' 'g'));
 		}
+
 		@include it('Returns a list which first element is empty string if delimiter is the first character(s)') {
 			@include assert-equal(str-split('.some.string', '.'), ('' 'some' 'string'));
 		}
+
 		@include it('Returns a list which last element is empty string if delimiter is the last character(s)') {
 			@include assert-equal(str-split('some.string.', '.'), ('some' 'string' ''));
 		}
+
 		@include it('Returns a list of empty strings if the input string consist of delimiters only') {
 			@include assert-equal(str-split('.', '.'), ('' ''));
 			@include assert-equal(str-split('..', '.'), ('' '' ''));
 			@include assert-equal(str-split('...', '.'), ('' '' '' ''));
 		}
+
 		@include it('Considers the `$separator` argument') {
 			@include assert-equal(str-split('some, string', ', ', 'comma'), ('some', 'string'));
 		}

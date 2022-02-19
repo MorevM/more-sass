@@ -11,6 +11,7 @@
 			@include assert-equal(strip-unit(0), 0);
 			@include assert-equal(strip-unit(100), 100);
 		}
+
 		@include it('Returns the unitless number got from a given pseudo-number string') {
 			@include assert-equal(strip-unit('10%'), 10);
 			@include assert-equal(strip-unit('-15px'), -15);

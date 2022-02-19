@@ -6,9 +6,11 @@
 		@include it('Returns the list of HSL-values of the input color') {
 			@include assert-equal(hex-to-hsl(#ff0000), (0deg, 100%, 50%));
 		}
+
 		@include it('Works correctly with shorthand HEX notation') {
 			@include assert-equal(hex-to-hsl(#f00), (0deg, 100%, 50%));
 		}
+
 		@include it('Considers the `$separator` argument') {
 			@include assert-equal(hex-to-hsl(#ff0000, 'space'), (0deg 100% 50%));
 		}

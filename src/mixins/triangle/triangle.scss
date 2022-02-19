@@ -2,7 +2,7 @@
 
 /**
  * Draws a triangle from the current element.
- * 
+ *
  * @param    {number}    $width                   Triangle width.
  * @param    {number}    $height                  Triangle height.
  * @param    {string}    $direction               Triangle direction (top|bottom|left|right|bottom-left|bottom-right|top-left|top-right).
@@ -14,17 +14,17 @@
 	height: 0;
 
 	@if ($direction == 'top') {
-		border-left: #{math.div($width, 2)} solid transparent;
 		border-right: #{math.div($width, 2)} solid transparent;
 		border-bottom: #{$height} solid #{$color};
-	} @else if ($direction == 'bottom') {
 		border-left: #{math.div($width, 2)} solid transparent;
-		border-right: #{math.div($width, 2)} solid transparent;
+	} @else if ($direction == 'bottom') {
 		border-top: #{$height} solid #{$color};
+		border-right: #{math.div($width, 2)} solid transparent;
+		border-left: #{math.div($width, 2)} solid transparent;
 	} @else if ($direction == 'left') {
 		border-top: #{math.div($width, 2)} solid transparent;
-		border-bottom: #{math.div($width, 2)} solid transparent;
 		border-right: #{$height} solid #{$color};
+		border-bottom: #{math.div($width, 2)} solid transparent;
 	} @else if ($direction == 'right') {
 		border-top: #{math.div($width, 2)} solid transparent;
 		border-bottom: #{math.div($width, 2)} solid transparent;
@@ -33,13 +33,13 @@
 		border-right: #{$width} solid transparent;
 		border-bottom: #{$height} solid #{$color};
 	} @else if ($direction == 'bottom-right') {
-		border-left: #{$width} solid transparent;
 		border-bottom: #{$height} solid #{$color};
-	} @else if ($direction == 'top-left') {
-		border-right: #{$width} solid transparent;
-		border-top: #{$height} solid #{$color};
-	} @else if ($direction == 'top-right') {
 		border-left: #{$width} solid transparent;
+	} @else if ($direction == 'top-left') {
 		border-top: #{$height} solid #{$color};
+		border-right: #{$width} solid transparent;
+	} @else if ($direction == 'top-right') {
+		border-top: #{$height} solid #{$color};
+		border-left: #{$width} solid transparent;
 	}
 }

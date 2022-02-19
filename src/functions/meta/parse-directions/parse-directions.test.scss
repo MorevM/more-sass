@@ -6,23 +6,32 @@
 		@include it('Works correctly with one value') {
 			@include assert-equal(parse-directions(1px), (top: 1px, right: 1px, bottom: 1px, left: 1px));
 		}
+
 		@include it('Works correctly with two values') {
 			@include assert-equal(parse-directions(1px 2px), (top: 1px, right: 2px, bottom: 1px, left: 2px));
 		}
+
 		@include it('Works correctly with three values') {
 			@include assert-equal(parse-directions(1px 2px 3px), (top: 1px, right: 2px, bottom: 3px, left: 2px));
 		}
+
 		@include it('Works correctly with four values') {
 			@include assert-equal(parse-directions(1px 2px 3px 4px), (top: 1px, right: 2px, bottom: 3px, left: 4px));
 		}
+
 		@include it('Works correctly with comma-separated list of values') {
 			@include assert-equal(parse-directions(1px, 2px, 3px, 4px), (top: 1px, right: 2px, bottom: 3px, left: 4px));
 		}
+
 		@include it('Omits nullable values') {
 			@include assert-equal(parse-directions(null, 2px, n, 4px), (top: null, right: 2px, bottom: null, left: 4px));
 		}
+
 		@include it('Works correctly with string values') {
-			@include assert-equal(parse-directions(1px, 2px, '3px !important', 4px), (top: 1px, right: 2px, bottom: '3px !important', left: 4px));
+			@include assert-equal(
+				parse-directions(1px, 2px, '3px !important', 4px),
+				(top: 1px, right: 2px, bottom: '3px !important', left: 4px)
+			);
 		}
 	}
 }

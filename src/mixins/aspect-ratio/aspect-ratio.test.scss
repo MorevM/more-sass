@@ -8,9 +8,10 @@
 				@include output {
 					@include aspect-ratio(1);
 				}
+
 				@include expect {
-					display: block;
 					position: relative;
+					display: block;
 
 					&::before {
 						content: '';
@@ -19,13 +20,15 @@
 					}
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include aspect-ratio(16, 9);
 				}
+
 				@include expect {
-					display: block;
 					position: relative;
+					display: block;
 
 					&::before {
 						content: '';
@@ -35,14 +38,16 @@
 				}
 			}
 		}
+
 		@include it('Works correctly with not unitless values') {
 			@include assert {
 				@include output {
 					@include aspect-ratio(1280px, 720px);
 				}
+
 				@include expect {
-					display: block;
 					position: relative;
+					display: block;
 
 					&::before {
 						content: '';

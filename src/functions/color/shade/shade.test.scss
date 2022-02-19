@@ -8,9 +8,11 @@
 			@include assert-equal(shade(#808080, 45), #464646);
 			@include assert-equal(shade(#808080, 100), #000000);
 		}
+
 		@include it('Works correctly with shorthand HEX notation') {
 			@include assert-equal(shade(#f00, 50), #800000);
 		}
+
 		@include it('Always returns black color if it is the original color') {
 			@include assert-equal(shade(#000000, 20), #000000);
 			@include assert-equal(shade(#000000, 45), #000000);

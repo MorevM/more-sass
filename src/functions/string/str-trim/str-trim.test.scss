@@ -10,9 +10,11 @@
 			@include assert-equal(str-trim('some string   '), 'some string');
 			@include assert-equal(str-trim(' some string '), 'some string');
 		}
+
 		@include it('Returns the input string without side whitespaces as is') {
 			@include assert-equal(str-trim('some string'), 'some string');
 		}
+
 		@include it('Returns the empty input string as is') {
 			@include assert-equal(str-trim(''), '');
 		}

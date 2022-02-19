@@ -1,3 +1,4 @@
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
 @use 'true' as *; // sass-true
 @use './font.scss' as *;
 
@@ -9,6 +10,7 @@
 				@include output {
 					@include font('italic');
 				}
+
 				@include expect {
 					font-style: italic;
 				}
@@ -20,22 +22,27 @@
 				@include output {
 					@include font('300');
 				}
+
 				@include expect {
 					font-weight: 300;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include font(300);
 				}
+
 				@include expect {
 					font-weight: 300;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include font('bolder');
 				}
+
 				@include expect {
 					font-weight: bolder;
 				}
@@ -47,14 +54,17 @@
 				@include output {
 					@include font(16px);
 				}
+
 				@include expect {
 					font-size: 16px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include font('16px');
 				}
+
 				@include expect {
 					font-size: 16px;
 				}
@@ -66,6 +76,7 @@
 				@include output {
 					@include font('/1.5');
 				}
+
 				@include expect {
 					line-height: 1.5;
 				}
@@ -77,6 +88,7 @@
 				@include output {
 					@include font('16px/1.5');
 				}
+
 				@include expect {
 					font-size: 16px;
 					line-height: 1.5;
@@ -89,22 +101,25 @@
 				@include output {
 					@include font('italic 700 16px/1.5');
 				}
+
 				@include expect {
-					font-style: italic;
-					font-weight: 700;
 					font-size: 16px;
 					line-height: 1.5;
+					font-style: italic;
+					font-weight: 700;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include font('16px/1.5 700 italic');
 				}
+
 				@include expect {
-					font-style: italic;
-					font-weight: 700;
 					font-size: 16px;
 					line-height: 1.5;
+					font-style: italic;
+					font-weight: 700;
 				}
 			}
 		}
@@ -114,40 +129,45 @@
 				@include output {
 					@include font('italic 700 16px/1.5 Montserrat');
 				}
+
 				@include expect {
 					font-family: Montserrat;
-					font-style: italic;
-					font-weight: 700;
 					font-size: 16px;
 					line-height: 1.5;
+					font-style: italic;
+					font-weight: 700;
 				}
 			}
 		}
+
 		@include it('Works correctly with full set of properties including two-words font-family (unquoted)') {
 			@include assert {
 				@include output {
 					@include font('italic 700 16px/1.5 Noto Serif');
 				}
+
 				@include expect {
-					font-family: Noto Serif;
-					font-style: italic;
-					font-weight: 700;
+					font-family: 'Noto Serif';
 					font-size: 16px;
 					line-height: 1.5;
+					font-style: italic;
+					font-weight: 700;
 				}
 			}
 		}
+
 		@include it('Works correctly with full set of properties including three-words font-family (quoted)') {
 			@include assert {
 				@include output {
 					@include font('italic 700 16px/1.5 "Agora Slab Pro"');
 				}
+
 				@include expect {
 					font-family: 'Agora Slab Pro';
-					font-style: italic;
-					font-weight: 700;
 					font-size: 16px;
 					line-height: 1.5;
+					font-style: italic;
+					font-weight: 700;
 				}
 			}
 		}
@@ -157,15 +177,18 @@
 				@include output {
 					@include font(16px, Montserrat);
 				}
+
 				@include expect {
 					font-family: Montserrat;
 					font-size: 16px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include font(16px, 'Agora Slab Pro');
 				}
+
 				@include expect {
 					font-family: 'Agora Slab Pro';
 					font-size: 16px;

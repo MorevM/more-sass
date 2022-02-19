@@ -6,6 +6,7 @@
 		@include it('Returns the input string with first character converted to uppercase') {
 			@include assert-equal(str-capitalize('some string'), 'Some string');
 		}
+
 		@include it('Returns the empty input string as is') {
 			@include assert-equal(str-capitalize(''), '');
 		}

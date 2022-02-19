@@ -8,72 +8,87 @@
 				@include output {
 					@include border-radius(1px);
 				}
+
 				@include expect {
 					border-radius: 1px;
 				}
 			}
 		}
+
 		@include it('Works correctly with two values') {
 			@include assert {
 				@include output {
 					@include border-radius(1px 2px);
 				}
+
 				@include expect {
 					border-radius: 1px 2px;
 				}
 			}
 		}
+
 		@include it('Works correctly with three values') {
 			@include assert {
 				@include output {
 					@include border-radius(1px 2px 3px);
 				}
+
 				@include expect {
 					border-radius: 1px 2px 3px;
 				}
 			}
 		}
+
 		@include it('Works correctly with four values') {
 			@include assert {
 				@include output {
 					@include border-radius(1px 2px 3px 4px);
 				}
+
 				@include expect {
 					border-radius: 1px 2px 3px 4px;
 				}
 			}
 		}
+
 		@include it('Replaces nullable values with `0`') {
 			@include assert {
 				@include output {
 					@include border-radius(null 2px n 4px);
 				}
+
 				@include expect {
 					border-radius: 0 2px 0 4px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include border-radius(n 2px null n);
 				}
+
 				@include expect {
 					border-radius: 0 2px 0 0;
 				}
 			}
 		}
+
 		@include it('Considers the `$direction` argument') {
 			@include assert {
 				@include output {
 					@include border-radius(10px, 'top-left');
 				}
+
 				@include expect {
 					border-top-left-radius: 10px;
 				}
 			}
+
 			@include assert {
 				@include output {
 					@include border-radius(10px, 'cross-left');
 				}
+
 				@include expect {
 					border-top-left-radius: 10px;
 					border-bottom-right-radius: 10px;

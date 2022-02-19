@@ -7,6 +7,7 @@
 			@include assert-equal(social-color('vk'), #4a76a8);
 			@include assert-equal(social-color('ig-gradient'), linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%));
 		}
+
 		@include it('Returns null for invalid social media code') {
 			@include assert-equal(social-color('foo'), null);
 		}

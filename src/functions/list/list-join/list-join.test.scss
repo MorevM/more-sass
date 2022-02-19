@@ -7,12 +7,15 @@
 			@include assert-equal(list-join((1, 2, 3, 4, 5)), '12345');
 			@include assert-equal(list-join((1, 2, 3, 4, 5), ', '), '1, 2, 3, 4, 5');
 		}
+
 		@include it('Works correctly with list consist of the only element') {
 			@include assert-equal(list-join((1), ', '), '1');
 		}
+
 		@include it('Works correctly with nested lists') {
 			@include assert-equal(list-join((1, 2, (31, (321, 322), 33), 4, 5), ', '), '1, 2, 31, 321, 322, 33, 4, 5');
 		}
+
 		@include it('Returns empty string if the input list is empty') {
 			@include assert-equal(list-join(()), '');
 		}

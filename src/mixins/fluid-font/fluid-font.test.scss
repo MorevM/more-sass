@@ -8,6 +8,7 @@
 				@include output {
 					@include fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
 				}
+
 				@include expect {
 					font-size: 14px;
 					line-height: 21px;
@@ -30,11 +31,13 @@
 				}
 			}
 		}
+
 		@include it('Works correctly if only font-size values given') {
 			@include assert {
 				@include output {
 					@include fluid-font((320px, 14px), (1280px, 24px));
 				}
+
 				@include expect {
 					font-size: 14px;
 
@@ -48,11 +51,13 @@
 				}
 			}
 		}
+
 		@include it('Works correctly if only line-height values given (it must be not unitless') {
 			@include assert {
 				@include output {
 					@include fluid-font((320px, '/20px'), (1280px, '/16px'));
 				}
+
 				@include expect {
 					line-height: 20px;
 

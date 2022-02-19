@@ -4,6 +4,7 @@
 @use '../../functions/math/get-numeric/get-numeric.scss' as *;
 @use '../../functions/math/with-unit/with-unit.scss' as *;
 @use '../../functions/string/str-split/str-split.scss' as *;
+@use '../../functions/string/str-replace/str-replace.scss' as *;
 @use '../../variables' as vars;
 
 /**
@@ -54,9 +55,15 @@
 		}
 	}
 
+	@if ($font-family and string.index($font-family, ' ')) {
+		$font-family: str-replace($font-family, "'", '');
+		$font-family: str-replace($font-family, '"', '');
+		$font-family: string.quote($font-family);
+	}
+
 	font-family: $font-family;
-	font-style: $font-style;
-	font-weight: $font-weight;
 	font-size: $font-size;
 	line-height: $line-height;
+	font-style: $font-style;
+	font-weight: $font-weight;
 }

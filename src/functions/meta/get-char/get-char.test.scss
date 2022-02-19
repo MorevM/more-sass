@@ -7,6 +7,7 @@
 			@include assert-equal(get-char('dollar'), '\0024');
 			@include assert-equal(get-char('copyright'), '\00A9');
 		}
+
 		@include it('Returns null if a given symbol name is not valid') {
 			@include assert-equal(get-char('string'), null);
 		}

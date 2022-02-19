@@ -8,6 +8,7 @@
 				@include output {
 					@include transform-center;
 				}
+
 				@include expect {
 					position: absolute;
 					top: 50%;

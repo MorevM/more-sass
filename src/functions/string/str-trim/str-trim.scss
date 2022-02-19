@@ -7,7 +7,7 @@
  *
  * @return   {string}    The string without whitespaces on both ends of it.
  */
- @function str-trim($string) {
+@function str-trim($string) {
 	$string: #{$string};
 
 	@while (string.index($string, ' ') == 1) {

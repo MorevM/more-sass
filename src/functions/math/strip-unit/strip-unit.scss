@@ -11,7 +11,7 @@
  */
 @function strip-unit($value) {
 	$value: get-numeric($value);
-	
+
 	@if ($value == null) {
 		@return null;
 	}
