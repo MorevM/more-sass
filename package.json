@@ -35,7 +35,7 @@
 		"release": "release-it --disable-metrics"
 	},
 	"peerDependencies": {
-		"sass": "^1.43.2"
+		"sass": "^1.49.8"
 	},
 	"dependencies": {},
 	"devDependencies": {
@@ -46,11 +46,11 @@
 		"eslint": "^8.9.0",
 		"glob": "^7.2.0",
 		"husky": "^7.0.4",
-		"jest": "^27.2.4",
-		"lint-staged": "^11.2.6",
+		"jest": "^27.5.1",
+		"lint-staged": "^12.3.4",
 		"release-it": "^14.12.4",
-		"sass": "^1.43.2",
+		"sass": "^1.49.8",
 		"sass-true": "^6.0.1",
-		"stylelint": "^14.3.0"
+		"stylelint": "^14.5.1"
 	}
 }
