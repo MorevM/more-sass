@@ -1,9 +1,9 @@
 {
 	"name": "@morevm/more-sass",
 	"description": "The library of useful SCSS mixins and functions",
+	"type": "module",
 	"version": "1.0.1",
 	"license": "MIT",
-	"type": "module",
 	"author": {
 		"name": "Maxim Morev",
 		"email": "max.seainside@gmail.com"
@@ -16,23 +16,33 @@
 	"bugs": {
 		"url": "https://github.com/MorevM/more-sass/issues"
 	},
-	"main": "src/_index.scss",
 	"files": [
 		"src/**/!(*.test).scss"
 	],
+	"main": "src/_index.scss",
 	"scripts": {
 		"prepare": "husky install .husky",
 		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-		"lint": "stylelint \"./src/**/*.scss\"",
-		"lint:fix": "yarn lint --fix",
+		"lint": "yarn lint:stylelint && yarn lint:eslint",
+		"lint:fix": "yarn lint:stylelint:fix && yarn lint:eslint:fix",
+		"lint:stylelint": "stylelint . --allow-empty-input",
+		"lint:stylelint:fix": "stylelint . --allow-empty-input --fix",
+		"lint:eslint": "eslint \"**/*.{js,cjs,yml,yaml,json}\"",
+		"lint:eslint:fix": "eslint \"**/*.{js,cjs,yml,yaml,json}\" --fix",
 		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
 		"docs": "cd ./docs && yarn dev",
 		"release": "release-it --disable-metrics"
 	},
+	"peerDependencies": {
+		"sass": "^1.43.2"
+	},
+	"dependencies": {},
 	"devDependencies": {
 		"@morev/commitlint-config": "^0.1.0",
+		"@morev/eslint-config": "^6.0.2",
 		"@morev/stylelint-config": "^0.1.0",
 		"@release-it/conventional-changelog": "^4.1.0",
+		"eslint": "^8.9.0",
 		"husky": "^7.0.4",
 		"jest": "^27.2.4",
 		"lint-staged": "^11.2.6",
@@ -40,9 +50,5 @@
 		"sass": "^1.43.2",
 		"sass-true": "^6.0.1",
 		"stylelint": "^14.3.0"
-	},
-	"peerDependencies": {
-		"sass": "^1.43.2"
-	},
-	"dependencies": {}
+	}
 }
