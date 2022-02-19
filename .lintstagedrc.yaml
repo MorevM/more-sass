@@ -1,5 +1,2 @@
-{
-  "src/**/*.scss": [
-    "stylelint --config ./.stylelintrc.yaml --allow-empty-input --fix"
-  ],
-}
+src/**/*.scss:
+  - stylelint --allow-empty-input --fix
