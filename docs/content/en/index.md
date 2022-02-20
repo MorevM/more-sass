@@ -9,9 +9,6 @@ fullscreen: true
 
 `more-sass` is the library of useful SCSS mixins and functions.
 
-[![Build status](https://github.com/MorevM/more-sass/workflows/Build/badge.svg)](https://github.com/MorevM/more-sass/actions?query=workflow%3ABuild)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ## Installation
 
 <code-group>

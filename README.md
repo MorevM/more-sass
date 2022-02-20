@@ -1,5 +1,9 @@
-[![Build status](https://github.com/MorevM/more-sass/workflows/Build/badge.svg)](https://github.com/MorevM/more-sass/actions?query=workflow%3ABuild)
+![Stability of "master" branch](https://img.shields.io/github/workflow/status/MorevM/more-sass/Build/master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Last commit](https://img.shields.io/github/last-commit/morevm/more-sass)
+![Release version](https://img.shields.io/github/v/release/morevm/more-sass?include_prereleases)
+![GitHub Release Date](https://img.shields.io/github/release-date/morevm/more-sass)
+![Keywords](https://img.shields.io/github/package-json/keywords/morevm/more-sass)
 
 The library of useful SCSS mixins and functions.
 
