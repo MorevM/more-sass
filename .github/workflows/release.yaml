@@ -2,10 +2,10 @@ name: Release
 
 on:
   push:
-    tags: ['v*']
+    tags: [v*]
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -16,8 +16,6 @@ jobs:
         with:
           node-version: '16'
           cache: yarn
-          scope: '@morevm'
-          registry-url: https://npm.pkg.github.com
 
       - name: Install dependencies
         run: yarn install
@@ -34,6 +32,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish package
-        run: yarn publish
+        run: yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
