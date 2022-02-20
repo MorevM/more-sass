@@ -1,3 +1,10 @@
+### [1.0.4](https://github.com/MorevM/more-sass/compare/v1.0.3...v1.0.4) (2022-02-20)
+
+
+### CI improvements
+
+* Explicit `registry-url` in `release` workflow ([ac73f73](https://github.com/MorevM/more-sass/commit/ac73f733cae75e9ea3d9358aaebbee94a499a3ec))
+
 ### [1.0.3](https://github.com/MorevM/more-sass/compare/v1.0.2...v1.0.3) (2022-02-20)
 
 ### [1.0.2](https://github.com/MorevM/more-sass/compare/v1.0.1...v1.0.2) (2022-02-20)
