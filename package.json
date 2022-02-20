@@ -16,6 +16,12 @@
 		"name": "Maxim Morev",
 		"email": "max.seainside@gmail.com"
 	},
+	"contributors": [
+		{
+			"name": "Andrey Litvinov",
+			"email": "fro1d616@gmail.com"
+		}
+	],
 	"homepage": "https://github.com/MorevM/more-sass#readme",
 	"repository": {
 		"type": "git",
