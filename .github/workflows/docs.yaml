@@ -1,0 +1,34 @@
+name: Docs
+
+on:
+  push:
+    paths: [docs/**]
+
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: yarn
+          cache-dependency-path: ./docs/yarn.lock
+
+      - name: Go to docs directory
+        run: cd docs
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Generate docs
+        run: yarn generate
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: dist
