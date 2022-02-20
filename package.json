@@ -1,9 +1,17 @@
 {
-	"name": "@morevm/more-sass",
+	"name": "more-sass",
 	"description": "The library of useful SCSS mixins and functions",
 	"type": "module",
 	"version": "1.0.1",
+	"private": "false",
+	"engines": {
+		"node": ">=14"
+	},
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"author": {
 		"name": "Maxim Morev",
 		"email": "max.seainside@gmail.com"
@@ -11,7 +19,7 @@
 	"homepage": "https://github.com/MorevM/more-sass#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/MorevM/more-sass"
+		"url": "https://github.com/MorevM/more-sass/"
 	},
 	"bugs": {
 		"url": "https://github.com/MorevM/more-sass/issues"
