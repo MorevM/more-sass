@@ -15,21 +15,21 @@ fullscreen: true
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   input {
   	@include more.reset-input;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   input {
   	margin: 0;
@@ -40,7 +40,7 @@ fullscreen: true
   	appearance: none;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

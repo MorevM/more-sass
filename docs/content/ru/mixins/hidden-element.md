@@ -14,47 +14,47 @@ fullscreen: true
 
 ### Параметры
 
-| Имя      | Тип       | Значение по умолчанию | Описание                     |
-|----------|-----------|-----------------------|------------------------------|
-| $z-index | `?number` | null                  | Значение свойства `z-index`. |
+| Имя      | Тип       | По умолчанию | Описание                     |
+|----------|-----------|--------------|------------------------------|
+| $z-index | `?number` | `null`       | Значение свойства `z-index`. |
 
 ### Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element-one {
   	@include more.hidden-element;
   }
-  
+
   .element-two {
   	@include more.hidden-element(10);
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element-one {
   	visibility: hidden;
   	opacity: 0;
   }
-  
+
   .element-two {
   	z-index: 10;
   	visibility: hidden;
   	opacity: 0;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 ## hidden-element-active
@@ -63,19 +63,19 @@ fullscreen: true
 
 ### Параметры
 
-| Имя      | Тип       | Значение по умолчанию | Описание                     |
-|----------|-----------|-----------------------|------------------------------|
-| $z-index | `?number` | null                  | Значение свойства `z-index`. |
+| Имя      | Тип       | По умолчанию | Описание                     |
+|----------|-----------|--------------|------------------------------|
+| $z-index | `?number` | `null`       | Значение свойства `z-index`. |
 
 ### Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
 
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.hidden-element-active;
   }
@@ -93,5 +93,5 @@ fullscreen: true
   ```
 
   </code-block>
-  
+
 </code-group>

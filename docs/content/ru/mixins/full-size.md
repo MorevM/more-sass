@@ -8,7 +8,7 @@ fullscreen: true
 
 Устанавливает для элемента размер, равный 100% размера его родительского элемента, и позиционирует его абсолютно.
 
-<alert type="warning">Не забудьте указать для родительского элемента значение свойства `position` отличное от `static`.</alert>
+<alert type="warning">Не забудьте указать для родительского элемента значение свойства `position`, отличное от `static`.</alert>
 
 ## Параметры
 
@@ -17,21 +17,21 @@ fullscreen: true
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.full-size;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element {
   	position: absolute;
@@ -42,7 +42,7 @@ fullscreen: true
   	height: 100%;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

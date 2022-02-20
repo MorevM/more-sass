@@ -14,10 +14,10 @@ Generates a value or expression that allows to set a size exactly equalled a giv
 
 **Arguments:**
 
-| Name                                           | Type             | Default | Description                                                                                           |
-|------------------------------------------------|------------------|---------|-------------------------------------------------------------------------------------------------------|
-| $expression<span class="text-red-600">*</span> | `string\|number` | —       | An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`. |
-| $gutter                                        | `?number`        | null    | Space between layout columns.                                                                         |
+| Name                                            | Type               | Default | Description                                                                                           |
+|-------------------------------------------------|--------------------|---------|-------------------------------------------------------------------------------------------------------|
+| $expression <span class="text-red-600">*</span> | `string\|number`   | —       | An expression describing the needed number of layout columns to fill: `needed-columns / total-columns`. |
+| $gutter                                         | `?number`          | `null`  | Space between layout columns.                                                                         |
 
 **Returns:**
 
@@ -27,7 +27,8 @@ Generates a value or expression that allows to set a size exactly equalled a giv
 
 ```scss
 @use 'more-sass' as more;
-@debug more.column('6/12'); // number: 50%
+
+@debug more.column('6/12');       // number: 50%
 @debug more.column('6/12', 15px); // string: calc(100% / 2 - (15px * (12 - 6) / 12))
 ```
 
@@ -37,9 +38,9 @@ Retrieves the Unicode escape sequence of a given symbol by its human-friendly na
 
 **Arguments:**
 
-| Name                                     | Type     | Default | Description                 |
-|------------------------------------------|----------|---------|-----------------------------|
-| $char<span class="text-red-600">*</span> | `string` | —       | Human-friendly symbol name. |
+| Name                                      | Type     | Default | Description                 |
+|-------------------------------------------|----------|---------|-----------------------------|
+| $char <span class="text-red-600">*</span> | `string` | —       | Human-friendly symbol name. |
 
 **Returns:**
 
@@ -49,11 +50,12 @@ Retrieves the Unicode escape sequence of a given symbol by its human-friendly na
 
 ```scss
 @use 'more-sass' as more;
+
 @debug more.get-char('dollar'); // string: '\0024'
 ```
 
 <alert type="info">
-  
+
   List of available symbols:
   |                        |   |
   |------------------------|---|
@@ -88,7 +90,7 @@ Retrieves the Unicode escape sequence of a given symbol by its human-friendly na
   | `cross`                | ✕ |
   | `cross-heavy`          | ✖ |
   | `fisheye`              | ◉ |
-  
+
 </alert>
 
 ## offset
@@ -97,10 +99,10 @@ Generates a value or expression that allows to set a size exactly equalled a giv
 
 **Arguments:**
 
-| Name                                           | Type             | Default | Description                                                                                           |
-|------------------------------------------------|------------------|---------|-------------------------------------------------------------------------------------------------------|
-| $expression<span class="text-red-600">*</span> | `string\|number` | —       | An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`. |
-| $gutter                                        | `?number`        | null    | Space between layout columns.                                                                         |
+| Name                                            | Type             | Default | Description                                                                                           |
+|-------------------------------------------------|------------------|---------|-------------------------------------------------------------------------------------------------------|
+| $expression <span class="text-red-600">*</span> | `string\|number` | —       | An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`. |
+| $gutter                                         | `?number`        | `null`  | Space between layout columns.                                                                         |
 
 **Returns:**
 
@@ -116,27 +118,27 @@ Generates a value or expression that allows to set a size exactly equalled a giv
 
 ## parse-directions
 
-Parses a given list of values using standard CSS order (top, right, bottom, left).  
+Parses a given list of values using standard CSS order (top, right, bottom, left). \
 Some values can be omitted using `null` (preferable) or its alias `n`.
 
 <alert type="info">
-  
+
   If one argument is supplied it used for all positioning properties.<br /><br />
-  If two arguments are supplied the first is used as *top* and *bottom* value, the second is used as *left* and *right* value.<br /><br />
-  If three arguments are supplied the first is used as *top* value, the second is used as *left* and *right* value, the third is used as *bottom* value.<br /><br />
-  If four arguments are supplied the first is used as *top* value, the second is used as *right* value, the third is used as *bottom* value, the fourth is used as *left* value.<br /><br />
-  
+  If two arguments are supplied the first is used as **top** and **bottom** value, the second is used as **left** and **right** value.<br /><br />
+  If three arguments are supplied the first is used as **top** value, the second is used as **left** and **right** value, the third is used as **bottom** value.<br /><br />
+  If four arguments are supplied the first is used as **top** value, the second is used as **right** value, the third is used as **bottom** value, the fourth is used as **left** value.<br /><br />
+
 </alert>
 
 **Arguments:**
 
-| Name                                       | Type   | Default | Description       |
-|--------------------------------------------|--------|---------|-------------------|
-| $values<span class="text-red-600">*</span> | `list` | —       | A list of values. |
+| Name                                        | Type   | Default | Description       |
+|---------------------------------------------|--------|---------|-------------------|
+| $values <span class="text-red-600">*</span> | `list` | —       | A list of values. |
 
 **Returns:**
 
-`map` - Full set of positioning properties structured of *(position: value)*.
+`map` - Full set of positioning properties structured of **(position: value)**.
 
 **Example:**
 

@@ -14,9 +14,9 @@ Transforms a given pseudo-number string to a real number.
 
 **Arguments:**
 
-| Name                                      | Type             | Default | Description                                       |
-|-------------------------------------------|------------------|---------|---------------------------------------------------|
-| $value<span class="text-red-600">*</span> | `string\|number` | —       | The input value (number or pseudo-number string). |
+| Name                                       | Type               | Default | Description                                       |
+|--------------------------------------------|--------------------|---------|---------------------------------------------------|
+| $value <span class="text-red-600">*</span> | `string \| number` | —       | The input value (number or pseudo-number string). |
 
 **Returns:**
 
@@ -26,6 +26,7 @@ Transforms a given pseudo-number string to a real number.
 
 ```scss
 @use 'more-sass' as more;
+
 @debug more.get-numeric('12px'); // number: 12px
 @debug more.get-numeric('foo'); // null
 ```
@@ -36,9 +37,9 @@ Retrieves a unit of a given number.
 
 **Arguments:**
 
-| Name                                      | Type             | Default | Description                                         |
-|-------------------------------------------|------------------|---------|-----------------------------------------------------|
-| $value<span class="text-red-600">*</span> | `string\|number` | —       | The number or pseudo-number string to get its unit. |
+| Name                                       | Type               | Default | Description                                         |
+|--------------------------------------------|--------------------|---------|-----------------------------------------------------|
+| $value <span class="text-red-600">*</span> | `string \| number` | —       | The number or pseudo-number string to get its unit. |
 
 **Returns:**
 
@@ -48,7 +49,9 @@ Retrieves a unit of a given number.
 
 ```scss
 @use 'more-sass' as more;
-@debug more.get-unit(12px); // number: 1px
+
+@debug more.get-unit(12px);  // number: 1px
+@debug more.get-unit('12%'); // number: 1%
 ```
 
 ## strip-unit
@@ -57,9 +60,9 @@ Strips the unit of a given value.
 
 **Arguments:**
 
-| Name                                      | Type             | Default | Description                                                |
-|-------------------------------------------|------------------|---------|------------------------------------------------------------|
-| $value<span class="text-red-600">*</span> | `string\|number` | —       | The number or pseudo-number string to to remove unit from. |
+| Name                                       | Type               | Default | Description                                                |
+|--------------------------------------------|--------------------|---------|------------------------------------------------------------|
+| $value <span class="text-red-600">*</span> | `string \| number` | —       | The number or pseudo-number string to to remove unit from. |
 
 **Returns:**
 
@@ -69,7 +72,9 @@ Strips the unit of a given value.
 
 ```scss
 @use 'more-sass' as more;
-@debug more.strip-unit(12px); // number: 12
+
+@debug more.strip-unit(12px);  // number: 12
+@debug more.strip-unit('10%'); // number: 10
 ```
 
 ## with-unit
@@ -78,10 +83,10 @@ Sets default unit for a given unitless number.
 
 **Arguments:**
 
-| Name                                      | Type             | Default | Description                                       |
-|-------------------------------------------|------------------|---------|---------------------------------------------------|
-| $value<span class="text-red-600">*</span> | `string\|number` | —       | The input value (number or pseudo-number string). |
-| $unit                                     | `string`         | px      | Default unit (one of valid CSS units).            |
+| Name                                       | Type               | Default | Description                                       |
+|--------------------------------------------|--------------------|---------|---------------------------------------------------|
+| $value <span class="text-red-600">*</span> | `string \| number` | —       | The input value (number or pseudo-number string). |
+| $unit                                      | `string`           | `px`    | Default unit (one of valid CSS units).            |
 
 **Returns:**
 
@@ -91,6 +96,6 @@ Sets default unit for a given unitless number.
 
 ```scss
 @use 'more-sass' as more;
-@debug more.with-unit(12); // number: 12px
+@debug more.with-unit(12);       // number: 12px
 @debug more.with-unit(12, 'em'); // number: 12em
 ```

@@ -19,21 +19,21 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
 ### Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.clearfix;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   .element::after {
   	content: '';
@@ -41,9 +41,9 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
   	clear: both;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 ## clearfix-element
@@ -57,28 +57,28 @@ Clears the flow around the current element.
 ### Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.clearfix-element;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   .element {
   	display: block;
   	clear: both;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

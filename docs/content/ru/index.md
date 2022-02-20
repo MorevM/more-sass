@@ -5,9 +5,9 @@ position: 0
 fullscreen: true
 ---
 
-![Логотип More Sass](/preview.png)
+<!-- ![Логотип More Sass](/preview.png) -->
 
-Библиотека полезных миксинов и функций для SCSS.
+`more-sass` - это библиотека полезных миксинов и функций для SCSS.
 
 [![Статус сборки](https://github.com/MorevM/more-sass/workflows/Build/badge.svg)](https://github.com/MorevM/more-sass/actions?query=workflow%3ABuild)
 [![Лицензия: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -15,23 +15,23 @@ fullscreen: true
 ## Установка
 
 <code-group>
-  
+
   <code-block label="yarn" active>
-  
+
   ```bash
   yarn add more-sass
   ```
-  
+
   </code-block>
-  
+
   <code-block label="npm">
-  
+
   ```bash
   npm install more-sass
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 ## Использование

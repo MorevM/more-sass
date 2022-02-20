@@ -19,29 +19,29 @@ fullscreen: true
 ### Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.br-hide;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element br {
   	display: none;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 ## br-show
@@ -55,27 +55,27 @@ fullscreen: true
 ### Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.br-show;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element br {
   	display: block;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

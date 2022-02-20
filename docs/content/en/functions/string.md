@@ -14,9 +14,9 @@ Capitalizes a given string.
 
 **Arguments:**
 
-| Name                                       | Type     | Default | Description       |
-|--------------------------------------------|----------|---------|-------------------|
-| $string<span class="text-red-600">*</span> | `string` | —       | The input string. |
+| Name                                        | Type     | Default | Description       |
+|---------------------------------------------|----------|---------|-------------------|
+| $string <span class="text-red-600">*</span> | `string` | —       | The input string. |
 
 **Returns:**
 
@@ -26,6 +26,7 @@ Capitalizes a given string.
 
 ```scss
 @use 'more-sass' as more;
+
 @debug more.str-capitalize('foo bar'); // string: 'Foo bar'
 ```
 
@@ -35,12 +36,12 @@ Replaces all occurrences of the search string with the replacement string.
 
 **Arguments:**
 
-| Name                                        | Type      | Default | Description                                                            |
-|---------------------------------------------|-----------|---------|------------------------------------------------------------------------|
-| $string<span class="text-red-600">*</span>  | `string`  | —       | The string being searched and replaced on.                             |
-| $search<span class="text-red-600">*</span>  | `string`  | —       | The value being searched for.                                          |
-| $replace<span class="text-red-600">*</span> | `string`  | —       | The replacement value that replaces found search values.               |
-| $limit                                      | `?number` | null    | If supplied, this will be set to the number of replacements performed. |
+| Name                                         | Type      | Default | Description                                                            |
+|----------------------------------------------|-----------|---------|------------------------------------------------------------------------|
+| $string <span class="text-red-600">*</span>  | `string`  | —       | The string being searched and replaced on.                             |
+| $search <span class="text-red-600">*</span>  | `string`  | —       | The value being searched for.                                          |
+| $replace <span class="text-red-600">*</span> | `string`  | —       | The replacement value that replaces found search values.               |
+| $limit                                       | `?number` | `null`  | If supplied, this will be set to the number of replacements performed. |
 
 **Returns:**
 
@@ -50,6 +51,7 @@ Replaces all occurrences of the search string with the replacement string.
 
 ```scss
 @use 'more-sass' as more;
+
 @debug more.str-replace('foo bar baz', 'ba', 'x'); // string: 'foo xr xz'
 ```
 
@@ -59,11 +61,11 @@ Splits a given string to a list of strings.
 
 **Arguments:**
 
-| Name                                       | Type     | Default | Description                                            |
-|--------------------------------------------|----------|---------|--------------------------------------------------------|
-| $string<span class="text-red-600">*</span> | `string` | —       | The input string.                                      |
-| $delimiter                                 | `string` | ''      | The boundary string.                                   |
-| $separator                                 | `string` | auto    | The output list separator (space\|comma\|slash\|auto). |
+| Name                                        | Type     | Default | Description                                            |
+|---------------------------------------------|----------|---------|--------------------------------------------------------|
+| $string <span class="text-red-600">*</span> | `string` | —       | The input string.                                      |
+| $delimiter                                  | `string` | `''`    | The boundary string.                                   |
+| $separator                                  | `string` | `auto`  | The output list separator <br />`space` \| `comma` \| `slash` \| `auto` |
 
 **Returns:**
 
@@ -73,6 +75,7 @@ Splits a given string to a list of strings.
 
 ```scss
 @use 'more-sass' as more;
+
 @debug more.str-split('foo|bar|baz', '|', 'comma'); // list: ('foo', 'bar', 'baz')
 ```
 
@@ -82,9 +85,9 @@ Removes whitespaces from both ends of a given string.
 
 **Arguments:**
 
-| Name                                       | Type     | Default | Description         |
-|--------------------------------------------|----------|---------|---------------------|
-| $string<span class="text-red-600">*</span> | `string` | —       | The string to trim. |
+| Name                                        | Type     | Default | Description         |
+|---------------------------------------------|----------|---------|---------------------|
+| $string <span class="text-red-600">*</span> | `string` | —       | The string to trim. |
 
 **Returns:**
 
@@ -94,5 +97,6 @@ Removes whitespaces from both ends of a given string.
 
 ```scss
 @use 'more-sass' as more;
+
 @debug more.str-trim(' foo bar   '); // string: 'foo bar'
 ```

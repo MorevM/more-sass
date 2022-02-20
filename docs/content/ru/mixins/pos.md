@@ -10,39 +10,39 @@ fullscreen: true
 
 ## Параметры
 
-| Имя       | Тип      | Значение по умолчанию | Описание                                                                  |
-|-----------|----------|-----------------------|---------------------------------------------------------------------------|
-| $position | `string` | absolute              | Тип позиционирования (relative, absolute и т.д.).                         |
-| $values   | `list`   | ()                    | Значения позиционирования в стандартном порядке (top-right-bottom-left)*. |
+| Имя       | Тип      | По умолчанию | Описание                                                                  |
+|-----------|----------|--------------|---------------------------------------------------------------------------|
+| $position | `string` | `absolute`   | Тип позиционирования (relative, absolute и т.д.).                         |
+| $values   | `list`   | `()`         | Значения позиционирования в стандартном порядке (top-right-bottom-left)*. |
 
 <alert type="info">Значения могут быть пропущены используя `null` (предпочтительно) или его псевдоним `n`.</alert>
 
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element-one {
-  	@include more.position('absolute', 10px);
+  	@include more.pos('absolute', 10px);
   }
-  
+
   .element-two {
-  	@include more.position('absolute', 10px 20px 30px 40px);
+  	@include more.pos('absolute', 10px 20px 30px 40px);
   }
-  
+
   .element-three {
-  	@include more.position('absolute', null auto);
+  	@include more.pos('absolute', null auto);
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element-one {
   	position: absolute;
@@ -51,7 +51,7 @@ fullscreen: true
   	bottom: 10px;
   	left: 10px;
   }
-  
+
   .element-two {
   	position: absolute;
   	top: 10px;
@@ -59,24 +59,24 @@ fullscreen: true
   	bottom: 30px;
   	left: 40px;
   }
-  
+
   .element-three {
   	position: absolute;
   	right: auto;
   	left: auto;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 <alert type="info">
-  
+
   Также доступны сокращённые варианты записи для конкретных типов позиционирования:
-  
-  `pos-rel($values...)`  
-  `pos-abs($values...)`  
-  `pos-fix($values...)`  
-  
+
+  `pos-rel($values...)`
+  `pos-abs($values...)`
+  `pos-fix($values...)`
+
 </alert>

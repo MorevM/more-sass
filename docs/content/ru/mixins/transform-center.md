@@ -17,21 +17,21 @@ fullscreen: true
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.transform-center;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element {
   	position: absolute;
@@ -40,7 +40,7 @@ fullscreen: true
   	transform: translate(-50%, -50%);
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

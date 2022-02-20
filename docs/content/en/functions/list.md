@@ -14,10 +14,10 @@ Checks whether at least one value in a given list contains a given substring.
 
 **Arguments:**
 
-| Name                                       | Type     | Default | Description             |
-|--------------------------------------------|----------|---------|-------------------------|
-| $list<span class="text-red-600">*</span>   | `list`   | —       | The input list.         |
-| $search<span class="text-red-600">*</span> | `string` | —       | The searched substring. |
+| Name                                        | Type     | Default | Description             |
+|---------------------------------------------|----------|---------|-------------------------|
+| $list <span class="text-red-600">*</span>   | `list`   | —       | The input list.         |
+| $search <span class="text-red-600">*</span> | `string` | —       | The searched substring. |
 
 **Returns:**
 
@@ -30,7 +30,7 @@ Checks whether at least one value in a given list contains a given substring.
 
 $list: ('foo', 'bar', 'baz');
 
-@debug more.list-contains($list, 'ba'); // bool: true
+@debug more.list-contains($list, 'ba');  // bool: true
 @debug more.list-contains($list, 'abc'); // bool: false
 ```
 
@@ -40,10 +40,10 @@ Checks whether a given value exists in a given list.
 
 **Arguments:**
 
-| Name                                       | Type   | Default | Description         |
-|--------------------------------------------|--------|---------|---------------------|
-| $list<span class="text-red-600">*</span>   | `list` | —       | The input list.     |
-| $search<span class="text-red-600">*</span> | `*`    | —       | The searched value. |
+| Name                                        | Type   | Default | Description         |
+|---------------------------------------------|--------|---------|---------------------|
+| $list <span class="text-red-600">*</span>   | `list` | —       | The input list.     |
+| $search <span class="text-red-600">*</span> | `*`    | —       | The searched value. |
 
 **Returns:**
 
@@ -66,10 +66,10 @@ Joins a given list elements with a given separator string.
 
 **Arguments:**
 
-| Name                                     | Type     | Default | Description                  |
-|------------------------------------------|----------|---------|------------------------------|
-| $list<span class="text-red-600">*</span> | `list`   | —       | The input list.              |
-| $separator                               | `string` | ''      | The output string separator. |
+| Name                                      | Type     | Default | Description                  |
+|-------------------------------------------|----------|---------|------------------------------|
+| $list <span class="text-red-600">*</span> | `list`   | —       | The input list.              |
+| $separator                                | `string` | `''`    | The output string separator. |
 
 **Returns:**
 
@@ -80,8 +80,8 @@ Joins a given list elements with a given separator string.
 ```scss
 @use 'more-sass' as more;
 
-@debug more.list-join((1, 2, 3, 4, 5)); // string: '12345'
-@debug more.list-join((1, 2, 3, 4, 5), ', '); // string: '1, 2, 3, 4, 5'
+@debug more.list-join((1, 2, 3, 4, 5));    // string: '12345'
+@debug more.list-join((1, 2, 3, 4), ', '); // string: '1, 2, 3, 4'
 ```
 
 ## list-slice
@@ -90,11 +90,11 @@ Extracts a slice of a given list.
 
 **Arguments:**
 
-| Name                                         | Type     | Default | Description                 |
-|----------------------------------------------|----------|---------|-----------------------------|
-| $list<span class="text-red-600">*</span>     | `list`   | —       | The input list.             |
-| $start-at<span class="text-red-600">*</span> | `number` | —       | Starting index (inclusive). |
-| $end-at                                      | `number` | -1      | Ending index (inclusive).   |
+| Name                                          | Type     | Default | Description                 |
+|-----------------------------------------------|----------|---------|-----------------------------|
+| $list <span class="text-red-600">*</span>     | `list`   | —       | The input list.             |
+| $start-at <span class="text-red-600">*</span> | `number` | —       | Starting index (inclusive). |
+| $end-at                                       | `number` | `-1`    | Ending index (inclusive).   |
 
 **Returns:**
 
@@ -105,6 +105,6 @@ Extracts a slice of a given list.
 ```scss
 @use 'more-sass' as more;
 
-@debug more.list-slice((1, 2, 3, 4, 5), 3); // list: (3, 4, 5)
+@debug more.list-slice((1, 2, 3, 4, 5), 3);    // list: (3, 4, 5)
 @debug more.list-slice((1, 2, 3, 4, 5), 2, 4); // list: (2, 3, 4)
 ```

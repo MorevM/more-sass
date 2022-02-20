@@ -19,21 +19,21 @@ fullscreen: true
 ### Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.clearfix;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element::after {
   	content: '';
@@ -41,9 +41,9 @@ fullscreen: true
   	clear: both;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 ## clearfix-element
@@ -57,28 +57,28 @@ fullscreen: true
 ### Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.clearfix-element;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element {
   	display: block;
   	clear: both;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

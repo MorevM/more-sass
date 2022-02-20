@@ -10,28 +10,28 @@ fullscreen: true
 
 ## Параметры
 
-| Имя        | Тип      | Значение по умолчанию | Описание                     |
-|------------|----------|-----------------------|------------------------------|
-| $max-width | `number` | 100%                  | Ограничение ширины элемента. |
+| Имя        | Тип      | По умолчанию | Описание                     |
+|------------|----------|--------------|------------------------------|
+| $max-width | `number` | 100%         | Ограничение ширины элемента. |
 
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.ellipsis;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element {
   	max-width: 100%;
@@ -40,7 +40,7 @@ fullscreen: true
   	overflow: hidden;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

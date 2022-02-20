@@ -15,21 +15,21 @@ fullscreen: true
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   button {
   	@include more.reset-button;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   button {
   	margin: 0;
@@ -46,7 +46,7 @@ fullscreen: true
   	user-select: none;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

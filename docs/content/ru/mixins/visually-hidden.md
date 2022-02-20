@@ -15,21 +15,21 @@ fullscreen: true
 ## Пример использования
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.visually-hidden;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Результат">
-  
+
   ```css
   .element {
   	position: absolute;
@@ -40,7 +40,7 @@ fullscreen: true
   	margin: -1px;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

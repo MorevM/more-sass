@@ -22,6 +22,14 @@ export default theme({
 		style: [
 			{ cssText: 'body .prose thead th {vertical-align: top; line-height: 1.4;}' },
 			{ cssText: 'body .prose pre code {font-family: inherit;}' },
+			{
+				cssText: `
+					@media (min-width: 1280px)
+					.container {
+							max-width: 1380px;
+					}
+			`,
+			},
 		],
 	},
 });
