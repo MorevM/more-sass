@@ -2,8 +2,10 @@ name: Docs
 
 on:
   push:
-    paths: [docs/**]
-  workflow_dispatch: {}
+    branches: [master]
+    paths:
+      - docs/**
+  # workflow_dispatch: {}
 
 jobs:
   publish-docs:
