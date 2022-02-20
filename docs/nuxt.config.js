@@ -16,7 +16,7 @@ export default theme({
 			name: 'English',
 			file: 'en-US.js',
 		}],
-		defaultLocale: 'ru',
+		defaultLocale: 'en',
 	},
 	head: {
 		style: [
