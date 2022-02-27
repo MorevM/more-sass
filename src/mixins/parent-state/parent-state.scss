@@ -12,33 +12,42 @@
  * @param    {list}    $states    Pseudo-element parent state(s) (pseudo-classes, modifier classes, etc.).
  */
 @mixin parent-state($states...) {
-	$selector: #{list.nth(selector.parse(&), 1)};
-	$pseudo: null;
+	$selectors: selector.parse(&);
 
-	$pseudo-elements: vars.$pseudo-elements;
-	$_pseudo-elements: $pseudo-elements;
+	$all-pseudo-elements: vars.$pseudo-elements;
+	$compound-selector: ();
 
-	@while (list.length($_pseudo-elements) > 0) {
-		$pseudo-element: list.nth($_pseudo-elements, 1);
-		$_pseudo-elements: list-slice($_pseudo-elements, 2);
+	@each $selector in $selectors {
+		$selector: #{$selector};
+		$pseudo: '';
+		$_pseudo-elements: $all-pseudo-elements;
 
-		@if (string.slice($selector, string.length($pseudo-element) * -1) == $pseudo-element) {
-			$pseudo: $pseudo-element;
-			$selector: string.slice($selector, 1, string.length($pseudo) * -1 - 1);
-			$_pseudo-elements: ();
+		@while (list.length($_pseudo-elements) > 0) {
+			$pseudo-element: list.nth($_pseudo-elements, 1);
+			$_pseudo-elements: list-slice($_pseudo-elements, 2);
+
+			@if (string.slice($selector, string.length($pseudo-element) * -1) == $pseudo-element) {
+				$pseudo: $pseudo-element;
+				$selector: string.slice($selector, 1, string.length($pseudo) * -1 - 1);
+				$_pseudo-elements: ();
+			}
+		}
+
+		@if (str-trim($selector) != '') {
+			@if (list.length($states) == 1) {
+				$states: list.nth($states, 1);
+			}
+
+			$selector: selector.append($selector, $states);
+			$selector: selector.append($selector, $pseudo);
+
+			@each $part in $selector {
+				$compound-selector: list.append($compound-selector, $part, comma);
+			}
 		}
 	}
 
-	@if (str-trim($selector) != '') {
-		@if (list.length($states) == 1) {
-			$states: list.nth($states, 1);
-		}
-
-		$selector: selector.append($selector, $states);
-		$selector: selector.append($selector, $pseudo);
-
-		@at-root #{$selector} {
-			@content;
-		}
+	@at-root #{$compound-selector} {
+		@content;
 	}
 }

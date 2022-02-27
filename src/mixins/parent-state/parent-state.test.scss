@@ -196,5 +196,46 @@
 				}
 			}
 		}
+
+		@include it('Works correctly with composite selectors') {
+			@include assert {
+				@include output {
+					.element {
+						&::before, &::after {
+							@include parent-state(':hover') {
+								color: #ff0000;
+							}
+						}
+					}
+				}
+
+				@include expect {
+					.element:hover::before, .element:hover::after {
+						color: #ff0000;
+					}
+				}
+			}
+		}
+
+		@include it('Works correctly with composite selectors and multiple state modifiers') {
+			@include assert {
+				@include output {
+					.element {
+						&::before, &::after {
+							@include parent-state(':hover', '.is-fixed', '--active') {
+								color: #ff0000;
+							}
+						}
+					}
+				}
+
+				@include expect {
+					.element:hover::before, .element.is-fixed::before, .element--active::before,
+					.element:hover::after, .element.is-fixed::after, .element--active::after {
+						color: #ff0000;
+					}
+				}
+			}
+		}
 	}
 }
