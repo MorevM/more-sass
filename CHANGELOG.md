@@ -1,4 +1,16 @@
-### [1.0.4](https://github.com/MorevM/more-sass/compare/v1.0.3...v1.0.4) (2022-02-20)
+undefined
+
+### [1.0.5](https://github.com/MorevM/more-sass/compare/v1.0.4...v1.0.5) (2022-02-27)
+
+
+### Bug fixes
+
+* **mixins:** Compound selectors in `parent-state` ([55c7db1](https://github.com/MorevM/more-sass/commit/55c7db10a3c2830ab6d9213dc51a04234deb9d55))
+
+
+### Chores
+
+* **deps:** All deps update ([b16619c](https://github.com/MorevM/more-sass/commit/b16619c8616e3ca717d9b2bdde4cdeb67c147b7c))### [1.0.4](https://github.com/MorevM/more-sass/compare/v1.0.3...v1.0.4) (2022-02-20)
 
 
 ### CI improvements
