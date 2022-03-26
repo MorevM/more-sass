@@ -53,18 +53,18 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"@morev/commitlint-config": "^0.1.0",
-		"@morev/eslint-config": "^8.0.0",
-		"@morev/stylelint-config": "^0.1.2",
-		"@release-it/conventional-changelog": "^4.2.0",
-		"eslint": "^8.10.0",
+		"@morev/commitlint-config": "^0.1.1",
+		"@morev/eslint-config": "^10.0.3",
+		"@morev/stylelint-config": "^1.0.2",
+		"@release-it/conventional-changelog": "^4.2.2",
+		"eslint": "^8.12.0",
 		"glob": "^7.2.0",
 		"husky": "^7.0.4",
 		"jest": "^27.5.1",
-		"lint-staged": "^12.3.4",
-		"release-it": "^14.12.5",
+		"lint-staged": "^12.3.7",
+		"release-it": "^14.13.1",
 		"sass": "^1.49.9",
-		"sass-true": "^6.0.1",
-		"stylelint": "^14.5.3"
+		"sass-true": "^6.1.0",
+		"stylelint": "^14.6.1"
 	}
 }
