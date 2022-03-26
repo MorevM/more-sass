@@ -1,6 +1,11 @@
 
 
-### [1.0.6](https://github.com/MorevM/more-sass/compare/v1.0.5...v1.0.6) (2022-03-26)
+### [1.0.7](https://github.com/MorevM/more-sass/compare/v1.0.6...v1.0.7) (2022-03-26)
+
+
+### Bug fixes
+
+* Fix documentation routing ([#3](https://github.com/MorevM/more-sass/issues/3)) ([a2c2fdf](https://github.com/MorevM/more-sass/commit/a2c2fdf982e3bbb1e3ef5d11b36f649b036d49ce))### [1.0.6](https://github.com/MorevM/more-sass/compare/v1.0.5...v1.0.6) (2022-03-26)
 
 
 ### Chores
