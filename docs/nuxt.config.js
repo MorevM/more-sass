@@ -4,6 +4,9 @@ export default theme({
 	server: {
 		port: 4000,
 	},
+	router: {
+		base: '/more-sass/'
+	},
 	i18n: {
 		locales: () => [{
 			code: 'ru',
