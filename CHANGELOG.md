@@ -1,4 +1,12 @@
-undefined
+
+
+### [1.0.6](https://github.com/MorevM/more-sass/compare/v1.0.5...v1.0.6) (2022-03-26)
+
+
+### Chores
+
+* Add `dependabot` ([a795e04](https://github.com/MorevM/more-sass/commit/a795e0412813b5ec50257b4d1ea731db1d2fb8b2))
+* Deps update ([9641523](https://github.com/MorevM/more-sass/commit/96415238a616398e944b227c37d50e4fa9e4aa1a))undefined
 
 ### [1.0.5](https://github.com/MorevM/more-sass/compare/v1.0.4...v1.0.5) (2022-02-27)
 
