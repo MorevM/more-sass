@@ -1055,10 +1055,10 @@
     vue-eslint-parser "^8.1.0"
     yaml-eslint-parser "^0.5.0"
 
-"@morev/stylelint-config@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@morev/stylelint-config/-/stylelint-config-1.0.2.tgz#a7585ef7c341f00f57fa97971dd8b2307fdc8546"
-  integrity sha512-i2dRJ57o6LE0U2NVrOk56MVgMxKwJci+2CZ/b5XSGt54Jnsp73/kN2XjioY6fuzbEzyrzluF9R1jwCeQwfcWkg==
+"@morev/stylelint-config@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@morev/stylelint-config/-/stylelint-config-1.0.3.tgz#029406680f51ff8e2ca19969c36351268f403148"
+  integrity sha512-Kbn/3dNY/KOTvkMXv3afZ3ZFGTOxT8hPss3n+d/zmJuCohiVKuNJIuxTfqRh9WZ0VG5395heSl0f6m3EQvWVwQ==
   dependencies:
     lodash.mergewith "^4.6.2"
     postcss "^8.4.8"
@@ -5268,11 +5268,6 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-nanoid@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
-  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
-
 nanoid@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.1.tgz#6347a18cac88af88f58af0b3594b723d5e99bb35"
@@ -5789,16 +5784,7 @@ postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.3.11:
-  version "8.4.6"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.6.tgz#c5ff3c3c457a23864f32cb45ac9b741498a09ae1"
-  integrity sha512-OovjwIzs9Te46vlEx7+uXB0PLijpwjXGKXjVGGPIGubGpq7uh5Xgf6D6FiJ/SzJMBosHDp6a2hiXOS97iBXcaA==
-  dependencies:
-    nanoid "^3.2.0"
-    picocolors "^1.0.0"
-    source-map-js "^1.0.2"
-
-postcss@^8.4.12, postcss@^8.4.8:
+postcss@^8.3.11, postcss@^8.4.12, postcss@^8.4.8:
   version "8.4.12"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.12.tgz#1e7de78733b28970fa4743f7da6f3763648b1905"
   integrity sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==
