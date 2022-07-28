@@ -8,8 +8,14 @@
 			@include assert {
 				@include output {
 					@at-root {
-						.block {
-							@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+						.single {
+							@include bem-modifiers('--modifier-one') {
+								color: #ff0000;
+							}
+						}
+
+						.multiple {
+							@include bem-modifiers('--modifier-one', '--modifier-two') {
 								color: #ff0000;
 							}
 						}
@@ -18,7 +24,11 @@
 
 				@include expect {
 					@at-root {
-						.block--modifier-one.block--modifier-two.block--modifier-three {
+						.single--modifier-one {
+							color: #ff0000;
+						}
+
+						.multiple--modifier-one.multiple--modifier-two {
 							color: #ff0000;
 						}
 					}
@@ -31,8 +41,14 @@
 				@include output {
 					@at-root {
 						.block {
-							&__element {
-								@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+							&__single {
+								@include bem-modifiers('--modifier-one') {
+									color: #ff0000;
+								}
+							}
+
+							&__multiple {
+								@include bem-modifiers('--modifier-one', '--modifier-two') {
 									color: #ff0000;
 								}
 							}
@@ -42,7 +58,11 @@
 
 				@include expect {
 					@at-root {
-						.block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
+						.block__single--modifier-one {
+							color: #ff0000;
+						}
+
+						.block__multiple--modifier-one.block__multiple--modifier-two {
 							color: #ff0000;
 						}
 					}
@@ -55,8 +75,14 @@
 				@include output {
 					@at-root {
 						.block {
-							&--modifier-one {
-								@include bem-modifiers('--modifier-two', '--modifier-three') {
+							&--single {
+								@include bem-modifiers('--modifier-one') {
+									color: #ff0000;
+								}
+							}
+
+							&--multiple {
+								@include bem-modifiers('--modifier-one', '--modifier-two') {
 									color: #ff0000;
 								}
 							}
@@ -66,7 +92,11 @@
 
 				@include expect {
 					@at-root {
-						.block--modifier-one.block--modifier-two.block--modifier-three {
+						.block--single.block--modifier-one {
+							color: #ff0000;
+						}
+
+						.block--multiple.block--modifier-one.block--modifier-two {
 							color: #ff0000;
 						}
 					}
@@ -80,8 +110,14 @@
 					@at-root {
 						.block {
 							&__element {
-								&--modifier-one {
-									@include bem-modifiers('--modifier-two', '--modifier-three') {
+								&--single {
+									@include bem-modifiers('--modifier-one') {
+										color: #ff0000;
+									}
+								}
+
+								&--multiple {
+									@include bem-modifiers('--modifier-one', '--modifier-two') {
 										color: #ff0000;
 									}
 								}
@@ -92,7 +128,11 @@
 
 				@include expect {
 					@at-root {
-						.block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
+						.block__element--single.block__element--modifier-one {
+							color: #ff0000;
+						}
+
+						.block__element--multiple.block__element--modifier-one.block__element--modifier-two {
 							color: #ff0000;
 						}
 					}
@@ -105,8 +145,14 @@
 				@include output {
 					@at-root {
 						.block {
-							& &__element {
-								@include bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+							& &__single {
+								@include bem-modifiers('--modifier-one') {
+									color: #ff0000;
+								}
+							}
+
+							& &__multiple {
+								@include bem-modifiers('--modifier-one', '--modifier-two') {
 									color: #ff0000;
 								}
 							}
@@ -116,7 +162,11 @@
 
 				@include expect {
 					@at-root {
-						.block .block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
+						.block .block__single--modifier-one {
+							color: #ff0000;
+						}
+
+						.block .block__multiple--modifier-one.block__multiple--modifier-two {
 							color: #ff0000;
 						}
 					}
