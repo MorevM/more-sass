@@ -13,5 +13,6 @@ module.exports = {
 		'number-leading-zero': null,
 		'aditayvm/at-rule-no-children': null,
 		'declaration-empty-line-before': null,
+		'order/order': null,
 	},
 };
