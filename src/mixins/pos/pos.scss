@@ -1,31 +1,34 @@
 @use 'sass:map';
 @use 'sass:string';
+@use 'sass:meta';
 @use '../../functions/meta/parse-directions/parse-directions.scss' as *;
 
 /**
  * Shorthands for use position properties.
  *
  * @param    {string}    $position ['absolute']    Position type (relative, absolute, etc.).
- * @param    {list}      $values []                Position values list in default order (top-right-bottom-left).
+ * @param    {list}      $values   []              Position values list in default order (top-right-bottom-left).
+ * @param    {number}    $z-index  [null]          Needed `z-index` value to be applied.
  */
-@mixin pos($position: 'absolute', $values...) {
-	$values: parse-directions($values...);
+@mixin pos($position: 'absolute', $values: (), $z-index: null) {
+	$values: parse-directions($values);
 
 	position: string.unquote($position);
 	top: map.get($values, 'top');
 	right: map.get($values, 'right');
 	bottom: map.get($values, 'bottom');
 	left: map.get($values, 'left');
+	z-index: if(meta.type-of($z-index) == 'string', string.unquote($z-index), $z-index);
 }
 
-@mixin pos-rel($values...) {
-	@include pos('relative', $values...);
+@mixin pos-rel($values: (), $z-index: null) {
+	@include pos('relative', $values: $values, $z-index: $z-index);
 }
 
-@mixin pos-abs($values...) {
-	@include pos('absolute', $values...);
+@mixin pos-abs($values: (), $z-index: null) {
+	@include pos('absolute', $values: $values, $z-index: $z-index);
 }
 
-@mixin pos-fix($values...) {
-	@include pos('fixed', $values...);
+@mixin pos-fix($values: (), $z-index: null) {
+	@include pos('fixed', $values: $values, $z-index: $z-index);
 }

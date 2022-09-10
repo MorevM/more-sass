@@ -14,6 +14,7 @@ fullscreen: true
 |-----------|----------|--------------|---------------------------------------------------------------------------|
 | $position | `string` | `absolute`   | Тип позиционирования (relative, absolute и т.д.).                         |
 | $values   | `list`   | `()`         | Значения позиционирования в стандартном порядке (top-right-bottom-left)*. |
+| $z-index  | `number` | `null`       | Значение `z-index`, если оно необходимо.                                  |
 
 <alert type="info">Значения могут быть пропущены используя `null` (предпочтительно) или его псевдоним `n`.</alert>
 
@@ -31,7 +32,7 @@ fullscreen: true
   }
 
   .element-two {
-  	@include more.pos('absolute', 10px 20px 30px 40px);
+  	@include more.pos('absolute', 10px 20px 30px 40px, 5);
   }
 
   .element-three {
@@ -58,6 +59,7 @@ fullscreen: true
   	right: 20px;
   	bottom: 30px;
   	left: 40px;
+    z-index: 5;
   }
 
   .element-three {
@@ -75,8 +77,8 @@ fullscreen: true
 
   Также доступны сокращённые варианты записи для конкретных типов позиционирования:
 
-  `pos-rel($values...)`
-  `pos-abs($values...)`
-  `pos-fix($values...)`
+  `pos-rel($values, $z-index)`
+  `pos-abs($values, $z-index)`
+  `pos-fix($values, $z-index)`
 
 </alert>

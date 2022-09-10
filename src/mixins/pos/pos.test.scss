@@ -19,6 +19,23 @@
 			}
 		}
 
+		@include it('Works correctly with one value and `$z-index` argument') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px, 5);
+				}
+
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 1px;
+					bottom: 1px;
+					left: 1px;
+					z-index: 5;
+				}
+			}
+		}
+
 		@include it('Works correctly with two values') {
 			@include assert {
 				@include output {
@@ -97,6 +114,40 @@
 			}
 		}
 
+		@include it('Works correctly with string values using `$z-index`') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px 2px '3px !important' 4px, 5);
+				}
+
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px !important;
+					left: 4px;
+					z-index: 5;
+				}
+			}
+		}
+
+		@include it('Works correctly with string values using `$z-index` as string') {
+			@include assert {
+				@include output {
+					@include pos('absolute', 1px 2px '3px !important' 4px, '5 !important');
+				}
+
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px !important;
+					left: 4px;
+					z-index: 5 !important;
+				}
+			}
+		}
+
 		@include it('Works correctly with both quoted and unquoted `$position` argument') {
 			@include assert {
 				@include output {
@@ -136,6 +187,23 @@
 				}
 			}
 		}
+
+		@include it('Outputs the correct content using `$z-index`') {
+			@include assert {
+				@include output {
+					@include pos-rel(1px 2px 3px 4px, 1);
+				}
+
+				@include expect {
+					position: relative;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+					z-index: 1;
+				}
+			}
+		}
 	}
 
 	@include describe('pos-abs') {
@@ -154,6 +222,23 @@
 				}
 			}
 		}
+
+		@include it('Outputs the correct content using `$z-index`') {
+			@include assert {
+				@include output {
+					@include pos-abs(1px 2px 3px 4px, 2);
+				}
+
+				@include expect {
+					position: absolute;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+					z-index: 2;
+				}
+			}
+		}
 	}
 
 	@include describe('pos-fix') {
@@ -169,6 +254,23 @@
 					right: 2px;
 					bottom: 3px;
 					left: 4px;
+				}
+			}
+		}
+
+		@include it('Outputs the correct content using `$z-index`') {
+			@include assert {
+				@include output {
+					@include pos-fix(1px 2px 3px 4px, 5);
+				}
+
+				@include expect {
+					position: fixed;
+					top: 1px;
+					right: 2px;
+					bottom: 3px;
+					left: 4px;
+					z-index: 5;
 				}
 			}
 		}

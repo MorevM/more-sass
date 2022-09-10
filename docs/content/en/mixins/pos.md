@@ -14,6 +14,7 @@ Shorthand for use position properties.
 |-----------|----------|----------|-----------------------------------------------------------------|
 | $position | `string` | absolute | Position type (relative, absolute, etc.).                       |
 | $values   | `list`   | ()       | Position values list in default order (top-right-bottom-left)*. |
+| $z-index  | `number` | null     | `z-index` property value if needed                              |
 
 <alert type="info">Some values can be omitted using `null` (preferable) or its alias `n`.</alert>
 
@@ -31,7 +32,7 @@ Shorthand for use position properties.
   }
 
   .element-two {
-  	@include more.pos('absolute', 10px 20px 30px 40px);
+  	@include more.pos('absolute', 10px 20px 30px 40px, 5);
   }
 
   .element-three {
@@ -58,6 +59,7 @@ Shorthand for use position properties.
   	right: 20px;
   	bottom: 30px;
   	left: 40px;
+    z-index: 5;
   }
 
   .element-three {
@@ -75,8 +77,8 @@ Shorthand for use position properties.
 
   There are also available shorthands for certain position types:
 
-  `pos-rel($values...)`
-  `pos-abs($values...)`
-  `pos-fix($values...)`
+  `pos-rel($values, $z-index)`
+  `pos-abs($values, $z-index)`
+  `pos-fix($values, $z-index)`
 
 </alert>
