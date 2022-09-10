@@ -2,7 +2,7 @@
 title: use-transition
 description: More Sass - the library of useful SCSS mixins and functions.
 position: 310
-category: Mixins
+category: Миксины
 fullscreen: true
 ---
 
