@@ -1,0 +1,26 @@
+@use 'sass:list';
+@use 'sass:meta';
+
+/**
+ * Removes the list element by index.
+ *
+ * @param    {list}      $list          The input list.
+ * @param    {number}    $index ['']    The list element index to remove. Use negative index to remove from the end of list.
+ *
+ * @return   {list}      A list without element with specified `$index` if found, original list otherwise.
+ */
+@function list-remove($list, $index: null) {
+	$result: ();
+	$index: if(meta.type-of($index) == 'number', $index, 0);
+	$index: if($index < 0, list.length($list) + $index + 1, $index);
+	$bracketed: list.is-bracketed($list);
+	$separator: list.separator($list);
+
+	@for $i from 1 through list.length($list) {
+		@if $i != $index {
+			$result: list.append($result, list.nth($list, $i));
+		}
+	}
+
+	@return list.join((), $result, $separator, $bracketed);
+}
