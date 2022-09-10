@@ -172,10 +172,36 @@
 			}
 		}
 
+		@include it('Correctly works as high order mixin with variable arguments length using space as separator') {
+			@include assert {
+				@include output {
+					@include transition(opacity transform);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-duration: .3s;
+				}
+			}
+		}
+
 		@include it('Correctly works as high order mixin with variable arguments length using custom `$duration`') {
 			@include assert {
 				@include output {
 					@include transition(opacity, transform, .2s);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-duration: .2s;
+				}
+			}
+		}
+
+		@include it('Correctly works as high order mixin with variable arguments length using custom `$duration` and space-separated properties') {
+			@include assert {
+				@include output {
+					@include transition(opacity transform, .2s);
 				}
 
 				@include expect {

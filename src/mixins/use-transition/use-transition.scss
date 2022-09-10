@@ -4,6 +4,25 @@
 @use 'sass:meta';
 @use '../../functions/math/get-numeric/get-numeric.scss' as *;
 @use '../../functions/string/str-split/str-split.scss' as *;
+@use '../../functions/string/str-replace/str-replace.scss' as *;
+@use '../../functions/list/list-join/list-join.scss' as *;
+
+// Weird but needed to allow space-separated and comma-separated lists/arglists both
+@function _to-properties($value) {
+	@if (meta.type-of($value) == 'list') or (meta.type-of($value) == 'arglist') {
+		$value: list-join($value, '|');
+	}
+
+	@if (meta.type-of($value) == 'string') {
+		$value: str-replace($value, ' ', '|');
+		$value: str-replace($value, ',', '|');
+		$value: str-split($value, '|', comma);
+	} @else {
+		$value: null;
+	}
+
+	@return $value;
+}
 
 /**
  * High order mixin to reduce boilerplate code for "default" transitions.
@@ -19,15 +38,7 @@
 	$delay: null,
 	$timing-function: null,
 ) {
-	$normalized-properties: ();
-
-	@if (meta.type-of($properties) == 'list') or (meta.type-of($properties) == 'arglist') {
-		$normalized-properties: list.join($properties, (), comma);
-	} @else if (meta.type-of($properties) == 'string') {
-		$normalized-properties: str-split($properties, ' ', comma);
-	} @else {
-		$normalized-properties: null;
-	}
+	$normalized-properties: _to-properties($properties);
 
 	$normalized-duration: ();
 
