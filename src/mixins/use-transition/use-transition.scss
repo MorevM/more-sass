@@ -1,0 +1,56 @@
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+@use 'sass:list';
+@use 'sass:string';
+@use 'sass:meta';
+@use '../../functions/math/get-numeric/get-numeric.scss' as *;
+@use '../../functions/string/str-split/str-split.scss' as *;
+
+/**
+ * High order mixin to reduce boilerplate code for "default" transitions.
+ *
+ * @param    {list}    $properties         The list containing properties to be transitioned (space-separated)
+ * @param    {number}  $duration           The needed duration of transition
+ * @param    {number}  $delay              The needed delay of transition
+ * @param    {string}  $timing-function    The needed timing-function of transition
+ */
+@mixin use-transition(
+	$properties: (),
+	$duration: null,
+	$delay: null,
+	$timing-function: null,
+) {
+	$normalized-properties: ();
+
+	@if (meta.type-of($properties) == 'list') {
+		$normalized-properties: list.join($properties, (), comma);
+	} @else if (meta.type-of($properties) == 'string') {
+		$normalized-properties: str-split($properties, ' ', comma);
+	} @else {
+		$normalized-properties: null;
+	}
+
+	$normalized-duration: ();
+
+	@if (meta.type-of($duration) == 'string') {
+		$normalized-duration: get-numeric($duration);
+	} @else if (meta.type-of($duration) == 'number') {
+		$normalized-duration: $duration;
+	} @else {
+		$normalized-duration: null;
+	}
+
+	$normalized-delay: ();
+
+	@if (meta.type-of($delay) == 'string') {
+		$normalized-delay: get-numeric($delay);
+	} @else if (meta.type-of($delay) == 'number') {
+		$normalized-delay: $delay;
+	} @else {
+		$normalized-delay: null;
+	}
+
+	transition-property: $normalized-properties;
+	transition-duration: $normalized-duration;
+	transition-timing-function: if($timing-function, string.unquote($timing-function), null);
+	transition-delay: $normalized-delay;
+}

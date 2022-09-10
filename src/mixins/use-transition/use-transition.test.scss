@@ -1,0 +1,132 @@
+@use 'true' as *; // sass-true
+@use './use-transition.scss' as *;
+
+@include describe('Mixins') {
+	@include describe('use-transition') {
+		@include it('Outputs the correct content using single property') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity);
+				}
+
+				@include expect {
+					transition-property: opacity;
+				}
+			}
+		}
+
+		@include it('Outputs the correct content using single quoted property') {
+			@include assert {
+				@include output {
+					@include use-transition('opacity');
+				}
+
+				@include expect {
+					transition-property: opacity;
+				}
+			}
+		}
+
+		@include it('Outputs the correct content using multiple properties') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+				}
+			}
+		}
+
+		@include it('Outputs the correct content using multiple quoted properties') {
+			@include assert {
+				@include output {
+					@include use-transition('opacity transform');
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+				}
+			}
+		}
+
+		@include it('Can customize the `$duration` argument') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform, $duration: .2s);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-duration: .2s;
+				}
+			}
+		}
+
+		@include it('Can customize the `$duration` argument using string') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform, $duration: '.2s');
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-duration: .2s;
+				}
+			}
+		}
+
+		@include it('Can customize the `$delay` argument') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform, $delay: .2s);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-delay: .2s;
+				}
+			}
+		}
+
+		@include it('Can customize the `$delay` argument using string') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform, $delay: '.2s');
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-delay: .2s;
+				}
+			}
+		}
+
+		@include it('Can customize the `$timing-function` argument') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform, $timing-function: ease-in-out);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-timing-function: ease-in-out;
+				}
+			}
+		}
+
+		@include it('Can customize the `$timing-function` argument using string') {
+			@include assert {
+				@include output {
+					@include use-transition(opacity transform, $timing-function: 'ease-in-out');
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-timing-function: ease-in-out;
+				}
+			}
+		}
+	}
+}

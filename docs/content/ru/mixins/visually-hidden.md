@@ -1,7 +1,7 @@
 ---
 title: visually-hidden
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 310
+position: 315
 category: Миксины
 fullscreen: true
 ---
