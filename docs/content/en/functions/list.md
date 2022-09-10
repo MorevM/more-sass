@@ -84,6 +84,31 @@ Joins a given list elements with a given separator string.
 @debug more.list-join((1, 2, 3, 4), ', '); // string: '1, 2, 3, 4'
 ```
 
+## list-remove
+
+Removes the list element by index.
+
+**Arguments:**
+
+| Name                                       | Type     | Default | Description                  |
+|--------------------------------------------|----------|---------|------------------------------|
+| $list <span class="text-red-600">*</span>  | `list`   | —       | The input list.              |
+| $index <span class="text-red-600">*</span> | `number` | —       | The list element index to remove. <br />Use negative index to remove from the end of list. |
+
+**Returns:**
+
+`list` - A list without element with specified `$index` if found, original list clone otherwise.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-remove((1, 2, 3), 1);   // list: (2, 3)
+@debug more.list-remove((1, 2, 3), -1);  // list: (1, 2)
+@debug more.list-remove((1, 2, 3), 100); // list: (1, 2, 3)
+```
+
 ## list-slice
 
 Extracts a slice of a given list.

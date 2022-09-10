@@ -7,7 +7,7 @@
  * @param    {list}      $list          The input list.
  * @param    {number}    $index ['']    The list element index to remove. Use negative index to remove from the end of list.
  *
- * @return   {list}      A list without element with specified `$index` if found, original list otherwise.
+ * @return   {list}      A list without element with specified `$index` if found, original list clone otherwise.
  */
 @function list-remove($list, $index: null) {
 	$result: ();
