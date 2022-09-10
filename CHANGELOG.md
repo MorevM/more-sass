@@ -1,5 +1,12 @@
 
 
+### [1.2.1](https://github.com/MorevM/more-sass/compare/v1.2.0...v1.2.1) (2022-09-10)
+
+
+### Bug fixes
+
+* **mixins:** Allow to use space-separated properties in `use-transition` ([cb65438](https://github.com/MorevM/more-sass/commit/cb6543847c0debe54d3ed719b66ca5c41410e88a))
+
 ## [1.2.0](https://github.com/MorevM/more-sass/compare/v1.1.1...v1.2.0) (2022-09-10)
 
 
