@@ -1,5 +1,12 @@
 
 
+### [1.1.1](https://github.com/MorevM/more-sass/compare/v1.1.0...v1.1.1) (2022-09-10)
+
+
+### Bug fixes
+
+* Add missed `@forward` statement for `use-transition` ([4da780b](https://github.com/MorevM/more-sass/commit/4da780b725f2a0bed2fd7efa8a46e76658952ef5))
+
 ## [1.1.0](https://github.com/MorevM/more-sass/compare/v1.0.8...v1.1.0) (2022-09-10)
 
 
