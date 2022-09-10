@@ -21,7 +21,7 @@
 ) {
 	$normalized-properties: ();
 
-	@if (meta.type-of($properties) == 'list') {
+	@if (meta.type-of($properties) == 'list') or (meta.type-of($properties) == 'arglist') {
 		$normalized-properties: list.join($properties, (), comma);
 	} @else if (meta.type-of($properties) == 'string') {
 		$normalized-properties: str-split($properties, ' ', comma);
