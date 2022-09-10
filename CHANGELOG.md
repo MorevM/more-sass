@@ -1,5 +1,29 @@
 
 
+## [1.2.0](https://github.com/MorevM/more-sass/compare/v1.1.1...v1.2.0) (2022-09-10)
+
+
+### Features
+
+* **functions:** Add `list-remove` function ([d7d89ee](https://github.com/MorevM/more-sass/commit/d7d89eebd56f620a299e7e3ffc361db3d45e582c))
+
+
+### Bug fixes
+
+* **docs:** Fix typo in category of Russian version of `use-transition` ([3314b0c](https://github.com/MorevM/more-sass/commit/3314b0ca29d81d686d7fbb83f81172349e59d408))
+* **mixins:** Allow to pass `$properties` as `arglist` to `use-transition` ([9adbae3](https://github.com/MorevM/more-sass/commit/9adbae39fbbc4365d14efd772872d1f7d05f9013))
+
+
+### Tests
+
+* **mixins:** Add test as high order mixin for `use-transition` ([4490681](https://github.com/MorevM/more-sass/commit/4490681f5154665bad6781e9a99fbd5ee11ff7e0))
+
+
+### Documentation
+
+* **functions:** Add docs for `list-remove` function ([2dacf0d](https://github.com/MorevM/more-sass/commit/2dacf0db820e1bbbcbf893b0a31f90d0cd8cfd6f))
+* **mixins:** Extend docs for `use-transition` as high order mixin ([83faa30](https://github.com/MorevM/more-sass/commit/83faa3032d92bf457731721df2d5d8533382cbe0))
+
 ### [1.1.1](https://github.com/MorevM/more-sass/compare/v1.1.0...v1.1.1) (2022-09-10)
 
 
