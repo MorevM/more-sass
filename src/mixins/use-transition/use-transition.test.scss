@@ -1,5 +1,23 @@
 @use 'true' as *; // sass-true
 @use './use-transition.scss' as *;
+@use 'sass:meta';
+@use 'sass:list';
+@use '../../functions/list/list-remove/list-remove.scss' as *;
+
+@mixin transition($properties...) {
+	$duration: .3s;
+
+	@for $i from 1 through list.length($properties) {
+		$prop: list.nth($properties, $i);
+
+		@if (meta.type-of($prop) == 'number') {
+			$duration: $prop;
+			$properties: list-remove($properties, $i);
+		}
+	}
+
+	@include use-transition($properties: $properties, $duration: $duration);
+}
 
 @include describe('Mixins') {
 	@include describe('use-transition') {
@@ -31,6 +49,18 @@
 			@include assert {
 				@include output {
 					@include use-transition(opacity transform);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+				}
+			}
+		}
+
+		@include it('Outputs the correct content using multiple properties separated by comma') {
+			@include assert {
+				@include output {
+					@include use-transition($properties: (opacity, transform));
 				}
 
 				@include expect {
@@ -125,6 +155,32 @@
 				@include expect {
 					transition-property: opacity, transform;
 					transition-timing-function: ease-in-out;
+				}
+			}
+		}
+
+		@include it('Correctly works as high order mixin with variable arguments length') {
+			@include assert {
+				@include output {
+					@include transition(opacity, transform);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-duration: .3s;
+				}
+			}
+		}
+
+		@include it('Correctly works as high order mixin with variable arguments length using custom `$duration`') {
+			@include assert {
+				@include output {
+					@include transition(opacity, transform, .2s);
+				}
+
+				@include expect {
+					transition-property: opacity, transform;
+					transition-duration: .2s;
 				}
 			}
 		}
