@@ -1,5 +1,23 @@
 
 
+## [1.1.0](https://github.com/MorevM/more-sass/compare/v1.0.8...v1.1.0) (2022-09-10)
+
+
+### Features
+
+* **mixins:** Add `use-transition` high order mixin ([7773dd9](https://github.com/MorevM/more-sass/commit/7773dd9845825b4964e3a7393267eabfb1a7381d))
+* **mixins:** Allow to specify `z-index` value in `position` mixins family ([a1ce354](https://github.com/MorevM/more-sass/commit/a1ce354833ab8e27569df3e91975152fd67018b0))
+
+
+### Chores
+
+* bump @morev/eslint-config from 15.1.0 to 15.2.0 ([#67](https://github.com/MorevM/more-sass/issues/67)) ([fe5f5f9](https://github.com/MorevM/more-sass/commit/fe5f5f90514d57559bae1ac56c858cf3a46300b6))
+* bump eslint from 8.20.0 to 8.21.0 ([#68](https://github.com/MorevM/more-sass/issues/68)) ([3d9e68a](https://github.com/MorevM/more-sass/commit/3d9e68a66b4c9ff7add7571111b48fed078afb1b))
+* bump sass from 1.54.0 to 1.54.3 ([#66](https://github.com/MorevM/more-sass/issues/66)) ([e16015d](https://github.com/MorevM/more-sass/commit/e16015d25d69aea1fc6f49b0e780c67d3a15e379))
+* bump sass from 1.54.8 to 1.54.9 ([3d7ec06](https://github.com/MorevM/more-sass/commit/3d7ec063927a45991f1b4d7565b935b39106d292))
+* Deps update ([f25fd06](https://github.com/MorevM/more-sass/commit/f25fd060815bb83d9b74908d60dd3549e6985900))
+* Disable `order/order` stylelint rule for lib ([d7e59d0](https://github.com/MorevM/more-sass/commit/d7e59d057e98f7d0d61aa4c60323bd881b65e50e))
+
 ### [1.0.8](https://github.com/MorevM/more-sass/compare/v1.0.7...v1.0.8) (2022-07-28)
 
 
