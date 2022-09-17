@@ -1,12 +1,12 @@
 @use 'true' as *; // sass-true
-@use './fluid-font.scss' as *;
+@use './use-fluid-font.scss' as *;
 
 @include describe('Mixins') {
-	@include describe('fluid-font') {
+	@include describe('use-fluid-font') {
 		@include it('Outputs the correct content') {
 			@include assert {
 				@include output {
-					@include fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
+					@include use-fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
 				}
 
 				@include expect {
@@ -35,7 +35,7 @@
 		@include it('Works correctly if only font-size values given') {
 			@include assert {
 				@include output {
-					@include fluid-font((320px, 14px), (1280px, 24px));
+					@include use-fluid-font((320px, 14px), (1280px, 24px));
 				}
 
 				@include expect {
@@ -55,7 +55,7 @@
 		@include it('Works correctly if only line-height values given (it must be not unitless') {
 			@include assert {
 				@include output {
-					@include fluid-font((320px, '/20px'), (1280px, '/16px'));
+					@include use-fluid-font((320px, '/20px'), (1280px, '/16px'));
 				}
 
 				@include expect {

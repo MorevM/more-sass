@@ -11,7 +11,7 @@
  * @param    {list}      $end                 The list containing end values of screen width and property.
  * @param    {bool}      $set-start [true]    Whether to use the start property value as default.
  */
-@mixin fluid-prop($property, $start, $end, $set-start: true) {
+@mixin use-fluid-prop($property, $start, $end, $set-start: true) {
 	// Get params
 	$start-vw: list.nth($start, 1);
 	$start-val: list.nth($start, 2);

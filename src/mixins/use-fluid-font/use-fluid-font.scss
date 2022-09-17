@@ -2,7 +2,7 @@
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:string';
-@use '../fluid-prop/fluid-prop.scss' as *;
+@use '../use-fluid-prop/use-fluid-prop.scss' as *;
 @use '../../functions/string/str-split/str-split.scss' as *;
 @use '../../functions/math/get-numeric/get-numeric.scss' as *;
 
@@ -38,7 +38,7 @@
  * @param    {list}    $start    The list containing start values of screen width and font properties. Font properties supplied as slash-separated string, just like in the native `font` property.
  * @param    {list}    $end      The list containing end values of screen width and font properties. Font properties supplied as slash-separated string, just like in the native `font` property.
  */
-@mixin fluid-font($start, $end) {
+@mixin use-fluid-font($start, $end) {
 	// Get params
 	$start-vw: list.nth($start, 1);
 	$start-font: _local-parse-font(list.nth($start, 2));
@@ -51,10 +51,10 @@
 	$end-line-height: map.get($end-font, 'line-height');
 
 	@if ($start-font-size and $end-font-size) {
-		@include fluid-prop('font-size', ($start-vw, $start-font-size), ($end-vw, $end-font-size));
+		@include use-fluid-prop('font-size', ($start-vw, $start-font-size), ($end-vw, $end-font-size));
 	}
 
 	@if ($start-line-height and $end-line-height) {
-		@include fluid-prop('line-height', ($start-vw, $start-line-height), ($end-vw, $end-line-height));
+		@include use-fluid-prop('line-height', ($start-vw, $start-line-height), ($end-vw, $end-line-height));
 	}
 }

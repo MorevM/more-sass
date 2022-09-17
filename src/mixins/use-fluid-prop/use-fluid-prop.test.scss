@@ -1,12 +1,12 @@
 @use 'true' as *; // sass-true
-@use './fluid-prop.scss' as *;
+@use './use-fluid-prop.scss' as *;
 
 @include describe('Mixins') {
-	@include describe('fluid-prop') {
+	@include describe('use-fluid-prop') {
 		@include it('Works correctly if property value increases') {
 			@include assert {
 				@include output {
-					@include fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
+					@include use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
 				}
 
 				@include expect {
@@ -26,7 +26,7 @@
 		@include it('Works correctly if property value decreases') {
 			@include assert {
 				@include output {
-					@include fluid-prop('margin-bottom', (320px, 60px), (1280px, 20px));
+					@include use-fluid-prop('margin-bottom', (320px, 60px), (1280px, 20px));
 				}
 
 				@include expect {
@@ -46,7 +46,7 @@
 		@include it('Considers the `$set-start` argument') {
 			@include assert {
 				@include output {
-					@include fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px), false);
+					@include use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px), false);
 				}
 
 				@include expect {
