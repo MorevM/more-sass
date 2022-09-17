@@ -1,5 +1,29 @@
 
 
+## [2.0.0](https://github.com/MorevM/more-sass/compare/v1.2.1...v2.0.0) (2022-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Mixins `fluid-prop` and `fluid-font` was renamed to `use-fluid-prop` and `use-fluid-prop` respectively, since it's recommended to use them as high order mixin and those names are more convenient
+
+### Chores
+
+* bump @morev/eslint-config from 17.0.1 to 17.1.1 ([#85](https://github.com/MorevM/more-sass/issues/85)) ([74cab7c](https://github.com/MorevM/more-sass/commit/74cab7cce0e141abf106963a085648153ee30ddf))
+* bump eslint from 8.23.0 to 8.23.1 ([#87](https://github.com/MorevM/more-sass/issues/87)) ([4739b32](https://github.com/MorevM/more-sass/commit/4739b32842d0223470a04452cfc2a1b021ef7293))
+* bump jest from 29.0.2 to 29.0.3 ([#88](https://github.com/MorevM/more-sass/issues/88)) ([f990c05](https://github.com/MorevM/more-sass/commit/f990c051d66212083797435aa981341ee92a5504))
+* bump release-it from 15.4.1 to 15.4.2 ([#86](https://github.com/MorevM/more-sass/issues/86)) ([6475a13](https://github.com/MorevM/more-sass/commit/6475a137109695d266aaecf1236caea5286c69ba))
+
+
+### Refactoring
+
+* Rename `fluid-prop` and `fluid-font` ([2656fa4](https://github.com/MorevM/more-sass/commit/2656fa487ef785fed56bd2c193ed1a64833d128e))
+
+
+### Documentation
+
+* Update to cover `fluid` mixins renaming ([d623b4f](https://github.com/MorevM/more-sass/commit/d623b4fcc829c59ef8c0ea9bdcd31f27f8dd7c10))
+
 ### [1.2.1](https://github.com/MorevM/more-sass/compare/v1.2.0...v1.2.1) (2022-09-10)
 
 
