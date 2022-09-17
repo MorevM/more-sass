@@ -1,7 +1,7 @@
 ---
 title: full-size
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 255
+position: 245
 category: Миксины
 fullscreen: true
 ---

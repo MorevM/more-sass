@@ -1,7 +1,7 @@
 ---
 title: parent-state
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 275
+position: 265
 category: Миксины
 fullscreen: true
 ---

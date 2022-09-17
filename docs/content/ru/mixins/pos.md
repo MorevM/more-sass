@@ -1,7 +1,7 @@
 ---
 title: pos
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 280
+position: 270
 category: Миксины
 fullscreen: true
 ---

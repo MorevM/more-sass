@@ -1,7 +1,7 @@
 ---
 title: transform-center
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 300
+position: 290
 category: Миксины
 fullscreen: true
 ---

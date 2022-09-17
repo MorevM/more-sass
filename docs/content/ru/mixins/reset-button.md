@@ -1,7 +1,7 @@
 ---
 title: reset-button
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 290
+position: 280
 category: Миксины
 fullscreen: true
 ---

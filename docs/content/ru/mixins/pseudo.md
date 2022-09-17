@@ -1,7 +1,7 @@
 ---
 title: pseudo
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 285
+position: 275
 category: Миксины
 fullscreen: true
 ---

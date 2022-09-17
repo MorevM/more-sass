@@ -1,7 +1,7 @@
 ---
 title: hidden-element
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 260
+position: 250
 category: Mixins
 fullscreen: true
 ---
@@ -21,40 +21,40 @@ Visually hides the element. It still present in the document flow.
 ### Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element-one {
   	@include more.hidden-element;
   }
-  
+
   .element-two {
   	@include more.hidden-element(10);
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   .element-one {
   	visibility: hidden;
   	opacity: 0;
   }
-  
+
   .element-two {
   	z-index: 10;
   	visibility: hidden;
   	opacity: 0;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
 
 ## hidden-element-active
@@ -70,28 +70,28 @@ Shows the hidden element. Resets the `hidden-element` mixin usage.
 ### Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.hidden-element-active;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   .element {
   	visibility: visible;
   	opacity: 1;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

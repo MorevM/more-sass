@@ -1,7 +1,7 @@
 ---
 title: hidden-element
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 260
+position: 250
 category: Миксины
 fullscreen: true
 ---

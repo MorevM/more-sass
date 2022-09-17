@@ -1,7 +1,7 @@
 ---
 title: padding
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 270
+position: 260
 category: Миксины
 fullscreen: true
 ---

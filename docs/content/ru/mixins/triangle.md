@@ -1,7 +1,7 @@
 ---
 title: triangle
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 305
+position: 295
 category: Миксины
 fullscreen: true
 ---

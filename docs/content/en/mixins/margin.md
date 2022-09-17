@@ -1,7 +1,7 @@
 ---
 title: margin
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 265
+position: 255
 category: Mixins
 fullscreen: true
 ---

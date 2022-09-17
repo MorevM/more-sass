@@ -1,7 +1,7 @@
 ---
 title: font
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 250
+position: 240
 category: Mixins
 fullscreen: true
 ---

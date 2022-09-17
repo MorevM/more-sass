@@ -1,7 +1,7 @@
 ---
 title: reset-input
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 295
+position: 285
 category: Миксины
 fullscreen: true
 ---

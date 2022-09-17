@@ -1,7 +1,7 @@
 ---
 title: padding
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 270
+position: 260
 category: Mixins
 fullscreen: true
 ---

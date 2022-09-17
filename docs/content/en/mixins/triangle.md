@@ -1,7 +1,7 @@
 ---
 title: triangle
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 305
+position: 295
 category: Mixins
 fullscreen: true
 ---

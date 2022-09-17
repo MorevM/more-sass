@@ -1,7 +1,7 @@
 ---
 title: parent-state
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 275
+position: 265
 category: Mixins
 fullscreen: true
 ---

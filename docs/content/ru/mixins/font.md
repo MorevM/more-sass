@@ -1,7 +1,7 @@
 ---
 title: font
 description: More Sass - библиотека полезных миксинов и функций для SCSS.
-position: 250
+position: 240
 category: Миксины
 fullscreen: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: pseudo
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 285
+position: 275
 category: Mixins
 fullscreen: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: full-size
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 255
+position: 245
 category: Mixins
 fullscreen: true
 ---
@@ -17,21 +17,21 @@ Sets the element size to 100% of its parent size and makes it positioned absolut
 ## Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
   	@include more.full-size;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   .element {
   	position: absolute;
@@ -42,7 +42,7 @@ Sets the element size to 100% of its parent size and makes it positioned absolut
   	height: 100%;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

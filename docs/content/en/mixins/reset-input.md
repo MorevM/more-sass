@@ -1,7 +1,7 @@
 ---
 title: reset-input
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 295
+position: 285
 category: Mixins
 fullscreen: true
 ---
@@ -15,21 +15,21 @@ Resets default styles of `input` elements.
 ## Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
-  
+
   input {
   	@include more.reset-input;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   input {
   	margin: 0;
@@ -40,7 +40,7 @@ Resets default styles of `input` elements.
   	appearance: none;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>
