@@ -1,5 +1,12 @@
 
 
+### [2.0.1](https://github.com/MorevM/more-sass/compare/v2.0.0...v2.0.1) (2022-09-22)
+
+
+### Bug fixes
+
+* Correct `[@forward](https://github.com/forward)` statements after renaming ([bd71621](https://github.com/MorevM/more-sass/commit/bd71621658dce65dd65e66488def8536dd4a58a4))
+
 ## [2.0.0](https://github.com/MorevM/more-sass/compare/v1.2.1...v2.0.0) (2022-09-17)
 
 
