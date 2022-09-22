@@ -5,8 +5,6 @@
 @forward './br/br.scss';
 @forward './clearfix/clearfix.scss';
 @forward './ellipsis/ellipsis.scss';
-@forward './fluid-font/fluid-font.scss';
-@forward './fluid-prop/fluid-prop.scss';
 @forward './font/font.scss';
 @forward './full-size/full-size.scss';
 @forward './hidden-element/hidden-element.scss';
@@ -19,5 +17,7 @@
 @forward './reset-input/reset-input.scss';
 @forward './transform-center/transform-center.scss';
 @forward './triangle/triangle.scss';
+@forward './use-fluid-font/use-fluid-font.scss';
+@forward './use-fluid-prop/use-fluid-prop.scss';
 @forward './use-transition/use-transition.scss';
 @forward './visually-hidden/visually-hidden.scss';
