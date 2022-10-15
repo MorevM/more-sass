@@ -56,7 +56,7 @@
 		"@morev/commitlint-config": "^0.1.1",
 		"@morev/eslint-config": "^17.2.1",
 		"@morev/stylelint-config": "^2.0.0",
-		"@release-it/conventional-changelog": "^5.1.0",
+		"@release-it/conventional-changelog": "^5.1.1",
 		"eslint": "^8.24.0",
 		"glob": "^8.0.3",
 		"husky": "^8.0.1",
