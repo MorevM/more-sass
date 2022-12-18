@@ -1,5 +1,12 @@
 
 
+### [2.1.1](https://github.com/MorevM/more-sass/compare/v2.1.0...v2.1.1) (2022-12-18)
+
+
+### Bug fixes
+
+* Add a forgotten `hide-scrollbar` export (－‸ლ) ([a32b4da](https://github.com/MorevM/more-sass/commit/a32b4da3b28e858629fc9dcd3b1fc3b9867067ce))
+
 ## [2.1.0](https://github.com/MorevM/more-sass/compare/v2.0.1...v2.1.0) (2022-12-18)
 
 
