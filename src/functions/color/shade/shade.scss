@@ -9,5 +9,5 @@
  * @return   {color}     The result color.
  */
 @function shade($color, $amount: 10) {
-	@return color.mix(#000, $color, $amount);
+	@return color.mix(#000, $color, $amount * 1%);
 }
