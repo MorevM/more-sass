@@ -1,5 +1,21 @@
 
 
+## [2.1.0](https://github.com/MorevM/more-sass/compare/v2.0.1...v2.1.0) (2022-12-18)
+
+
+### Features
+
+* Add `hide-scrollbar` ([cf0a22b](https://github.com/MorevM/more-sass/commit/cf0a22b8bef6c2202cbbce1d21e2a9dbabb27d44))
+
+### Bug fixes
+
+* Fix for `color.mix` non-percent weight deprecation ([b7fc025](https://github.com/MorevM/more-sass/commit/b7fc02587461df8b7e5ec9cce03185aece165dbc))
+
+
+### Documentation
+
+* Document new `hide-scrollbar` mixin ([c7facd4](https://github.com/MorevM/more-sass/commit/c7facd49daf914f56673cd08e45c1b6cad563b8c))
+
 ### [2.0.1](https://github.com/MorevM/more-sass/compare/v2.0.0...v2.0.1) (2022-09-22)
 
 
