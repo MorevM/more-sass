@@ -2,7 +2,7 @@
 	"name": "more-sass",
 	"description": "The library of useful SCSS mixins and functions",
 	"type": "module",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"private": false,
 	"engines": {
 		"node": ">=14"

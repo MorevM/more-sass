@@ -1,5 +1,18 @@
 
 
+### [2.1.2](https://github.com/MorevM/more-sass/compare/v2.1.1...v2.1.2) (2023-01-30)
+
+
+### Bug fixes
+
+* Add `overflow: hidden` to `visually-hidden` mixin ([ee60fb0](https://github.com/MorevM/more-sass/commit/ee60fb07f1f8f702a9cf8e1a64460e9a0e634b0b))
+
+
+### Chores
+
+* Disable `dependabot` for `devDependencies` ([597efd6](https://github.com/MorevM/more-sass/commit/597efd6d3949b15f63837f0eb963f271d80dc02d))
+* Upgrade devDeps ([2d33f55](https://github.com/MorevM/more-sass/commit/2d33f552eac2cd12b3a94c74d457e56102c25a79))
+
 ### [2.1.1](https://github.com/MorevM/more-sass/compare/v2.1.0...v2.1.1) (2022-12-18)
 
 
