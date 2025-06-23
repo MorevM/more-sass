@@ -12,23 +12,28 @@
 @mixin bem-modifiers($modifiers...) {
 	$separator: '--';
 
-	$selectors: str-split(#{list.nth(selector.parse(&), 1)}, ' ');
-	$ancestors: list-slice($selectors, 1, -2);
-	$main: list-slice($selectors, -1);
+	$individual-selectors: str-split(selector.parse(&), ',');
 
-	$bem: str-split($main, $separator);
-	$element: list.nth($bem, 1);
-	$modifier: if(list.length($bem) >= 2, list.nth($bem, 2), null);
+	@each $selector in $individual-selectors {
+		$selectors: str-split(list.nth($selector, 1), ' ');
+		$ancestors: list-slice($selectors, 1, -2);
 
-	@if ($modifier) {
-		$modifiers: list.join('#{$separator}#{$modifier}', $modifiers);
-	}
+		$main: list-slice($selectors, -1);
 
-	$selector: list.join($ancestors, ());
-	$selector: list.join($selector, list-join(selector.append($element, $modifiers), ''));
-	$selector: list-join($selector, ' ');
+		$bem: str-split($main, $separator);
+		$element: list.nth($bem, 1);
+		$modifier: if(list.length($bem) >= 2, list.nth($bem, 2), null);
 
-	@at-root #{$selector} {
-		@content;
+		@if ($modifier) {
+			$modifiers: list.join('#{$separator}#{$modifier}', $modifiers);
+		}
+
+		$selector: list.join($ancestors, ());
+		$selector: list.join($selector, list-join(selector.append($element, $modifiers), ''));
+		$selector: list-join($selector, ' ');
+
+		@at-root #{$selector} {
+			@content;
+		}
 	}
 }

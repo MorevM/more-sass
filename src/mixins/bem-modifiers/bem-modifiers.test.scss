@@ -173,5 +173,31 @@
 				}
 			}
 		}
+
+		@include it('Works correctly with multiple selectors') {
+			@include assert {
+				@include output {
+					@at-root {
+						.block, .another {
+							@include bem-modifiers('--modifier') {
+								color: #ff0000;
+							}
+						}
+					}
+				}
+
+				@include expect {
+					@at-root {
+						.block--modifier {
+							color: #ff0000;
+						}
+
+						.another--modifier {
+							color: #ff0000;
+						}
+					}
+				}
+			}
+		}
 	}
 }
