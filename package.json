@@ -59,7 +59,7 @@
 		"glob": "^11.0.3",
 		"lefthook": "^1.11.14",
 		"release-it": "^15.6.0",
-		"sass": "^1.57.1",
+		"sass": "^1.89.2",
 		"sass-true": "^9.0.0",
 		"stylelint": "^16.21.0",
 		"typescript": "^5.8.3",
