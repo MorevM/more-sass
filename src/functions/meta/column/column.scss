@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'sass:math';
+@use 'sass:string';
 @use '../../math/get-numeric/get-numeric.scss' as *;
 @use '../../math/with-unit/with-unit.scss' as *;
 @use '../../string/str-split/str-split.scss' as *;
@@ -21,7 +22,7 @@
 	$total: get-numeric(list.nth($parsed, 2));
 
 	@if ($gutter) {
-		@return calc(100% / #{math.div($total, $columns)} - (#{with-unit($gutter)} * (#{$total} - #{$columns}) / #{$total}));
+		@return string.unquote('calc(100% / #{math.div($total, $columns)} - (#{with-unit($gutter)} * (#{$total} - #{$columns}) / #{$total}))');
 	}
 
 	@return math.div(100, math.div($total, $columns)) * 1%;
