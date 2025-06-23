@@ -11,6 +11,7 @@
  * @return   {?string}    The Unicode escape sequence of a given symbol.
  */
 @function get-char($char) {
+	/* stylelint-disable-next-line @stylistic/value-list-max-empty-lines */
 	$symbols: (
 		'dollar':               '\0024', // $
 		'section':              '\00A7', // §
