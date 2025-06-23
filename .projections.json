@@ -1,0 +1,3 @@
+{
+	"src/*.scss": { "alternate": "src/{}.test.scss" }
+}
