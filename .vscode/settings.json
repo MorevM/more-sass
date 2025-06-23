@@ -5,6 +5,7 @@
 	// Turn autofix on.
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit",
 	},
 
 	// Enable ESLint for all files that could
