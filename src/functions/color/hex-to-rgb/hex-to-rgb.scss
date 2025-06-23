@@ -10,5 +10,9 @@
  * @return   {list}      The list of RGB values structured of (red, green, blue).
  */
 @function hex-to-rgb($hex, $separator: 'comma') {
-	@return list.join((color.red($hex), color.green($hex), color.blue($hex)), (), $separator);
+	@return list.join((
+		color.channel($hex, 'red', $space: rgb),
+		color.channel($hex, 'green', $space: rgb),
+		color.channel($hex, 'blue', $space: rgb),
+	), (), $separator);
 }

@@ -10,5 +10,9 @@
  * @return   {list}      The list of HSL values structured of (hue, saturation, lightness).
  */
 @function hex-to-hsl($hex, $separator: 'comma') {
-	@return list.join((color.hue($hex), color.saturation($hex), color.lightness($hex)), (), $separator);
+	@return list.join((
+		color.channel($hex, 'hue', $space: hsl),
+		color.channel($hex, 'saturation', $space: hsl),
+		color.channel($hex, 'lightness', $space: hsl),
+	), (), $separator);
 }
