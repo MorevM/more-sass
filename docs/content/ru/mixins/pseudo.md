@@ -25,15 +25,15 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element-one {
-  	&::after {
-  		@include more.pseudo;
-  	}
+    &::after {
+      @include more.pseudo;
+    }
   }
 
   .element-two {
-  	&::after {
-  		@include more.pseudo('inline-block', 'foo');
-  	}
+    &::after {
+      @include more.pseudo('inline-block', 'foo');
+    }
   }
   ```
 
@@ -43,13 +43,13 @@ fullscreen: true
 
   ```css
   .element-one::after {
-  	content: '';
-  	display: block;
+    content: '';
+    display: block;
   }
 
   .element-two::after {
-  	content: 'foo';
-  	display: inline-block;
+    content: 'foo';
+    display: inline-block;
   }
   ```
 

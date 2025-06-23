@@ -35,7 +35,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
   @use 'more-sass' as more;
 
   .element {
-  	@include more.use-fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
+    @include more.use-fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
   }
   ```
 
@@ -45,22 +45,22 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   ```css
   .element {
-  	font-size: 14px;
-  	line-height: 21px;
+    font-size: 14px;
+    line-height: 21px;
   }
 
   @media (min-width: 320px) {
-  	.element {
-  		font-size: calc(14px + 6 * (100vw - 320px) / 960);
-  		line-height: calc(21px + 7 * (100vw - 320px) / 960);
-  	}
+    .element {
+      font-size: calc(14px + 6 * (100vw - 320px) / 960);
+      line-height: calc(21px + 7 * (100vw - 320px) / 960);
+    }
   }
 
   @media (min-width: 1280px) {
-  	.element {
-  		font-size: 20px;
-  		line-height: 28px;
-  	}
+    .element {
+      font-size: 20px;
+      line-height: 28px;
+    }
   }
   ```
 
@@ -84,7 +84,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   // Other files
   .element {
-  	@include fluid-font('14px/1.5', '20px/1.4');
+    @include fluid-font('14px/1.5', '20px/1.4');
   }
   ```
 
@@ -94,22 +94,22 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   ```css
   .element {
-  	font-size: 14px;
-  	line-height: 21px;
+    font-size: 14px;
+    line-height: 21px;
   }
 
   @media (min-width: 320px) {
-  	.element {
-  		font-size: calc(14px + 6 * (100vw - 320px) / 960);
-  		line-height: calc(21px + 7 * (100vw - 320px) / 960);
-  	}
+    .element {
+      font-size: calc(14px + 6 * (100vw - 320px) / 960);
+      line-height: calc(21px + 7 * (100vw - 320px) / 960);
+    }
   }
 
   @media (min-width: 1280px) {
-  	.element {
-  		font-size: 20px;
-  		line-height: 28px;
-  	}
+    .element {
+      font-size: 20px;
+      line-height: 28px;
+    }
   }
   ```
 

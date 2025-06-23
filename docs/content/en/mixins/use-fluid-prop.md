@@ -30,7 +30,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
   @use 'more-sass' as more;
 
   .element {
-  	@include more.use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
+    @include more.use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
   }
   ```
 
@@ -40,19 +40,19 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   ```css
   .element {
-  	margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   @media (min-width: 320px) {
-  	.element {
-  		margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
-  	}
+    .element {
+      margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
+    }
   }
 
   @media (min-width: 1280px) {
-  	.element {
-  		margin-bottom: 60px;
-  	}
+    .element {
+      margin-bottom: 60px;
+    }
   }
   ```
 
@@ -77,7 +77,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   // Other files
   .element {
-  	@include fluid-prop('margin-bottom', 20px, 60px);
+    @include fluid-prop('margin-bottom', 20px, 60px);
   }
   ```
 
@@ -87,19 +87,19 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   ```css
   .element {
-  	margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   @media (min-width: 320px) {
-  	.element {
-  		margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
-  	}
+    .element {
+      margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
+    }
   }
 
   @media (min-width: 1280px) {
-  	.element {
-  		margin-bottom: 60px;
-  	}
+    .element {
+      margin-bottom: 60px;
+    }
   }
   ```
 

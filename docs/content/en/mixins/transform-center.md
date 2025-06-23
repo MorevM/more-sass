@@ -24,7 +24,7 @@ Positions the element in the center of the parent element via `transform` proper
   @use 'more-sass' as more;
 
   .element {
-  	@include more.transform-center;
+    @include more.transform-center;
   }
   ```
 
@@ -34,10 +34,10 @@ Positions the element in the center of the parent element via `transform` proper
 
   ```css
   .element {
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   ```
 

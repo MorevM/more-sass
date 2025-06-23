@@ -24,7 +24,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.ellipsis;
+    @include more.ellipsis;
   }
   ```
 
@@ -34,10 +34,10 @@ fullscreen: true
 
   ```css
   .element {
-  	max-width: 100%;
-  	text-overflow: ellipsis;
-  	white-space: nowrap;
-  	overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   ```
 

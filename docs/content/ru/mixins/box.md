@@ -28,19 +28,19 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.box(100px);
+    @include more.box(100px);
   }
 
   .element-two {
-  	@include more.box(100px, 200px);
+    @include more.box(100px, 200px);
   }
 
   .element-three {
-  	@include more.box(100px, null);
+    @include more.box(100px, null);
   }
 
   .element-four {
-  	@include more.box(null, 200px);
+    @include more.box(null, 200px);
   }
   ```
 
@@ -50,21 +50,21 @@ fullscreen: true
 
   ```css
   .element-one {
-  	width: 100px;
-  	height: 100px;
+    width: 100px;
+    height: 100px;
   }
 
   .element-two {
-  	width: 100px;
-  	height: 200px;
+    width: 100px;
+    height: 200px;
   }
 
   .element-three {
-  	width: 100px;
+    width: 100px;
   }
 
   .element-four {
-  	height: 200px;
+    height: 200px;
   }
   ```
 

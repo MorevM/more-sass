@@ -17,30 +17,30 @@ Truncates text of the current element and adds an ellipsis to represent overflow
 ## Example
 
 <code-group>
-  
+
   <code-block label="SCSS" active>
-  
+
   ```scss
   @use 'more-sass' as more;
   
   .element {
-  	@include more.ellipsis;
+    @include more.ellipsis;
   }
   ```
-  
+
   </code-block>
-  
+
   <code-block label="Output">
-  
+
   ```css
   .element {
-  	max-width: 100%;
-  	text-overflow: ellipsis;
-  	white-space: nowrap;
-  	overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   ```
-  
+
   </code-block>
-  
+
 </code-group>

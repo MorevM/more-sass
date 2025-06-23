@@ -28,11 +28,11 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.hidden-element;
+    @include more.hidden-element;
   }
 
   .element-two {
-  	@include more.hidden-element(10);
+    @include more.hidden-element(10);
   }
   ```
 
@@ -42,14 +42,14 @@ fullscreen: true
 
   ```css
   .element-one {
-  	visibility: hidden;
-  	opacity: 0;
+    visibility: hidden;
+    opacity: 0;
   }
 
   .element-two {
-  	z-index: 10;
-  	visibility: hidden;
-  	opacity: 0;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
   }
   ```
 
@@ -77,7 +77,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.hidden-element-active;
+    @include more.hidden-element-active;
   }
   ```
 
@@ -87,8 +87,8 @@ fullscreen: true
 
   ```css
   .element {
-  	visibility: visible;
-  	opacity: 1;
+    visibility: visible;
+    opacity: 1;
   }
   ```
 

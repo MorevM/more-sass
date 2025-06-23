@@ -22,7 +22,7 @@ Visually hides the element but keeps it accessible.
   @use 'more-sass' as more;
 
   .element {
-  	@include more.visually-hidden;
+    @include more.visually-hidden;
   }
   ```
 

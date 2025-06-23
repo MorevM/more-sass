@@ -24,7 +24,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.full-size;
+    @include more.full-size;
   }
   ```
 
@@ -34,12 +34,12 @@ fullscreen: true
 
   ```css
   .element {
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	display: block;
-  	width: 100%;
-  	height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
   ```
 

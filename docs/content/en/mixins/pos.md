@@ -28,15 +28,15 @@ Shorthand for use position properties.
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.pos('absolute', 10px);
+    @include more.pos('absolute', 10px);
   }
 
   .element-two {
-  	@include more.pos('absolute', 10px 20px 30px 40px, 5);
+    @include more.pos('absolute', 10px 20px 30px 40px, 5);
   }
 
   .element-three {
-  	@include more.pos('absolute', null auto);
+    @include more.pos('absolute', null auto);
   }
   ```
 
@@ -46,26 +46,26 @@ Shorthand for use position properties.
 
   ```css
   .element-one {
-  	position: absolute;
-  	top: 10px;
-  	right: 10px;
-  	bottom: 10px;
-  	left: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
   }
 
   .element-two {
-  	position: absolute;
-  	top: 10px;
-  	right: 20px;
-  	bottom: 30px;
-  	left: 40px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    bottom: 30px;
+    left: 40px;
     z-index: 5;
   }
 
   .element-three {
-  	position: absolute;
-  	right: auto;
-  	left: auto;
+    position: absolute;
+    right: auto;
+    left: auto;
   }
   ```
 

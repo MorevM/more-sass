@@ -24,11 +24,11 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	&::after {
-  		@include more.parent-state(':hover', '.is-active') {
-  			color: #f00;
-  		}
-  	}
+    &::after {
+      @include more.parent-state(':hover', '.is-active') {
+        color: #f00;
+      }
+    }
   }
   ```
 
@@ -39,7 +39,7 @@ fullscreen: true
   ```css
   .element:hover::after,
   .element.is-active::after {
-  	color: #f00;
+    color: #f00;
   }
   ```
 

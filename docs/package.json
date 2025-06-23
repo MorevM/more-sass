@@ -1,7 +1,11 @@
 {
 	"name": "more-sass-docs",
-	"version": "1.0.0",
+	"type": "module",
 	"private": true,
+	"version": "1.0.0",
+	"engines": {
+		"node": ">=14 || <=16"
+	},
 	"scripts": {
 		"dev": "nuxt",
 		"build": "nuxt build",

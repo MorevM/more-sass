@@ -24,11 +24,11 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .block {
-  	&__element {
-  		@include more.bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
-  			color: #f00;
-  		}
-  	}
+    &__element {
+      @include more.bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+        color: #f00;
+      }
+    }
   }
   ```
 
@@ -38,7 +38,7 @@ fullscreen: true
 
   ```css
   .block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
-  	color: #f00;
+    color: #f00;
   }
   ```
 

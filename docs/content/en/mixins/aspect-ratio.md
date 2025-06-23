@@ -25,7 +25,7 @@ Sets the fixed aspect ratio of the element via padding hack with `::before` pseu
   @use 'more-sass' as more;
 
   .element {
-  	@include more.aspect-ratio(1280px, 720px); // 16:9
+    @include more.aspect-ratio(1280px, 720px); // 16:9
   }
   ```
 
@@ -35,14 +35,14 @@ Sets the fixed aspect ratio of the element via padding hack with `::before` pseu
 
   ```css
   .element {
-  	display: block;
-  	position: relative;
+    display: block;
+    position: relative;
   }
 
   .element::before {
-  	content: '';
-  	display: block;
-  	padding-top: 56.25%;
+    content: '';
+    display: block;
+    padding-top: 56.25%;
   }
   ```
 

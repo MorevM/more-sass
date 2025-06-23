@@ -5,7 +5,7 @@ export default theme({
 		port: 4000,
 	},
 	router: {
-		base: '/more-sass/'
+		base: '/more-sass/',
 	},
 	i18n: {
 		locales: () => [{

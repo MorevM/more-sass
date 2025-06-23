@@ -22,7 +22,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.visually-hidden;
+    @include more.visually-hidden;
   }
   ```
 

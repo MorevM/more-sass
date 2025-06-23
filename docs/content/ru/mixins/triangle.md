@@ -44,11 +44,11 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.triangle(10px, 8px, 'top');
+    @include more.triangle(10px, 8px, 'top');
   }
 
   .element-two {
-  	@include more.triangle(14px, 18px, 'bottom-left', #148cd7);
+    @include more.triangle(14px, 18px, 'bottom-left', #148cd7);
   }
   ```
 
@@ -58,14 +58,14 @@ fullscreen: true
 
   ```css
   .element-one {
-  	border-left: 5px solid transparent;
-  	border-right: 5px solid transparent;
-  	border-bottom: 8px solid currentColor;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid currentColor;
   }
 
   .element-two {
-  	border-right: 14px solid transparent;
-  	border-bottom: 18px solid #148cd7;
+    border-right: 14px solid transparent;
+    border-bottom: 18px solid #148cd7;
   }
   ```
 

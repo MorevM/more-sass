@@ -26,7 +26,7 @@ Removes a line breaks inside of the current element.
   @use 'more-sass' as more;
 
   .element {
-  	@include more.br-hide;
+    @include more.br-hide;
   }
   ```
 
@@ -36,7 +36,7 @@ Removes a line breaks inside of the current element.
 
   ```css
   .element br {
-  	display: none;
+    display: none;
   }
   ```
 
@@ -62,7 +62,7 @@ Restores a line breaks inside of the current element.
   @use 'more-sass' as more;
 
   .element {
-  	@include more.br-show;
+    @include more.br-show;
   }
   ```
 
@@ -72,7 +72,7 @@ Restores a line breaks inside of the current element.
 
   ```css
   .element br {
-  	display: block;
+    display: block;
   }
   ```
 

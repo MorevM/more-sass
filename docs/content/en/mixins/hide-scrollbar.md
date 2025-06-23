@@ -22,7 +22,7 @@ Visually hides any scrollbar.
   @use 'more-sass' as more;
 
   .block {
-  	@include more.hide-scrollbar;
+    @include more.hide-scrollbar;
   }
   ```
 

@@ -47,11 +47,11 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.border-radius(1px 2px null 4px);
+    @include more.border-radius(1px 2px null 4px);
   }
 
   .element-two {
-  	@include more.border-radius(10px, 'cross-left');
+    @include more.border-radius(10px, 'cross-left');
   }
   ```
 
@@ -61,12 +61,12 @@ fullscreen: true
 
   ```css
   .element-one {
-  	border-radius: 1px 2px 0 4px;
+    border-radius: 1px 2px 0 4px;
   }
 
   .element-two {
-  	border-top-left-radius: 10px;
-  	border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   ```
 

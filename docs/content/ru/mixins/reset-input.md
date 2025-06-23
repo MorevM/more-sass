@@ -22,7 +22,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   input {
-  	@include more.reset-input;
+    @include more.reset-input;
   }
   ```
 
@@ -32,12 +32,12 @@ fullscreen: true
 
   ```css
   input {
-  	margin: 0;
-  	padding: 0;
-  	background: none;
-  	border: none;
-  	box-shadow: none;
-  	appearance: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    appearance: none;
   }
   ```
 

@@ -26,7 +26,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.clearfix;
+    @include more.clearfix;
   }
   ```
 
@@ -36,9 +36,9 @@ fullscreen: true
 
   ```css
   .element::after {
-  	content: '';
-  	display: block;
-  	clear: both;
+    content: '';
+    display: block;
+    clear: both;
   }
   ```
 
@@ -64,7 +64,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.clearfix-element;
+    @include more.clearfix-element;
   }
   ```
 
@@ -74,8 +74,8 @@ fullscreen: true
 
   ```css
   .element {
-  	display: block;
-  	clear: both;
+    display: block;
+    clear: both;
   }
   ```
 

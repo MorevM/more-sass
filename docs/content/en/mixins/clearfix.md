@@ -26,7 +26,7 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
   @use 'more-sass' as more;
 
   .element {
-  	@include more.clearfix;
+    @include more.clearfix;
   }
   ```
 
@@ -36,9 +36,9 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
 
   ```css
   .element::after {
-  	content: '';
-  	display: block;
-  	clear: both;
+    content: '';
+    display: block;
+    clear: both;
   }
   ```
 
@@ -64,7 +64,7 @@ Clears the flow around the current element.
   @use 'more-sass' as more;
 
   .element {
-  	@include more.clearfix-element;
+    @include more.clearfix-element;
   }
   ```
 
@@ -74,8 +74,8 @@ Clears the flow around the current element.
 
   ```css
   .element {
-  	display: block;
-  	clear: both;
+    display: block;
+    clear: both;
   }
   ```
 

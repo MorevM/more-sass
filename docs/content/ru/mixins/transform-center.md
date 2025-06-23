@@ -24,7 +24,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-  	@include more.transform-center;
+    @include more.transform-center;
   }
   ```
 
@@ -34,10 +34,10 @@ fullscreen: true
 
   ```css
   .element {
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   ```
 

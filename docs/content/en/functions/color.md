@@ -94,6 +94,7 @@ Retrieves a given social media brand color.
 @use 'more-sass' as more;
 @debug more.social-color('fb'); // color: #4267b2
 ```
+
 <alert type="info">
 
   List of available codes:

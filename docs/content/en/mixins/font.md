@@ -25,19 +25,19 @@ Shorthand for writing `font-*` rules in syntax like vanilla CSS `font` property,
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.font('italic 700 16px/1.5');
+    @include more.font('italic 700 16px/1.5');
   }
 
   .element-two {
-  	@include more.font(32px);
+    @include more.font(32px);
   }
 
   .element-three {
-  	@include more.font('/1.2');
+    @include more.font('/1.2');
   }
 
   .element-four {
-  	@include more.font(16px, 'Agora Slab Pro');
+    @include more.font(16px, 'Agora Slab Pro');
   }
   ```
 
@@ -47,23 +47,23 @@ Shorthand for writing `font-*` rules in syntax like vanilla CSS `font` property,
 
   ```css
   .element-one {
-  	font-style: italic;
-  	font-weight: 700;
-  	font-size: 16px;
-  	line-height: 1.5;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .element-two {
-  	font-size: 32px;
+    font-size: 32px;
   }
 
   .element-three {
-  	line-height: 1.2;
+    line-height: 1.2;
   }
 
   .element-four {
-  	font-size: 16px;
-  	font-family: 'Agora Slab Pro';
+    font-size: 16px;
+    font-family: 'Agora Slab Pro';
   }
   ```
 

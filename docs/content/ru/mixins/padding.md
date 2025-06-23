@@ -26,15 +26,15 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element-one {
-  	@include more.padding(10px);
+    @include more.padding(10px);
   }
 
   .element-two {
-  	@include more.padding(10px 20px 30px 40px); // or: @include more.padding(10px, 20px, 30px, 40px);
+    @include more.padding(10px 20px 30px 40px); // or: @include more.padding(10px, 20px, 30px, 40px);
   }
 
   .element-three {
-  	@include more.padding(null auto);
+    @include more.padding(null auto);
   }
   ```
 
@@ -44,22 +44,22 @@ fullscreen: true
 
   ```css
   .element-one {
-  	padding-top: 10px;
-  	padding-right: 10px;
-  	padding-bottom: 10px;
-  	padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
   }
 
   .element-two {
-  	padding-top: 10px;
-  	padding-right: 20px;
-  	padding-bottom: 30px;
-  	padding-left: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
   }
 
   .element-three {
-  	padding-right: auto;
-  	padding-left: auto;
+    padding-right: auto;
+    padding-left: auto;
   }
   ```
 
