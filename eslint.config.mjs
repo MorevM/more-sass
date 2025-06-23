@@ -20,7 +20,7 @@ export default combine([
 			'markdownlint/md033': 'off',
 		},
 	}),
-	defineConfiguration('jest'),
+	defineConfiguration('vitest'),
 	defineConfiguration('yaml'),
 	defineConfiguration('html'),
 	defineConfiguration('typescript'),

@@ -36,14 +36,13 @@
 	"main": "src/_index.scss",
 	"scripts": {
 		"prepare": "lefthook install",
-		"esm-jest": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
 		"lint": "yarn lint:stylelint && yarn lint:eslint",
 		"lint:fix": "yarn lint:stylelint:fix && yarn lint:eslint:fix",
 		"lint:stylelint": "stylelint \"src/**/*.scss\" --allow-empty-input",
 		"lint:stylelint:fix": "stylelint \"src/**/*.scss\" --allow-empty-input --fix",
 		"lint:eslint": "eslint .",
 		"lint:eslint:fix": "eslint . --fix",
-		"test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
+		"test": "vitest",
 		"docs": "cd ./docs && yarn dev",
 		"release": "release-it --disable-metrics"
 	},
@@ -56,13 +55,15 @@
 		"@morev/eslint-config": "^39.1.0",
 		"@morev/stylelint-config": "^8.0.2",
 		"@release-it/conventional-changelog": "^5.1.1",
+		"@types/glob": "^8.1.0",
 		"eslint": "^9.29.0",
 		"glob": "^8.1.0",
-		"jest": "^29.4.1",
 		"lefthook": "^1.11.14",
 		"release-it": "^15.6.0",
 		"sass": "^1.57.1",
 		"sass-true": "^6.1.0",
-		"stylelint": "^16.21.0"
+		"stylelint": "^16.21.0",
+		"typescript": "^5.8.3",
+		"vitest": "^3.2.4"
 	}
 }
