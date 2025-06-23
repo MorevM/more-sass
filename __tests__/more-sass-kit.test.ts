@@ -2,9 +2,9 @@
    https://github.com/oddbird/true?tab=readme-ov-file#using-mocha-jest-or-other-js-test-runners
  */
 
-import glob from 'glob';
+import { globSync } from 'glob';
 import sassTrue from 'sass-true';
 
-glob.sync('./**/*.test.scss').forEach((file) => {
+globSync('./**/*.test.scss').forEach((file) => {
 	sassTrue.runSass({ describe, it }, file);
 });
