@@ -1,4 +1,5 @@
 @use 'sass:list';
+@use 'sass:meta';
 @use 'sass:string';
 @use '../../functions/list/list-includes/list-includes.scss' as *;
 @use '../../functions/math/get-numeric/get-numeric.scss' as *;
@@ -54,6 +55,8 @@
 			}
 		}
 	}
+
+	$font-family: if($font-family, meta.inspect($font-family), null);
 
 	@if ($font-family and string.index($font-family, ' ')) {
 		$font-family: str-replace($font-family, "'", '');

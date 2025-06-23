@@ -194,6 +194,21 @@
 					font-size: 16px;
 				}
 			}
+
+			@include assert {
+				@include output {
+					/* stylelint-disable-next-line value-keyword-case */
+					$font-primary: Cormorant, Tahoma, sans-serif;
+
+					@include font(16px, $font-primary);
+				}
+
+				@include expect {
+					/* stylelint-disable-next-line value-keyword-case */
+					font-family: 'Cormorant, Tahoma, sans-serif';
+					font-size: 16px;
+				}
+			}
 		}
 	}
 }
