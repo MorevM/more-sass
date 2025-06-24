@@ -1,5 +1,12 @@
 
 
+## [2.1.4](https://github.com/MorevM/more-sass/compare/v2.1.3...v2.1.4) (2025-06-24)
+
+
+### Bug fixes
+
+* **font:** Bracket only required fonts in multiple entries ([a85a0ec](https://github.com/MorevM/more-sass/commit/a85a0ec2beee5cceccc41cf0474017d97348b54d))
+
 ## [2.1.3](https://github.com/MorevM/more-sass/compare/v2.1.2...v2.1.3) (2025-06-24)
 
 ### Bug fixes
