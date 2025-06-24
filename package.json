@@ -30,6 +30,10 @@
 	"bugs": {
 		"url": "https://github.com/MorevM/more-sass/issues"
 	},
+	"keywords": [
+		"sass",
+		"mixins"
+	],
 	"files": [
 		"src/**/!(*.test).scss"
 	],
