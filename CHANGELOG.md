@@ -1,5 +1,15 @@
 
 
+## [2.1.3](https://github.com/MorevM/more-sass/compare/v2.1.2...v2.1.3) (2025-06-24)
+
+### Bug fixes
+
+* **bem-modifiers:** Allow multiple root selectors ([de1a1c2](https://github.com/MorevM/more-sass/commit/de1a1c230b28fea486f061fc717f3c7680514144))
+* **font:** Cast `font-family` to string before check ([36493df](https://github.com/MorevM/more-sass/commit/36493df5fe139b62b7433eab132a1a33d6ebe75a))
+* Preserve brackets in `column` mixin for readability ([4a12c56](https://github.com/MorevM/more-sass/commit/4a12c5609e0f4bbcc21dff543ebefba3d85cc0ce))
+* SASS color deprecation warnings ([bcb6e87](https://github.com/MorevM/more-sass/commit/bcb6e874e16f0048f6f046a69e65d6ff9dffc81c))
+
+
 ### [2.1.2](https://github.com/MorevM/more-sass/compare/v2.1.1...v2.1.2) (2023-01-30)
 
 

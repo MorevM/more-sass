@@ -3,7 +3,7 @@
 	"description": "The library of useful SCSS mixins and functions",
 	"type": "module",
 	"private": false,
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"engines": {
 		"node": ">=14"
 	},
