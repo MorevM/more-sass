@@ -1,4 +1,4 @@
-![Stability of "master" branch](https://img.shields.io/github/workflow/status/MorevM/more-sass/Build/master)
+![Stability of "master" branch](https://img.shields.io/github/actions/workflow/status/MorevM/more-sass/build.yaml?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Last commit](https://img.shields.io/github/last-commit/morevm/more-sass)
 ![Release version](https://img.shields.io/github/v/release/morevm/more-sass?include_prereleases)
