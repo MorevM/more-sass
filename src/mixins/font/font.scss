@@ -5,8 +5,22 @@
 @use '../../functions/math/get-numeric/get-numeric.scss' as *;
 @use '../../functions/math/with-unit/with-unit.scss' as *;
 @use '../../functions/string/str-split/str-split.scss' as *;
+@use '../../functions/string/str-trim/str-trim.scss' as *;
 @use '../../functions/string/str-replace/str-replace.scss' as *;
 @use '../../variables' as vars;
+
+@function _quote-if-needed($font-family) {
+	$font-family: str-trim($font-family);
+
+	@if (string.index($font-family, ' ') != null) {
+		$font-family: str-replace($font-family, "'", '');
+		$font-family: str-replace($font-family, '"', '');
+		// `string.quote` does not work for some reason :(
+		$font-family: '"' + $font-family + '"';
+	}
+
+	@return $font-family;
+}
 
 /**
  * Shorthand for writing `font-*` rules in syntax like vanilla CSS `font` property,
@@ -58,10 +72,19 @@
 
 	$font-family: if($font-family, meta.inspect($font-family), null);
 
-	@if ($font-family and string.index($font-family, ' ')) {
-		$font-family: str-replace($font-family, "'", '');
-		$font-family: str-replace($font-family, '"', '');
-		$font-family: string.quote($font-family);
+	@if ($font-family) {
+		$font-families: ();
+
+		@each $font-family in str-split($font-family, ',') {
+			$font-families: list.append(
+				$font-families,
+				// Prevent double quotes
+				string.unquote(_quote-if-needed($font-family)),
+				comma,
+			);
+		}
+
+		$font-family: $font-families;
 	}
 
 	font-family: $font-family;
