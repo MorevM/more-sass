@@ -6,6 +6,9 @@ export default combine([
 			'./.gitignore',
 			'./docs/.gitignore',
 		],
+		extraIgnoredGlobs: [
+			'docs/nuxt.config.js',
+		],
 	}),
 	defineConfiguration('javascript'),
 	defineConfiguration('node'),
