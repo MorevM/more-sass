@@ -60,5 +60,21 @@
 				}
 			}
 		}
+
+		@include it('Does not create media queries if start and end values are equal') {
+			@include assert {
+				@include output {
+					@include use-fluid-prop('margin-bottom', (320px, 24px), (1280px, 24px));
+					@include use-fluid-prop('font-size', (320px, 16px), (1280px, 16px));
+					@include use-fluid-prop('line-height', (320px, 1.2), (1280px, 1.2));
+				}
+
+				@include expect {
+					margin-bottom: 24px;
+					font-size: 16px;
+					line-height: 1.2;
+				}
+			}
+		}
 	}
 }

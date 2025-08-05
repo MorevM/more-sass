@@ -24,16 +24,20 @@
 	$vw-diff: strip-unit($max-vw - $min-vw);
 	$val-diff: strip-unit($end-val - $start-val);
 
+	$is-equal: $start-val == $end-val;
+
 	// Set values
-	@if ($set-start) {
+	@if ($set-start or $is-equal) {
 		#{$property}: $start-val;
 	}
 
-	@media (min-width: $min-vw) {
-		#{$property}: calc($start-val + $val-diff * (100vw - #{$min-vw}) / $vw-diff);
-	}
+	@if (not $is-equal) {
+		@media (min-width: $min-vw) {
+			#{$property}: calc($start-val + $val-diff * (100vw - #{$min-vw}) / $vw-diff);
+		}
 
-	@media (min-width: $max-vw) {
-		#{$property}: $end-val;
+		@media (min-width: $max-vw) {
+			#{$property}: $end-val;
+		}
 	}
 }
