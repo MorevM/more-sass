@@ -1,5 +1,14 @@
 
 
+## [2.1.5](https://github.com/MorevM/more-sass/compare/v2.1.4...v2.1.5) (2025-08-06)
+
+
+### Bug fixes
+
+* **use-fluid-font:** Do not set media queries if one of the font values is missing or both are equal ([3156414](https://github.com/MorevM/more-sass/commit/3156414d5baae767d69a933148fbd6d9475cf20c))
+* **use-fluid-prop:** Do not set media queries if one of the values is missing ([e7612ed](https://github.com/MorevM/more-sass/commit/e7612ed45219153fe1004653807a2eade420211d))
+* **use-fluid-prop:** Do not set media queries if the values are the same ([4b6cdc5](https://github.com/MorevM/more-sass/commit/4b6cdc5dbc0608a21b82dde6e3d3bd092a259ae6))
+
 ## [2.1.4](https://github.com/MorevM/more-sass/compare/v2.1.3...v2.1.4) (2025-06-24)
 
 
