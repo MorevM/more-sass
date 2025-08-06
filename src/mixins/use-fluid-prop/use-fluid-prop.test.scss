@@ -76,5 +76,19 @@
 				}
 			}
 		}
+
+		@include it('Set single value if the second one is absent') {
+			@include assert {
+				@include output {
+					@include use-fluid-prop('margin-bottom', (320px, 24px), (1280px, null));
+					@include use-fluid-prop('font-size', (320px, null), (1280px, 16px));
+				}
+
+				@include expect {
+					margin-bottom: 24px;
+					font-size: 16px;
+				}
+			}
+		}
 	}
 }

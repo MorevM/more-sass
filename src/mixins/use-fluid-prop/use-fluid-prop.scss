@@ -12,7 +12,6 @@
  * @param    {bool}      $set-start [true]    Whether to use the start property value as default.
  */
 @mixin use-fluid-prop($property, $start, $end, $set-start: true) {
-	// Get params
 	$start-vw: list.nth($start, 1);
 	$start-val: list.nth($start, 2);
 	$end-vw: list.nth($end, 1);
@@ -24,14 +23,24 @@
 	$vw-diff: strip-unit($max-vw - $min-vw);
 	$val-diff: strip-unit($end-val - $start-val);
 
-	$is-equal: $start-val == $end-val;
+	$is-equal: $val-diff == 0;
+	$only-value: null;
 
-	// Set values
-	@if ($set-start or $is-equal) {
+	@if $start-val != null and $end-val == null {
+		$only-value: $start-val;
+	} @else if $end-val != null and $start-val == null {
+		$only-value: $end-val;
+	}
+
+	@if (($set-start or $is-equal) and ($start-val and not $only-value)) {
 		#{$property}: $start-val;
 	}
 
-	@if (not $is-equal) {
+	@if ($only-value) {
+		#{$property}: $only-value;
+	}
+
+	@if ((not $is-equal) and (not $only-value)) {
 		@media (min-width: $min-vw) {
 			#{$property}: calc($start-val + $val-diff * (100vw - #{$min-vw}) / $vw-diff);
 		}
