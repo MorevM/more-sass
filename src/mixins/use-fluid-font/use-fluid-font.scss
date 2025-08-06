@@ -21,13 +21,16 @@
 		$line-height: if(string.index($param, '/') == 1, get-numeric(list.nth($parsed, 1)), null);
 	}
 
+	$unit-line-height: $line-height;
+
 	@if ($line-height and math.is-unitless($line-height)) {
-		$line-height: $line-height * if($font-size, $font-size, 1);
+		$unit-line-height: $line-height * if($font-size, $font-size, 1);
 	}
 
 	@return (
 		'font-size': $font-size,
-		'line-height': $line-height,
+		'unit-line-height': $unit-line-height,
+		'source-line-height': $line-height,
 	);
 }
 
@@ -43,18 +46,28 @@
 	$start-vw: list.nth($start, 1);
 	$start-font: _local-parse-font(list.nth($start, 2));
 	$start-font-size: map.get($start-font, 'font-size');
-	$start-line-height: map.get($start-font, 'line-height');
+	$start-line-height: map.get($start-font, 'unit-line-height');
+	$start-source-line-height: map.get($start-font, 'source-line-height');
 
 	$end-vw: list.nth($end, 1);
 	$end-font: _local-parse-font(list.nth($end, 2));
 	$end-font-size: map.get($end-font, 'font-size');
-	$end-line-height: map.get($end-font, 'line-height');
+	$end-line-height: map.get($end-font, 'unit-line-height');
+	$end-source-line-height: map.get($end-font, 'source-line-height');
 
-	@if ($start-font-size and $end-font-size) {
+	@if ($start-source-line-height == null and $end-source-line-height != null) {
+		$end-line-height: $end-source-line-height;
+	}
+
+	@if ($end-source-line-height == null and $start-source-line-height != null) {
+		$start-line-height: $start-source-line-height;
+	}
+
+	@if ($start-font-size or $end-font-size) {
 		@include use-fluid-prop('font-size', ($start-vw, $start-font-size), ($end-vw, $end-font-size));
 	}
 
-	@if ($start-line-height and $end-line-height) {
+	@if ($start-line-height or $end-line-height) {
 		@include use-fluid-prop('line-height', ($start-vw, $start-line-height), ($end-vw, $end-line-height));
 	}
 }

@@ -3,7 +3,7 @@
 
 @include describe('Mixins') {
 	@include describe('use-fluid-font') {
-		@include it('Outputs the correct content') {
+		@include it('Outputs the correct content (unitless line-height)') {
 			@include assert {
 				@include output {
 					@include use-fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
@@ -27,6 +27,35 @@
 
 					@media (min-width: 1280px) {
 						line-height: 28px;
+					}
+				}
+			}
+		}
+
+		@include it('Outputs the correct content (line height with unit)') {
+			@include assert {
+				@include output {
+					@include use-fluid-font((320px, '14px/14px'), (1280px, '20px/20px'));
+				}
+
+				@include expect {
+					font-size: 14px;
+					line-height: 14px;
+
+					@media (min-width: 320px) {
+						font-size: calc(14px + 6 * (100vw - 320px) / 960);
+					}
+
+					@media (min-width: 1280px) {
+						font-size: 20px;
+					}
+
+					@media (min-width: 320px) {
+						line-height: calc(14px + 6 * (100vw - 320px) / 960);
+					}
+
+					@media (min-width: 1280px) {
+						line-height: 20px;
 					}
 				}
 			}
@@ -67,6 +96,101 @@
 
 					@media (min-width: 1280px) {
 						line-height: 16px;
+					}
+				}
+			}
+		}
+
+		@include describe('Same values') {
+			@include it('Does not create media queries if start and end values are equal (separate declarations, line-height with unit)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px'), (1280px, '16px'));
+						@include use-fluid-font((320px, '/20px'), (1280px, '/20px'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 20px;
+					}
+				}
+			}
+
+			@include it('Does not create media queries if start and end values are equal (separate declarations, unitless line-height)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px'), (1280px, '16px'));
+						@include use-fluid-font((320px, '/1.2'), (1280px, '/1.2'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 1.2;
+					}
+				}
+			}
+
+			@include it('Does not create media queries if start and end values are equal (single declaration, line-height with unit)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px/20px'), (1280px, '16px/20px'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 20px;
+					}
+				}
+			}
+
+			@include it('Does not create media queries if start and end values are equal (single declaration, the only line-height with unit) (1)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px/20px'), (1280px, '16px'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 20px;
+					}
+				}
+			}
+
+			@include it('Does not create media queries if start and end values are equal (single declaration, the only line-height with unit) (2)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px'), (1280px, '16px/20px'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 20px;
+					}
+				}
+			}
+
+			@include it('Does not create media queries if start and end values are equal (single declaration, the only unitless line-height) (1)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px/1.4'), (1280px, '16px'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 1.4;
+					}
+				}
+			}
+
+			@include it('Does not create media queries if start and end values are equal (single declaration, the only unitless line-height) (2)') {
+				@include assert {
+					@include output {
+						@include use-fluid-font((320px, '16px'), (1280px, '16px/1.4'));
+					}
+
+					@include expect {
+						font-size: 16px;
+						line-height: 1.4;
 					}
 				}
 			}
