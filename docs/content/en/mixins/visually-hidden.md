@@ -16,32 +16,35 @@ Visually hides the element but keeps it accessible.
 
 <code-group>
 
-  <code-block label="SCSS" active>
+<code-block label="SCSS" active>
 
-  ```scss
-  @use 'more-sass' as more;
+```scss
+@use 'more-sass' as more;
 
-  .element {
-    @include more.visually-hidden;
-  }
-  ```
+.element {
+  @include more.visually-hidden;
+}
+```
 
-  </code-block>
+</code-block>
 
-  <code-block label="Output">
+<code-block label="Output">
 
-  ```css
-  .element {
-    position: absolute;
-    z-index: -1;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-  }
-  ```
+```css
+.element {
+  position: absolute;
+  z-index: -1;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+```
 
-  </code-block>
+</code-block>
 
 </code-group>
