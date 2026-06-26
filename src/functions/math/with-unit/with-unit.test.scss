@@ -6,12 +6,15 @@
 		@include it('Returns a number with unit got from a given unitless number') {
 			@include assert-equal(with-unit(10), 10px);
 			@include assert-equal(with-unit(20, '%'), 20%);
+			@include assert-equal(with-unit(30, 'dvh'), 30dvh);
+			@include assert-equal(with-unit(40, 'cqmin'), 40cqmin);
 			@include assert-equal(with-unit(0), 0px);
 		}
 
 		@include it('Returns a number with unit got from a given pseudo-number string') {
 			@include assert-equal(with-unit('10'), 10px);
 			@include assert-equal(with-unit('20', '%'), 20%);
+			@include assert-equal(with-unit('30', 'rlh'), 30rlh);
 			@include assert-equal(with-unit('0'), 0px);
 		}
 

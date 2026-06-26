@@ -6,11 +6,15 @@
 		@include it('Returns base value of the input number unit') {
 			@include assert-equal(get-unit(10px), 1px);
 			@include assert-equal(get-unit(10%), 1%);
+			@include assert-equal(get-unit(10dvh), 1dvh);
+			@include assert-equal(get-unit(10cqmin), 1cqmin);
 		}
 
 		@include it('Returns base value of the input pseudo-number unit') {
 			@include assert-equal(get-unit('10px'), 1px);
 			@include assert-equal(get-unit('10%'), 1%);
+			@include assert-equal(get-unit('10rem'), 1rem);
+			@include assert-equal(get-unit('10rlh'), 1rlh);
 		}
 
 		@include it('Returns null if a given value is not a correct number or pseudo-number string') {

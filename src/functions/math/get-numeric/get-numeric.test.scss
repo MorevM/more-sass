@@ -9,6 +9,9 @@
 		@include it('Returns numeric value of the input pseudo-number string represents a positive integer') {
 			@include assert-equal(get-numeric('12'), 12);
 			@include assert-equal(get-numeric('12px'), 12px);
+			@include assert-equal(get-numeric('12rem'), 12rem);
+			@include assert-equal(get-numeric('12dvh'), 12dvh);
+			@include assert-equal(get-numeric('12cqmin'), 12cqmin);
 		}
 
 		@include it('Returns numeric value of the input pseudo-number string represents a negative integer') {
@@ -39,6 +42,7 @@
 			@include assert-equal(get-numeric('0px'), 0px);
 			@include assert-equal(get-numeric('0.0%'), 0%);
 			@include assert-equal(get-numeric('+0.0em'), 0em);
+			@include assert-equal(get-numeric('+0.0rlh'), 0rlh);
 			@include assert-equal(get-numeric('-0.0ch'), 0ch);
 		}
 
@@ -72,6 +76,7 @@
 			@include assert-equal(get-numeric('+-12.2'), null);
 			@include assert-equal(get-numeric('12.1.1'), null);
 			@include assert-equal(get-numeric('10e3e4'), null);
+			@include assert-equal(get-numeric('1unknown'), null);
 		}
 	}
 }
