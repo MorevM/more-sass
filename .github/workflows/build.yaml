@@ -19,8 +19,11 @@ jobs:
       - name: Linting
         run: pnpm lint
 
-      - name: Testing
-        run: pnpm test
-
       - name: Spellcheck
         run: pnpm spellcheck
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Testing
+        run: pnpm test

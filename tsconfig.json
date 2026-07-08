@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"esModuleInterop": true,
 		"strict": true,
 		"strictNullChecks": true,
@@ -12,7 +12,6 @@
 		"checkJs": false,
 		"allowJs": false,
 		"skipLibCheck": true,
-		"baseUrl": ".",
 		"types": ["vitest/globals"],
 	},
 	"include": [

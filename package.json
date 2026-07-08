@@ -49,6 +49,7 @@
 		"lint:stylelint:fix": "stylelint \"src/**/*.scss\" --allow-empty-input --fix",
 		"lint:eslint": "eslint .",
 		"lint:eslint:fix": "eslint . --fix",
+		"typecheck": "tsc --noEmit",
 		"spellcheck": "cspell --no-progress --show-suggestions --unique",
 		"test": "vitest",
 		"docs": "cd ./docs && yarn dev",
