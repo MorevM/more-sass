@@ -18,6 +18,7 @@
 		$value: str-replace($value, ',', '|');
 		$value: str-split($value, '|', comma);
 	} @else {
+		/* stylelint-disable-next-line @morev/sass/no-unused-variables -- False positive */
 		$value: null;
 	}
 
