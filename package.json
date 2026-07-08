@@ -56,20 +56,19 @@
 	"peerDependencies": {
 		"sass": "^1.49.8"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@morev/commitlint-config": "^0.2.2",
-		"@morev/eslint-config": "^39.1.0",
-		"@morev/stylelint-config": "^8.0.2",
-		"@release-it/conventional-changelog": "^5.1.1",
-		"eslint": "^9.29.0",
-		"glob": "^11.0.3",
-		"lefthook": "^1.11.14",
-		"release-it": "^15.6.0",
-		"sass": "^1.89.2",
-		"sass-true": "^9.0.0",
-		"stylelint": "^16.21.0",
-		"typescript": "^5.8.3",
-		"vitest": "^3.2.4"
+		"@morev/eslint-config": "^42.0.1",
+		"@morev/stylelint-config": "^9.0.2",
+		"@release-it/conventional-changelog": "8",
+		"eslint": "^10.6.0",
+		"glob": "^13.0.6",
+		"lefthook": "^2.1.9",
+		"release-it": "^20.2.1",
+		"sass": "^1.100.0",
+		"sass-true": "^10.1.0",
+		"stylelint": "^17.14.0",
+		"typescript": "^6.0.3",
+		"vitest": "^4.1.10"
 	}
 }
