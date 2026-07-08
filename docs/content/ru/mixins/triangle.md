@@ -10,12 +10,12 @@ fullscreen: true
 
 ## Параметры
 
-| Имя                                            | Тип      | По умолчанию   | Описание                                              |
-| ---------------------------------------------- | -------- | -------------- | ----------------------------------------------------- |
-| $width <span class="text-red-600">*</span>     | `number` | —              | Ширина треугольника.                                  |
-| $height <span class="text-red-600">*</span>    | `number` | —              | Высота треугольника.                                  |
-| $direction <span class="text-red-600">*</span> | `string` | —              | Ключевое слово, описывающее направление треугольника. |
-| $color                                         | `color`  | `currentColor` | Цвет треугольника.                                    |
+| Имя                                              | Тип      | По умолчанию   | Описание                                              |
+| ------------------------------------------------ | -------- | -------------- | ----------------------------------------------------- |
+| $inline-size <span class="text-red-600">*</span> | `number` | —              | Строчный размер треугольника.                         |
+| $block-size <span class="text-red-600">*</span>  | `number` | —              | Блочный размер треугольника.                          |
+| $direction <span class="text-red-600">*</span>   | `string` | —              | Ключевое слово, описывающее направление треугольника. |
+| $color                                           | `color`  | `currentColor` | Цвет треугольника.                                    |
 
 <alert type="info">
 
@@ -59,19 +59,18 @@ fullscreen: true
   ```css
   .element-one {
     display: block flow;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 8px solid currentColor;
+    inline-size: 10px;
+    block-size: 8px;
+    background: currentColor;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
   }
 
   .element-two {
     display: block flow;
-    width: 0;
-    height: 0;
-    border-right: 14px solid transparent;
-    border-bottom: 18px solid #148cd7;
+    inline-size: 14px;
+    block-size: 18px;
+    background: #148cd7;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
   }
   ```
 

@@ -1,4 +1,3 @@
-/* stylelint-disable property-layout-mappings -- Actual directions */
 @use 'true' as *; // sass-true
 @use './triangle.scss' as *;
 
@@ -13,11 +12,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-right: 15px solid transparent;
-					border-bottom: 20px solid currentColor;
-					border-left: 15px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(50% 0, 100% 100%, 0 100%);
 				}
 			}
 			// Bottom
@@ -28,11 +26,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-top: 20px solid currentColor;
-					border-right: 15px solid transparent;
-					border-left: 15px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(0 0, 100% 0, 50% 100%);
 				}
 			}
 			// Left
@@ -43,11 +40,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-top: 15px solid transparent;
-					border-right: 20px solid currentColor;
-					border-bottom: 15px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(100% 0, 100% 100%, 0 50%);
 				}
 			}
 			// Right
@@ -58,11 +54,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-top: 15px solid transparent;
-					border-bottom: 15px solid transparent;
-					border-left: 20px solid currentColor;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(0 0, 100% 50%, 0 100%);
 				}
 			}
 			// Bottom left
@@ -73,10 +68,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-right: 30px solid transparent;
-					border-bottom: 20px solid currentColor;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(0 0, 0 100%, 100% 100%);
 				}
 			}
 			// Bottom right
@@ -87,10 +82,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-bottom: 20px solid currentColor;
-					border-left: 30px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(100% 0, 100% 100%, 0 100%);
 				}
 			}
 			// Top left
@@ -101,10 +96,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-top: 20px solid currentColor;
-					border-right: 30px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(0 0, 100% 0, 0 100%);
 				}
 			}
 			// Top right
@@ -115,10 +110,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-top: 20px solid currentColor;
-					border-left: 30px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: currentColor;
+					clip-path: polygon(0 0, 100% 0, 100% 100%);
 				}
 			}
 		}
@@ -131,11 +126,10 @@
 
 				@include expect {
 					display: block flow;
-					width: 0;
-					height: 0;
-					border-right: 15px solid transparent;
-					border-bottom: 20px solid #ff0000;
-					border-left: 15px solid transparent;
+					inline-size: 30px;
+					block-size: 20px;
+					background: #ff0000;
+					clip-path: polygon(50% 0, 100% 100%, 0 100%);
 				}
 			}
 		}

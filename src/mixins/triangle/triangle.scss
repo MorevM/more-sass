@@ -1,46 +1,35 @@
-/* stylelint-disable property-layout-mappings -- Actual directions */
-@use 'sass:math';
-
 /**
  * Draws a triangle from the current element.
  *
- * @param    {number}    $width                   Triangle width.
- * @param    {number}    $height                  Triangle height.
+ * @param    {number}    $inline-size             Triangle inline size.
+ * @param    {number}    $block-size              Triangle block size.
  * @param    {string}    $direction               Triangle direction (top|bottom|left|right|bottom-left|bottom-right|top-left|top-right).
  * @param    {color}     $color [currentColor]    Triangle color.
  */
-@mixin triangle($width, $height, $direction, $color: currentColor) {
-	display: block flow;
-	width: 0;
-	height: 0;
+@mixin triangle($inline-size, $block-size, $direction, $color: currentColor) {
+	$clip-path: null;
 
 	@if ($direction == 'top') {
-		border-right: #{math.div($width, 2)} solid transparent;
-		border-bottom: #{$height} solid #{$color};
-		border-left: #{math.div($width, 2)} solid transparent;
+		$clip-path: polygon(50% 0, 100% 100%, 0 100%);
 	} @else if ($direction == 'bottom') {
-		border-top: #{$height} solid #{$color};
-		border-right: #{math.div($width, 2)} solid transparent;
-		border-left: #{math.div($width, 2)} solid transparent;
+		$clip-path: polygon(0 0, 100% 0, 50% 100%);
 	} @else if ($direction == 'left') {
-		border-top: #{math.div($width, 2)} solid transparent;
-		border-right: #{$height} solid #{$color};
-		border-bottom: #{math.div($width, 2)} solid transparent;
+		$clip-path: polygon(100% 0, 100% 100%, 0 50%);
 	} @else if ($direction == 'right') {
-		border-top: #{math.div($width, 2)} solid transparent;
-		border-bottom: #{math.div($width, 2)} solid transparent;
-		border-left: #{$height} solid #{$color};
+		$clip-path: polygon(0 0, 100% 50%, 0 100%);
 	} @else if ($direction == 'bottom-left') {
-		border-right: #{$width} solid transparent;
-		border-bottom: #{$height} solid #{$color};
+		$clip-path: polygon(0 0, 0 100%, 100% 100%);
 	} @else if ($direction == 'bottom-right') {
-		border-bottom: #{$height} solid #{$color};
-		border-left: #{$width} solid transparent;
+		$clip-path: polygon(100% 0, 100% 100%, 0 100%);
 	} @else if ($direction == 'top-left') {
-		border-top: #{$height} solid #{$color};
-		border-right: #{$width} solid transparent;
+		$clip-path: polygon(0 0, 100% 0, 0 100%);
 	} @else if ($direction == 'top-right') {
-		border-top: #{$height} solid #{$color};
-		border-left: #{$width} solid transparent;
+		$clip-path: polygon(0 0, 100% 0, 100% 100%);
 	}
+
+	display: block flow;
+	inline-size: $inline-size;
+	block-size: $block-size;
+	background: $color;
+	clip-path: $clip-path;
 }
