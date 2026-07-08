@@ -11,20 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: yarn
-          cache-dependency-path: yarn.lock
-
-      - name: Install dependencies
-        run: yarn install
+      - name: Setup environment
+        uses: ./.github/actions/setup
 
       - name: Linting
-        run: yarn lint
+        run: pnpm lint
 
       - name: Testing
-        run: yarn test
+        run: pnpm test
