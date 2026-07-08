@@ -72,7 +72,7 @@ Restores a line breaks inside of the current element.
 
   ```css
   .element br {
-    display: block;
+    display: block flow;
   }
   ```
 

@@ -35,8 +35,8 @@ fullscreen: true
   ```css
   .element {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
     transform: translate(-50%, -50%);
   }
   ```

@@ -1,3 +1,4 @@
+@use 'sass:string';
 @use 'true' as *; // sass-true
 @use './pseudo.scss' as *;
 
@@ -11,7 +12,7 @@
 
 				@include expect {
 					content: '';
-					display: block;
+					display: block flow;
 				}
 			}
 
@@ -22,7 +23,7 @@
 
 				@include expect {
 					content: 'abc';
-					display: inline-block;
+					display: inline flow-root;
 				}
 			}
 		}
@@ -35,7 +36,7 @@
 
 				@include expect {
 					content: '';
-					display: block;
+					display: block flow;
 				}
 			}
 
@@ -46,7 +47,62 @@
 
 				@include expect {
 					content: '';
-					display: block;
+					display: block flow;
+				}
+			}
+		}
+
+		@include it('Maps legacy display values to modern equivalents') {
+			$modern-display-values: (
+				'block': 'block flow',
+				'flow-root': 'block flow-root',
+				'inline': 'inline flow',
+				'inline-block': 'inline flow-root',
+				'run-in': 'run-in flow',
+				'list-item': 'block flow list-item',
+				'flex': 'block flex',
+				'inline-flex': 'inline flex',
+				'grid': 'block grid',
+				'inline-grid': 'inline grid',
+				'ruby': 'inline ruby',
+				'table': 'block table',
+				'inline-table': 'inline table',
+			);
+
+			@each $display, $modern-display in $modern-display-values {
+				@include assert {
+					@include output {
+						@include pseudo($display);
+					}
+
+					@include expect {
+						content: '';
+						display: string.unquote($modern-display);
+					}
+				}
+			}
+		}
+
+		@include it('Passes modern display values as is') {
+			@include assert {
+				@include output {
+					@include pseudo(block flow);
+				}
+
+				@include expect {
+					content: '';
+					display: block flow;
+				}
+			}
+
+			@include assert {
+				@include output {
+					@include pseudo('block ruby');
+				}
+
+				@include expect {
+					content: '';
+					display: block ruby;
 				}
 			}
 		}

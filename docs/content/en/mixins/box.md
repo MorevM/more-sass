@@ -7,16 +7,16 @@ fullscreen: true
 ---
 
 Sets the element size.
-Shorthand for both `width` and `height` properties.
+Shorthand for both `inline-size` and `block-size` properties.
 
-<alert type="info">Width or height value can be omitted using `null` (preferable) or its alias `n`.</alert>
+<alert type="info">Inline or block size value can be omitted using `null` (preferable) or its alias `n`.</alert>
 
 ## Arguments
 
-| Name                                      | Type     | Default | Description                |
-|-------------------------------------------|----------|---------|----------------------------|
-| $width <span class="text-red-600">*</span> | `number` | —       | The width of the element.  |
-| $height                                   | `number` | $width  | The height of the element. |
+| Name                                             | Type     | Default      | Description                 |
+| ------------------------------------------------ | -------- | ------------ | --------------------------- |
+| $inline-size <span class="text-red-600">*</span> | `number` | —            | Inline size of the element. |
+| $block-size                                      | `number` | $inline-size | Block size of the element.  |
 
 ## Example
 
@@ -50,21 +50,21 @@ Shorthand for both `width` and `height` properties.
 
   ```css
   .element-one {
-    width: 100px;
-    height: 100px;
+    inline-size: 100px;
+    block-size: 100px;
   }
 
   .element-two {
-    width: 100px;
-    height: 200px;
+    inline-size: 100px;
+    block-size: 200px;
   }
 
   .element-three {
-    width: 100px;
+    inline-size: 100px;
   }
 
   .element-four {
-    height: 200px;
+    block-size: 200px;
   }
   ```
 

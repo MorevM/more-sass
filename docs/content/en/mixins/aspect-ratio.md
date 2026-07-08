@@ -6,12 +6,12 @@ category: Mixins
 fullscreen: true
 ---
 
-Sets the fixed aspect ratio of the element via padding hack with `::before` pseudo-element.
+Sets the fixed aspect ratio of the element via the `::before` pseudo-element.
 
 ## Arguments
 
 | Name                                       | Type     | Default | Description                |
-|--------------------------------------------|----------|---------|----------------------------|
+| ------------------------------------------ | -------- | ------- | -------------------------- |
 | $width <span class="text-red-600">*</span> | `number` | —       | The needed element width.  |
 | $height                                    | `number` | $width  | The needed element height. |
 
@@ -35,14 +35,14 @@ Sets the fixed aspect ratio of the element via padding hack with `::before` pseu
 
   ```css
   .element {
-    display: block;
     position: relative;
+    display: block flow;
   }
 
   .element::before {
     content: '';
-    display: block;
-    padding-top: 56.25%;
+    display: block flow;
+    padding-block-start: 56.25%;
   }
   ```
 

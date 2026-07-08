@@ -14,7 +14,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 ## Arguments
 
 | Name                                       | Type   | Default | Description                                                           |
-|--------------------------------------------|--------|---------|-----------------------------------------------------------------------|
+| ------------------------------------------ | ------ | ------- | --------------------------------------------------------------------- |
 | $start <span class="text-red-600">*</span> | `list` | —       | The list containing start values of screen width and font properties. |
 | $end <span class="text-red-600">*</span>   | `list` | —       | The list containing end values of screen width and font properties.   |
 
@@ -51,8 +51,8 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   @media (min-width: 320px) {
     .element {
-      font-size: calc(14px + 6 * (100vw - 320px) / 960);
-      line-height: calc(21px + 7 * (100vw - 320px) / 960);
+      font-size: calc(14px + 6 * (100vi - 320px) / 960);
+      line-height: calc(21px + 7 * (100vi - 320px) / 960);
     }
   }
 
@@ -100,8 +100,8 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   @media (min-width: 320px) {
     .element {
-      font-size: calc(14px + 6 * (100vw - 320px) / 960);
-      line-height: calc(21px + 7 * (100vw - 320px) / 960);
+      font-size: calc(14px + 6 * (100vi - 320px) / 960);
+      line-height: calc(21px + 7 * (100vi - 320px) / 960);
     }
   }
 

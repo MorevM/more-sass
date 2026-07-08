@@ -17,6 +17,6 @@
  */
 @mixin br-show {
 	br {
-		display: block;
+		display: block flow;
 	}
 }

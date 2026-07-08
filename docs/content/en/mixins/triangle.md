@@ -11,7 +11,7 @@ Draws a triangle from the current element.
 ## Arguments
 
 | Name                                           | Type     | Default        | Description                                    |
-|------------------------------------------------|----------|----------------|------------------------------------------------|
+| ---------------------------------------------- | -------- | -------------- | ---------------------------------------------- |
 | $width <span class="text-red-600">*</span>     | `number` | —              | Triangle width.                                |
 | $height <span class="text-red-600">*</span>    | `number` | —              | Triangle height.                               |
 | $direction <span class="text-red-600">*</span> | `string` | —              | The keyword describing the triangle direction. |
@@ -22,7 +22,7 @@ Draws a triangle from the current element.
   List of direction keywords:
 
   | Keyword        | Figure |
-  |----------------|--------|
+  | -------------- | ------ |
   | `top`          | ▲      |
   | `bottom`       | ▼      |
   | `left`         | ◀      |
@@ -58,12 +58,18 @@ Draws a triangle from the current element.
 
   ```css
   .element-one {
+    display: block flow;
+    width: 0;
+    height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 8px solid currentColor;
   }
 
   .element-two {
+    display: block flow;
+    width: 0;
+    height: 0;
     border-right: 14px solid transparent;
     border-bottom: 18px solid #148cd7;
   }

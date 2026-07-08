@@ -11,7 +11,7 @@ fullscreen: true
 ## Параметры
 
 | Имя       | Тип      | По умолчанию | Описание                                                                  |
-|-----------|----------|--------------|---------------------------------------------------------------------------|
+| --------- | -------- | ------------ | ------------------------------------------------------------------------- |
 | $position | `string` | `absolute`   | Тип позиционирования (relative, absolute и т.д.).                         |
 | $values   | `list`   | `()`         | Значения позиционирования в стандартном порядке (top-right-bottom-left)*. |
 | $z-index  | `number` | `null`       | Значение `z-index`, если оно необходимо.                                  |
@@ -47,25 +47,25 @@ fullscreen: true
   ```css
   .element-one {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
+    inset-block-start: 10px;
+    inset-block-end: 10px;
+    inset-inline-start: 10px;
+    inset-inline-end: 10px;
   }
 
   .element-two {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    bottom: 30px;
-    left: 40px;
+    inset-block-start: 10px;
+    inset-block-end: 30px;
+    inset-inline-start: 40px;
+    inset-inline-end: 20px;
     z-index: 5;
   }
 
   .element-three {
     position: absolute;
-    right: auto;
-    left: auto;
+    inset-inline-start: auto;
+    inset-inline-end: auto;
   }
   ```
 

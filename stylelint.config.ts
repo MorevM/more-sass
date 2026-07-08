@@ -16,6 +16,13 @@ export default defineConfig({}, {
 	},
 	overrides: [
 		{
+			files: ['*.scss'],
+			rules: {
+				// SASS's `&` works different
+				'relative-selector-nesting-notation': null,
+			},
+		},
+		{
 			files: ['*.test.scss'],
 			rules: {
 				// False positives within tests

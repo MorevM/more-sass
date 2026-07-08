@@ -7,17 +7,17 @@ fullscreen: true
 ---
 
 Устанавливает равномерное масштабирование переданного свойства в указанных пределах в зависимости от ширины экрана.
-См. [https://www.madebymike.com.au/writing/fluid-type-calc-examples/](https://www.madebymike.com.au/writing/fluid-type-calc-examples/).
+См. <https://www.madebymike.com.au/writing/fluid-type-calc-examples/>.
 
 Рекомендуется использовать как миксин высшего порядка для задания проектных умолчаний с целью уменьшения шаблонного кода.
 
 ## Параметры
 
-| Имя                                           | Тип      | По умолчанию | Описание                                                                                             |
-|-----------------------------------------------|----------|--------------|------------------------------------------------------------------------------------------------------|
-| $property <span class="text-red-600">*</span> | `string` | —            | Имя свойства.                                                                                        |
-| $start <span class="text-red-600">*</span>    | `list`   | —            | Список, содержащий начальные значения ширины экрана и переданного свойства.                          |
-| $end <span class="text-red-600">*</span>      | `list`   | —            | Список, содержащий конечные значения ширины экрана и переданного свойства.                           |
+| Имя                                           | Тип      | По умолчанию | Описание                                                                                               |
+| --------------------------------------------- | -------- | ------------ | ------------------------------------------------------------------------------------------------------ |
+| $property <span class="text-red-600">*</span> | `string` | —            | Имя свойства.                                                                                          |
+| $start <span class="text-red-600">*</span>    | `list`   | —            | Список, содержащий начальные значения ширины экрана и переданного свойства.                            |
+| $end <span class="text-red-600">*</span>      | `list`   | —            | Список, содержащий конечные значения ширины экрана и переданного свойства.                             |
 | $set-start                                    | `bool`   | `true`       | Необходимо ли использовать начальное значение свойства как "По умолчанию" для меньших размеров экрана. |
 
 ## Пример использования
@@ -30,7 +30,7 @@ fullscreen: true
   @use 'more-sass' as more;
 
   .element {
-    @include more.use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
+    @include more.use-fluid-prop('margin-block-end', (320px, 20px), (1280px, 60px));
   }
   ```
 
@@ -40,18 +40,18 @@ fullscreen: true
 
   ```css
   .element {
-    margin-bottom: 20px;
+    margin-block-end: 20px;
   }
 
   @media (min-width: 320px) {
     .element {
-      margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
+      margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
     }
   }
 
   @media (min-width: 1280px) {
     .element {
-      margin-bottom: 60px;
+      margin-block-end: 60px;
     }
   }
   ```
@@ -74,9 +74,9 @@ fullscreen: true
     @include more.use-fluid-prop($property, (320px, $min), (1280px, $max));
   }
 
-  // Other files
+  // Другие файлы
   .element {
-    @include fluid-prop('margin-bottom', 20px, 60px);
+    @include fluid-prop('margin-block-end', 20px, 60px);
   }
   ```
 
@@ -86,18 +86,18 @@ fullscreen: true
 
   ```css
   .element {
-    margin-bottom: 20px;
+    margin-block-end: 20px;
   }
 
   @media (min-width: 320px) {
     .element {
-      margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
+      margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
     }
   }
 
   @media (min-width: 1280px) {
     .element {
-      margin-bottom: 60px;
+      margin-block-end: 60px;
     }
   }
   ```

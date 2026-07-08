@@ -37,7 +37,7 @@ fullscreen: true
   ```css
   .element::after {
     content: '';
-    display: block;
+    display: block flow;
     clear: both;
   }
   ```
@@ -74,7 +74,7 @@ fullscreen: true
 
   ```css
   .element {
-    display: block;
+    display: block flow;
     clear: both;
   }
   ```

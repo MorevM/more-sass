@@ -38,8 +38,8 @@ Visually hides any scrollbar.
 
   .block::-webkit-scrollbar {
     display: none;
-    width: 0;
-    height: 0;
+    inline-size: 0;
+    block-size: 0;
     appearance: none;
   }
   ```

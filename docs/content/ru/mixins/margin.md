@@ -13,7 +13,7 @@ fullscreen: true
 ## Параметры
 
 | Имя                                         | Тип    | По умолчанию | Описание                                                                  |
-|---------------------------------------------|--------|--------------|---------------------------------------------------------------------------|
+| ------------------------------------------- | ------ | ------------ | ------------------------------------------------------------------------- |
 | $values <span class="text-red-600">*</span> | `list` | —            | Значения свойства `margin` в стандартном порядке (top-right-bottom-left). |
 
 ## Пример использования
@@ -44,22 +44,22 @@ fullscreen: true
 
   ```css
   .element-one {
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
   }
 
   .element-two {
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-bottom: 30px;
-    margin-left: 40px;
+    margin-block-start: 10px;
+    margin-block-end: 30px;
+    margin-inline-start: 40px;
+    margin-inline-end: 20px;
   }
 
   .element-three {
-    margin-right: auto;
-    margin-left: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
   }
   ```
 

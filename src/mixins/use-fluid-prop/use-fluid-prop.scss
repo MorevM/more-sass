@@ -42,7 +42,7 @@
 
 	@if ((not $is-equal) and (not $only-value)) {
 		@media (min-width: $min-vw) {
-			#{$property}: calc($start-val + $val-diff * (100vw - #{$min-vw}) / $vw-diff);
+			#{$property}: calc($start-val + $val-diff * (100vi - #{$min-vw}) / $vw-diff);
 		}
 
 		@media (min-width: $max-vw) {

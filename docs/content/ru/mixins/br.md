@@ -72,7 +72,7 @@ fullscreen: true
 
   ```css
   .element br {
-    display: block;
+    display: block flow;
   }
   ```
 

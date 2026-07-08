@@ -11,7 +11,7 @@ Shorthand for use position properties.
 ## Arguments
 
 | Name      | Type     | Default  | Description                                                     |
-|-----------|----------|----------|-----------------------------------------------------------------|
+| --------- | -------- | -------- | --------------------------------------------------------------- |
 | $position | `string` | absolute | Position type (relative, absolute, etc.).                       |
 | $values   | `list`   | ()       | Position values list in default order (top-right-bottom-left)*. |
 | $z-index  | `number` | null     | `z-index` property value if needed                              |
@@ -47,25 +47,25 @@ Shorthand for use position properties.
   ```css
   .element-one {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
+    inset-block-start: 10px;
+    inset-block-end: 10px;
+    inset-inline-start: 10px;
+    inset-inline-end: 10px;
   }
 
   .element-two {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    bottom: 30px;
-    left: 40px;
+    inset-block-start: 10px;
+    inset-block-end: 30px;
+    inset-inline-start: 40px;
+    inset-inline-end: 20px;
     z-index: 5;
   }
 
   .element-three {
     position: absolute;
-    right: auto;
-    left: auto;
+    inset-inline-start: auto;
+    inset-inline-end: auto;
   }
   ```
 

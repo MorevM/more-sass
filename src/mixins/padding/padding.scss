@@ -10,8 +10,8 @@
 @mixin padding($values...) {
 	$values: parse-directions($values...);
 
-	padding-top: map.get($values, 'top');
-	padding-right: map.get($values, 'right');
-	padding-bottom: map.get($values, 'bottom');
-	padding-left: map.get($values, 'left');
+	padding-block-start: map.get($values, 'top');
+	padding-block-end: map.get($values, 'bottom');
+	padding-inline-start: map.get($values, 'left');
+	padding-inline-end: map.get($values, 'right');
 }

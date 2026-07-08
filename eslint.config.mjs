@@ -16,11 +16,9 @@ export default combine([
 	defineConfiguration('markdown', {
 		overrides: {
 			// Lists indentation within custom components
-			'markdownlint/md007': 'off',
-			// Line length
-			'markdownlint/md013': 'off',
+			'markdown-preferences/indent': 'off',
 			// Allow inline elements (`<code-group>` and other `@nuxt/content-theme-docs` components)
-			'markdownlint/md033': 'off',
+			'markdown/no-html': 'off',
 		},
 	}),
 	defineConfiguration('vitest'),

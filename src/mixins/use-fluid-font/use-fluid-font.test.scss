@@ -12,21 +12,21 @@
 				@include expect {
 					font-size: 14px;
 
-					@media (min-width: 320px) {
-						font-size: calc(14px + 6 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						font-size: calc(14px + 6 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
+					@media (width >= 1280px) {
 						font-size: 20px;
 					}
 
 					line-height: 21px;
 
-					@media (min-width: 320px) {
-						line-height: calc(21px + 7 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						line-height: calc(21px + 7 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
+					@media (width >= 1280px) {
 						line-height: 28px;
 					}
 				}
@@ -42,21 +42,21 @@
 				@include expect {
 					font-size: 14px;
 
-					@media (min-width: 320px) {
-						font-size: calc(14px + 6 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						font-size: calc(14px + 6 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
+					@media (width >= 1280px) {
 						font-size: 20px;
 					}
 
 					line-height: 14px;
 
-					@media (min-width: 320px) {
-						line-height: calc(14px + 6 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						line-height: calc(14px + 6 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
+					@media (width >= 1280px) {
 						line-height: 20px;
 					}
 				}
@@ -72,11 +72,11 @@
 				@include expect {
 					font-size: 14px;
 
-					@media (min-width: 320px) {
-						font-size: calc(14px + 10 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						font-size: calc(14px + 10 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
+					@media (width >= 1280px) {
 						font-size: 24px;
 					}
 				}
@@ -92,11 +92,11 @@
 				@include expect {
 					line-height: 20px;
 
-					@media (min-width: 320px) {
-						line-height: calc(20px + -4 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						line-height: calc(20px + -4 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
+					@media (width >= 1280px) {
 						line-height: 16px;
 					}
 				}

@@ -11,10 +11,10 @@
 				}
 
 				@include expect {
-					margin-top: 1px;
-					margin-right: 1px;
-					margin-bottom: 1px;
-					margin-left: 1px;
+					margin-block-start: 1px;
+					margin-block-end: 1px;
+					margin-inline-start: 1px;
+					margin-inline-end: 1px;
 				}
 			}
 		}
@@ -26,10 +26,10 @@
 				}
 
 				@include expect {
-					margin-top: 1px;
-					margin-right: 2px;
-					margin-bottom: 1px;
-					margin-left: 2px;
+					margin-block-start: 1px;
+					margin-block-end: 1px;
+					margin-inline-start: 2px;
+					margin-inline-end: 2px;
 				}
 			}
 		}
@@ -41,10 +41,10 @@
 				}
 
 				@include expect {
-					margin-top: 1px;
-					margin-right: 2px;
-					margin-bottom: 3px;
-					margin-left: 2px;
+					margin-block-start: 1px;
+					margin-block-end: 3px;
+					margin-inline-start: 2px;
+					margin-inline-end: 2px;
 				}
 			}
 		}
@@ -56,10 +56,10 @@
 				}
 
 				@include expect {
-					margin-top: 1px;
-					margin-right: 2px;
-					margin-bottom: 3px;
-					margin-left: 4px;
+					margin-block-start: 1px;
+					margin-block-end: 3px;
+					margin-inline-start: 4px;
+					margin-inline-end: 2px;
 				}
 			}
 		}
@@ -71,8 +71,8 @@
 				}
 
 				@include expect {
-					margin-right: 2px;
-					margin-left: 4px;
+					margin-inline-start: 4px;
+					margin-inline-end: 2px;
 				}
 			}
 		}
@@ -84,10 +84,10 @@
 				}
 
 				@include expect {
-					margin-top: 1px;
-					margin-right: 2px;
-					margin-bottom: 3px !important;
-					margin-left: 4px;
+					margin-block-start: 1px;
+					margin-block-end: 3px !important;
+					margin-inline-start: 4px;
+					margin-inline-end: 2px;
 				}
 			}
 		}

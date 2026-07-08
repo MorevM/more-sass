@@ -5,24 +5,24 @@
  * Sets the element size.
  * Shorthand for both `width` and `height` properties.
  *
- * @param    {number}    $width              The width of the element.
- * @param    {number}    $height [$width]    The height of element.
+ * @param    {number}    $inline-size                  Inline size of the element.
+ * @param    {number}    $block-size [$inline-size]    Block size of the element.
  */
-@mixin box($width, $height: $width) {
-	$width: with-unit($width);
-	$height: with-unit($height);
+@mixin box($inline-size, $block-size: $inline-size) {
+	$inline-size: with-unit($inline-size);
+	$block-size: with-unit($block-size);
 
-	$normalized-width: null;
-	$normalized-height: null;
+	$normalized-inline-size: null;
+	$normalized-block-size: null;
 
-	@if ($width != 'n') {
-		$normalized-width: string.unquote(#{$width});
+	@if ($inline-size != 'n') {
+		$normalized-inline-size: string.unquote(#{$inline-size});
 	}
 
-	@if ($height != 'n') {
-		$normalized-height: string.unquote(#{$height});
+	@if ($block-size != 'n') {
+		$normalized-block-size: string.unquote(#{$block-size});
 	}
 
-	width: $normalized-width;
-	height: $normalized-height;
+	inline-size: $normalized-inline-size;
+	block-size: $normalized-block-size;
 }

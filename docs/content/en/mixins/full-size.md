@@ -35,11 +35,11 @@ Sets the element size to 100% of its parent size and makes it positioned absolut
   ```css
   .element {
     position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    display: block flow;
+    inline-size: 100%;
+    block-size: 100%;
   }
   ```
 

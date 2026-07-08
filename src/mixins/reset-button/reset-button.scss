@@ -2,7 +2,7 @@
  * Resets default styles of button elements.
  */
 @mixin reset-button {
-	width: auto;
+	inline-size: auto;
 	margin: 0;
 	padding: 0;
 	color: currentColor;

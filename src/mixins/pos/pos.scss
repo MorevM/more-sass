@@ -19,10 +19,10 @@
 	}
 
 	position: string.unquote($position);
-	top: map.get($values, 'top');
-	right: map.get($values, 'right');
-	bottom: map.get($values, 'bottom');
-	left: map.get($values, 'left');
+	inset-block-start: map.get($values, 'top');
+	inset-block-end: map.get($values, 'bottom');
+	inset-inline-start: map.get($values, 'left');
+	inset-inline-end: map.get($values, 'right');
 	z-index: $normalized-z-index;
 }
 

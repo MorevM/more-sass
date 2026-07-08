@@ -10,10 +10,10 @@ Shorthand for both `content` and `display` properties of pseudo-elements.
 
 ## Arguments
 
-| Name     | Type     | Default   | Description                      |
-|----------|----------|-----------|----------------------------------|
-| $display | `string` | `block`   | The value of `display` property. |
-| $content | `string` | `''`      | The value of `content` property. |
+| Name     | Type     | Default | Description                      |
+| -------- | -------- | ------- | -------------------------------- |
+| $display | `string` | `block` | The value of `display` property. |
+| $content | `string` | `''`    | The value of `content` property. |
 
 ## Example
 
@@ -44,12 +44,12 @@ Shorthand for both `content` and `display` properties of pseudo-elements.
   ```css
   .element-one::after {
     content: '';
-    display: block;
+    display: block flow;
   }
 
   .element-two::after {
     content: 'foo';
-    display: inline-block;
+    display: inline flow-root;
   }
   ```
 

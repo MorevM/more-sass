@@ -11,7 +11,7 @@ fullscreen: true
 ## Параметры
 
 | Имя      | Тип      | По умолчанию | Описание                     |
-|----------|----------|--------------|------------------------------|
+| -------- | -------- | ------------ | ---------------------------- |
 | $display | `string` | `block`      | Значение свойства `display`. |
 | $content | `string` | `''`         | Значение свойства `content`. |
 
@@ -44,12 +44,12 @@ fullscreen: true
   ```css
   .element-one::after {
     content: '';
-    display: block;
+    display: block flow;
   }
 
   .element-two::after {
     content: 'foo';
-    display: inline-block;
+    display: inline flow-root;
   }
   ```
 

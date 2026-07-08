@@ -11,12 +11,12 @@
 
 				@include expect {
 					position: relative;
-					display: block;
+					display: block flow;
 
 					&::before {
 						content: '';
-						display: block;
-						padding-top: 100%;
+						display: block flow;
+						padding-block-start: 100%;
 					}
 				}
 			}
@@ -28,12 +28,12 @@
 
 				@include expect {
 					position: relative;
-					display: block;
+					display: block flow;
 
 					&::before {
 						content: '';
-						display: block;
-						padding-top: 56.25%;
+						display: block flow;
+						padding-block-start: 56.25%;
 					}
 				}
 			}
@@ -47,12 +47,12 @@
 
 				@include expect {
 					position: relative;
-					display: block;
+					display: block flow;
 
 					&::before {
 						content: '';
-						display: block;
-						padding-top: 56.25%;
+						display: block flow;
+						padding-block-start: 56.25%;
 					}
 				}
 			}

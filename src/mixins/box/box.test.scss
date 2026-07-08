@@ -10,8 +10,8 @@
 				}
 
 				@include expect {
-					width: 100px;
-					height: 100px;
+					inline-size: 100px;
+					block-size: 100px;
 				}
 			}
 
@@ -21,8 +21,8 @@
 				}
 
 				@include expect {
-					width: 100px;
-					height: 200px;
+					inline-size: 100px;
+					block-size: 200px;
 				}
 			}
 		}
@@ -34,7 +34,7 @@
 				}
 
 				@include expect {
-					width: 100px;
+					inline-size: 100px;
 				}
 			}
 
@@ -44,7 +44,7 @@
 				}
 
 				@include expect {
-					width: 100px;
+					inline-size: 100px;
 				}
 			}
 
@@ -54,7 +54,7 @@
 				}
 
 				@include expect {
-					height: 100px;
+					block-size: 100px;
 				}
 			}
 
@@ -64,7 +64,7 @@
 				}
 
 				@include expect {
-					height: 100px;
+					block-size: 100px;
 				}
 			}
 		}
@@ -76,7 +76,7 @@
 				}
 
 				@include expect {
-					width: 100px !important;
+					inline-size: 100px !important;
 				}
 			}
 		}
@@ -88,8 +88,8 @@
 				}
 
 				@include expect {
-					width: 100px;
-					height: 200px;
+					inline-size: 100px;
+					block-size: 200px;
 				}
 			}
 		}

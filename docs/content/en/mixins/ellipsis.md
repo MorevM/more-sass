@@ -10,9 +10,9 @@ Truncates text of the current element and adds an ellipsis to represent overflow
 
 ## Arguments
 
-| Name       | Type     | Default | Description              |
-|------------|----------|---------|--------------------------|
-| $max-width | `number` | 100%    | The element width limit. |
+| Name             | Type     | Default | Description                    |
+| ---------------- | -------- | ------- | ------------------------------ |
+| $max-inline-size | `number` | 100%    | The element inline size limit. |
 
 ## Example
 
@@ -22,7 +22,7 @@ Truncates text of the current element and adds an ellipsis to represent overflow
 
   ```scss
   @use 'more-sass' as more;
-  
+
   .element {
     @include more.ellipsis;
   }
@@ -34,7 +34,7 @@ Truncates text of the current element and adds an ellipsis to represent overflow
 
   ```css
   .element {
-    max-width: 100%;
+    max-inline-size: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

@@ -7,16 +7,16 @@ fullscreen: true
 ---
 
 Устанавливает размеры элемента.
-Сокращённый вариант одновременной записи свойств `width` и `height`.
+Сокращённый вариант одновременной записи свойств `inline-size` и `block-size`.
 
-<alert type="info">Значения могут быть пропущены используя `null` (предпочтительно) или его псевдоним `n`.</alert>
+<alert type="info">Inline- или block-размер может быть пропущен используя `null` (предпочтительно) или его псевдоним `n`.</alert>
 
 ## Параметры
 
-| Имя                                        | Тип      | По умолчанию | Описание         |
-|--------------------------------------------|----------|--------------|------------------|
-| $width <span class="text-red-600">*</span> | `number` | —            | Ширина элемента. |
-| $height                                    | `number` | $width       | Высота элемента. |
+| Имя                                              | Тип      | По умолчанию | Описание                |
+| ------------------------------------------------ | -------- | ------------ | ----------------------- |
+| $inline-size <span class="text-red-600">*</span> | `number` | —            | Inline-размер элемента. |
+| $block-size                                      | `number` | $inline-size | Block-размер элемента.  |
 
 ## Пример использования
 
@@ -50,21 +50,21 @@ fullscreen: true
 
   ```css
   .element-one {
-    width: 100px;
-    height: 100px;
+    inline-size: 100px;
+    block-size: 100px;
   }
 
   .element-two {
-    width: 100px;
-    height: 200px;
+    inline-size: 100px;
+    block-size: 200px;
   }
 
   .element-three {
-    width: 100px;
+    inline-size: 100px;
   }
 
   .element-four {
-    height: 200px;
+    block-size: 200px;
   }
   ```
 

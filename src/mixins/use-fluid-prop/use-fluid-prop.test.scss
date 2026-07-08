@@ -10,14 +10,14 @@
 				}
 
 				@include expect {
-					margin-bottom: 20px;
+					margin-block-end: 20px;
 
-					@media (min-width: 320px) {
-						margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
-						margin-bottom: 60px;
+					@media (width >= 1280px) {
+						margin-block-end: 60px;
 					}
 				}
 			}
@@ -30,14 +30,14 @@
 				}
 
 				@include expect {
-					margin-bottom: 60px;
+					margin-block-end: 60px;
 
-					@media (min-width: 320px) {
-						margin-bottom: calc(60px + -40 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						margin-block-end: calc(60px + -40 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
-						margin-bottom: 20px;
+					@media (width >= 1280px) {
+						margin-block-end: 20px;
 					}
 				}
 			}
@@ -50,12 +50,12 @@
 				}
 
 				@include expect {
-					@media (min-width: 320px) {
-						margin-bottom: calc(20px + 40 * (100vw - 320px) / 960);
+					@media (width >= 320px) {
+						margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
 					}
 
-					@media (min-width: 1280px) {
-						margin-bottom: 60px;
+					@media (width >= 1280px) {
+						margin-block-end: 60px;
 					}
 				}
 			}
@@ -70,7 +70,7 @@
 				}
 
 				@include expect {
-					margin-bottom: 24px;
+					margin-block-end: 24px;
 					font-size: 16px;
 					line-height: 1.2;
 				}
@@ -85,7 +85,7 @@
 				}
 
 				@include expect {
-					margin-bottom: 24px;
+					margin-block-end: 24px;
 					font-size: 16px;
 				}
 			}

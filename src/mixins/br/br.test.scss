@@ -27,7 +27,7 @@
 
 				@include expect {
 					br {
-						display: block;
+						display: block flow;
 					}
 				}
 			}

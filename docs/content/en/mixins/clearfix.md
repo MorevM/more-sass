@@ -37,7 +37,7 @@ Clears the flow inside of the current element via creating the `::after` pseudo-
   ```css
   .element::after {
     content: '';
-    display: block;
+    display: block flow;
     clear: both;
   }
   ```
@@ -74,7 +74,7 @@ Clears the flow around the current element.
 
   ```css
   .element {
-    display: block;
+    display: block flow;
     clear: both;
   }
   ```

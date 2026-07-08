@@ -11,10 +11,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 1px;
-					bottom: 1px;
-					left: 1px;
+					inset-block-start: 1px;
+					inset-block-end: 1px;
+					inset-inline-start: 1px;
+					inset-inline-end: 1px;
 				}
 			}
 		}
@@ -27,10 +27,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 1px;
-					bottom: 1px;
-					left: 1px;
+					inset-block-start: 1px;
+					inset-block-end: 1px;
+					inset-inline-start: 1px;
+					inset-inline-end: 1px;
 					z-index: 5;
 				}
 			}
@@ -44,10 +44,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 1px;
-					left: 2px;
+					inset-block-start: 1px;
+					inset-block-end: 1px;
+					inset-inline-start: 2px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -60,10 +60,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 2px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 2px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -76,10 +76,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -92,8 +92,8 @@
 
 				@include expect {
 					position: absolute;
-					right: 2px;
-					left: 4px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -106,10 +106,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px !important;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px !important;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -122,10 +122,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px !important;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px !important;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 					z-index: 5;
 				}
 			}
@@ -139,10 +139,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px !important;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px !important;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 					z-index: 5 !important;
 				}
 			}
@@ -180,10 +180,10 @@
 
 				@include expect {
 					position: relative;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -196,10 +196,10 @@
 
 				@include expect {
 					position: relative;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 					z-index: 1;
 				}
 			}
@@ -215,10 +215,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -231,10 +231,10 @@
 
 				@include expect {
 					position: absolute;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 					z-index: 2;
 				}
 			}
@@ -250,10 +250,10 @@
 
 				@include expect {
 					position: fixed;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 				}
 			}
 		}
@@ -266,10 +266,10 @@
 
 				@include expect {
 					position: fixed;
-					top: 1px;
-					right: 2px;
-					bottom: 3px;
-					left: 4px;
+					inset-block-start: 1px;
+					inset-block-end: 3px;
+					inset-inline-start: 4px;
+					inset-inline-end: 2px;
 					z-index: 5;
 				}
 			}

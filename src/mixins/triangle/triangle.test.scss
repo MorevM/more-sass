@@ -1,3 +1,4 @@
+/* stylelint-disable property-layout-mappings -- Actual directions */
 @use 'true' as *; // sass-true
 @use './triangle.scss' as *;
 
@@ -11,7 +12,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-right: 15px solid transparent;
@@ -26,7 +27,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-top: 20px solid currentColor;
@@ -41,7 +42,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-top: 15px solid transparent;
@@ -56,7 +57,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-top: 15px solid transparent;
@@ -71,7 +72,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-right: 30px solid transparent;
@@ -85,7 +86,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-bottom: 20px solid currentColor;
@@ -99,7 +100,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-top: 20px solid currentColor;
@@ -113,7 +114,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-top: 20px solid currentColor;
@@ -129,7 +130,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					width: 0;
 					height: 0;
 					border-right: 15px solid transparent;

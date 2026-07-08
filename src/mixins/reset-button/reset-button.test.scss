@@ -10,7 +10,7 @@
 				}
 
 				@include expect {
-					width: auto;
+					inline-size: auto;
 					margin: 0;
 					padding: 0;
 					color: currentColor;

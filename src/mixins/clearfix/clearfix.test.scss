@@ -12,7 +12,7 @@
 				@include expect {
 					&::after {
 						content: '';
-						display: block;
+						display: block flow;
 						clear: both;
 					}
 				}
@@ -28,7 +28,7 @@
 				}
 
 				@include expect {
-					display: block;
+					display: block flow;
 					clear: both;
 				}
 			}

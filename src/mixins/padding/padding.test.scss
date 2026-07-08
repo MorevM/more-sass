@@ -11,10 +11,10 @@
 				}
 
 				@include expect {
-					padding-top: 1px;
-					padding-right: 1px;
-					padding-bottom: 1px;
-					padding-left: 1px;
+					padding-block-start: 1px;
+					padding-block-end: 1px;
+					padding-inline-start: 1px;
+					padding-inline-end: 1px;
 				}
 			}
 		}
@@ -26,10 +26,10 @@
 				}
 
 				@include expect {
-					padding-top: 1px;
-					padding-right: 2px;
-					padding-bottom: 1px;
-					padding-left: 2px;
+					padding-block-start: 1px;
+					padding-block-end: 1px;
+					padding-inline-start: 2px;
+					padding-inline-end: 2px;
 				}
 			}
 		}
@@ -41,10 +41,10 @@
 				}
 
 				@include expect {
-					padding-top: 1px;
-					padding-right: 2px;
-					padding-bottom: 3px;
-					padding-left: 2px;
+					padding-block-start: 1px;
+					padding-block-end: 3px;
+					padding-inline-start: 2px;
+					padding-inline-end: 2px;
 				}
 			}
 		}
@@ -56,10 +56,10 @@
 				}
 
 				@include expect {
-					padding-top: 1px;
-					padding-right: 2px;
-					padding-bottom: 3px;
-					padding-left: 4px;
+					padding-block-start: 1px;
+					padding-block-end: 3px;
+					padding-inline-start: 4px;
+					padding-inline-end: 2px;
 				}
 			}
 		}
@@ -71,8 +71,8 @@
 				}
 
 				@include expect {
-					padding-right: 2px;
-					padding-left: 4px;
+					padding-inline-start: 4px;
+					padding-inline-end: 2px;
 				}
 			}
 		}
@@ -84,10 +84,10 @@
 				}
 
 				@include expect {
-					padding-top: 1px;
-					padding-right: 2px;
-					padding-bottom: 3px !important;
-					padding-left: 4px;
+					padding-block-start: 1px;
+					padding-block-end: 3px !important;
+					padding-inline-start: 4px;
+					padding-inline-end: 2px;
 				}
 			}
 		}

@@ -34,8 +34,8 @@ Visually hides the element but keeps it accessible.
 .element {
   position: absolute;
   z-index: -1;
-  width: 1px;
-  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
   margin: -1px;
   padding: 0;
   white-space: nowrap;

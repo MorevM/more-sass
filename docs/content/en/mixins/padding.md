@@ -13,7 +13,7 @@ Shorthand for set nullable* `padding` properties.
 ## Arguments
 
 | Name                                        | Type   | Default | Description                                                   |
-|---------------------------------------------|--------|---------|---------------------------------------------------------------|
+| ------------------------------------------- | ------ | ------- | ------------------------------------------------------------- |
 | $values <span class="text-red-600">*</span> | `list` | —       | Padding values list in default order (top-right-bottom-left). |
 
 ## Example
@@ -44,22 +44,22 @@ Shorthand for set nullable* `padding` properties.
 
   ```css
   .element-one {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
   }
 
   .element-two {
-    padding-top: 10px;
-    padding-right: 20px;
-    padding-bottom: 30px;
-    padding-left: 40px;
+    padding-block-start: 10px;
+    padding-block-end: 30px;
+    padding-inline-start: 40px;
+    padding-inline-end: 20px;
   }
 
   .element-three {
-    padding-right: auto;
-    padding-left: auto;
+    padding-inline-start: auto;
+    padding-inline-end: auto;
   }
   ```
 

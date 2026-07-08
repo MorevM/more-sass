@@ -1,3 +1,4 @@
+/* stylelint-disable property-layout-mappings -- Actual directions */
 @use 'sass:math';
 
 /**
@@ -9,7 +10,7 @@
  * @param    {color}     $color [currentColor]    Triangle color.
  */
 @mixin triangle($width, $height, $direction, $color: currentColor) {
-	display: block;
+	display: block flow;
 	width: 0;
 	height: 0;
 
