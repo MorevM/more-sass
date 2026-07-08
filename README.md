@@ -45,6 +45,12 @@ You can import the entire library or only the necessary part of it - variables, 
 @use 'more-sass/functions/string/str-split' as *;
 ```
 
+If your toolchain uses Sass [`NodePackageImporter`](https://sass-lang.com/documentation/js-api/classes/nodepackageimporter/), the package root is also available through `pkg:`:
+
+```scss
+@use 'pkg:more-sass' as more;
+```
+
 ## Documentation
 
 [See the documentation](https://morevm.github.io/more-sass/).

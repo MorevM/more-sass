@@ -35,9 +35,12 @@
 		"mixins"
 	],
 	"files": [
+		"_index.scss",
 		"src/**/!(*.test).scss"
 	],
 	"main": "src/_index.scss",
+	"sass": "./src/_index.scss",
+	"style": "./src/_index.scss",
 	"scripts": {
 		"prepare": "lefthook install",
 		"lint": "yarn lint:stylelint && yarn lint:eslint",
