@@ -12,13 +12,18 @@
  */
 @mixin pos($position: 'absolute', $values: (), $z-index: null) {
 	$values: parse-directions($values);
+	$normalized-z-index: $z-index;
+
+	@if (meta.type-of($z-index) == 'string') {
+		$normalized-z-index: string.unquote($z-index);
+	}
 
 	position: string.unquote($position);
 	top: map.get($values, 'top');
 	right: map.get($values, 'right');
 	bottom: map.get($values, 'bottom');
 	left: map.get($values, 'left');
-	z-index: if(meta.type-of($z-index) == 'string', string.unquote($z-index), $z-index);
+	z-index: $normalized-z-index;
 }
 
 @mixin pos-rel($values: (), $z-index: null) {

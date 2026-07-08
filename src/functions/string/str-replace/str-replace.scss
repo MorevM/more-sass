@@ -16,7 +16,10 @@
 	$string: #{$string};
 	$search: #{$search};
 	$replace: #{$replace};
-	$limit: if(meta.type-of($limit) == 'number' and math.is-unitless($limit), $limit, string.length($string));
+
+	@if (meta.type-of($limit) != 'number' or not math.is-unitless($limit)) {
+		$limit: string.length($string);
+	}
 
 	@if (string.length($string) == 0) {
 		@return '';

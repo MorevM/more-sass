@@ -17,14 +17,23 @@
 		$font-size: get-numeric(list.nth($parsed, 1));
 		$line-height: get-numeric(list.nth($parsed, 2));
 	} @else if (list.length($parsed) == 1) {
-		$font-size: if(string.index($param, '/') == 1, null, get-numeric(list.nth($parsed, 1)));
-		$line-height: if(string.index($param, '/') == 1, get-numeric(list.nth($parsed, 1)), null);
+		@if (string.index($param, '/') == 1) {
+			$line-height: get-numeric(list.nth($parsed, 1));
+		} @else {
+			$font-size: get-numeric(list.nth($parsed, 1));
+		}
 	}
 
 	$unit-line-height: $line-height;
 
 	@if ($line-height and math.is-unitless($line-height)) {
-		$unit-line-height: $line-height * if($font-size, $font-size, 1);
+		$line-height-base: $font-size;
+
+		@if (not $line-height-base) {
+			$line-height-base: 1;
+		}
+
+		$unit-line-height: $line-height * $line-height-base;
 	}
 
 	@return (

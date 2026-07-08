@@ -11,8 +11,15 @@
  */
 @function list-remove($list, $index: null) {
 	$result: ();
-	$index: if(meta.type-of($index) == 'number', $index, 0);
-	$index: if($index < 0, list.length($list) + $index + 1, $index);
+
+	@if (meta.type-of($index) != 'number') {
+		$index: 0;
+	}
+
+	@if ($index < 0) {
+		$index: list.length($list) + $index + 1;
+	}
+
 	$bracketed: list.is-bracketed($list);
 	$separator: list.separator($list);
 

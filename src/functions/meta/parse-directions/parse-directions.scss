@@ -21,23 +21,71 @@
 		$values: list.nth($values, 1);
 	}
 
-	$top: if(list.length($values) >= 1, string.unquote(#{list.nth($values, 1)}), null);
-	$right: if(list.length($values) >= 2, string.unquote(#{list.nth($values, 2)}), $top);
-	$bottom: if(list.length($values) >= 3, string.unquote(#{list.nth($values, 3)}), $top);
-	$left: if(list.length($values) >= 4, string.unquote(#{list.nth($values, 4)}), $right);
-	$top: if(list-includes(('', 'null', 'n'), $top), null, $top);
-	$right: if(list-includes(('', 'null', 'n'), $right), null, $right);
-	$bottom: if(list-includes(('', 'null', 'n'), $bottom), null, $bottom);
-	$left: if(list-includes(('', 'null', 'n'), $left), null, $left);
+	$top: null;
+
+	@if (list.length($values) >= 1) {
+		$top: string.unquote(#{list.nth($values, 1)});
+	}
+
+	$right: $top;
+
+	@if (list.length($values) >= 2) {
+		$right: string.unquote(#{list.nth($values, 2)});
+	}
+
+	$bottom: $top;
+
+	@if (list.length($values) >= 3) {
+		$bottom: string.unquote(#{list.nth($values, 3)});
+	}
+
+	$left: $right;
+
+	@if (list.length($values) >= 4) {
+		$left: string.unquote(#{list.nth($values, 4)});
+	}
+
+	@if (list-includes(('', 'null', 'n'), $top)) {
+		$top: null;
+	}
+
+	@if (list-includes(('', 'null', 'n'), $right)) {
+		$right: null;
+	}
+
+	@if (list-includes(('', 'null', 'n'), $bottom)) {
+		$bottom: null;
+	}
+
+	@if (list-includes(('', 'null', 'n'), $left)) {
+		$left: null;
+	}
+
 	$top-numeric: get-numeric($top);
 	$right-numeric: get-numeric($right);
 	$bottom-numeric: get-numeric($bottom);
 	$left-numeric: get-numeric($left);
 
+	@if ($top-numeric) {
+		$top: $top-numeric;
+	}
+
+	@if ($right-numeric) {
+		$right: $right-numeric;
+	}
+
+	@if ($bottom-numeric) {
+		$bottom: $bottom-numeric;
+	}
+
+	@if ($left-numeric) {
+		$left: $left-numeric;
+	}
+
 	@return (
-		top: if($top-numeric, $top-numeric, $top),
-		right: if($right-numeric, $right-numeric, $right),
-		bottom: if($bottom-numeric, $bottom-numeric, $bottom),
-		left: if($left-numeric, $left-numeric, $left),
+		top: $top,
+		right: $right,
+		bottom: $bottom,
+		left: $left,
 	);
 }

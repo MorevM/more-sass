@@ -12,6 +12,17 @@
 	$width: with-unit($width);
 	$height: with-unit($height);
 
-	width: if($width == 'n', null, string.unquote(#{$width}));
-	height: if($height == 'n', null, string.unquote(#{$height}));
+	$normalized-width: null;
+	$normalized-height: null;
+
+	@if ($width != 'n') {
+		$normalized-width: string.unquote(#{$width});
+	}
+
+	@if ($height != 'n') {
+		$normalized-height: string.unquote(#{$height});
+	}
+
+	width: $normalized-width;
+	height: $normalized-height;
 }

@@ -19,7 +19,13 @@
 
 	@for $i from 1 through list.length($list) {
 		$item: list.nth($list, $i);
-		$output: string.unquote('#{$output}#{$separator}#{if(meta.type-of($item) == 'list', list-join($item, $separator), $item)}');
+		$item-output: $item;
+
+		@if (meta.type-of($item) == 'list') {
+			$item-output: list-join($item, $separator);
+		}
+
+		$output: string.unquote('#{$output}#{$separator}#{$item-output}');
 	}
 
 	@return string.slice($output, string.length($separator) + 1);

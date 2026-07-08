@@ -37,10 +37,13 @@
 		'all'           :  ('border-radius'),
 	);
 
-	$apply: map.get(
-		$properties,
-		if($direction == null, 'all', $direction)
-	);
+	$direction-key: $direction;
+
+	@if ($direction == null) {
+		$direction-key: 'all';
+	}
+
+	$apply: map.get($properties, $direction-key);
 
 	@each $property in $apply {
 		#{$property}: string.unquote($value);

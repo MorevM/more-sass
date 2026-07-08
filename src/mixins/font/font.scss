@@ -51,8 +51,11 @@
 			$parsed: str-split($param, '/');
 
 			@if (list.length($parsed) == 1) {
-				$font-size: if(string.index($param, '/') == 1, null, string.unquote(list.nth($parsed, 1)));
-				$line-height: if(string.index($param, '/') == 1, string.unquote(list.nth($parsed, 1)), null);
+				@if (string.index($param, '/') == 1) {
+					$line-height: string.unquote(list.nth($parsed, 1));
+				} @else {
+					$font-size: string.unquote(list.nth($parsed, 1));
+				}
 			} @else if (list.length($parsed) > 1) {
 				$font-size: string.unquote(list.nth($parsed, 1));
 				$line-height: string.unquote(list.nth($parsed, 2));
@@ -65,12 +68,20 @@
 			@if ($numeric) {
 				$font-size: with-unit($numeric);
 			} @else {
-				$font-family: if(not $font-family, $param, $font-family + ' ' + $param);
+				@if (not $font-family) {
+					$font-family: $param;
+				} @else {
+					$font-family: $font-family + ' ' + $param;
+				}
 			}
 		}
 	}
 
-	$font-family: if($font-family, meta.inspect($font-family), null);
+	@if ($font-family) {
+		$font-family: meta.inspect($font-family);
+	} @else {
+		$font-family: null;
+	}
 
 	@if ($font-family) {
 		$font-families: ();

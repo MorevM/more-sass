@@ -60,8 +60,14 @@
 		$normalized-delay: null;
 	}
 
+	$normalized-timing-function: null;
+
+	@if ($timing-function) {
+		$normalized-timing-function: string.unquote($timing-function);
+	}
+
 	transition-property: $normalized-properties;
 	transition-duration: $normalized-duration;
-	transition-timing-function: if($timing-function, string.unquote($timing-function), null);
+	transition-timing-function: $normalized-timing-function;
 	transition-delay: $normalized-delay;
 }

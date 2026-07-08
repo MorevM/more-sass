@@ -22,7 +22,11 @@
 
 		$bem: str-split($main, $separator);
 		$element: list.nth($bem, 1);
-		$modifier: if(list.length($bem) >= 2, list.nth($bem, 2), null);
+		$modifier: null;
+
+		@if (list.length($bem) >= 2) {
+			$modifier: list.nth($bem, 2);
+		}
 
 		@if ($modifier) {
 			$modifiers: list.join('#{$separator}#{$modifier}', $modifiers);

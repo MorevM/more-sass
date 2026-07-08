@@ -14,7 +14,11 @@
 
 	@for $i from 1 through string.length($value) {
 		$char: string.slice($value, $i, $i);
-		$num: if(map.has-key($digits, $char), map.get($digits, $char), null);
+		$num: null;
+
+		@if (map.has-key($digits, $char)) {
+			$num: map.get($digits, $char);
+		}
 
 		@if (not $num) {
 			@return null;
@@ -63,7 +67,10 @@
 
 	// Check positive/negative
 	@if (list.index(('+', '-'), string.slice($value, 1, 1))) {
-		$k: if(string.slice($value, 1, 1) == '-', -1, 1);
+		@if (string.slice($value, 1, 1) == '-') {
+			$k: -1;
+		}
+
 		$value: string.slice($value, 2);
 	}
 
@@ -74,14 +81,22 @@
 	@if (string.index($value, 'e')) {
 		$split: str-split($value, 'e');
 		$before: list.nth($split, 1);
-		$after: if(list.length($split) == 2, list.nth($split, 2), '');
+		$after: '';
+
+		@if (list.length($split) == 2) {
+			$after: list.nth($split, 2);
+		}
 
 		@if ($before == '' or $after == '') {
 			@return null;
 		}
 
-		$exp-k: if(string.index($after, '-') == 1, -1, 1);
-		$exp-num: _local-intval(if(string.index($after, '-') == 1, string.slice($after, 2), $after));
+		@if (string.index($after, '-') == 1) {
+			$exp-k: -1;
+			$after: string.slice($after, 2);
+		}
+
+		$exp-num: _local-intval($after);
 
 		@if (not $exp-num) {
 			@return null;
@@ -98,13 +113,23 @@
 	@if (string.index($value, '.')) {
 		$split: str-split($value, '.');
 		$before: list.nth($split, 1);
-		$after: if(list.length($split) == 2, list.nth($split, 2), '');
+		$after: '';
+
+		@if (list.length($split) == 2) {
+			$after: list.nth($split, 2);
+		}
 
 		@if ($after == '') {
 			@return null;
 		}
 
-		$integral: _local-intval(if($before == '', '0', $before));
+		$integral-source: $before;
+
+		@if ($before == '') {
+			$integral-source: '0';
+		}
+
+		$integral: _local-intval($integral-source);
 		$fractional: _local-intval($after);
 
 		@if (not $integral or not $fractional) {

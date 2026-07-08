@@ -11,8 +11,16 @@
  */
 @function list-slice($list, $start-at, $end-at: -1) {
 	$output: ();
-	$start: if($start-at < 0, list.length($list) + $start-at + 1, $start-at);
-	$end: if($end-at < 0, list.length($list) + $end-at + 1, $end-at);
+	$start: $start-at;
+	$end: $end-at;
+
+	@if ($start-at < 0) {
+		$start: list.length($list) + $start-at + 1;
+	}
+
+	@if ($end-at < 0) {
+		$end: list.length($list) + $end-at + 1;
+	}
 
 	@if ($end < $start) {
 		@return ();
