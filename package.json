@@ -49,6 +49,7 @@
 		"lint:stylelint:fix": "stylelint \"src/**/*.scss\" --allow-empty-input --fix",
 		"lint:eslint": "eslint .",
 		"lint:eslint:fix": "eslint . --fix",
+		"spellcheck": "cspell --no-progress --show-suggestions --unique",
 		"test": "vitest",
 		"docs": "cd ./docs && yarn dev",
 		"release": "release-it --disable-metrics"
@@ -57,10 +58,12 @@
 		"sass": "^1.49.8"
 	},
 	"devDependencies": {
+		"@cspell/dict-ru_ru": "^2.3.2",
 		"@morev/commitlint-config": "^0.2.2",
 		"@morev/eslint-config": "^42.0.1",
 		"@morev/stylelint-config": "^9.0.2",
 		"@release-it/conventional-changelog": "8",
+		"cspell": "^10.0.1",
 		"eslint": "^10.6.0",
 		"glob": "^13.0.6",
 		"lefthook": "^2.1.9",

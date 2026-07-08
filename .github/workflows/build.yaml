@@ -21,3 +21,6 @@ jobs:
 
       - name: Testing
         run: pnpm test
+
+      - name: Spellcheck
+        run: pnpm spellcheck
