@@ -38,6 +38,8 @@ export default combine([
 			'vue/no-undef-components': 'off',
 			// Docs are a nested app with its own dependencies and Nuxt component naming conventions.
 			'import-x/no-unresolved': 'off',
+			'n/file-extension-in-import': 'off',
+			'n/no-extraneous-import': 'off',
 			'unicorn/filename-case': 'off',
 		},
 	},
