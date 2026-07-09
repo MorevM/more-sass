@@ -10,25 +10,8 @@
 				}
 
 				@include expect {
-					font-size: 14px;
-
-					@media (width >= 320px) {
-						font-size: calc(14px + 6 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						font-size: 20px;
-					}
-
-					line-height: 21px;
-
-					@media (width >= 320px) {
-						line-height: calc(21px + 7 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						line-height: 28px;
-					}
+					font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+					line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
 				}
 			}
 		}
@@ -40,25 +23,8 @@
 				}
 
 				@include expect {
-					font-size: 14px;
-
-					@media (width >= 320px) {
-						font-size: calc(14px + 6 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						font-size: 20px;
-					}
-
-					line-height: 14px;
-
-					@media (width >= 320px) {
-						line-height: calc(14px + 6 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						line-height: 20px;
-					}
+					font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+					line-height: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
 				}
 			}
 		}
@@ -70,15 +36,7 @@
 				}
 
 				@include expect {
-					font-size: 14px;
-
-					@media (width >= 320px) {
-						font-size: calc(14px + 10 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						font-size: 24px;
-					}
+					font-size: clamp(14px, calc(14px + 10 * (100vi - 320px) / 960), 24px);
 				}
 			}
 		}
@@ -90,15 +48,7 @@
 				}
 
 				@include expect {
-					line-height: 20px;
-
-					@media (width >= 320px) {
-						line-height: calc(20px + -4 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						line-height: 16px;
-					}
+					line-height: clamp(16px, calc(20px + -4 * (100vi - 320px) / 960), 20px);
 				}
 			}
 		}

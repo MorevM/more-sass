@@ -9,21 +9,13 @@
  * @param    {string}    $property            Property name.
  * @param    {list}      $start               The list containing start values of screen width and property.
  * @param    {list}      $end                 The list containing end values of screen width and property.
- * @param    {bool}      $set-start [true]    Whether to use the start property value as default.
  */
-@mixin use-fluid-prop($property, $start, $end, $set-start: true) {
+@mixin use-fluid-prop($property, $start, $end) {
 	$start-vw: list.nth($start, 1);
 	$start-val: list.nth($start, 2);
 	$end-vw: list.nth($end, 1);
 	$end-val: list.nth($end, 2);
 
-	$min-vw: math.min($start-vw, $end-vw);
-	$max-vw: math.max($start-vw, $end-vw);
-
-	$vw-diff: strip-unit($max-vw - $min-vw);
-	$val-diff: strip-unit($end-val - $start-val);
-
-	$is-equal: $val-diff == 0;
 	$only-value: null;
 
 	@if $start-val != null and $end-val == null {
@@ -32,21 +24,17 @@
 		$only-value: $end-val;
 	}
 
-	@if (($set-start or $is-equal) and ($start-val and not $only-value)) {
-		#{$property}: $start-val;
-	}
-
 	@if ($only-value) {
 		#{$property}: $only-value;
-	}
+	} @else if ($start-val != null and $end-val != null and $start-val == $end-val) {
+		#{$property}: $start-val;
+	} @else if ($start-val != null and $end-val != null) {
+		$min-val: math.min($start-val, $end-val);
+		$max-val: math.max($start-val, $end-val);
+		$vw-diff: strip-unit($end-vw - $start-vw);
+		$val-diff: strip-unit($end-val - $start-val);
+		$fluid-val: calc($start-val + $val-diff * (100vi - #{$start-vw}) / $vw-diff);
 
-	@if ((not $is-equal) and (not $only-value)) {
-		@media (min-width: $min-vw) {
-			#{$property}: calc($start-val + $val-diff * (100vi - #{$min-vw}) / $vw-diff);
-		}
-
-		@media (min-width: $max-vw) {
-			#{$property}: $end-val;
-		}
+		#{$property}: clamp($min-val, $fluid-val, $max-val);
 	}
 }

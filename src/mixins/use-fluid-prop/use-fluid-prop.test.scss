@@ -6,19 +6,11 @@
 		@include it('Works correctly if property value increases') {
 			@include assert {
 				@include output {
-					@include use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px));
+					@include use-fluid-prop('margin-block-end', (320px, 20px), (1280px, 60px));
 				}
 
 				@include expect {
-					margin-block-end: 20px;
-
-					@media (width >= 320px) {
-						margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						margin-block-end: 60px;
-					}
+					margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
 				}
 			}
 		}
@@ -26,45 +18,19 @@
 		@include it('Works correctly if property value decreases') {
 			@include assert {
 				@include output {
-					@include use-fluid-prop('margin-bottom', (320px, 60px), (1280px, 20px));
+					@include use-fluid-prop('margin-block-end', (320px, 60px), (1280px, 20px));
 				}
 
 				@include expect {
-					margin-block-end: 60px;
-
-					@media (width >= 320px) {
-						margin-block-end: calc(60px + -40 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						margin-block-end: 20px;
-					}
+					margin-block-end: clamp(20px, calc(60px + -40 * (100vi - 320px) / 960), 60px);
 				}
 			}
 		}
 
-		@include it('Considers the `$set-start` argument') {
+		@include it('Does not create clamp expression if start and end values are equal') {
 			@include assert {
 				@include output {
-					@include use-fluid-prop('margin-bottom', (320px, 20px), (1280px, 60px), false);
-				}
-
-				@include expect {
-					@media (width >= 320px) {
-						margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
-					}
-
-					@media (width >= 1280px) {
-						margin-block-end: 60px;
-					}
-				}
-			}
-		}
-
-		@include it('Does not create media queries if start and end values are equal') {
-			@include assert {
-				@include output {
-					@include use-fluid-prop('margin-bottom', (320px, 24px), (1280px, 24px));
+					@include use-fluid-prop('margin-block-end', (320px, 24px), (1280px, 24px));
 					@include use-fluid-prop('font-size', (320px, 16px), (1280px, 16px));
 					@include use-fluid-prop('line-height', (320px, 1.2), (1280px, 1.2));
 				}
@@ -80,7 +46,7 @@
 		@include it('Set single value if the second one is absent') {
 			@include assert {
 				@include output {
-					@include use-fluid-prop('margin-bottom', (320px, 24px), (1280px, null));
+					@include use-fluid-prop('margin-block-end', (320px, 24px), (1280px, null));
 					@include use-fluid-prop('font-size', (320px, null), (1280px, 16px));
 				}
 

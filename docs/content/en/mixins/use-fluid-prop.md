@@ -18,7 +18,6 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 | $property <span class="text-red-600">*</span> | `string` | —       | Property name.                                                 |
 | $start <span class="text-red-600">*</span>    | `list`   | —       | The list containing start values of screen width and property. |
 | $end <span class="text-red-600">*</span>      | `list`   | —       | The list containing end values of screen width and property.   |
-| $set-start                                    | `bool`   | `true`  | Whether to use the start property value as default.            |
 
 ## Example
 
@@ -40,19 +39,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   ```css
   .element {
-    margin-block-end: 20px;
-  }
-
-  @media (min-width: 320px) {
-    .element {
-      margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .element {
-      margin-block-end: 60px;
-    }
+    margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
   }
   ```
 
@@ -87,19 +74,7 @@ It's recommended to use this mixin as high order mixin to set project defaults a
 
   ```css
   .element {
-    margin-block-end: 20px;
-  }
-
-  @media (min-width: 320px) {
-    .element {
-      margin-block-end: calc(20px + 40 * (100vi - 320px) / 960);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .element {
-      margin-block-end: 60px;
-    }
+    margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
   }
   ```
 

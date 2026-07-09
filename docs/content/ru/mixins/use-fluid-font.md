@@ -46,22 +46,8 @@ fullscreen: true
 
   ```css
   .element {
-    font-size: 14px;
-    line-height: 21px;
-  }
-
-  @media (min-width: 320px) {
-    .element {
-      font-size: calc(14px + 6 * (100vi - 320px) / 960);
-      line-height: calc(21px + 7 * (100vi - 320px) / 960);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .element {
-      font-size: 20px;
-      line-height: 28px;
-    }
+    font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+    line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
   }
   ```
 
@@ -96,22 +82,8 @@ fullscreen: true
 
   ```css
   .element {
-    font-size: 14px;
-    line-height: 21px;
-  }
-
-  @media (min-width: 320px) {
-    .element {
-      font-size: calc(14px + 6 * (100vi - 320px) / 960);
-      line-height: calc(21px + 7 * (100vi - 320px) / 960);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .element {
-      font-size: 20px;
-      line-height: 28px;
-    }
+    font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+    line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
   }
   ```
 
