@@ -1,5 +1,62 @@
 
 
+## [3.0.0-rc.0](https://github.com/MorevM/more-sass/compare/v2.1.5...v3.0.0-rc.0) (2026-07-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **mixins:** `use-fluid-prop` no longer accepts the `$set-start` argument
+and now emits `clamp()` instead of min/max-width media queries. The `use-fluid-font` value works the same way as it uses `use-fluid-prop` under the hood.
+* **triangle:** The `triangle` mixin now emits a sized element with `background` and `clip-path` instead of zero-size border declarations because `clip-path` is widely available and avoids the legacy border hack.
+* **mixins:** The `clearfix` and `clearfix-element` mixins are no longer
+exported. Use native CSS `display: flow-root` instead, which solves float
+containment without pseudo-element clearing hacks.
+* **mixins:** The `aspect-ratio` mixin is no longer exported. Native CSS
+`aspect-ratio` has been widely available for a long time, so there is no reason
+to keep a padding-hack mixin for the same behavior. Use the native CSS
+`aspect-ratio` property instead.
+* **mixins:** All mixins now emit logical properties and values such as
+`inline-size`, `block-size`, logical `inset-*`/spacing properties,
+`display: block flow`, and `100vi` instead of physical counterparts.
+
+### Features
+
+* **functions:** Add `use-fluid-value` responsive helper ([26a6dca](https://github.com/MorevM/more-sass/commit/26a6dcac5977b2b327832b810a6f2e3473f5daac))
+* **mixins:** Emit logical CSS properties ([9bfd768](https://github.com/MorevM/more-sass/commit/9bfd7686b9db9e28d8c1a4dbf080ed420a181bb6))
+* **mixins:** Remove `aspect-ratio` mixin ([8927b74](https://github.com/MorevM/more-sass/commit/8927b74439719624fcd165bee4fa9bd6de58ab20))
+* **mixins:** Remove `clearfix` mixins ([f49717e](https://github.com/MorevM/more-sass/commit/f49717eae4b165e255b67c4febad0c56eb93f315))
+* **variables:** Add support for all CSS units ([57b9b58](https://github.com/MorevM/more-sass/commit/57b9b583178a63833a995abf04cb3710c6d6532f))
+
+
+### Bug fixes
+
+* Get rid of deprecated `if` SASS syntax ([6288ea3](https://github.com/MorevM/more-sass/commit/6288ea3ee8ffec4fbf5c8178c6fc987fa46a127f))
+* **mixins:** Do not use deprecated `clip` in `visually-hidden` ([6e7012b](https://github.com/MorevM/more-sass/commit/6e7012b343db307658c6b73038cf55555a4cc483))
+
+
+### Refactoring
+
+* **mixins:** Use `clamp()` for fluid properties ([15ec02c](https://github.com/MorevM/more-sass/commit/15ec02ca56b53faef0d4210abe3f444710c6386b))
+* **triangle:** Use `clip-path` for triangles ([057626f](https://github.com/MorevM/more-sass/commit/057626f29a518465eae25e7a360e39417cfcea92))
+
+
+### Documentation
+
+* Migrate to Docus instead of deprecated nuxt/content ([d6a7da9](https://github.com/MorevM/more-sass/commit/d6a7da9d83e1a9eff430f0590fede1ef87dbeb81))
+
+
+### Chores
+
+* Add root _index file and corresponding exports ([3b8ca38](https://github.com/MorevM/more-sass/commit/3b8ca386bcfc11b4194f704dc624e19ef1fa4338))
+* Add spellchecker ([60b6fb7](https://github.com/MorevM/more-sass/commit/60b6fb772854dd454aef11c7140254a41e29509a))
+* Add typecheck script ([af0eba2](https://github.com/MorevM/more-sass/commit/af0eba2e7bf96ec53bcb997435e34b12b6cc8d26))
+* Apply latest stylelint config ([289a771](https://github.com/MorevM/more-sass/commit/289a771497c6b7aaffd54a1f541c28a5c525952f))
+* Do not require `nuxt prepare` before linting ([d9586f3](https://github.com/MorevM/more-sass/commit/d9586f373f4f07eccc0e44ff8d7293d0706157cd))
+* Migrate to pnpm ([3fe3606](https://github.com/MorevM/more-sass/commit/3fe36068002aa882720f70538d69ad53f0c7e530))
+* Run build for RC tags ([f8749b5](https://github.com/MorevM/more-sass/commit/f8749b5295f4bc1660b18d9e8758665df988e83f))
+* Update dependencies to latest ([3a26659](https://github.com/MorevM/more-sass/commit/3a26659bf50ea9c4456616ffccb8c3533a8ed302))
+* Use pnpm within release script ([4f0dba0](https://github.com/MorevM/more-sass/commit/4f0dba0f4172aa621751b0808eba754af3ad75f2))
+
 ## [2.1.5](https://github.com/MorevM/more-sass/compare/v2.1.4...v2.1.5) (2025-08-06)
 
 
