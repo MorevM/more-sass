@@ -1,0 +1,77 @@
+# More Sass
+
+## Documentation Sets
+
+- [More Sass](https://morevm.github.io/more-sass//llms-full.txt)
+
+## LandingEn
+
+- [Introduction](https://morevm.github.io/more-sass/raw/en.md): More Sass - the library of useful SCSS mixins and functions.
+
+## DocsEn
+
+- [color](https://morevm.github.io/more-sass/raw/en/functions/color.md): Functions group for work with colors.
+- [list](https://morevm.github.io/more-sass/raw/en/functions/list.md): Functions group for work with values lists.
+- [math](https://morevm.github.io/more-sass/raw/en/functions/math.md): Functions group for work with numeric values.
+- [responsive](https://morevm.github.io/more-sass/raw/en/functions/responsive.md): Functions group for responsive CSS values.
+- [meta](https://morevm.github.io/more-sass/raw/en/functions/meta.md): Functions group for common operations.
+- [string](https://morevm.github.io/more-sass/raw/en/functions/string.md): Functions group for work with strings.
+- [bem-modifiers](https://morevm.github.io/more-sass/raw/en/mixins/bem-modifiers.md): Allows to use multiple modifiers in a single selector while using BEM methodology.
+- [border-radius](https://morevm.github.io/more-sass/raw/en/mixins/border-radius.md): Sets the values of the necessary rules of border-radius properties family.
+- [box](https://morevm.github.io/more-sass/raw/en/mixins/box.md): Sets the element size.
+- [br](https://morevm.github.io/more-sass/raw/en/mixins/br.md): This is the coupled pair of mixins allows to manipulate over the line breaks that were set manually with br tag.
+- [ellipsis](https://morevm.github.io/more-sass/raw/en/mixins/ellipsis.md): Truncates text of the current element and adds an ellipsis to represent overflow.
+- [font](https://morevm.github.io/more-sass/raw/en/mixins/font.md): Shorthand for writing font- rules in syntax like vanilla CSS font property, but without specifying the required font-family property.
+- [full-size](https://morevm.github.io/more-sass/raw/en/mixins/full-size.md): Sets the element size to 100% of its parent size and makes it positioned absolutely.
+- [hidden-element](https://morevm.github.io/more-sass/raw/en/mixins/hidden-element.md): This is the coupled pair of mixins allows to manipulate properties that affects the element visibility.
+- [hide-scrollbar](https://morevm.github.io/more-sass/raw/en/mixins/hide-scrollbar.md): Visually hides any scrollbar.
+- [margin](https://morevm.github.io/more-sass/raw/en/mixins/margin.md): Shorthand for set nullable margin properties.
+- [padding](https://morevm.github.io/more-sass/raw/en/mixins/padding.md): Shorthand for set nullable padding properties.
+- [parent-state](https://morevm.github.io/more-sass/raw/en/mixins/parent-state.md): Allows to set a pseudo-element rules depending on its parent state right in the rule set of the pseudo-element itself.
+- [pos](https://morevm.github.io/more-sass/raw/en/mixins/pos.md): Shorthand for use position properties.
+- [pseudo](https://morevm.github.io/more-sass/raw/en/mixins/pseudo.md): Shorthand for both content and display properties of pseudo-elements.
+- [reset-button](https://morevm.github.io/more-sass/raw/en/mixins/reset-button.md): Resets default styles of button elements.
+- [reset-input](https://morevm.github.io/more-sass/raw/en/mixins/reset-input.md): Resets default styles of input elements.
+- [transform-center](https://morevm.github.io/more-sass/raw/en/mixins/transform-center.md): Positions the element in the center of the parent element via transform property.
+- [triangle](https://morevm.github.io/more-sass/raw/en/mixins/triangle.md): Draws a triangle from the current element.
+- [use-fluid-font](https://morevm.github.io/more-sass/raw/en/mixins/use-fluid-font.md): Sets the font properties (font-size and line-height) scaling uniformly within the specified limits depending on the screen width.
+- [use-fluid-prop](https://morevm.github.io/more-sass/raw/en/mixins/use-fluid-prop.md): Sets a given property scaling uniformly within the specified limits depending on the screen width.
+- [use-transition](https://morevm.github.io/more-sass/raw/en/mixins/use-transition.md): High order mixin to reduce boilerplate code for "default" transitions.
+- [visually-hidden](https://morevm.github.io/more-sass/raw/en/mixins/visually-hidden.md): Visually hides the element but keeps it accessible.
+- [Variables](https://morevm.github.io/more-sass/raw/en/variables.md): The library includes some variables used in functions and mixins. They are also publicly available and can be useful in some cases.
+
+## LandingRu
+
+- [Введение](https://morevm.github.io/more-sass/raw/ru.md): More Sass - библиотека полезных миксинов и функций для SCSS.
+
+## DocsRu
+
+- [color](https://morevm.github.io/more-sass/raw/ru/functions/color.md): Категория функций для работы с цветом.
+- [list](https://morevm.github.io/more-sass/raw/ru/functions/list.md): Категория функций для работы со списками значений.
+- [math](https://morevm.github.io/more-sass/raw/ru/functions/math.md): Категория функций для работы с числовыми значениями.
+- [responsive](https://morevm.github.io/more-sass/raw/ru/functions/responsive.md): Категория функций для адаптивных CSS-значений.
+- [meta](https://morevm.github.io/more-sass/raw/ru/functions/meta.md): Категория функций для выполнения общих операций.
+- [string](https://morevm.github.io/more-sass/raw/ru/functions/string.md): Категория функций для работы со строками.
+- [bem-modifiers](https://morevm.github.io/more-sass/raw/ru/mixins/bem-modifiers.md): Позволяет использовать несколько модификаторов в одном селекторе при использовании методологии БЭМ.
+- [border-radius](https://morevm.github.io/more-sass/raw/ru/mixins/border-radius.md): Устанавливает значения необходимых свойств из семейства border-radius.
+- [box](https://morevm.github.io/more-sass/raw/ru/mixins/box.md): Устанавливает размеры элемента.
+- [br](https://morevm.github.io/more-sass/raw/ru/mixins/br.md): Парный набор миксинов, позволяющих управлять переносами строк, заданными вручную с использованием тега br.
+- [ellipsis](https://morevm.github.io/more-sass/raw/ru/mixins/ellipsis.md): Обрезает текст, выходящий за пределы текущего элемента, и добавляет в конце многоточие.
+- [font](https://morevm.github.io/more-sass/raw/ru/mixins/font.md): Shorthand for writing font- rules in syntax like vanilla CSS font property, but without specifying the required font-family property.
+- [full-size](https://morevm.github.io/more-sass/raw/ru/mixins/full-size.md): Устанавливает для элемента размер, равный 100% размера его родительского элемента, и позиционирует его абсолютно.
+- [hidden-element](https://morevm.github.io/more-sass/raw/ru/mixins/hidden-element.md): Парный набор миксинов, позволяющих управлять свойствами, влияющими на видимость элемента.
+- [hide-scrollbar](https://morevm.github.io/more-sass/raw/ru/mixins/hide-scrollbar.md): Визуально прячет любой скроллбар элемента.
+- [margin](https://morevm.github.io/more-sass/raw/ru/mixins/margin.md): Сокращённый вариант записи свойства margin с возможностью пропускать значения.
+- [padding](https://morevm.github.io/more-sass/raw/ru/mixins/padding.md): Сокращённый вариант записи свойства padding с возможностью пропускать значения.
+- [parent-state](https://morevm.github.io/more-sass/raw/ru/mixins/parent-state.md): Позволяет задавать правила псевдо-элемента, зависящие от состояния его родителя, прямо в наборе правил самого псевдо-элемента.
+- [pos](https://morevm.github.io/more-sass/raw/ru/mixins/pos.md): Сокращённый вариант записи свойств позиционирования.
+- [pseudo](https://morevm.github.io/more-sass/raw/ru/mixins/pseudo.md): Сокращённый вариант одновременной записи свойств content и display для псевдо-элементов.
+- [reset-button](https://morevm.github.io/more-sass/raw/ru/mixins/reset-button.md): Сбрасывает стили элементов button.
+- [reset-input](https://morevm.github.io/more-sass/raw/ru/mixins/reset-input.md): Сбрасывает стили элементов input.
+- [transform-center](https://morevm.github.io/more-sass/raw/ru/mixins/transform-center.md): Позиционирует элемент по центру родительского элемента используя свойство transform.
+- [triangle](https://morevm.github.io/more-sass/raw/ru/mixins/triangle.md): Рисует треугольник из текущего элемента.
+- [use-fluid-font](https://morevm.github.io/more-sass/raw/ru/mixins/use-fluid-font.md): Устанавливает равномерное масштабирование свойств шрифта (font-size и line-height) в указанных пределах в зависимости от ширины экрана.
+- [use-fluid-prop](https://morevm.github.io/more-sass/raw/ru/mixins/use-fluid-prop.md): Устанавливает равномерное масштабирование переданного свойства в указанных пределах в зависимости от ширины экрана.
+- [use-transition](https://morevm.github.io/more-sass/raw/ru/mixins/use-transition.md): Миксин высшего порядка для уменьшения шаблонного кода для переходов "по умолчанию".
+- [visually-hidden](https://morevm.github.io/more-sass/raw/ru/mixins/visually-hidden.md): Визуально скрывает элемент, но оставляет его доступным.
+- [Переменные](https://morevm.github.io/more-sass/raw/ru/variables.md): Библиотека содержит некоторые переменные, используемые в функциях и миксинах. Они также являются публично доступными и могут оказаться полезными в некоторых случаях.

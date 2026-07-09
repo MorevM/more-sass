@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/ru/releases", {data:[{}],fetch:{},mutations:[]});

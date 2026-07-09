@@ -1,0 +1,38 @@
+# full-size
+
+> Sets the element size to 100% of its parent size and makes it positioned absolutely.
+
+<warning>
+
+Don't forget to set the parent `position` property other than `static`.
+
+</warning>
+
+## Arguments
+
+—
+
+## Example
+
+<code-group>
+
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.full-size;
+}
+```
+
+```css [Output]
+.element {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: block flow;
+  inline-size: 100%;
+  block-size: 100%;
+}
+```
+
+</code-group>

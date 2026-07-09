@@ -1,0 +1,4013 @@
+# Introduction
+
+`more-sass` is the library of useful SCSS mixins and functions.
+
+## Installation
+
+::code-group
+```sh [yarn]
+yarn add more-sass
+```
+
+```sh [npm]
+npm install more-sass
+```
+::
+
+## Usage
+
+You can import the entire library or only the necessary part of it - variables, mixins, functions, or only a specific group of functions:
+
+```scss
+// Import the entire library
+@use 'more-sass' as more;
+
+// Import variables
+@use 'more-sass/variables' as more-variables;
+
+// Import mixins
+@use 'more-sass/mixins' as more-mixins;
+
+// Import functions
+@use 'more-sass/functions' as more-functions;
+
+// Import a specific group of functions
+@use 'more-sass/functions/string' as more-string;
+
+// Import a specific function in global namespace
+@use 'more-sass/functions/string/str-split' as *;
+```
+
+
+# color
+
+## hex-to-hsl
+
+Converts HEX color value to HSL.
+
+**Arguments:**
+
+| Name                     | Type     | Default | Description                                                           |
+| ------------------------ | -------- | ------- | --------------------------------------------------------------------- |
+| $hex [\*]{.text-red-600} | `color`  | —       | Color HEX value.                                                      |
+| $separator               | `string` | `comma` | The output list separator. :br`space` \| `comma` \| `slash` \| `auto` |
+
+**Returns:**
+
+`list&#x60; - The list of HSL values structured of &#x2A;(hue, saturation, lightness)*.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.hex-to-hsl(#ff0000); // list: 0deg, 100%, 50%
+```
+
+## hex-to-rgb
+
+Converts HEX color value to RGB.
+
+**Arguments:**
+
+| Name                     | Type     | Default | Description                                                            |
+| ------------------------ | -------- | ------- | ---------------------------------------------------------------------- |
+| $hex [\*]{.text-red-600} | `color`  | —       | Color HEX value.                                                       |
+| $separator               | `string` | `comma` | The output list separator. :br `space` \| `comma` \| `slash` \| `auto` |
+
+**Returns:**
+
+`list&#x60; - The list of RGB values structured of &#x2A;(red, green, blue)*.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.hex-to-rgb(#ff0000); // list: 255, 0, 0
+```
+
+## shade
+
+Mixes a given color with black.
+
+**Arguments:**
+
+| Name                       | Type     | Default | Description                                          |
+| -------------------------- | -------- | ------- | ---------------------------------------------------- |
+| $color [\*]{.text-red-600} | `color`  | —       | The original color.                                  |
+| $amount                    | `number` | `10`    | Amount of the black color in the result color (`%`). |
+
+**Returns:**
+
+`color` - The result color of mixing the original color with black.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.shade(#808080, 45); // color: #464646
+```
+
+## social-color
+
+Retrieves a given social media brand color.
+
+**Arguments:**
+
+| Name                        | Type     | Default | Description                                 |
+| --------------------------- | -------- | ------- | ------------------------------------------- |
+| $social [\*]{.text-red-600} | `string` | —       | Social media code ('vk', 'fb', 'tw', etc.). |
+
+**Returns:**
+
+`?color` - Social media brand color.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.social-color('fb'); // color: #4267b2
+```
+
+::note
+List of available codes:
+
+- `vk` - VKontakte
+- `fb` - Facebook
+- `ok` - Odnoklassniki
+- `yt` - YouTube
+- `tw` - Twitter
+- `ig` - Instagram (purple)
+- `ig-gradient` - Instagram (gradient)
+- `tg` - Telegram
+- `dr` - Dribble
+- `be` - Behance
+- `li` - Linked In
+- `wa` - WhatsApp
+- `vb` - Viber
+::
+
+## tint
+
+Mixes a given color with white.
+
+**Arguments:**
+
+| Name                       | Type     | Default | Description                                          |
+| -------------------------- | -------- | ------- | ---------------------------------------------------- |
+| $color [\*]{.text-red-600} | `color`  | —       | The original color.                                  |
+| $amount                    | `number` | `10`    | Amount of the white color in the result color (`%`). |
+
+**Returns:**
+
+`color` - The result color of mixing the original color with white.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.tint(#808080, 45); // color: #b9b9b9
+```
+
+
+# list
+
+## list-contains
+
+Checks whether at least one value in a given list contains a given substring.
+
+**Arguments:**
+
+| Name                        | Type     | Default | Description             |
+| --------------------------- | -------- | ------- | ----------------------- |
+| $list [\*]{.text-red-600}   | `list`   | —       | The input list.         |
+| $search [\*]{.text-red-600} | `string` | —       | The searched substring. |
+
+**Returns:**
+
+`bool` - `true` if one of a given list values contains a given substring, `false` otherwise.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+$list: ('foo', 'bar', 'baz');
+
+@debug more.list-contains($list, 'ba');  // bool: true
+@debug more.list-contains($list, 'abc'); // bool: false
+```
+
+## list-includes
+
+Checks whether a given value exists in a given list.
+
+**Arguments:**
+
+| Name                        | Type   | Default | Description         |
+| --------------------------- | ------ | ------- | ------------------- |
+| $list [\*]{.text-red-600}   | `list` | —       | The input list.     |
+| $search [\*]{.text-red-600} | `*`    | —       | The searched value. |
+
+**Returns:**
+
+`bool` - `true` if a given value exists in a given list, `false` otherwise.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+$list: (1, 2, 3);
+
+@debug more.list-includes($list, 2); // bool: true
+@debug more.list-includes($list, 4); // bool: false
+```
+
+## list-join
+
+Joins a given list elements with a given separator string.
+
+**Arguments:**
+
+| Name                      | Type     | Default | Description                  |
+| ------------------------- | -------- | ------- | ---------------------------- |
+| $list [\*]{.text-red-600} | `list`   | —       | The input list.              |
+| $separator                | `string` | `''`    | The output string separator. |
+
+**Returns:**
+
+`string` - A string representation of all the list elements in the same order, with the separator string between each element.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-join((1, 2, 3, 4, 5));    // string: '12345'
+@debug more.list-join((1, 2, 3, 4), ', '); // string: '1, 2, 3, 4'
+```
+
+## list-remove
+
+Removes the list element by index.
+
+**Arguments:**
+
+| Name                       | Type     | Default | Description                                                                              |
+| -------------------------- | -------- | ------- | ---------------------------------------------------------------------------------------- |
+| $list [\*]{.text-red-600}  | `list`   | —       | The input list.                                                                          |
+| $index [\*]{.text-red-600} | `number` | —       | The list element index to remove. :br Use negative index to remove from the end of list. |
+
+**Returns:**
+
+`list` - A list without element with specified `$index` if found, original list clone otherwise.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-remove((1, 2, 3), 1);   // list: (2, 3)
+@debug more.list-remove((1, 2, 3), -1);  // list: (1, 2)
+@debug more.list-remove((1, 2, 3), 100); // list: (1, 2, 3)
+```
+
+## list-slice
+
+Extracts a slice of a given list.
+
+**Arguments:**
+
+| Name                          | Type     | Default | Description                 |
+| ----------------------------- | -------- | ------- | --------------------------- |
+| $list [\*]{.text-red-600}     | `list`   | —       | The input list.             |
+| $start-at [\*]{.text-red-600} | `number` | —       | Starting index (inclusive). |
+| $end-at                       | `number` | `-1`    | Ending index (inclusive).   |
+
+**Returns:**
+
+`list` - The slice of the input list.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-slice((1, 2, 3, 4, 5), 3);    // list: (3, 4, 5)
+@debug more.list-slice((1, 2, 3, 4, 5), 2, 4); // list: (2, 3, 4)
+```
+
+
+# math
+
+## get-numeric
+
+Transforms a given pseudo-number string to a real number.
+
+**Arguments:**
+
+| Name                       | Type              | Default | Description                                       |
+| -------------------------- | ----------------- | ------- | ------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string | number` | —       | The input value (number or pseudo-number string). |
+
+**Returns:**
+
+`?number` - Numeric value, or `null` if value is not a [valid number](https://developer.mozilla.org/en-US/docs/Web/CSS/number#valid_numbers){rel="&#x22;nofollow&#x22;"}.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.get-numeric('12px'); // number: 12px
+@debug more.get-numeric('foo'); // null
+```
+
+## get-unit
+
+Retrieves a unit of a given number.
+
+**Arguments:**
+
+| Name                       | Type              | Default | Description                                         |
+| -------------------------- | ----------------- | ------- | --------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string | number` | —       | The number or pseudo-number string to get its unit. |
+
+**Returns:**
+
+`?number` - A number representing the base value of received unit (1px, 1em, etc.), or `null` if value is not a valid number.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.get-unit(12px);  // number: 1px
+@debug more.get-unit('12%'); // number: 1%
+```
+
+## strip-unit
+
+Strips the unit of a given value.
+
+**Arguments:**
+
+| Name                       | Type              | Default | Description                                                |
+| -------------------------- | ----------------- | ------- | ---------------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string | number` | —       | The number or pseudo-number string to to remove unit from. |
+
+**Returns:**
+
+`?number` - The unitless number or `null` if value is not a valid number.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.strip-unit(12px);  // number: 12
+@debug more.strip-unit('10%'); // number: 10
+```
+
+## with-unit
+
+Sets default unit for a given unitless number.
+
+**Arguments:**
+
+| Name                       | Type              | Default | Description                                       |
+| -------------------------- | ----------------- | ------- | ------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string | number` | —       | The input value (number or pseudo-number string). |
+| $unit                      | `string`          | `px`    | Default unit (one of valid CSS units).            |
+
+**Returns:**
+
+`number` - Original number transformed to a given unit.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.with-unit(12);       // number: 12px
+@debug more.with-unit(12, 'em'); // number: 12em
+```
+
+
+# responsive
+
+## use-fluid-value
+
+Returns a value scaling uniformly within the specified viewport limits.
+
+**Arguments:**
+
+| Name                       | Type   | Default | Description                            |
+| -------------------------- | ------ | ------- | -------------------------------------- |
+| $start [\*]{.text-red-600} | `list` | —       | The start viewport and property value. |
+| $end [\*]{.text-red-600}   | `list` | —       | The end viewport and property value.   |
+
+**Returns:**
+
+`?number` - Fluid `clamp()` expression, single fixed value, or `null` if both values are absent.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@function fluid-value($start, $end) {
+  @return more.use-fluid-value((320px, $start), (1280px, $end));
+}
+
+.element {
+  margin-block-start: fluid-value(16px, 32px);
+}
+```
+
+
+# meta
+
+## column
+
+Generates a value or expression that allows to set a size exactly equalled a given number of layout columns.
+
+**Arguments:**
+
+| Name                            | Type            | Default | Description                                                                                             |
+| ------------------------------- | --------------- | ------- | ------------------------------------------------------------------------------------------------------- |
+| $expression [\*]{.text-red-600} | `string|number` | —       | An expression describing the needed number of layout columns to fill: `needed-columns / total-columns`. |
+| $gutter                         | `?number`       | `null`  | Space between layout columns.                                                                           |
+
+**Returns:**
+
+`string|number` - Calc expression or exact value.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.column('6/12');       // number: 50%
+@debug more.column('6/12', 15px); // string: calc(100% / 2 - (15px * (12 - 6) / 12))
+```
+
+## get-char
+
+Retrieves the Unicode escape sequence of a given symbol by its human-friendly name.
+
+**Arguments:**
+
+| Name                      | Type     | Default | Description                 |
+| ------------------------- | -------- | ------- | --------------------------- |
+| $char [\*]{.text-red-600} | `string` | —       | Human-friendly symbol name. |
+
+**Returns:**
+
+`?string` - The Unicode escape sequence of a given symbol or `null` if a given symbol name not registered.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.get-char('dollar'); // string: '\0024'
+```
+
+::note
+List of available symbols:
+
+|                        |   |
+| ---------------------- | - |
+| `dollar`               | $ |
+| `section`              | § |
+| `bullet`               | • |
+| `hyphen`               | ‑ |
+| `en-dash`              | – |
+| `em-dash`              | — |
+| `copyright`            | © |
+| `registered`           | ® |
+| `degree`               | ° |
+| `ring`                 | ∘ |
+| `infinity`             | ∞ |
+| `triangle-up-black`    | ▲ |
+| `triangle-up-white`    | △ |
+| `triangle-right-black` | ▶ |
+| `triangle-right-white` | ▷ |
+| `triangle-down-black`  | ▼ |
+| `triangle-down-white`  | ▽ |
+| `triangle-left-black`  | ◀ |
+| `triangle-left-white`  | ◁ |
+| `circle-black`         | ● |
+| `circle-white`         | ○ |
+| `square-black`         | ■ |
+| `square-white`         | □ |
+| `diamond-black`        | ◆ |
+| `diamond-white`        | ◇ |
+| `diamond-inside`       | ◈ |
+| `check`                | ✓ |
+| `check-heavy`          | ✔ |
+| `cross`                | ✕ |
+| `cross-heavy`          | ✖ |
+| `fisheye`              | ◉ |
+::
+
+## offset
+
+Generates a value or expression that allows to set a size exactly equalled a given number of layout columns, plus gutter.
+
+**Arguments:**
+
+| Name                            | Type            | Default | Description                                                                                           |
+| ------------------------------- | --------------- | ------- | ----------------------------------------------------------------------------------------------------- |
+| $expression [\*]{.text-red-600} | `string|number` | —       | An expression describing the needed number of layout columns to fill: `needed-columns/total-columns`. |
+| $gutter                         | `?number`       | `null`  | Space between layout columns.                                                                         |
+
+**Returns:**
+
+`string|number` - Calc expression or exact value.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.offset('6/12'); // number: 50%
+@debug more.offset('6/12', 15px); // string: calc(calc(100% / 2 - (15px * (12 - 6) / 12)) + 15px)
+```
+
+## parse-directions
+
+Parses a given list of values using standard CSS order (top, right, bottom, left). :br
+Some values can be omitted using `null` (preferable) or its alias `n`.
+
+::note
+If one argument is supplied it used for all positioning properties.
+
+If two arguments are supplied the first is used as **top** and **bottom** value, the second is used as **left** and **right** value.
+
+If three arguments are supplied the first is used as **top** value,
+the second is used as **left** and **right** value, the third is used as **bottom** value.
+
+If four arguments are supplied the first is used as **top** value, the second is used as **right** value,
+the third is used as **bottom** value, the fourth is used as **left** value.
+::
+
+**Arguments:**
+
+| Name                        | Type   | Default | Description       |
+| --------------------------- | ------ | ------- | ----------------- |
+| $values [\*]{.text-red-600} | `list` | —       | A list of values. |
+
+**Returns:**
+
+`map&#x60; - Full set of positioning properties structured of &#x2A;*(position: value)**.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.parse-directions(1px 2px 3px 4px); // map: (top: 1px, right: 2px, bottom: 3px, left: 4px)
+@debug more.parse-directions(1px, 2px, 3px, 4px); // map: (top: 1px, right: 2px, bottom: 3px, left: 4px)
+
+@debug more.parse-directions(null, 2px, n, 4px); // map: (top: null, right: 2px, bottom: null, left: 4px)
+```
+
+
+# string
+
+## str-capitalize
+
+Capitalizes a given string.
+
+**Arguments:**
+
+| Name                        | Type     | Default | Description       |
+| --------------------------- | -------- | ------- | ----------------- |
+| $string [\*]{.text-red-600} | `string` | —       | The input string. |
+
+**Returns:**
+
+`string` - The input string with its first character transformed to uppercase.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-capitalize('foo bar'); // string: 'Foo bar'
+```
+
+## str-replace
+
+Replaces all occurrences of the search string with the replacement string.
+
+**Arguments:**
+
+| Name                         | Type      | Default | Description                                                            |
+| ---------------------------- | --------- | ------- | ---------------------------------------------------------------------- |
+| $string [\*]{.text-red-600}  | `string`  | —       | The string being searched and replaced on.                             |
+| $search [\*]{.text-red-600}  | `string`  | —       | The value being searched for.                                          |
+| $replace [\*]{.text-red-600} | `string`  | —       | The replacement value that replaces found search values.               |
+| $limit                       | `?number` | `null`  | If supplied, this will be set to the number of replacements performed. |
+
+**Returns:**
+
+`string` - The string with searched values replaced.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-replace('foo bar baz', 'ba', 'x'); // string: 'foo xr xz'
+```
+
+## str-split
+
+Splits a given string to a list of strings.
+
+**Arguments:**
+
+| Name                        | Type     | Default | Description                                                          |
+| --------------------------- | -------- | ------- | -------------------------------------------------------------------- |
+| $string [\*]{.text-red-600} | `string` | —       | The input string.                                                    |
+| $delimiter                  | `string` | `''`    | The boundary string.                                                 |
+| $separator                  | `string` | `auto`  | The output list separator :br`space` \| `comma` \| `slash` \| `auto` |
+
+**Returns:**
+
+`list` - The list containing strings created by splitting the input string by boundary string.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-split('foo|bar|baz', '|', 'comma'); // list: ('foo', 'bar', 'baz')
+```
+
+## str-trim
+
+Removes whitespaces from both ends of a given string.
+
+**Arguments:**
+
+| Name                        | Type     | Default | Description         |
+| --------------------------- | -------- | ------- | ------------------- |
+| $string [\*]{.text-red-600} | `string` | —       | The string to trim. |
+
+**Returns:**
+
+`string` - The string without whitespaces on both ends of it.
+
+**Example:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-trim(' foo bar   '); // string: 'foo bar'
+```
+
+
+# bem-modifiers
+
+## Arguments
+
+| Name                           | Type   | Default | Description                     |
+| ------------------------------ | ------ | ------- | ------------------------------- |
+| $modifiers [\*]{.text-red-600} | `list` | —       | A list of additional modifiers. |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.block {
+  &__element {
+    @include more.bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+      color: #f00;
+    }
+  }
+}
+```
+
+```css [Output]
+.block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
+  color: #f00;
+}
+```
+::
+
+
+# border-radius
+
+::note
+Some values can be automatically set to 0 (zero) using 
+
+`null`
+
+ (preferable) or its alias 
+
+`n`
+
+.
+::
+
+## Arguments
+
+| Name                       | Type          | Default | Description                                           |
+| -------------------------- | ------------- | ------- | ----------------------------------------------------- |
+| $value [\*]{.text-red-600} | `list|string` | —       | Property value.                                       |
+| $direction                 | `?string`     | `null`  | The keyword describing the list of properties to use. |
+
+::note
+List of direction keywords:
+
+| Keyword        | Affected properties                                       |
+| -------------- | --------------------------------------------------------- |
+| `top`          | `border-top-left-radius`, `border-top-right-radius`       |
+| `right`        | `border-top-right-radius`, `border-bottom-right-radius`   |
+| `bottom`       | `border-bottom-right-radius`, `border-bottom-left-radius` |
+| `left`         | `border-top-left-radius`, `border-bottom-left-radius`     |
+| `top-right`    | `border-top-right-radius`                                 |
+| `top-left`     | `border-top-left-radius`                                  |
+| `bottom-right` | `border-bottom-right-radius`                              |
+| `bottom-left`  | `border-bottom-left-radius`                               |
+| `cross-left`   | `border-top-left-radius`, `border-bottom-right-radius`    |
+| `cross-right`  | `border-top-right-radius`, `border-bottom-left-radius`    |
+| `all`          | `border-radius`                                           |
+::
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.border-radius(1px 2px null 4px);
+}
+
+.element-two {
+  @include more.border-radius(10px, 'cross-left');
+}
+```
+
+```css [Output]
+.element-one {
+  border-radius: 1px 2px 0 4px;
+}
+
+.element-two {
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+```
+::
+
+
+# box
+
+Shorthand for both `inline-size` and `block-size` properties.
+
+::note
+Inline or block size value can be omitted using 
+
+`null`
+
+ (preferable) or its alias 
+
+`n`
+
+.
+::
+
+## Arguments
+
+| Name                             | Type     | Default      | Description                 |
+| -------------------------------- | -------- | ------------ | --------------------------- |
+| $inline-size [\*]{.text-red-600} | `number` | —            | Inline size of the element. |
+| $block-size                      | `number` | $inline-size | Block size of the element.  |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.box(100px);
+}
+
+.element-two {
+  @include more.box(100px, 200px);
+}
+
+.element-three {
+  @include more.box(100px, null);
+}
+
+.element-four {
+  @include more.box(null, 200px);
+}
+```
+
+```css [Output]
+.element-one {
+  inline-size: 100px;
+  block-size: 100px;
+}
+
+.element-two {
+  inline-size: 100px;
+  block-size: 200px;
+}
+
+.element-three {
+  inline-size: 100px;
+}
+
+.element-four {
+  block-size: 200px;
+}
+```
+::
+
+
+# br
+
+## br-hide
+
+Removes a line breaks inside of the current element.
+
+### Arguments
+
+—
+
+### Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.br-hide;
+}
+```
+
+```css [Output]
+.element br {
+  display: none;
+}
+```
+::
+
+## br-show
+
+Restores a line breaks inside of the current element.
+
+### Arguments
+
+—
+
+### Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.br-show;
+}
+```
+
+```css [Output]
+.element br {
+  display: block flow;
+}
+```
+::
+
+
+# ellipsis
+
+## Arguments
+
+| Name             | Type     | Default | Description                    |
+| ---------------- | -------- | ------- | ------------------------------ |
+| $max-inline-size | `number` | 100%    | The element inline size limit. |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.ellipsis;
+}
+```
+
+```css [Output]
+.element {
+  max-inline-size: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+```
+::
+
+
+# font
+
+## Arguments
+
+| Name                        | Type                 | Default | Description                                                                                                             |
+| --------------------------- | -------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
+| $params [\*]{.text-red-600} | `string|list|number` | —       | A set of rules for one or more of the following properties: :br`font-style`, `font-weight`, `font-size`, `line-height`. |
+| $font-family                | `?string`            | `null`  | The `font-family` property value.                                                                                       |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.font('italic 700 16px/1.5');
+}
+
+.element-two {
+  @include more.font(32px);
+}
+
+.element-three {
+  @include more.font('/1.2');
+}
+
+.element-four {
+  @include more.font(16px, 'Agora Slab Pro');
+}
+```
+
+```css [Output]
+.element-one {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.element-two {
+  font-size: 32px;
+}
+
+.element-three {
+  line-height: 1.2;
+}
+
+.element-four {
+  font-size: 16px;
+  font-family: 'Agora Slab Pro';
+}
+```
+::
+
+
+# full-size
+
+::warning
+Don't forget to set the parent 
+
+`position`
+
+ property other than 
+
+`static`
+
+.
+::
+
+## Arguments
+
+—
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.full-size;
+}
+```
+
+```css [Output]
+.element {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: block flow;
+  inline-size: 100%;
+  block-size: 100%;
+}
+```
+::
+
+
+# hidden-element
+
+## hidden-element
+
+Visually hides the element. It still present in the document flow.
+
+### Arguments
+
+| Name     | Type      | Default | Description                      |
+| -------- | --------- | ------- | -------------------------------- |
+| $z-index | `?number` | null    | The value of `z-index` property. |
+
+### Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.hidden-element;
+}
+
+.element-two {
+  @include more.hidden-element(10);
+}
+```
+
+```css [Output]
+.element-one {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.element-two {
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+}
+```
+::
+
+## hidden-element-active
+
+Shows the hidden element. Resets the `hidden-element` mixin usage.
+
+### Arguments
+
+| Name     | Type      | Default | Description                      |
+| -------- | --------- | ------- | -------------------------------- |
+| $z-index | `?number` | null    | The value of `z-index` property. |
+
+### Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.hidden-element-active;
+}
+```
+
+```css [Output]
+.element {
+  visibility: visible;
+  opacity: 1;
+}
+```
+::
+
+
+# hide-scrollbar
+
+## Arguments
+
+—
+
+### Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.block {
+  @include more.hide-scrollbar;
+}
+```
+
+```css [Output]
+.block {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.block::-webkit-scrollbar {
+  display: none;
+  inline-size: 0;
+  block-size: 0;
+  appearance: none;
+}
+```
+::
+
+
+# margin
+
+::note
+Some values can be omitted using 
+
+`null`
+
+ (preferable) or its alias 
+
+`n`
+
+.
+::
+
+## Arguments
+
+| Name                        | Type   | Default | Description                                                  |
+| --------------------------- | ------ | ------- | ------------------------------------------------------------ |
+| $values [\*]{.text-red-600} | `list` | —       | Margin values list in default order (top-right-bottom-left). |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.margin(10px);
+}
+
+.element-two {
+  @include more.margin(10px 20px 30px 40px); // or: @include more.margin(10px, 20px, 30px, 40px);
+}
+
+.element-three {
+  @include more.margin(null auto);
+}
+```
+
+```css [Output]
+.element-one {
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+
+.element-two {
+  margin-block-start: 10px;
+  margin-block-end: 30px;
+  margin-inline-start: 40px;
+  margin-inline-end: 20px;
+}
+
+.element-three {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+```
+::
+
+
+# padding
+
+::note
+Some values can be omitted using 
+
+`null`
+
+ (preferable) or its alias 
+
+`n`
+
+.
+::
+
+## Arguments
+
+| Name                        | Type   | Default | Description                                                   |
+| --------------------------- | ------ | ------- | ------------------------------------------------------------- |
+| $values [\*]{.text-red-600} | `list` | —       | Padding values list in default order (top-right-bottom-left). |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.padding(10px);
+}
+
+.element-two {
+  @include more.padding(10px 20px 30px 40px); // or: @include more.padding(10px, 20px, 30px, 40px);
+}
+
+.element-three {
+  @include more.padding(null auto);
+}
+```
+
+```css [Output]
+.element-one {
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+}
+
+.element-two {
+  padding-block-start: 10px;
+  padding-block-end: 30px;
+  padding-inline-start: 40px;
+  padding-inline-end: 20px;
+}
+
+.element-three {
+  padding-inline-start: auto;
+  padding-inline-end: auto;
+}
+```
+::
+
+
+# parent-state
+
+## Arguments
+
+| Name                        | Type   | Default | Description                                                              |
+| --------------------------- | ------ | ------- | ------------------------------------------------------------------------ |
+| $states [\*]{.text-red-600} | `list` | —       | Pseudo-element parent state(s) (pseudo-classes, modifier classes, etc.). |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  &::after {
+    @include more.parent-state(':hover', '.is-active') {
+      color: #f00;
+    }
+  }
+}
+```
+
+```css [Output]
+.element:hover::after,
+.element.is-active::after {
+  color: #f00;
+}
+```
+::
+
+
+# pos
+
+## Arguments
+
+| Name      | Type     | Default  | Description                                                      |
+| --------- | -------- | -------- | ---------------------------------------------------------------- |
+| $position | `string` | absolute | Position type (relative, absolute, etc.).                        |
+| $values   | `list`   | ()       | Position values list in default order (top-right-bottom-left)\*. |
+| $z-index  | `number` | null     | `z-index` property value if needed                               |
+
+::note
+Some values can be omitted using 
+
+`null`
+
+ (preferable) or its alias 
+
+`n`
+
+.
+::
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.pos('absolute', 10px);
+}
+
+.element-two {
+  @include more.pos('absolute', 10px 20px 30px 40px, 5);
+}
+
+.element-three {
+  @include more.pos('absolute', null auto);
+}
+```
+
+```css [Output]
+.element-one {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  inset-inline-end: 10px;
+}
+
+.element-two {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-block-end: 30px;
+  inset-inline-start: 40px;
+  inset-inline-end: 20px;
+  z-index: 5;
+}
+
+.element-three {
+  position: absolute;
+  inset-inline-start: auto;
+  inset-inline-end: auto;
+}
+```
+::
+
+::note
+There are also available shorthands for certain position types:
+
+`pos-rel($values, $z-index)``pos-abs($values, $z-index)``pos-fix($values, $z-index)`
+::
+
+
+# pseudo
+
+## Arguments
+
+| Name     | Type     | Default | Description                      |
+| -------- | -------- | ------- | -------------------------------- |
+| $display | `string` | `block` | The value of `display` property. |
+| $content | `string` | `''`    | The value of `content` property. |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  &::after {
+    @include more.pseudo;
+  }
+}
+
+.element-two {
+  &::after {
+    @include more.pseudo('inline-block', 'foo');
+  }
+}
+```
+
+```css [Output]
+.element-one::after {
+  content: '';
+  display: block flow;
+}
+
+.element-two::after {
+  content: 'foo';
+  display: inline flow-root;
+}
+```
+::
+
+
+# reset-button
+
+## Arguments
+
+—
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+button {
+  @include more.reset-button;
+}
+```
+
+```css [Output]
+button {
+  inline-size: auto;
+  margin: 0;
+  padding: 0;
+  color: currentColor;
+  font: inherit;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  appearance: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+```
+::
+
+
+# reset-input
+
+## Arguments
+
+—
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+input {
+  @include more.reset-input;
+}
+```
+
+```css [Output]
+input {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  appearance: none;
+}
+```
+::
+
+
+# transform-center
+
+::warning
+Don't forget to set the parent 
+
+`position`
+
+ property other than 
+
+`static`
+
+.
+::
+
+## Arguments
+
+—
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.transform-center;
+}
+```
+
+```css [Output]
+.element {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+::
+
+
+# triangle
+
+## Arguments
+
+| Name                             | Type     | Default        | Description                                    |
+| -------------------------------- | -------- | -------------- | ---------------------------------------------- |
+| $inline-size [\*]{.text-red-600} | `number` | —              | Triangle inline size.                          |
+| $block-size [\*]{.text-red-600}  | `number` | —              | Triangle block size.                           |
+| $direction [\*]{.text-red-600}   | `string` | —              | The keyword describing the triangle direction. |
+| $color                           | `color`  | `currentColor` | Triangle color.                                |
+
+::note
+List of direction keywords:
+
+| Keyword        | Figure |
+| -------------- | ------ |
+| `top`          | ▲      |
+| `bottom`       | ▼      |
+| `left`         | ◀      |
+| `right`        | ▶      |
+| `bottom-left`  | ◣      |
+| `bottom-right` | ◢      |
+| `top-left`     | ◤      |
+| `top-right`    | ◥      |
+::
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.triangle(10px, 8px, 'top');
+}
+
+.element-two {
+  @include more.triangle(14px, 18px, 'bottom-left', #148cd7);
+}
+```
+
+```css [Output]
+.element-one {
+  display: block flow;
+  inline-size: 10px;
+  block-size: 8px;
+  background: currentColor;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.element-two {
+  display: block flow;
+  inline-size: 14px;
+  block-size: 18px;
+  background: #148cd7;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+```
+::
+
+
+# use-fluid-font
+
+Shorthand for both `fluid-prop('font-size')` and `fluid-prop('line-height')`.
+
+It's recommended to use this mixin as high order mixin to set project defaults and reduce the boilerplate code.
+
+## Arguments
+
+| Name                       | Type   | Default | Description                                                           |
+| -------------------------- | ------ | ------- | --------------------------------------------------------------------- |
+| $start [\*]{.text-red-600} | `list` | —       | The list containing start values of screen width and font properties. |
+| $end [\*]{.text-red-600}   | `list` | —       | The list containing end values of screen width and font properties.   |
+
+::note
+Font properties are supplied as slash-separated string of 
+
+`font-size`
+
+ and 
+
+`line-height`
+
+ values,
+just as in the native 
+
+**font**
+
+ property: 
+
+`14px/1.6`
+
+.
+You can also set only 
+
+**font-size**
+
+ (
+
+`14px`
+
+) or only 
+
+**line-height**
+
+ (
+
+`/1.6`
+
+) value.
+::
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.use-fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
+}
+```
+
+```css [Output]
+.element {
+  font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+  line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
+}
+```
+::
+
+## Example as high order mixin
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+
+@mixin fluid-font($min, $max) {
+  @include more.use-fluid-font((320px, $min), (1280px, $max));
+}
+
+// Other files
+.element {
+  @include fluid-font('14px/1.5', '20px/1.4');
+}
+```
+
+```css [Output]
+.element {
+  font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+  line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
+}
+```
+::
+
+
+# use-fluid-prop
+
+See <https://www.madebymike.com.au/writing/fluid-type-calc-examples/>{rel="&#x22;nofollow&#x22;"}.
+
+::note
+This mixin is kept for backward compatibility.
+For new code, prefer 
+
+`use-fluid-value`
+
+: the function keeps the value inside a CSS declaration,
+which preserves editor, linter, and tooling integration, and is closer to native CSS functions
+that will eventually land in CSS.
+The higher-order mixin or function pattern is still useful: use it to set project breakpoints
+and reduce boilerplate.
+::
+
+## Arguments
+
+| Name                          | Type     | Default | Description                                                    |
+| ----------------------------- | -------- | ------- | -------------------------------------------------------------- |
+| $property [\*]{.text-red-600} | `string` | —       | Property name.                                                 |
+| $start [\*]{.text-red-600}    | `list`   | —       | The list containing start values of screen width and property. |
+| $end [\*]{.text-red-600}      | `list`   | —       | The list containing end values of screen width and property.   |
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.use-fluid-prop('margin-block-end', (320px, 20px), (1280px, 60px));
+}
+```
+
+```css [Output]
+.element {
+  margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
+}
+```
+::
+
+## Example as high order mixin
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+
+@mixin fluid-prop($property, $min, $max) {
+  @include more.use-fluid-prop($property, (320px, $min), (1280px, $max));
+}
+
+// Other files
+.element {
+  @include fluid-prop('margin-block-end', 20px, 60px);
+}
+```
+
+```css [Output]
+.element {
+  margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
+}
+```
+::
+
+
+# use-transition
+
+## Arguments
+
+| Name             | Type     | Default | Description                                                          |
+| ---------------- | -------- | ------- | -------------------------------------------------------------------- |
+| $properties      | `list`   | —       | The list containing properties to be transitioned (space-separated). |
+| $duration        | `number` | —       | Duration of transition.                                              |
+| $delay           | `number` | —       | Delay of transition.                                                 |
+| $timing-function | `string` | —       | Timing-function of transition.                                       |
+
+## Example
+
+It's recommended to create your own mixin called `transition`,
+set the projects defaults and pass the content to `use-transitions` mixin next.
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+
+@mixin transition($properties: (), $duration: .3s) {
+  @include more.use-transition($properties: $properties, $duration: $duration);
+}
+
+// Later in the code...
+
+.element {
+  @include transition(opacity transform);
+}
+
+.element-two {
+  // With comma-separated list extra brackets is required
+  @include transition((opacity, transform));
+}
+```
+
+```css [Output]
+.element {
+  transition-property: opacity, transform;
+  transition-duration: .3s;
+}
+
+.element-two {
+  transition-property: opacity, transform;
+  transition-duration: .3s;
+}
+```
+::
+
+If you want to use comma-separated properties without extra brackets and you don't need to customize more than one extra transition property
+(usually `transition-duration` customizing is enough), you can write an extended version of `transition` mixin such as:
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+@use 'sass:meta';
+@use 'sass:list';
+
+@mixin transition($properties...) {
+  $duration: .3s; // your default `transition-duration`
+
+  @for $i from 1 through list.length($properties) {
+    $prop: list.nth($properties, $i);
+
+    @if (meta.type-of($prop) == 'number') {
+      $duration: $prop;
+      $properties: more.list-remove($properties, $i);
+    }
+  }
+
+  @include use-transition($properties: $properties, $duration: $duration);
+}
+
+// Later in the code...
+
+.element {
+  // Comma-separated without extra brackets
+  @include transition(opacity, transform);
+}
+
+.element-two {
+  @include transition(opacity, transform, .2s);
+}
+```
+
+```css [Output]
+.element {
+  transition-property: opacity, transform;
+  transition-duration: .3s;
+}
+.element-two {
+  transition-property: opacity, transform;
+  transition-duration: .2s;
+}
+```
+::
+
+
+# visually-hidden
+
+## Arguments
+
+—
+
+## Example
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.visually-hidden;
+}
+```
+
+```css [Output]
+.element {
+  position: absolute;
+  z-index: -1;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+```
+::
+
+
+# Variables
+
+## $font-styles
+
+The list of available values of the `font-style` property.
+
+**Type:** `list`
+
+```scss
+$font-styles: (
+  'normal',
+  'italic',
+);
+```
+
+## $font-weights
+
+The list of available values of the `font-weight` property.
+
+**Type:** `list`
+
+```scss
+$font-weights: (
+  '100',
+  '200',
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  'bold',
+  'bolder',
+  'lighter',
+  'normal',
+  'inherit',
+  'initial',
+);
+```
+
+## $pseudo-elements
+
+The list of CSS pseudo-elements.
+
+**Type:** `list`
+
+```scss
+$pseudo-elements: (
+  '::before',
+  ':before',
+  '::after',
+  ':after',
+  '::backdrop',
+  '::cue',
+  '::cue-region',
+  '::first-letter',
+  ':first-letter',
+  '::first-line',
+  ':first-line',
+  '::file-selector-button',
+  '::grammar-error',
+  '::marker',
+  '::placeholder',
+  '::selection',
+  '::spelling-error',
+  '::target-text',
+);
+```
+
+## $units
+
+The map-object of CSS units. Keys are the units names (type `string`) and values are the base numeric value of this units (type `number`).
+
+**Type:** `map`
+
+```scss
+$units: (
+  '%': 1%,
+  'cqmin': 1cqmin,
+  'cqmax': 1cqmax,
+  'cqw': 1cqw,
+  'cqh': 1cqh,
+  'cqi': 1cqi,
+  'cqb': 1cqb,
+  'svmin': 1svmin,
+  'svmax': 1svmax,
+  'lvmin': 1lvmin,
+  'lvmax': 1lvmax,
+  'dvmin': 1dvmin,
+  'dvmax': 1dvmax,
+  'svw': 1svw,
+  'svh': 1svh,
+  'svi': 1svi,
+  'svb': 1svb,
+  'lvw': 1lvw,
+  'lvh': 1lvh,
+  'lvi': 1lvi,
+  'lvb': 1lvb,
+  'dvw': 1dvw,
+  'dvh': 1dvh,
+  'dvi': 1dvi,
+  'dvb': 1dvb,
+  'vmin': 1vmin,
+  'vmax': 1vmax,
+  'vw': 1vw,
+  'vh': 1vh,
+  'vi': 1vi,
+  'vb': 1vb,
+  'dpcm': 1dpcm,
+  'dppx': 1dppx,
+  'dpi': 1dpi,
+  'px': 1px,
+  'q': 1q,
+  'pt': 1pt,
+  'cm': 1cm,
+  'mm': 1mm,
+  'in': 1in,
+  'pc': 1pc,
+  'rem': 1rem,
+  'rlh': 1rlh,
+  'em': 1em,
+  'lh': 1lh,
+  'cap': 1cap,
+  'ch': 1ch,
+  'ic': 1ic,
+  'ex': 1ex,
+  'fr': 1fr,
+  'ms': 1ms,
+  's': 1s,
+  'deg': 1deg,
+  'grad': 1grad,
+  'rad': 1rad,
+  'turn': 1turn,
+);
+```
+
+
+# Введение
+
+`more-sass` - это библиотека полезных миксинов и функций для SCSS.
+
+## Установка
+
+::code-group
+```sh [yarn]
+yarn add more-sass
+```
+
+```sh [npm]
+npm install more-sass
+```
+::
+
+## Использование
+
+Вы можете импортировать как всю библиотеку целиком, так и любую необходимую её часть в отдельности -
+переменные, миксины, функции или определённую категорию функций:
+
+```scss
+// Импорт всей библиотеки
+@use 'more-sass' as more;
+
+// Импорт переменных
+@use 'more-sass/variables' as more-variables;
+
+// Импорт миксинов
+@use 'more-sass/mixins' as more-mixins;
+
+// Импорт функций
+@use 'more-sass/functions' as more-functions;
+
+// Импорт определённой категории функций
+@use 'more-sass/functions/string' as more-string;
+
+// Импорт определённой функции в глобальном пространстве имён
+@use 'more-sass/functions/string/str-split' as *;
+```
+
+::warning
+Важно!
+More Sass необходимо использовать с основной реализацией Sass (Dart Sass).
+::
+
+
+# color
+
+## hex-to-hsl
+
+Преобразует HEX-значение цвета в HSL.
+
+**Параметры:**
+
+| Имя                      | Тип      | По умолчанию | Описание                                                                                             |
+| ------------------------ | -------- | ------------ | ---------------------------------------------------------------------------------------------------- |
+| $hex [\*]{.text-red-600} | `color`  | —            | HEX-значение цвета.                                                                                  |
+| $separator               | `string` | `comma`      | Разделитель, который будет использован в полученном списке :br`space` \| `comma` \| `slash`\| `auto` |
+
+**Возвращаемое значение:**
+
+`list&#x60; - Список значений в формате HSL &#x2A;(hue, saturation, lightness)*.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.hex-to-hsl(#ff0000); // list: 0deg, 100%, 50%
+```
+
+## hex-to-rgb
+
+Преобразует HEX-значение цвета в RGB.
+
+**Параметры:**
+
+| Имя                      | Тип      | По умолчанию | Описание                                                                                             |
+| ------------------------ | -------- | ------------ | ---------------------------------------------------------------------------------------------------- |
+| $hex [\*]{.text-red-600} | `color`  | —            | HEX-значение цвета.                                                                                  |
+| $separator               | `string` | `comma`      | Разделитель, который будет использован в полученном списке :br`space` \| `comma` \| `slash`\| `auto` |
+
+**Возвращаемое значение:**
+
+`list&#x60; - Список значений в формате RGB &#x2A;(red, green, blue)*.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.hex-to-rgb(#ff0000); // list: 255, 0, 0
+```
+
+## shade
+
+Затемняет переданный цвет, смешивая его с чёрным.
+
+**Параметры:**
+
+| Имя                        | Тип      | По умолчанию | Описание                                     |
+| -------------------------- | -------- | ------------ | -------------------------------------------- |
+| $color [\*]{.text-red-600} | `color`  | —            | Оригинальный цвет.                           |
+| $amount                    | `number` | `10`         | Доля чёрного цвета в получившемся цвете (%). |
+
+**Возвращаемое значение:**
+
+`color` - Цвет, полученный в результате смешения оригинального цвета с чёрным.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.shade(#808080, 45); // color: #464646
+```
+
+## social-color
+
+Получает фирменный цвет определённой социальной сети.
+
+**Параметры:**
+
+| Имя                         | Тип      | По умолчанию | Описание                                         |
+| --------------------------- | -------- | ------------ | ------------------------------------------------ |
+| $social [\*]{.text-red-600} | `string` | —            | Код требуемого ресурса ('vk', 'fb', 'tw', etc.). |
+
+**Возвращаемое значение:**
+
+`?color` - Фирменный цвет требуемой социальной сети.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.social-color('vk'); // color: #4a76a8
+```
+
+::note
+Список доступных кодов:
+
+- `vk` - ВКонтакте
+- `fb` - Facebook
+- `ok` - Однокласники
+- `yt` - YouTube
+- `tw` - Twitter
+- `ig` - Instagram (purple)
+- `ig-gradient` - Instagram (gradient)
+- `tg` - Telegram
+- `dr` - Dribble
+- `be` - Behance
+- `li` - Linked In
+- `wa` - WhatsApp
+- `vb` - Viber
+::
+
+## tint
+
+Осветляет переданный цвет, смешивая его с белым.
+
+**Параметры:**
+
+| Имя                        | Тип      | По умолчанию | Описание                                    |
+| -------------------------- | -------- | ------------ | ------------------------------------------- |
+| $color [\*]{.text-red-600} | `color`  | —            | Оригинальный цвет.                          |
+| $amount                    | `number` | `10`         | Доля белого цвета в получившемся цвете (%). |
+
+**Возвращаемое значение:**
+
+`color` - Цвет, полученный в результате смешения оригинального цвета с белым.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.tint(#808080, 45); // color: #b9b9b9
+```
+
+
+# list
+
+## list-contains
+
+Проверяет, содержит ли хотя бы одно значение в переданном списке искомую подстроку.
+
+**Параметры:**
+
+| Имя                         | Тип      | По умолчанию | Описание           |
+| --------------------------- | -------- | ------------ | ------------------ |
+| $list [\*]{.text-red-600}   | `list`   | —            | Список значений.   |
+| $search [\*]{.text-red-600} | `string` | —            | Искомая подстрока. |
+
+**Возвращаемое значение:**
+
+`bool` - `true`, если одно из значений в переданном списке содержит искомую подстроку, `false` в ином случае.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+$list: ('foo', 'bar', 'baz');
+
+@debug more.list-contains($list, 'ba');  // bool: true
+@debug more.list-contains($list, 'abc'); // bool: false
+```
+
+## list-includes
+
+Проверяет, присутствует ли искомое значение в переданном списке.
+
+**Параметры:**
+
+| Имя                         | Тип    | По умолчанию | Описание          |
+| --------------------------- | ------ | ------------ | ----------------- |
+| $list [\*]{.text-red-600}   | `list` | —            | Список значений.  |
+| $search [\*]{.text-red-600} | `*`    | —            | Искомое значение. |
+
+**Возвращаемое значение:**
+
+`bool` - `true`, если искомое значение присутствует в переданном списке, `false` в ином случае.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+$list: (1, 2, 3);
+
+@debug more.list-includes($list, 2); // bool: true
+@debug more.list-includes($list, 4); // bool: false
+```
+
+## list-join
+
+Объединяет элементы переданного списка значений в строку.
+
+**Параметры:**
+
+| Имя                       | Тип      | По умолчанию | Описание                                   |
+| ------------------------- | -------- | ------------ | ------------------------------------------ |
+| $list [\*]{.text-red-600} | `list`   | —            | Список значений.                           |
+| $separator                | `string` | `''`         | Разделитель элементов в полученной строке. |
+
+**Возвращаемое значение:**
+
+`string` - Строка, содержащая строковое представление всех элементов массива в том же порядке, с разделителем между каждым элементом.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-join((1, 2, 3, 4, 5));    // string: '12345'
+@debug more.list-join((1, 2, 3, 4), ', '); // string: '1, 2, 3, 4'
+```
+
+## list-remove
+
+Удаляет элемент из списка по переданному индексу.
+
+**Параметры:**
+
+| Name                       | Type     | Default | Description                                                                                    |
+| -------------------------- | -------- | ------- | ---------------------------------------------------------------------------------------------- |
+| $list [\*]{.text-red-600}  | `list`   | —       | Список значений.                                                                               |
+| $index [\*]{.text-red-600} | `number` | —       | Индекс элемента для удаления. :br Используйте негативное значение для удаления с конца списка. |
+
+**Возвращаемое значение:**
+
+`list` - Список без элемента с указанным индексом, если он найден, иначе - клон оригинального списка.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-remove((1, 2, 3), 1);   // list: (2, 3)
+@debug more.list-remove((1, 2, 3), -1);  // list: (1, 2)
+@debug more.list-remove((1, 2, 3), 100); // list: (1, 2, 3)
+```
+
+## list-slice
+
+Выбирает срез переданного списка значений.
+
+**Параметры:**
+
+| Имя                           | Тип      | По умолчанию | Описание                                |
+| ----------------------------- | -------- | ------------ | --------------------------------------- |
+| $list [\*]{.text-red-600}     | `list`   | —            | Список значений.                        |
+| $start-at [\*]{.text-red-600} | `number` | —            | Позиция начала среза (включительно).    |
+| $end-at                       | `number` | `-1`         | Позиция окончания среза (включительно). |
+
+**Возвращаемое значение:**
+
+`list` - Срез переданного списка значений.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.list-slice((1, 2, 3, 4, 5), 3); // list: (3, 4, 5)
+@debug more.list-slice((1, 2, 3, 4, 5), 2, 4); // list: (2, 3, 4)
+```
+
+
+# math
+
+## get-numeric
+
+Преобразует строковое представление числа в настоящее число.
+
+**Параметры:**
+
+| Имя                        | Тип               | По умолчанию | Описание                                                         |
+| -------------------------- | ----------------- | ------------ | ---------------------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string | number` | —            | Исходное значение :br (число или строковое представление числа). |
+
+**Возвращаемое значение:**
+
+`?number` - Числовое значение или `null`, если переданное значение не является [корректным числом](https://developer.mozilla.org/en-US/docs/Web/CSS/number#valid_numbers){rel="&#x22;nofollow&#x22;"}.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.get-numeric('12px'); // number: 12px
+@debug more.get-numeric('foo'); // null
+```
+
+## get-unit
+
+Получает единицу измерения переданного числа.
+
+**Параметры:**
+
+| Имя                        | Тип             | По умолчанию | Описание                                                                                |
+| -------------------------- | --------------- | ------------ | --------------------------------------------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string|number` | —            | Число или строковое представление числа, :br единицу измерения которого нужно получить. |
+
+**Возвращаемое значение:**
+
+`?number` - Число, представляющее собой базовое значение полученной единицы измерения (1px, 1em, и т.д.)
+или `null`, если переданное значение не является корректным числом.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.get-unit(12px); // number: 1px
+```
+
+## strip-unit
+
+Убирает единицу измерения у переданного числа.
+
+**Параметры:**
+
+| Имя                        | Тип             | По умолчанию | Описание                                                                                     |
+| -------------------------- | --------------- | ------------ | -------------------------------------------------------------------------------------------- |
+| $value [\*]{.text-red-600} | `string|number` | —            | Число или строковое представление числа, :br у которого необходимо убрать единицу измерения. |
+
+**Возвращаемое значение:**
+
+`?number` - Число без единицы измерения или `null`, если переданное значение не является корректным числом.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.strip-unit(12px); // number: 12
+```
+
+## with-unit
+
+Устанавливает единицу измерения для переданного числа, не имеющего её.
+
+**Параметры:**
+
+| Имя                        | Тип             | По умолчанию | Описание                                                     |
+| -------------------------- | --------------- | ------------ | ------------------------------------------------------------ |
+| $value [\*]{.text-red-600} | `string|number` | —            | Исходное значение (число или строковое представление числа). |
+| $unit                      | `string`        | `px`         | Единица измерения (одна из единиц измерений в CSS).          |
+
+**Возвращаемое значение:**
+
+`number` - Переданное число, преобразованное к заданной единице измерения.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.with-unit(12); // number: 12px
+@debug more.with-unit(12, 'em'); // number: 12em
+```
+
+
+# responsive
+
+## use-fluid-value
+
+Возвращает значение, равномерно масштабируемое в указанных пределах ширины экрана.
+
+**Параметры:**
+
+| Имя                        | Тип    | По умолчанию | Описание                                     |
+| -------------------------- | ------ | ------------ | -------------------------------------------- |
+| $start [\*]{.text-red-600} | `list` | —            | Начальная ширина экрана и значение свойства. |
+| $end [\*]{.text-red-600}   | `list` | —            | Конечная ширина экрана и значение свойства.  |
+
+**Возвращаемое значение:**
+
+`?number` - Гибкое выражение `clamp()`, одно фиксированное значение или `null`, если оба значения не переданы.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@function fluid-value($start, $end) {
+  @return more.use-fluid-value((320px, $start), (1280px, $end));
+}
+
+.element {
+  margin-block-start: fluid-value(16px, 32px);
+}
+```
+
+
+# meta
+
+## column
+
+Генерирует значение или выражение, которое позволит установить размер, в точности равный заданному количеству колонок макета.
+
+**Параметры:**
+
+| Имя                             | Тип             | По умолчанию | Описание                                                                                         |
+| ------------------------------- | --------------- | ------------ | ------------------------------------------------------------------------------------------------ |
+| $expression [\*]{.text-red-600} | `string|number` | —            | Выражение, описывающее необходимый размер в колонках макета: `необходимо-колонок/всего-колонок`. |
+| $gutter                         | `?number`       | null         | Расстояние между колонками макета.                                                               |
+
+**Возвращаемое значение:**
+
+`string|number` - Выражение `calc` или точное значение.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+@debug more.column('6/12');       // number: 50%
+@debug more.column('6/12', 15px); // string: calc(100% / 2 - (15px * (12 - 6) / 12))
+```
+
+## get-char
+
+Получает Unicode-escape значение символа по его человекопонятному имени.
+
+**Параметры:**
+
+| Имя                       | Тип      | По умолчанию | Описание                      |
+| ------------------------- | -------- | ------------ | ----------------------------- |
+| $char [\*]{.text-red-600} | `string` | —            | Человекопонятное имя символа. |
+
+**Возвращаемое значение:**
+
+`?string` - Unicode-escape значение символа, или `null` если переданное имя символа не зарегистрировано.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.get-char('dollar'); // string: '\0024'
+```
+
+::note
+Список доступных символов:
+
+|                        |   |
+| ---------------------- | - |
+| `dollar`               | $ |
+| `section`              | § |
+| `bullet`               | • |
+| `hyphen`               | ‑ |
+| `en-dash`              | – |
+| `em-dash`              | — |
+| `copyright`            | © |
+| `registered`           | ® |
+| `degree`               | ° |
+| `ring`                 | ∘ |
+| `infinity`             | ∞ |
+| `triangle-up-black`    | ▲ |
+| `triangle-up-white`    | △ |
+| `triangle-right-black` | ▶ |
+| `triangle-right-white` | ▷ |
+| `triangle-down-black`  | ▼ |
+| `triangle-down-white`  | ▽ |
+| `triangle-left-black`  | ◀ |
+| `triangle-left-white`  | ◁ |
+| `circle-black`         | ● |
+| `circle-white`         | ○ |
+| `square-black`         | ■ |
+| `square-white`         | □ |
+| `diamond-black`        | ◆ |
+| `diamond-white`        | ◇ |
+| `diamond-inside`       | ◈ |
+| `check`                | ✓ |
+| `check-heavy`          | ✔ |
+| `cross`                | ✕ |
+| `cross-heavy`          | ✖ |
+| `fisheye`              | ◉ |
+::
+
+## offset
+
+Генерирует значение или выражение, которое позволит установить размер, в точности равный заданному количеству колонок макета,
+плюс дополнительный отступ, равный расстоянию между колонками.
+
+**Параметры:**
+
+| Имя                             | Тип             | По умолчанию | Описание                                                                                         |
+| ------------------------------- | --------------- | ------------ | ------------------------------------------------------------------------------------------------ |
+| $expression [\*]{.text-red-600} | `string|number` | —            | Выражение, описывающее необходимый размер в колонках макета: `необходимо-колонок/всего-колонок`. |
+| $gutter                         | `?number`       | null         | Расстояние между колонками макета.                                                               |
+
+**Возвращаемое значение:**
+
+`string|number` - Выражение `calc` или точное значение.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.offset('6/12');       // number: 50%
+@debug more.offset('6/12', 15px); // string: calc(calc(100% / 2 - (15px * (12 - 6) / 12)) + 15px)
+```
+
+## parse-directions
+
+Разбирает переданный список значений используя стандартный порядок CSS (top, right, bottom, left).
+Значения могут быть пропущены используя `null` (предпочтительно) или его псевдоним `n`.
+
+::note
+Если передан один аргумент, он используется для всех свойств позиционирования.
+
+Если передано два аргумента, первое используется как значение **top** и **bottom**, второе - как значение **left** и **right**.
+
+Если передано три аргумента, первое используется как значение **top**,
+второе - как значение **left** и **right**, третье - как значение **bottom**.
+
+Если передано четыре аргумента, первое используется как значение **top**, второе - как значение **left**,
+третье - как значение **bottom**, четвёртое - как значение **left**.
+::
+
+**Параметры:**
+
+| Имя                         | Тип    | По умолчанию | Описание         |
+| --------------------------- | ------ | ------------ | ---------------- |
+| $values [\*]{.text-red-600} | `list` | —            | Список значений. |
+
+**Возвращаемое значение:**
+
+`map&#x60; - Полный набор свойств позиционирования в формате &#x2A;*(position: value)**.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.parse-directions(1px 2px 3px 4px); // map: (top: 1px, right: 2px, bottom: 3px, left: 4px)
+@debug more.parse-directions(1px, 2px, 3px, 4px); // map: (top: 1px, right: 2px, bottom: 3px, left: 4px)
+
+@debug more.parse-directions(null, 2px, n, 4px); // map: (top: null, right: 2px, bottom: null, left: 4px)
+```
+
+
+# string
+
+## str-capitalize
+
+Преобразует первый символ переданной строки в верхний регистр.
+
+**Параметры:**
+
+| Имя                         | Тип      | По умолчанию | Описание            |
+| --------------------------- | -------- | ------------ | ------------------- |
+| $string [\*]{.text-red-600} | `string` | —            | Изначальная строка. |
+
+**Возвращаемое значение:**
+
+`string` - Переданная строка, первый символ которой преобразован в верхний регистр.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-capitalize('foo bar'); // string: 'Foo bar'
+```
+
+## str-replace
+
+Заменяет все вхождения строки поиска на строку замены.
+
+**Параметры:**
+
+| Имя                          | Тип       | По умолчанию | Описание                                                        |
+| ---------------------------- | --------- | ------------ | --------------------------------------------------------------- |
+| $string [\*]{.text-red-600}  | `string`  | —            | Строка, в которой осуществляется поиск и замена.                |
+| $search [\*]{.text-red-600}  | `string`  | —            | Строка поиска.                                                  |
+| $replace [\*]{.text-red-600} | `string`  | —            | Строка замены.                                                  |
+| $limit                       | `?number` | `null`       | Переданное значение ограничивает количество производимых замен. |
+
+**Возвращаемое значение:**
+
+`string` - Изменённая строка.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-replace('foo bar baz', 'ba', 'x'); // string: 'foo xr xz'
+```
+
+## str-split
+
+Разделяет переданную строку на список строк.
+
+**Параметры:**
+
+| Имя                         | Тип      | По умолчанию | Описание                                                                                              |
+| --------------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------- |
+| $string [\*]{.text-red-600} | `string` | —            | Изначальная строка.                                                                                   |
+| $delimiter                  | `string` | `''`         | Строка-разделитель.                                                                                   |
+| $separator                  | `string` | `auto`       | Разделитель, который будет использован в полученном списке :br`space` \| `comma` \| `slash` \| `auto` |
+
+**Возвращаемое значение:**
+
+`list` - Список строк, созданный путём разделения переданной строки на подстроки по заданному разделителю.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-split('foo|bar|baz', '|', 'comma'); // list: ('foo', 'bar', 'baz')
+```
+
+## str-trim
+
+Удаляет пробелы в начале и конце переданной строки.
+
+**Параметры:**
+
+| Имя                         | Тип      | По умолчанию | Описание            |
+| --------------------------- | -------- | ------------ | ------------------- |
+| $string [\*]{.text-red-600} | `string` | —            | Изначальная строка. |
+
+**Возвращаемое значение:**
+
+`string` - Строка, в начале и конце которой отсутствуют пробелы.
+
+**Пример использования:**
+
+```scss
+@use 'more-sass' as more;
+
+@debug more.str-trim(' foo bar   '); // string: 'foo bar'
+```
+
+
+# bem-modifiers
+
+## Параметры
+
+| Имя                            | Тип    | По умолчанию | Описание                             |
+| ------------------------------ | ------ | ------------ | ------------------------------------ |
+| $modifiers [\*]{.text-red-600} | `list` | —            | Список дополнительных модификаторов. |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.block {
+  &__element {
+    @include more.bem-modifiers('--modifier-one', '--modifier-two', '--modifier-three') {
+      color: #f00;
+    }
+  }
+}
+```
+
+```css [Результат]
+.block__element--modifier-one.block__element--modifier-two.block__element--modifier-three {
+  color: #f00;
+}
+```
+::
+
+
+# border-radius
+
+::note
+Значения могут быть автоматически установлены в ноль используя 
+
+`null`
+
+ (предпочтительно) или его псевдоним 
+
+`n`
+
+.
+::
+
+## Параметры
+
+| Имя                        | Тип           | По умолчанию | Описание                                                |
+| -------------------------- | ------------- | ------------ | ------------------------------------------------------- |
+| $value [\*]{.text-red-600} | `list|string` | —            | Значение свойства.                                      |
+| $direction                 | `?string`     | null         | Ключевое слово, описывающее список необходимых свойств. |
+
+::note
+Список ключевых слов:
+
+| Ключевое слово | Устанавливаемые свойства                                  |
+| -------------- | --------------------------------------------------------- |
+| `top`          | `border-top-left-radius`, `border-top-right-radius`       |
+| `right`        | `border-top-right-radius`, `border-bottom-right-radius`   |
+| `bottom`       | `border-bottom-right-radius`, `border-bottom-left-radius` |
+| `left`         | `border-top-left-radius`, `border-bottom-left-radius`     |
+| `top-right`    | `border-top-right-radius`                                 |
+| `top-left`     | `border-top-left-radius`                                  |
+| `bottom-right` | `border-bottom-right-radius`                              |
+| `bottom-left`  | `border-bottom-left-radius`                               |
+| `cross-left`   | `border-top-left-radius`, `border-bottom-right-radius`    |
+| `cross-right`  | `border-top-right-radius`, `border-bottom-left-radius`    |
+| `all`          | `border-radius`                                           |
+::
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.border-radius(1px 2px null 4px);
+}
+
+.element-two {
+  @include more.border-radius(10px, 'cross-left');
+}
+```
+
+```css [Результат]
+.element-one {
+  border-radius: 1px 2px 0 4px;
+}
+
+.element-two {
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+```
+::
+
+
+# box
+
+Сокращённый вариант одновременной записи свойств `inline-size` и `block-size`.
+
+::note
+Inline- или block-размер может быть пропущен используя 
+
+`null`
+
+ (предпочтительно) или его псевдоним 
+
+`n`
+
+.
+::
+
+## Параметры
+
+| Имя                              | Тип      | По умолчанию | Описание                |
+| -------------------------------- | -------- | ------------ | ----------------------- |
+| $inline-size [\*]{.text-red-600} | `number` | —            | Inline-размер элемента. |
+| $block-size                      | `number` | $inline-size | Block-размер элемента.  |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.box(100px);
+}
+
+.element-two {
+  @include more.box(100px, 200px);
+}
+
+.element-three {
+  @include more.box(100px, null);
+}
+
+.element-four {
+  @include more.box(null, 200px);
+}
+```
+
+```css [Результат]
+.element-one {
+  inline-size: 100px;
+  block-size: 100px;
+}
+
+.element-two {
+  inline-size: 100px;
+  block-size: 200px;
+}
+
+.element-three {
+  inline-size: 100px;
+}
+
+.element-four {
+  block-size: 200px;
+}
+```
+::
+
+
+# br
+
+## br-hide
+
+Удаляет переносы строк внутри текущего элемента.
+
+### Параметры
+
+—
+
+### Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.br-hide;
+}
+```
+
+```css [Результат]
+.element br {
+  display: none;
+}
+```
+::
+
+## br-show
+
+Восстанавливает переносы строк внутри текущего элемента.
+
+### Параметры
+
+—
+
+### Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.br-show;
+}
+```
+
+```css [Результат]
+.element br {
+  display: block flow;
+}
+```
+::
+
+
+# ellipsis
+
+## Параметры
+
+| Имя              | Тип      | По умолчанию | Описание                             |
+| ---------------- | -------- | ------------ | ------------------------------------ |
+| $max-inline-size | `number` | 100%         | Ограничение inline-размера элемента. |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.ellipsis;
+}
+```
+
+```css [Результат]
+.element {
+  max-inline-size: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+```
+::
+
+
+# font
+
+## Параметры
+
+| Имя                         | Тип                  | По умолчанию | Описание                                                                                                                 |
+| --------------------------- | -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| $params [\*]{.text-red-600} | `string|list|number` | —            | Список значений для одного или нескольких свойств из следующих: `font-style`, `font-weight`, `font-size`, `line-height`. |
+| $font-family                | `?string`            | null         | Значение свойства `font-family`.                                                                                         |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.font('italic 700 16px/1.5');
+}
+
+.element-two {
+  @include more.font(32px);
+}
+
+.element-three {
+  @include more.font('/1.2');
+}
+
+.element-four {
+  @include more.font(16px, 'Agora Slab Pro');
+}
+```
+
+```css [Результат]
+.element-one {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.element-two {
+  font-size: 32px;
+}
+
+.element-three {
+  line-height: 1.2;
+}
+
+.element-four {
+  font-size: 16px;
+  font-family: 'Agora Slab Pro';
+}
+```
+::
+
+
+# full-size
+
+::warning
+Не забудьте указать для родительского элемента значение свойства 
+
+`position`
+
+, отличное от 
+
+`static`
+
+.
+::
+
+## Параметры
+
+—
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.full-size;
+}
+```
+
+```css [Результат]
+.element {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: block flow;
+  inline-size: 100%;
+  block-size: 100%;
+}
+```
+::
+
+
+# hidden-element
+
+## hidden-element
+
+Визуально скрывает элемент, но оставляет его в основном потоке документа.
+
+### Параметры
+
+| Имя      | Тип       | По умолчанию | Описание                     |
+| -------- | --------- | ------------ | ---------------------------- |
+| $z-index | `?number` | `null`       | Значение свойства `z-index`. |
+
+### Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.hidden-element;
+}
+
+.element-two {
+  @include more.hidden-element(10);
+}
+```
+
+```css [Результат]
+.element-one {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.element-two {
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+}
+```
+::
+
+## hidden-element-active
+
+Показывает скрытый элемент - отменяет эффект применения миксина `hidden-element`.
+
+### Параметры
+
+| Имя      | Тип       | По умолчанию | Описание                     |
+| -------- | --------- | ------------ | ---------------------------- |
+| $z-index | `?number` | `null`       | Значение свойства `z-index`. |
+
+### Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.hidden-element-active;
+}
+```
+
+```css [Результат]
+.element {
+  visibility: visible;
+  opacity: 1;
+}
+```
+::
+
+
+# hide-scrollbar
+
+## Параметры
+
+—
+
+### Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.block {
+  @include more.hide-scrollbar;
+}
+```
+
+```css [Output]
+.block {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.block::-webkit-scrollbar {
+  display: none;
+  inline-size: 0;
+  block-size: 0;
+  appearance: none;
+}
+```
+::
+
+
+# margin
+
+::note
+Значения могут быть пропущены используя 
+
+`null`
+
+ (предпочтительно) или его псевдоним 
+
+`n`
+
+.
+::
+
+## Параметры
+
+| Имя                         | Тип    | По умолчанию | Описание                                                                  |
+| --------------------------- | ------ | ------------ | ------------------------------------------------------------------------- |
+| $values [\*]{.text-red-600} | `list` | —            | Значения свойства `margin` в стандартном порядке (top-right-bottom-left). |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.margin(10px);
+}
+
+.element-two {
+  @include more.margin(10px 20px 30px 40px); // or: @include more.margin(10px, 20px, 30px, 40px);
+}
+
+.element-three {
+  @include more.margin(null auto);
+}
+```
+
+```css [Результат]
+.element-one {
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+
+.element-two {
+  margin-block-start: 10px;
+  margin-block-end: 30px;
+  margin-inline-start: 40px;
+  margin-inline-end: 20px;
+}
+
+.element-three {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+```
+::
+
+
+# padding
+
+::note
+Значения могут быть пропущены используя 
+
+`null`
+
+ (предпочтительно) или его псевдоним 
+
+`n`
+
+.
+::
+
+## Параметры
+
+| Имя                         | Тип    | По умолчанию | Описание                                                                   |
+| --------------------------- | ------ | ------------ | -------------------------------------------------------------------------- |
+| $values [\*]{.text-red-600} | `list` | —            | Значения свойства `padding` в стандартном порядке (top-right-bottom-left). |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.padding(10px);
+}
+
+.element-two {
+  @include more.padding(10px 20px 30px 40px); // or: @include more.padding(10px, 20px, 30px, 40px);
+}
+
+.element-three {
+  @include more.padding(null auto);
+}
+```
+
+```css [Результат]
+.element-one {
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+}
+
+.element-two {
+  padding-block-start: 10px;
+  padding-block-end: 30px;
+  padding-inline-start: 40px;
+  padding-inline-end: 20px;
+}
+
+.element-three {
+  padding-inline-start: auto;
+  padding-inline-end: auto;
+}
+```
+::
+
+
+# parent-state
+
+## Параметры
+
+| Имя                         | Тип    | По умолчанию | Описание                                                                                          |
+| --------------------------- | ------ | ------------ | ------------------------------------------------------------------------------------------------- |
+| $states [\*]{.text-red-600} | `list` | —            | Состояние(я) родительского элемента текущего псевдо-элемента (псевдоклассы, модификаторы и т.п.). |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  &::after {
+    @include more.parent-state(':hover', '.is-active') {
+      color: #f00;
+    }
+  }
+}
+```
+
+```css [Результат]
+.element:hover::after,
+.element.is-active::after {
+  color: #f00;
+}
+```
+::
+
+
+# pos
+
+## Параметры
+
+| Имя       | Тип      | По умолчанию | Описание                                                                   |
+| --------- | -------- | ------------ | -------------------------------------------------------------------------- |
+| $position | `string` | `absolute`   | Тип позиционирования (relative, absolute и т.д.).                          |
+| $values   | `list`   | `()`         | Значения позиционирования в стандартном порядке (top-right-bottom-left)\*. |
+| $z-index  | `number` | `null`       | Значение `z-index`, если оно необходимо.                                   |
+
+::note
+Значения могут быть пропущены используя 
+
+`null`
+
+ (предпочтительно) или его псевдоним 
+
+`n`
+
+.
+::
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.pos('absolute', 10px);
+}
+
+.element-two {
+  @include more.pos('absolute', 10px 20px 30px 40px, 5);
+}
+
+.element-three {
+  @include more.pos('absolute', null auto);
+}
+```
+
+```css [Результат]
+.element-one {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
+  inset-inline-end: 10px;
+}
+
+.element-two {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-block-end: 30px;
+  inset-inline-start: 40px;
+  inset-inline-end: 20px;
+  z-index: 5;
+}
+
+.element-three {
+  position: absolute;
+  inset-inline-start: auto;
+  inset-inline-end: auto;
+}
+```
+::
+
+::note
+Также доступны сокращённые варианты записи для конкретных типов позиционирования:
+
+`pos-rel($values, $z-index)``pos-abs($values, $z-index)``pos-fix($values, $z-index)`
+::
+
+
+# pseudo
+
+## Параметры
+
+| Имя      | Тип      | По умолчанию | Описание                     |
+| -------- | -------- | ------------ | ---------------------------- |
+| $display | `string` | `block`      | Значение свойства `display`. |
+| $content | `string` | `''`         | Значение свойства `content`. |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  &::after {
+    @include more.pseudo;
+  }
+}
+
+.element-two {
+  &::after {
+    @include more.pseudo('inline-block', 'foo');
+  }
+}
+```
+
+```css [Результат]
+.element-one::after {
+  content: '';
+  display: block flow;
+}
+
+.element-two::after {
+  content: 'foo';
+  display: inline flow-root;
+}
+```
+::
+
+
+# reset-button
+
+## Параметры
+
+—
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+button {
+  @include more.reset-button;
+}
+```
+
+```css [Результат]
+button {
+  inline-size: auto;
+  margin: 0;
+  padding: 0;
+  color: currentColor;
+  font: inherit;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  appearance: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+```
+::
+
+
+# reset-input
+
+## Параметры
+
+—
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+input {
+  @include more.reset-input;
+}
+```
+
+```css [Результат]
+input {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  appearance: none;
+}
+```
+::
+
+
+# transform-center
+
+::warning
+Не забудьте указать для родительского элемента значение свойства 
+
+`position`
+
+ отличное от 
+
+`static`
+
+.
+::
+
+## Параметры
+
+—
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.transform-center;
+}
+```
+
+```css [Результат]
+.element {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+::
+
+
+# triangle
+
+## Параметры
+
+| Имя                              | Тип      | По умолчанию   | Описание                                              |
+| -------------------------------- | -------- | -------------- | ----------------------------------------------------- |
+| $inline-size [\*]{.text-red-600} | `number` | —              | Строчный размер треугольника.                         |
+| $block-size [\*]{.text-red-600}  | `number` | —              | Блочный размер треугольника.                          |
+| $direction [\*]{.text-red-600}   | `string` | —              | Ключевое слово, описывающее направление треугольника. |
+| $color                           | `color`  | `currentColor` | Цвет треугольника.                                    |
+
+::note
+Список ключевых слов:
+
+| Ключевое слово | Фигура |
+| -------------- | ------ |
+| `top`          | ▲      |
+| `bottom`       | ▼      |
+| `left`         | ◀      |
+| `right`        | ▶      |
+| `bottom-left`  | ◣      |
+| `bottom-right` | ◢      |
+| `top-left`     | ◤      |
+| `top-right`    | ◥      |
+::
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element-one {
+  @include more.triangle(10px, 8px, 'top');
+}
+
+.element-two {
+  @include more.triangle(14px, 18px, 'bottom-left', #148cd7);
+}
+```
+
+```css [Результат]
+.element-one {
+  display: block flow;
+  inline-size: 10px;
+  block-size: 8px;
+  background: currentColor;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.element-two {
+  display: block flow;
+  inline-size: 14px;
+  block-size: 18px;
+  background: #148cd7;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+```
+::
+
+
+# use-fluid-font
+
+Сокращённый вариант одновременного использования `use-fluid-prop('font-size')` и `use-fluid-prop('line-height')`.
+
+Рекомендуется использовать как миксин высшего порядка для задания проектных умолчаний с целью уменьшения шаблонного кода.
+
+## Параметры
+
+| Имя                        | Тип    | По умолчанию | Описание                                                              |
+| -------------------------- | ------ | ------------ | --------------------------------------------------------------------- |
+| $start [\*]{.text-red-600} | `list` | —            | Список, содержащий начальные значения ширины экрана и свойств шрифта. |
+| $end [\*]{.text-red-600}   | `list` | —            | Список, содержащий конечные значения ширины экрана и свойств шрифта.  |
+
+::note
+Свойства шрифта передаются в виде строки, содержащей значения 
+
+`font-size`
+
+ и 
+
+`line-height`
+
+, разделённые слэшем (
+
+`/`
+
+),
+как и в стандартном свойстве 
+
+*font*
+
+: 
+
+`14px/1.6`
+
+.
+Также можно установить только значение 
+
+*font-size*
+
+ (
+
+`14px`
+
+) или только 
+
+*line-height*
+
+ (
+
+`/1.6`
+
+).
+::
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.use-fluid-font((320px, '14px/1.5'), (1280px, '20px/1.4'));
+}
+```
+
+```css [Результат]
+.element {
+  font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+  line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
+}
+```
+::
+
+## Пример использования в качестве миксина высшего порядка
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+
+@mixin fluid-font($min, $max) {
+  @include more.use-fluid-font((320px, $min), (1280px, $max));
+}
+
+// Other files
+.element {
+  @include fluid-font('14px/1.5', '20px/1.4');
+}
+```
+
+```css [Результат]
+.element {
+  font-size: clamp(14px, calc(14px + 6 * (100vi - 320px) / 960), 20px);
+  line-height: clamp(21px, calc(21px + 7 * (100vi - 320px) / 960), 28px);
+}
+```
+::
+
+
+# use-fluid-prop
+
+См. <https://www.madebymike.com.au/writing/fluid-type-calc-examples/>{rel="&#x22;nofollow&#x22;"}.
+
+::note
+Миксин оставлен для обратной совместимости.
+Для нового кода рекомендуется использовать 
+
+`use-fluid-value`
+
+: функция сохраняет значение внутри CSS-декларации,
+поэтому лучше работает с редакторами, линтерами и другими инструментами, а также ближе к нативным CSS-функциям,
+которые рано или поздно появятся в CSS.
+Паттерн миксина или функции высшего порядка остаётся актуальным: используйте его, чтобы задать проектные
+брейкпоинты и уменьшить шаблонный код.
+::
+
+## Параметры
+
+| Имя                           | Тип      | По умолчанию | Описание                                                                    |
+| ----------------------------- | -------- | ------------ | --------------------------------------------------------------------------- |
+| $property [\*]{.text-red-600} | `string` | —            | Имя свойства.                                                               |
+| $start [\*]{.text-red-600}    | `list`   | —            | Список, содержащий начальные значения ширины экрана и переданного свойства. |
+| $end [\*]{.text-red-600}      | `list`   | —            | Список, содержащий конечные значения ширины экрана и переданного свойства.  |
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.use-fluid-prop('margin-block-end', (320px, 20px), (1280px, 60px));
+}
+```
+
+```css [Результат]
+.element {
+  margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
+}
+```
+::
+
+## Пример использования в качестве миксина высшего порядка
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+
+@mixin fluid-prop($property, $min, $max) {
+  @include more.use-fluid-prop($property, (320px, $min), (1280px, $max));
+}
+
+// Другие файлы
+.element {
+  @include fluid-prop('margin-block-end', 20px, 60px);
+}
+```
+
+```css [Результат]
+.element {
+  margin-block-end: clamp(20px, calc(20px + 40 * (100vi - 320px) / 960), 60px);
+}
+```
+::
+
+
+# use-transition
+
+## Параметры
+
+| Name             | Type     | Default | Description                                                             |
+| ---------------- | -------- | ------- | ----------------------------------------------------------------------- |
+| $properties      | `list`   | —       | Список свойств для анимации. Используйте пробел в качестве разделителя. |
+| $duration        | `number` | —       | Длительность анимации.                                                  |
+| $delay           | `number` | —       | Задержка анимации.                                                      |
+| $timing-function | `string` | —       | Функция плавности анимации.                                             |
+
+## Пример использования
+
+Рекомендуется создать свой миксин, названный `transition`, задать в нём настройки для проекта и передать результат в `use-transition`.
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+
+@mixin transition($properties: (), $duration: .3s) {
+  @include more.use-transition($properties: $properties, $duration: $duration);
+}
+
+// ...
+
+.element {
+  @include transition(opacity transform);
+}
+
+.element-two {
+  // С запятой в качестве разделителя необходимы дополнительные скобки
+  @include transition((opacity, transform), .3s);
+}
+```
+
+```css [Output]
+.element {
+  transition-property: opacity, transform;
+  transition-duration: .3s;
+}
+
+.element-two {
+  transition-property: opacity, transform;
+  transition-duration: .3s;
+}
+```
+::
+
+Если хочется использовать свойства, разделяя их запятыми, не оборачивая их в дополнительные скобки,
+и при этом нет необходимости задавать более одного свойства `transition-XXX`
+(обычно кастомизации `transition-duration` вполне достаточно), вы можете создать расширенную версию миксина `transition` вроде этой:
+
+::code-group
+```scss [SCSS]
+// setup.scss
+@use 'more-sass' as more;
+@use 'sass:meta';
+@use 'sass:list';
+
+@mixin transition($properties...) {
+  $duration: .3s; // `transition-duration` по умолчанию, если не передано иное
+
+  @for $i from 1 through list.length($properties) {
+    $prop: list.nth($properties, $i);
+
+    @if (meta.type-of($prop) == 'number') {
+      $duration: $prop;
+      $properties: more.list-remove($properties, $i);
+    }
+  }
+
+  @include use-transition($properties: $properties, $duration: $duration);
+}
+
+// ...
+
+.element {
+  // Свойства, разделенные запятыми, без дополнительных скобок
+  @include transition(opacity, transform);
+}
+
+.element-two {
+  @include transition(opacity, transform, .2s);
+}
+```
+
+```css [Output]
+.element {
+  transition-property: opacity, transform;
+  transition-duration: .3s; /* значение по умолчанию */
+}
+
+.element-two {
+  transition-property: opacity, transform;
+  transition-duration: .2s; /* изменённое значение по умолчанию */
+}
+```
+::
+
+
+# visually-hidden
+
+## Параметры
+
+—
+
+## Пример использования
+
+::code-group
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.visually-hidden;
+}
+```
+
+```css [Результат]
+.element {
+  position: absolute;
+  z-index: -1;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+```
+::
+
+
+# Переменные
+
+## $font-styles
+
+Список возможных значений для свойства `font-style`.
+
+**Тип:** `list`
+
+```scss
+$font-styles: (
+  'normal',
+  'italic',
+);
+```
+
+## $font-weights
+
+Список возможных значений для свойства `font-weight`.
+
+**Тип:** `list`
+
+```scss
+$font-weights: (
+  '100',
+  '200',
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  'bold',
+  'bolder',
+  'lighter',
+  'normal',
+  'inherit',
+  'initial',
+);
+```
+
+## $pseudo-elements
+
+Список псевдо-элементов CSS.
+
+**Тип:** `list`
+
+```scss
+$pseudo-elements: (
+  '::before',
+  ':before',
+  '::after',
+  ':after',
+  '::backdrop',
+  '::cue',
+  '::cue-region',
+  '::first-letter',
+  ':first-letter',
+  '::first-line',
+  ':first-line',
+  '::file-selector-button',
+  '::grammar-error',
+  '::marker',
+  '::placeholder',
+  '::selection',
+  '::spelling-error',
+  '::target-text',
+);
+```
+
+## $units
+
+Map-объект, содержащий единицы измерения, используемые в CSS. Ключами являются названия единиц измерения (тип `string`),
+значениями - базовое числовое представление данной единицы измерения (тип `number`).
+
+**Тип:** `map`
+
+```scss
+$units: (
+  '%': 1%,
+  'cqmin': 1cqmin,
+  'cqmax': 1cqmax,
+  'cqw': 1cqw,
+  'cqh': 1cqh,
+  'cqi': 1cqi,
+  'cqb': 1cqb,
+  'svmin': 1svmin,
+  'svmax': 1svmax,
+  'lvmin': 1lvmin,
+  'lvmax': 1lvmax,
+  'dvmin': 1dvmin,
+  'dvmax': 1dvmax,
+  'svw': 1svw,
+  'svh': 1svh,
+  'svi': 1svi,
+  'svb': 1svb,
+  'lvw': 1lvw,
+  'lvh': 1lvh,
+  'lvi': 1lvi,
+  'lvb': 1lvb,
+  'dvw': 1dvw,
+  'dvh': 1dvh,
+  'dvi': 1dvi,
+  'dvb': 1dvb,
+  'vmin': 1vmin,
+  'vmax': 1vmax,
+  'vw': 1vw,
+  'vh': 1vh,
+  'vi': 1vi,
+  'vb': 1vb,
+  'dpcm': 1dpcm,
+  'dppx': 1dppx,
+  'dpi': 1dpi,
+  'px': 1px,
+  'q': 1q,
+  'pt': 1pt,
+  'cm': 1cm,
+  'mm': 1mm,
+  'in': 1in,
+  'pc': 1pc,
+  'rem': 1rem,
+  'rlh': 1rlh,
+  'em': 1em,
+  'lh': 1lh,
+  'cap': 1cap,
+  'ch': 1ch,
+  'ic': 1ic,
+  'ex': 1ex,
+  'fr': 1fr,
+  'ms': 1ms,
+  's': 1s,
+  'deg': 1deg,
+  'grad': 1grad,
+  'rad': 1rad,
+  'turn': 1turn,
+);
+```

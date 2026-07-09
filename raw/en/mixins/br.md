@@ -1,0 +1,59 @@
+# br
+
+> This is the coupled pair of mixins allows to manipulate over the line breaks that were set manually with br tag.
+
+## br-hide
+
+Removes a line breaks inside of the current element.
+
+### Arguments
+
+—
+
+### Example
+
+<code-group>
+
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.br-hide;
+}
+```
+
+```css [Output]
+.element br {
+  display: none;
+}
+```
+
+</code-group>
+
+## br-show
+
+Restores a line breaks inside of the current element.
+
+### Arguments
+
+—
+
+### Example
+
+<code-group>
+
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.br-show;
+}
+```
+
+```css [Output]
+.element br {
+  display: block flow;
+}
+```
+
+</code-group>

@@ -1,0 +1,36 @@
+# visually-hidden
+
+> Visually hides the element but keeps it accessible.
+
+## Arguments
+
+—
+
+## Example
+
+<code-group>
+
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.element {
+  @include more.visually-hidden;
+}
+```
+
+```css [Output]
+.element {
+  position: absolute;
+  z-index: -1;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+```
+
+</code-group>

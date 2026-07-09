@@ -1,0 +1,35 @@
+# hide-scrollbar
+
+> Визуально прячет любой скроллбар элемента.
+
+## Параметры
+
+—
+
+### Пример использования
+
+<code-group>
+
+```scss [SCSS]
+@use 'more-sass' as more;
+
+.block {
+  @include more.hide-scrollbar;
+}
+```
+
+```css [Output]
+.block {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.block::-webkit-scrollbar {
+  display: none;
+  inline-size: 0;
+  block-size: 0;
+  appearance: none;
+}
+```
+
+</code-group>
