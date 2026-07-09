@@ -1,0 +1,82 @@
+@use 'true' as *; // sass-true
+@use './use-fluid-value.scss' as *;
+@use '../../../_index.scss' as more;
+
+@function _local-fluid-value($start-val, $end-val) {
+	@return use-fluid-value((480px, $start-val), (1440px, $end-val));
+}
+
+@include describe('Functions') {
+	@include describe('use-fluid-value') {
+		@include it('Returns clamp expression if value increases') {
+			@include assert {
+				@include output {
+					margin-block-start: use-fluid-value((320px, 16px), (1280px, 32px));
+				}
+
+				@include expect {
+					margin-block-start: clamp(16px, calc(16px + 16 * (100vi - 320px) / 960), 32px);
+				}
+			}
+		}
+
+		@include it('Returns clamp expression if value decreases') {
+			@include assert {
+				@include output {
+					margin-block-start: use-fluid-value((320px, 60px), (1280px, 20px));
+				}
+
+				@include expect {
+					margin-block-start: clamp(20px, calc(60px + -40 * (100vi - 320px) / 960), 60px);
+				}
+			}
+		}
+
+		@include it('Considers viewport limits from arguments') {
+			@include assert {
+				@include output {
+					margin-block-start: use-fluid-value((480px, 20px), (1440px, 60px));
+				}
+
+				@include expect {
+					margin-block-start: clamp(20px, calc(20px + 40 * (100vi - 480px) / 960), 60px);
+				}
+			}
+		}
+
+		@include it('Is available from root entrypoint') {
+			@include assert {
+				@include output {
+					margin-block-start: more.use-fluid-value((320px, 16px), (1280px, 32px));
+				}
+
+				@include expect {
+					margin-block-start: clamp(16px, calc(16px + 16 * (100vi - 320px) / 960), 32px);
+				}
+			}
+		}
+
+		@include it('Works correctly as high order function') {
+			@include assert {
+				@include output {
+					margin-block-start: _local-fluid-value(20px, 60px);
+				}
+
+				@include expect {
+					margin-block-start: clamp(20px, calc(20px + 40 * (100vi - 480px) / 960), 60px);
+				}
+			}
+		}
+
+		@include it('Returns fixed value if start and end values are equal') {
+			@include assert-equal(use-fluid-value((320px, 24px), (1280px, 24px)), 24px);
+			@include assert-equal(use-fluid-value((320px, 1.2), (1280px, 1.2)), 1.2);
+		}
+
+		@include it('Returns single value if another one is absent') {
+			@include assert-equal(use-fluid-value((320px, 24px), (1280px, null)), 24px);
+			@include assert-equal(use-fluid-value((320px, null), (1280px, 16px)), 16px);
+			@include assert-equal(use-fluid-value((320px, null), (1280px, null)), null);
+		}
+	}
+}

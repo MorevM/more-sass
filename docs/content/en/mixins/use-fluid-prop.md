@@ -9,7 +9,16 @@ fullscreen: true
 Sets a given property scaling uniformly within the specified limits depending on the screen width. \
 See <https://www.madebymike.com.au/writing/fluid-type-calc-examples/>.
 
-It's recommended to use this mixin as high order mixin to set project defaults and reduce the boilerplate code.
+<alert type="info">
+
+  This mixin is kept for backward compatibility.
+  For new code, prefer `use-fluid-value`: the function keeps the value inside a CSS declaration,
+  which preserves editor, linter, and tooling integration, and is closer to native CSS functions
+  that will eventually land in CSS.
+  The higher-order mixin or function pattern is still useful: use it to set project breakpoints
+  and reduce boilerplate.
+
+</alert>
 
 ## Arguments
 

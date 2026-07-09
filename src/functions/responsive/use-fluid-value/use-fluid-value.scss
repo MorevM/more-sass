@@ -1,0 +1,42 @@
+@use 'sass:list';
+@use 'sass:math';
+@use '../../math/strip-unit/strip-unit.scss' as *;
+
+/**
+ * Returns a value scaling uniformly within the specified viewport limits.
+ *
+ * @param    {list}    $start    The list containing start values of screen width and property.
+ * @param    {list}    $end      The list containing end values of screen width and property.
+ *
+ * @return   {?number}        Fluid value or single fixed value.
+ */
+@function use-fluid-value($start, $end) {
+	$start-vw: list.nth($start, 1);
+	$start-val: list.nth($start, 2);
+	$end-vw: list.nth($end, 1);
+	$end-val: list.nth($end, 2);
+
+	@if ($start-val != null and $end-val == null) {
+		@return $start-val;
+	}
+
+	@if ($end-val != null and $start-val == null) {
+		@return $end-val;
+	}
+
+	@if ($start-val == null and $end-val == null) {
+		@return null;
+	}
+
+	@if ($start-val == $end-val) {
+		@return $start-val;
+	}
+
+	$min-val: math.min($start-val, $end-val);
+	$max-val: math.max($start-val, $end-val);
+	$vw-diff: strip-unit($end-vw - $start-vw);
+	$val-diff: strip-unit($end-val - $start-val);
+	$fluid-val: calc($start-val + $val-diff * (100vi - #{$start-vw}) / $vw-diff);
+
+	@return clamp($min-val, $fluid-val, $max-val);
+}

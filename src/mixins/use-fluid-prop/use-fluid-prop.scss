@@ -1,6 +1,4 @@
-@use 'sass:list';
-@use 'sass:math';
-@use '../../functions/math/strip-unit/strip-unit.scss' as *;
+@use '../../functions/responsive/use-fluid-value/use-fluid-value.scss' as *;
 
 /**
  * Sets a given property scaling uniformly within the specified limits depending on the screen width.
@@ -11,30 +9,9 @@
  * @param    {list}      $end                 The list containing end values of screen width and property.
  */
 @mixin use-fluid-prop($property, $start, $end) {
-	$start-vw: list.nth($start, 1);
-	$start-val: list.nth($start, 2);
-	$end-vw: list.nth($end, 1);
-	$end-val: list.nth($end, 2);
+	$value: use-fluid-value($start, $end);
 
-	$only-value: null;
-
-	@if $start-val != null and $end-val == null {
-		$only-value: $start-val;
-	} @else if $end-val != null and $start-val == null {
-		$only-value: $end-val;
-	}
-
-	@if ($only-value) {
-		#{$property}: $only-value;
-	} @else if ($start-val != null and $end-val != null and $start-val == $end-val) {
-		#{$property}: $start-val;
-	} @else if ($start-val != null and $end-val != null) {
-		$min-val: math.min($start-val, $end-val);
-		$max-val: math.max($start-val, $end-val);
-		$vw-diff: strip-unit($end-vw - $start-vw);
-		$val-diff: strip-unit($end-val - $start-val);
-		$fluid-val: calc($start-val + $val-diff * (100vi - #{$start-vw}) / $vw-diff);
-
-		#{$property}: clamp($min-val, $fluid-val, $max-val);
+	@if ($value != null) {
+		#{$property}: $value;
 	}
 }

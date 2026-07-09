@@ -15,7 +15,7 @@ Transforms a given pseudo-number string to a real number.
 **Arguments:**
 
 | Name                                       | Type               | Default | Description                                       |
-|--------------------------------------------|--------------------|---------|---------------------------------------------------|
+| ------------------------------------------ | ------------------ | ------- | ------------------------------------------------- |
 | $value <span class="text-red-600">*</span> | `string \| number` | —       | The input value (number or pseudo-number string). |
 
 **Returns:**
@@ -38,7 +38,7 @@ Retrieves a unit of a given number.
 **Arguments:**
 
 | Name                                       | Type               | Default | Description                                         |
-|--------------------------------------------|--------------------|---------|-----------------------------------------------------|
+| ------------------------------------------ | ------------------ | ------- | --------------------------------------------------- |
 | $value <span class="text-red-600">*</span> | `string \| number` | —       | The number or pseudo-number string to get its unit. |
 
 **Returns:**
@@ -61,7 +61,7 @@ Strips the unit of a given value.
 **Arguments:**
 
 | Name                                       | Type               | Default | Description                                                |
-|--------------------------------------------|--------------------|---------|------------------------------------------------------------|
+| ------------------------------------------ | ------------------ | ------- | ---------------------------------------------------------- |
 | $value <span class="text-red-600">*</span> | `string \| number` | —       | The number or pseudo-number string to to remove unit from. |
 
 **Returns:**
@@ -84,7 +84,7 @@ Sets default unit for a given unitless number.
 **Arguments:**
 
 | Name                                       | Type               | Default | Description                                       |
-|--------------------------------------------|--------------------|---------|---------------------------------------------------|
+| ------------------------------------------ | ------------------ | ------- | ------------------------------------------------- |
 | $value <span class="text-red-600">*</span> | `string \| number` | —       | The input value (number or pseudo-number string). |
 | $unit                                      | `string`           | `px`    | Default unit (one of valid CSS units).            |
 
