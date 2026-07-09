@@ -1,8 +1,7 @@
 ---
 title: Introduction
 description: More Sass - the library of useful SCSS mixins and functions.
-position: 0
-fullscreen: true
+layout: docs
 ---
 
 <!-- ![More Sass logotype](/preview.png) -->
@@ -11,25 +10,17 @@ fullscreen: true
 
 ## Installation
 
-<code-group>
+::code-group
 
-  <code-block label="yarn" active>
-
-  ```bash
+  ```sh [yarn]
   yarn add more-sass
   ```
 
-  </code-block>
-
-  <code-block label="npm">
-
-  ```bash
+  ```sh [npm]
   npm install more-sass
   ```
 
-  </code-block>
-
-</code-group>
+::
 
 ## Usage
 
@@ -54,8 +45,3 @@ You can import the entire library or only the necessary part of it - variables, 
 // Import a specific function in global namespace
 @use 'more-sass/functions/string/str-split' as *;
 ```
-
-<alert type="warning">
-  Important! <br />
-  More Sass needs the primary implementation of Sass (Dart Sass).
-</alert>

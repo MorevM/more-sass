@@ -23,7 +23,7 @@ jobs:
         run: pnpm spellcheck
 
       - name: Typecheck
-        run: pnpm typecheck
+        run: pnpm run typecheck:src
 
       - name: Testing
         run: pnpm test

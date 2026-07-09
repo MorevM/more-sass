@@ -1,3 +1,5 @@
 node_modules
 .nuxt
-static/sw.js
+.output
+.data
+public/sw.js

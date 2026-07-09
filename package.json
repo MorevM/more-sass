@@ -49,10 +49,12 @@
 		"lint:stylelint:fix": "stylelint \"src/**/*.scss\" --allow-empty-input --fix",
 		"lint:eslint": "eslint .",
 		"lint:eslint:fix": "eslint . --fix",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "pnpm run typecheck:src && pnpm run typecheck:docs",
+		"typecheck:docs": "pnpm --dir docs run typecheck",
+		"typecheck:src": "tsc --noEmit",
 		"spellcheck": "cspell --no-progress --show-suggestions --unique",
 		"test": "vitest",
-		"docs": "cd ./docs && yarn dev",
+		"docs": "cd ./docs && pnpm dev",
 		"release": "release-it --disable-metrics"
 	},
 	"peerDependencies": {
@@ -61,7 +63,7 @@
 	"devDependencies": {
 		"@cspell/dict-ru_ru": "^2.3.2",
 		"@morev/commitlint-config": "^0.2.2",
-		"@morev/eslint-config": "^42.0.1",
+		"@morev/eslint-config": "^42.0.2",
 		"@morev/stylelint-config": "^9.0.2",
 		"@release-it/conventional-changelog": "8",
 		"cspell": "^10.0.1",

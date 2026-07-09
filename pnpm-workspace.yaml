@@ -3,3 +3,5 @@ allowBuilds:
   esbuild: true
   lefthook: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@morev/eslint-config@42.0.2'

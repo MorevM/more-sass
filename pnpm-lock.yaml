@@ -15,8 +15,8 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2
       '@morev/eslint-config':
-        specifier: ^42.0.1
-        version: 42.0.1(@types/estree@1.0.9)(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/rule-tester@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/typescript-estree@8.63.0(typescript@6.0.3))(@typescript-eslint/utils@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@4.1.10(@types/node@20.5.1)(vite@6.3.5(@types/node@20.5.1)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0)))
+        specifier: ^42.0.2
+        version: 42.0.2(@types/estree@1.0.9)(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/rule-tester@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/typescript-estree@8.63.0(typescript@6.0.3))(@typescript-eslint/utils@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@4.1.10(@types/node@20.5.1)(vite@6.3.5(@types/node@20.5.1)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0)))
       '@morev/stylelint-config':
         specifier: ^9.0.2
         version: 9.0.2(stylelint@17.14.0(typescript@6.0.3))(typescript@6.0.3)
@@ -894,8 +894,8 @@ packages:
   '@morev/commitlint-config@0.2.2':
     resolution: {integrity: sha512-i4MhIy4C3W2z53hhqKxhlLG52QxfozR6UZDkcZ0PjxwATzgd5x5neVtbyfeceC8zfdCmYOlDuWvVXI0VhnKmKQ==}
 
-  '@morev/eslint-config@42.0.1':
-    resolution: {integrity: sha512-HXSHJaSLdYwW3ITghRP/CNUM/hJ+DSF/ghlQLH3LcD8XJOpNQKIZx3p9yOZxR6GM7SfTFTM90jZ8EKWDYR/02A==}
+  '@morev/eslint-config@42.0.2':
+    resolution: {integrity: sha512-W3pzJfV+ihek51PlGCb105l9iGAHdaqsSKrt4rcNBOGAQc2opVSXt/LZwPkulHfHPOtECaPuFFS/9ax1X940cg==}
     engines: {node: '>=22.22.3'}
     hasBin: true
     peerDependencies:
@@ -5742,7 +5742,7 @@ snapshots:
       - '@swc/core'
       - '@swc/wasm'
 
-  '@morev/eslint-config@42.0.1(@types/estree@1.0.9)(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/rule-tester@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/typescript-estree@8.63.0(typescript@6.0.3))(@typescript-eslint/utils@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@4.1.10(@types/node@20.5.1)(vite@6.3.5(@types/node@20.5.1)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0)))':
+  '@morev/eslint-config@42.0.2(@types/estree@1.0.9)(@typescript-eslint/eslint-plugin@8.63.0(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/parser@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/rule-tester@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(@typescript-eslint/typescript-estree@8.63.0(typescript@6.0.3))(@typescript-eslint/utils@8.63.0(eslint@10.6.0(jiti@2.7.0))(typescript@6.0.3))(eslint@10.6.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@4.1.10(@types/node@20.5.1)(vite@6.3.5(@types/node@20.5.1)(jiti@2.7.0)(sass@1.101.0)(yaml@2.9.0)))':
     dependencies:
       '@clack/prompts': 1.7.0
       '@eslint-community/eslint-plugin-eslint-comments': 4.7.2(eslint@10.6.0(jiti@2.7.0))
@@ -8281,7 +8281,7 @@ snapshots:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
 
   jsonparse@1.3.1: {}
 

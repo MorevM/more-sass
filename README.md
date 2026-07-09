@@ -11,13 +11,13 @@ The library of useful SCSS mixins and functions.
 
 Using `npm`:
 
-```bash
+```sh
 npm install more-sass
 ```
 
 Using `yarn`:
 
-```bash
+```sh
 yarn add more-sass
 ```
 
